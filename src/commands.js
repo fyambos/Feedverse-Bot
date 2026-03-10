@@ -70,14 +70,14 @@ function buildGlobalCommands() {
         )
         .addStringOption((opt) =>
           opt
-            .setName('timezone')
-            .setDescription('Your timezone (IANA), e.g. America/New_York')
-            .setRequired(true)
+            .setName('time')
+            .setDescription('Optional time (e.g. 21:30 or 9:30pm)')
+            .setRequired(false)
         )
         .addStringOption((opt) =>
           opt
-            .setName('time')
-            .setDescription('Optional time (e.g. 21:30 or 9:30pm)')
+            .setName('timezone')
+            .setDescription('Optional timezone (IANA), e.g. America/New_York')
             .setRequired(false)
         )
     );

@@ -225,7 +225,7 @@ function buildFavoritesPageMessage({ au, items, cursorBeforeId, nextBeforeId, se
 
   const embed = new EmbedBuilder()
     .setTitle('Your favorites')
-    .setDescription(safeItems.length ? 'Showing 10 favorites.' : 'No favorites yet.');
+    .setDescription(safeItems.length ? '' : 'No favorites yet.');
 
   if (safeItems.length) {
     const maxEach = 300;
@@ -735,7 +735,10 @@ function buildHelpMessage() {
   embed.addFields({ name: 'Commands', value: cmds.join('\n') });
   embed.addFields({
     name: 'Tip',
-    value: 'Use `/' + 'setup daily` with a timezone (example: `/' + 'setup daily #channel 9:30pm America/New_York`).'
+    value:
+      'Use `/' +
+      'setup daily` (example: `/' +
+      'setup daily #channel 9:30pm`). Optional: add a timezone like `America/New_York`.'
   });
 
   const invite = "https://discord.com/invite/pR8HbSDQdn"; // default to official support server
@@ -1717,15 +1720,8 @@ async function main() {
         }
 
         const timeZoneRaw = normalizeOption(interaction.options.getString('timezone'));
-        if (!timeZoneRaw) {
-          await interaction.reply({
-            content:
-              'Timezone is required because Discord does not provide your timezone. Example: /setup daily #channel 9:30pm America/New_York',
-            ephemeral: true
-          });
-          return;
-        }
-        if (!isValidTimeZone(timeZoneRaw)) {
+        const timeZoneToStore = timeZoneRaw ? String(timeZoneRaw) : null;
+        if (timeZoneToStore && !isValidTimeZone(timeZoneToStore)) {
           await interaction.reply({
             content: 'Invalid timezone. Use an IANA timezone like America/New_York, Europe/London, Asia/Tokyo.',
             ephemeral: true
@@ -1734,14 +1730,14 @@ async function main() {
         }
 
         const now = new Date();
-        const zonedNow = timeZoneDateKeyAndMinutes(now, timeZoneRaw);
+        const zonedNow = timeZoneToStore ? timeZoneDateKeyAndMinutes(now, timeZoneToStore) : null;
         const sendAt = parsedMinutes != null ? parsedMinutes : zonedNow ? zonedNow.minutes : localMinutesOfDay(now);
 
         const up = await botApiPostJson('/v1/au/daily-configs', {
           guildId: String(interaction.guildId),
           channelId,
           sendAtMinutesLocal: sendAt,
-          timeZone: timeZoneRaw
+          timeZone: timeZoneToStore
         });
         if (!up.ok) {
           await interaction.reply({ content: 'Failed to save daily config: ' + up.error, ephemeral: true });
@@ -1753,7 +1749,7 @@ async function main() {
           content:
             'Daily prompt enabled for ' +
             String(channel) +
-            (t ? ' at ' + t + ' (' + timeZoneRaw + ').' : ' (' + timeZoneRaw + ').') +
+            (t ? ' at ' + t + (timeZoneToStore ? ' (' + timeZoneToStore + ').' : '.') : timeZoneToStore ? ' (' + timeZoneToStore + ').' : '.') +
             ' Time examples: 21:30 or 9:30pm.',
           ephemeral: true
         });
