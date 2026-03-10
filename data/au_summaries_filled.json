@@ -1120,157 +1120,158 @@
     "someone living a completely normal college life while hiding a huge secret.",
     "a student accidentally discovers their friend is not who they claim to be."
   ]
-},
-{
+},{
   "universeId": "college",
   "dynamicId": "undercover",
   "summaries": [
-    "a student goes undercover in a rival club to figure out who keeps sabotaging events.",
-    "someone joins a group under a fake identity to expose cheating in student elections.",
-    "a journalism student secretly investigating campus corruption.",
-    "someone pretending to be part of a group just to find out what's really going on.",
-    "a student undercover for the campus newspaper gets way too involved."
+    "a journalism student joins the most secretive campus club to expose their illegal hazing rituals — only to accidentally become friends with the one member they were supposed to investigate.",
+    "someone goes undercover in a rival university’s debate team during an intercollegiate exchange and realizes their biggest academic rival is actually kind of charming.",
+    "a student secretly infiltrates the student government campaign team to prove election fraud but ends up being trusted by the candidate they were supposed to sabotage.",
+    "the campus newspaper sends someone undercover into the elite society rumored to control half the scholarships on campus.",
+    "someone pretends to join a suspicious campus cult as research for a sociology paper and accidentally becomes the cult leader’s favorite person."
   ]
 },
 {
   "universeId": "college",
   "dynamicId": "paparazzi_scandal",
   "summaries": [
-    "two college students become campus gossip after someone posts a blurry photo of them together.",
-    "a candid photo from a party spreads across campus social media overnight.",
-    "someone posts a picture online that accidentally starts a massive rumor.",
-    "two students become the subject of wild speculation after one viral post.",
-    "a simple photo turns into the biggest campus scandal of the semester."
+    "a blurry photo of two students holding hands at a rooftop party goes viral on campus gossip pages — except neither of them remembers taking the photo.",
+    "someone posts a candid picture of two rivals sitting suspiciously close in the library and suddenly the entire campus thinks they’re secretly dating.",
+    "a campus meme page posts \"spotted: enemies studying together at 3am\" and the comments spiral into conspiracy theories.",
+    "a random party photo captures two students looking at each other like they’re in a romance movie and the internet refuses to drop it.",
+    "someone uploads a picture of two people arguing on the quad and captions it \"sexual tension final boss.\""
   ]
-},{
+},
+{
   "universeId": "college",
   "dynamicId": "anonymous_confession_account",
   "summaries": [
-    "a campus confession page keeps posting extremely specific crush confessions and one of them is clearly about them.",
-    "someone runs a viral anonymous confession account and one submission about two students is a little too accurate.",
-    "the college confession page posts \"someone in the library is in love with their best friend\" and everyone knows exactly who it’s about except them.",
-    "an anonymous campus account keeps hinting that two people are secretly in love.",
-    "a confession account starts a rumor about two students and neither of them knows who sent it."
+    "the campus confession page posts \"someone in the architecture studio is hopelessly in love with their loud idiot best friend\" and the entire class immediately knows who it's about.",
+    "an anonymous confession describes two people’s exact inside jokes and now both of them are trying to figure out who exposed them.",
+    "someone submits a confession about their crush but the admin accidentally tags the wrong person — who now thinks it's about them.",
+    "the campus confession account keeps posting increasingly specific messages about two people who swear they never submitted anything.",
+    "a confession post says \"if you see this, meet me at the rooftop at midnight\" and half the campus shows up."
   ]
 },
 {
   "universeId": "college",
   "dynamicId": "anonymous_admirer",
   "summaries": [
-    "someone keeps leaving anonymous notes inside a student’s textbooks.",
-    "a college student starts receiving anonymous messages from someone on campus.",
-    "someone finds a sticky note on their dorm door that just says \"you looked nice today.\"",
-    "a student keeps receiving coffee deliveries with no name attached.",
-    "someone keeps leaving anonymous compliments in a student’s locker."
+    "someone keeps finding handwritten compliments hidden inside their library books from an unknown admirer.",
+    "a student starts receiving coffee deliveries with notes like \"good luck on your exam\" but no name attached.",
+    "every Friday someone leaves a tiny origami animal on their dorm door and nobody knows who it is.",
+    "a mysterious playlist appears in someone’s inbox titled \"songs that remind me of you.\"",
+    "someone keeps fixing the broken things in a student’s dorm room before they even notice they were broken."
   ]
 },
 {
   "universeId": "college",
   "dynamicId": "bet_or_dare",
   "summaries": [
-    "two friends bet who can make the other person fall for them first.",
-    "a stupid dare at a party leads to someone pretending to flirt with the wrong person.",
-    "a group of friends dares someone to ask their crush out and they actually do it.",
-    "a drunken bet turns into a situation nobody expected.",
-    "someone takes a dare way too seriously."
+    "someone drunkenly bets they can make the campus ice-cold genius fall for them before finals week.",
+    "a stupid dare at a party challenges someone to kiss the next person who walks into the kitchen — unfortunately it's their academic rival.",
+    "a friend group bets someone can't survive an entire week flirting with the most intimidating person in their department.",
+    "someone accepts a dare to ask their terrifying teaching assistant out as a joke and the TA says yes.",
+    "someone bets their friend they can get their number before sunrise without revealing their name."
   ]
 },
 {
   "universeId": "college",
   "dynamicId": "only_one_bed",
   "summaries": [
-    "two students on a trip with friends discover the hotel room only has one bed.",
-    "a group vacation ends with two people stuck sharing the only bed left.",
-    "a road trip forces two friends to share a tiny motel bed.",
-    "a booking mistake leaves two people sharing a bed in a cabin.",
-    "two friends discover there’s only one bed in the guest room."
+    "a college competition sends two rivals to a conference and the hotel accidentally books them one room with one bed.",
+    "two students miss the last train after a concert and the only motel room left has exactly one bed.",
+    "a chaotic group trip ends with two people drawing the short straw and getting the cabin with one tiny mattress.",
+    "two classmates working an overnight research project crash in the lab lounge and discover there's only one couch.",
+    "a study abroad program accidentally assigns two people to a single-bed dorm room for the semester."
   ]
 },
 {
   "universeId": "college",
   "dynamicId": "slow_burn",
   "summaries": [
-    "two college students slowly become inseparable over the years.",
-    "friendship that quietly turns into something more over semesters.",
-    "two people who spend years circling around their feelings.",
-    "a relationship that grows through small moments over time.",
-    "two people who slowly realize they’ve become the most important person in each other’s lives."
+    "two students who always end up closing the library together every night slowly become part of each other's routine.",
+    "two strangers who sit across from each other in the same lecture every semester without ever talking.",
+    "two people who keep being lab partners year after year without realizing how attached they've become.",
+    "two students who always walk the same route home from night classes.",
+    "two people who keep meeting in the campus coffee shop until the barista assumes they’re a couple."
   ]
 },
 {
   "universeId": "college",
   "dynamicId": "mutual_pining",
   "summaries": [
-    "two best friends secretly in love with each other.",
-    "both people think the other would never feel the same way.",
-    "everyone around them knows they like each other except them.",
-    "two people constantly almost confessing but never quite doing it.",
-    "two friends who are painfully obvious about their feelings."
+    "two best friends asking each other for dating advice about the same person.",
+    "two roommates secretly writing songs about each other and pretending they're about someone else.",
+    "everyone in the friend group knows two people are in love except the two idiots involved.",
+    "two people convinced the other could never like them back while flirting constantly.",
+    "two friends who panic every time someone asks if they’re dating."
   ]
 },
 {
   "universeId": "college",
   "dynamicId": "unrequited_love",
   "summaries": [
-    "someone quietly in love with their best friend who has no idea.",
-    "a college student watching their crush date someone else.",
-    "loving someone who only sees you as a friend.",
-    "someone who keeps showing up for the person they love even when it hurts.",
-    "being the person someone confides in about their crush on someone else."
+    "someone helping their crush prepare a confession for someone else.",
+    "being the person your crush calls at 2am to talk about their relationship problems.",
+    "a quiet crush that lasts the entire degree because confessing would ruin the friendship.",
+    "someone writing poems about the person sitting next to them in every lecture.",
+    "watching the person you love fall for someone who looks nothing like you."
   ]
 },
 {
   "universeId": "highschool",
   "dynamicId": "ex_to_lovers",
   "summaries": [
-    "two high school exes forced to work together on a class project.",
-    "running into your ex in the hallway every day.",
-    "two students who broke up but never really stopped caring.",
-    "exes who keep getting paired together in school activities.",
-    "two people who broke up but still act like they’re together."
+    "two exes forced to run the same club together after the teacher assigns them as co-presidents.",
+    "two students who broke up months ago suddenly cast as the romantic leads in the school play.",
+    "two exes stuck sharing a desk all semester because the seating chart never changes.",
+    "two people who broke up before summer now stuck working the same school festival booth.",
+    "running into your ex every morning because their locker is right next to yours."
   ]
 },
 {
   "universeId": "highschool",
   "dynamicId": "friends_to_lovers",
   "summaries": [
-    "two best friends slowly realizing they might be more than friends.",
-    "a friendship that turns into something else during high school.",
-    "two students who spend every day together until people start asking if they’re dating.",
-    "best friends who don’t realize their relationship already looks like a couple.",
-    "two friends who start seeing each other differently."
+    "two best friends who walk home together every day suddenly realizing the silence feels different.",
+    "a friendship that turns suspiciously soft during late night exam study sessions.",
+    "two friends who fake-date for a school event and forget to stop acting like a couple.",
+    "two best friends who start holding hands as a joke and never stop.",
+    "two friends who spend so much time together teachers assume they're siblings."
   ]
 },
 {
   "universeId": "highschool",
   "dynamicId": "childhood_friends_to_lovers",
   "summaries": [
-    "two childhood friends who grew up together suddenly seeing each other differently.",
-    "friends since elementary school who start developing feelings in high school.",
-    "two people who’ve known each other forever realizing things have changed.",
-    "a lifelong friendship slowly turning into something more.",
-    "two childhood best friends who never expected to fall for each other."
+    "childhood best friends realizing the first day of high school that everyone now thinks they’re dating.",
+    "two kids who grew up next door suddenly noticing each other after summer break.",
+    "two childhood friends who promised to marry each other as kids being reminded of it by their parents.",
+    "two people who have known each other since kindergarten realizing they’ve never dated anyone else.",
+    "two childhood best friends discovering their parents already ship them."
   ]
-},{
+},
+{
   "universeId": "highschool",
   "dynamicId": "enemies_to_lovers",
   "summaries": [
-    "two students who constantly argue in class get paired for a semester-long project.",
-    "academic rivals fighting for the top grade in every subject.",
-    "two students who hate each other but somehow keep ending up in the same group assignments.",
-    "classroom enemies who slowly realize they spend more time thinking about each other than they should.",
-    "two people who swear they can’t stand each other but always sit next to each other anyway."
+    "two academic rivals forced to share a tutoring program where they have to help each other pass exams.",
+    "two debate team enemies who are suddenly paired as partners for the national finals.",
+    "two students constantly fighting in class who somehow end up as lab partners for the entire year.",
+    "two rivals who keep trying to outscore each other on every exam until the competition turns personal.",
+    "two enemies who keep getting detention together and slowly stop arguing."
   ]
 },
 {
   "universeId": "highschool",
   "dynamicId": "fake_dating",
   "summaries": [
-    "two students pretend to date to stop rumors spreading about them.",
-    "someone lies about having a partner and convinces their friend to help them keep the story going.",
-    "a fake relationship started to make someone jealous quickly becomes complicated.",
-    "two friends pretend to be a couple for a school event.",
-    "a fake high school relationship everyone believes except the two people involved."
+    "someone lies about having a partner to avoid a school dance and accidentally names their best friend.",
+    "two students pretend to date to make their respective crushes jealous.",
+    "a fake relationship invented to win a couple’s contest at the school festival.",
+    "two friends pretending to be together so their parents stop trying to set them up with other people.",
+    "two students fake dating to silence a rumor only for the rumor to get much worse."
   ]
 },
 {
@@ -2051,218 +2052,121 @@
   "universeId": "fantasy_academy",
   "dynamicId": "accidental_text",
   "summaries": [
-    "a magical message meant for a friend accidentally reaching another student.",
-    "a spell communication crystal connecting two students by mistake.",
-    "someone sending a late-night magical message to the wrong contact.",
-    "two academy students texting through enchanted mirrors after a wrong message.",
-    "a magical chat spell that accidentally links two strangers."
+    "someone sends a magical message complaining about their terrifying professor… and the reply comes from the professor’s private crystal.",
+    "a spell meant to message a best friend accidentally links two rival academy students who now refuse to stop arguing through the enchanted mirror.",
+    "someone accidentally sends a late-night confession spell to the wrong contact and now a stranger knows their biggest secret.",
+    "a magical messaging charm glitches during a thunderstorm and randomly connects two students who’ve never met.",
+    "someone tries to anonymously send a love confession through a spell network but the message arrives directly to the person sitting across from them in class."
   ]
 },
 {
   "universeId": "fantasy_academy",
   "dynamicId": "secret_identity",
   "summaries": [
-    "a royal heir secretly studying at the academy under another name.",
-    "a powerful mage pretending to be an ordinary student.",
-    "someone hiding their dangerous magical abilities from everyone.",
-    "a famous magical prodigy enrolling anonymously at the academy.",
-    "a student secretly belonging to a forbidden magical bloodline."
+    "the quiet transfer student in the back row is actually the runaway heir to the kingdom the academy was built to serve.",
+    "a notoriously powerful mage enrolls under a fake name just to experience a normal school year.",
+    "someone spends months pretending their magic is weak until a duel accidentally exposes their terrifying real ability.",
+    "a student hiding their forbidden bloodline realizes someone else on campus already knows the truth.",
+    "a royal heir secretly studying incognito realizes their biggest academic rival is the one person who might recognize them."
   ]
 },
 {
   "universeId": "fantasy_academy",
   "dynamicId": "undercover",
   "summaries": [
-    "a royal agent enrolling in the academy to investigate dangerous magic.",
-    "a spy pretending to be a student to uncover a magical conspiracy.",
-    "someone secretly monitoring the academy for illegal spellcasting.",
-    "an undercover mage joining classes to watch a suspicious student.",
-    "a hidden investigator living as a normal academy student."
+    "a royal investigator enrolls as a student to uncover who’s secretly practicing banned magic on campus.",
+    "someone is sent undercover into the academy to spy on a dangerous prodigy but accidentally becomes their closest friend.",
+    "a spy pretending to be a first-year student slowly realizes the person they’re watching might be innocent.",
+    "a kingdom agent infiltrates the academy to expose illegal spell experiments happening in the lower towers.",
+    "someone joins the academy under orders to investigate a rumored dark mage only to discover the suspect sitting beside them in every class."
   ]
 },
 {
   "universeId": "fantasy_academy",
   "dynamicId": "paparazzi_scandal",
   "summaries": [
-    "academy gossip exploding after two famous students are spotted together.",
-    "a magical rumor spreading across campus after a secret meeting is seen.",
-    "students whispering about a scandal involving the academy’s top mage.",
-    "a scandal spreading through the dorm towers overnight.",
-    "an embarrassing rumor about two students taking over the academy."
+    "a magical photograph circulating through the dorm towers shows two academy rivals holding hands during a midnight duel.",
+    "someone posts a moving portrait of two students sneaking out of the library together and the entire academy starts theorizing.",
+    "a crystal recording of two powerful students arguing in the courtyard spreads across campus gossip channels.",
+    "a rumor explodes after someone sees the academy’s coldest prodigy leaving the infirmary with the same person every night.",
+    "a magical portrait accidentally captures two students sharing a moment they definitely didn’t think anyone saw."
   ]
 },
 {
   "universeId": "fantasy_academy",
   "dynamicId": "anonymous_confession_account",
   "summaries": [
-    "an anonymous board appearing around the academy revealing secret crushes.",
-    "someone secretly posting magical confessions about students online.",
-    "a mysterious account exposing embarrassing academy secrets.",
-    "anonymous love confessions spreading across the dorms.",
-    "students obsessing over the academy’s new anonymous confession page."
+    "a magical confession board appears in the academy halls revealing extremely specific crushes between students.",
+    "someone enchants the academy notice boards so anonymous love confessions appear every morning.",
+    "a confession appears describing two students’ secret midnight study sessions and now everyone is watching them.",
+    "an anonymous spell starts exposing embarrassing romantic secrets across the dorm towers.",
+    "someone posts a confession saying “if you see this, meet me at the observatory tonight” and half the academy shows up."
   ]
 },
 {
   "universeId": "fantasy_academy",
   "dynamicId": "anonymous_admirer",
   "summaries": [
-    "a student finding anonymous letters left in their spellbooks.",
-    "someone secretly leaving enchanted flowers outside a dorm door.",
-    "mysterious notes appearing in a student’s locker every morning.",
-    "a quiet admirer leaving magical gifts around campus.",
-    "someone receiving anonymous love letters written with magic."
+    "someone keeps finding enchanted flowers appearing inside their spellbooks every morning.",
+    "a student discovers anonymous love notes written in glowing ink hidden between pages of their textbooks.",
+    "someone secretly fixes the wards protecting a student’s dorm room every night without revealing themselves.",
+    "a mysterious admirer leaves small magical charms in the pockets of someone’s cloak.",
+    "someone keeps receiving potions labeled “for when you’re tired” with no sender attached."
   ]
 },
 {
   "universeId": "fantasy_academy",
   "dynamicId": "bet_or_dare",
   "summaries": [
-    "a ridiculous academy bet forcing someone to flirt with their rival.",
-    "two students daring each other to steal something from the professor’s office.",
-    "a magical truth-or-dare game going horribly wrong.",
-    "a bet between friends that drags two rivals together.",
-    "a reckless dare that accidentally starts a campus rumor."
+    "a stupid academy bet challenges someone to flirt with the coldest prodigy in the entire school.",
+    "someone accepts a dare to steal a rare artifact from the restricted tower and unexpectedly finds someone else already there.",
+    "a drunken dorm bet forces someone to ask their academic rival to the academy ball.",
+    "a magical truth-or-dare spell traps a group of students until every question is answered honestly.",
+    "someone bets they can make the academy’s most intimidating duelist blush before the end of the week."
   ]
-},{
+},
+{
   "universeId": "fantasy_academy",
   "dynamicId": "only_one_bed",
   "summaries": [
-    "two students stuck overnight in a field mission cabin with only one bed.",
-    "a school trip goes wrong and two rivals end up sharing the only bed in the room.",
-    "a magical dorm accident leaves two students temporarily sharing one bed.",
-    "a snowstorm traps two academy students in a cabin with only one bed.",
-    "two classmates forced to share a bed after the dorm rooms get rearranged."
+    "two academy rivals get stranded overnight in a mission cabin during a blizzard and discover there’s only one bed.",
+    "a field training accident traps two students in a watchtower with one tiny mattress.",
+    "a dorm room enchantment malfunction merges two rooms into one bed for the night.",
+    "a storm forces two classmates to shelter in a magical hut that inconveniently contains exactly one sleeping space.",
+    "two students assigned to a scouting mission realize the emergency camp spell only created one bed."
   ]
 },
 {
   "universeId": "fantasy_academy",
   "dynamicId": "slow_burn",
   "summaries": [
-    "two academy students slowly getting closer over years of classes and exams.",
-    "a quiet friendship that slowly grows into something more over semesters.",
-    "two magical partners growing closer through every training exercise.",
-    "a relationship that develops slowly between study sessions and late-night spell practice.",
-    "two classmates who only realize their feelings after years at the academy."
+    "two students who always end up staying late in the library tower slowly become each other’s favorite person.",
+    "two magical partners assigned to the same training team for years slowly stop pretending they’re just classmates.",
+    "two students who always sit beside each other in spell theory gradually become inseparable.",
+    "two academy rivals who spend years competing slowly realize they’re paying attention to each other for the wrong reasons.",
+    "two people who keep meeting during late-night potion disasters eventually stop pretending it’s coincidence."
   ]
 },
 {
   "universeId": "fantasy_academy",
   "dynamicId": "mutual_pining",
   "summaries": [
-    "two academy students secretly in love but convinced the other doesn’t feel the same.",
-    "everyone at the academy knows they like each other except them.",
-    "two magical partners painfully obvious about their feelings but too scared to confess.",
-    "two classmates constantly almost confessing and then backing out.",
-    "two students who keep choosing each other but never admitting why."
+    "two magical partners secretly writing love spells they never cast.",
+    "everyone in the dorm tower knows two people are hopelessly in love except the two idiots involved.",
+    "two students constantly choosing each other as partners for every class but insisting it means nothing.",
+    "two people convinced the other would never like them back despite flirting constantly.",
+    "two academy rivals whose magical bond spells keep reacting to each other."
   ]
 },
 {
   "universeId": "fantasy_academy",
   "dynamicId": "unrequited_love",
   "summaries": [
-    "a student secretly in love with their magical partner who only sees them as a friend.",
-    "loving someone at the academy who keeps talking about someone else.",
-    "a quiet crush that stays hidden through years of classes.",
-    "watching the person you love fall for someone else at the academy.",
-    "loving your closest academy friend and knowing they’ll never see you that way."
-  ]
-},
-{
-  "universeId": "vampire",
-  "dynamicId": "ex_to_lovers",
-  "summaries": [
-    "two vampires who broke up centuries ago suddenly crossing paths again.",
-    "former vampire lovers forced to work together after years apart.",
-    "two exes reunited when an old vampire feud resurfaces.",
-    "vampires who once loved each other meeting again after decades.",
-    "an old vampire relationship resurfacing when they’re forced into the same territory."
-  ]
-},
-{
-  "universeId": "vampire",
-  "dynamicId": "friends_to_lovers",
-  "summaries": [
-    "two vampires who have been friends for centuries realizing their feelings changed.",
-    "a long friendship between vampires slowly turning into something deeper.",
-    "two immortal companions growing closer over decades.",
-    "vampire friends realizing they’ve been choosing each other for centuries.",
-    "a friendship that slowly becomes love after years of shared immortality."
-  ]
-},
-{
-  "universeId": "vampire",
-  "dynamicId": "childhood_friends_to_lovers",
-  "summaries": [
-    "two vampires who grew up together before they were turned.",
-    "childhood friends reunited centuries later as vampires.",
-    "two immortals who knew each other long before becoming vampires.",
-    "friends from their human lives reconnecting as vampires.",
-    "two vampires remembering the friendship they had before immortality."
-  ]
-},
-{
-  "universeId": "vampire",
-  "dynamicId": "enemies_to_lovers",
-  "summaries": [
-    "two vampires from rival clans forced to work together.",
-    "a vampire hunter slowly realizing the enemy they hate isn’t what they thought.",
-    "two immortals on opposite sides of a centuries-old feud.",
-    "a vampire constantly clashing with the one person they can’t ignore.",
-    "two enemies forced into an uneasy alliance against a bigger threat."
-  ]
-},
-{
-  "universeId": "vampire",
-  "dynamicId": "fake_dating",
-  "summaries": [
-    "two vampires pretending to be together to avoid suspicion.",
-    "a fake relationship to stop vampire clan politics.",
-    "two immortals faking a relationship to manipulate rival clans.",
-    "pretending to date to keep humans from asking questions.",
-    "a fake romance to make another vampire jealous."
-  ]
-},
-{
-  "universeId": "vampire",
-  "dynamicId": "arranged_marriage",
-  "summaries": [
-    "two vampires promised to each other to unite rival clans.",
-    "an arranged vampire marriage meant to end a centuries-old feud.",
-    "two immortals forced into marriage for political reasons.",
-    "a vampire learning their clan has already chosen their future spouse.",
-    "two vampires bound by an ancient marriage agreement."
-  ]
-},{
-  "universeId": "vampire",
-  "dynamicId": "coworkers",
-  "summaries": [
-    "two vampires working the same night shift at a bar that only opens after midnight.",
-    "two immortal coworkers pretending to be normal employees in the same company.",
-    "two vampires stuck sharing the same territory assignment.",
-    "two supernatural coworkers constantly covering for each other’s strange habits.",
-    "two vampires working together to keep their secret from human colleagues."
-  ]
-},
-{
-  "universeId": "vampire",
-  "dynamicId": "boss_x_employee",
-  "summaries": [
-    "a powerful vampire clan leader and the human assistant who works for them.",
-    "an ancient vampire running a company with one very curious employee.",
-    "a vampire boss constantly hiding their nature from the person who works closest to them.",
-    "a human employee discovering their boss has lived for centuries.",
-    "a strict vampire leader and the assistant who refuses to be intimidated."
-  ]
-},
-{
-  "universeId": "vampire",
-  "dynamicId": "tutor_x_student",
-  "summaries": [
-    "an ancient vampire reluctantly teaching a new vampire how to control their thirst.",
-    "a vampire mentor guiding someone through their first nights of immortality.",
-    "a centuries-old vampire tutoring someone who was recently turned.",
-    "a vampire assigned to teach a human about the supernatural world.",
-    "late night lessons about survival, feeding, and immortality."
+    "someone secretly in love with their magical partner who keeps talking about their crush on someone else.",
+    "watching the person you love choose someone else as their dueling partner every time.",
+    "a student who writes spells to protect someone who will never know.",
+    "loving someone at the academy who only sees you as their closest friend.",
+    "being the person your crush runs to whenever their heart gets broken."
   ]
 },
 {
@@ -5477,128 +5381,127 @@
     "a human discovering a mysterious emergency kit labeled 'full moon supplies' hidden in the apartment.",
     "a werewolf trying to keep distance from the one person who keeps inviting them on camping trips."
   ]
+},{
+  "universeId": "city_life",
+  "dynamicId": "rivals",
+  "summaries": [
+    "two rival food truck owners parked on the same street corner who keep stealing each other’s customers and flirting while doing it.",
+    "two journalists racing to cover the same breaking story across the city all night.",
+    "two street musicians competing for the busiest subway station platform every evening.",
+    "two rival tattoo artists constantly trying to outdo each other’s designs.",
+    "two real estate agents fighting over the same luxury listing and running into each other at every showing."
+  ]
 },
-    {
-      "universeId": "city_life",
-      "dynamicId": "rivals",
-      "summaries": [
-        "[TODO] 🏙️ city life + 😈 rivals (1/5)",
-        "[TODO] 🏙️ city life + 😈 rivals (2/5)",
-        "[TODO] 🏙️ city life + 😈 rivals (3/5)",
-        "[TODO] 🏙️ city life + 😈 rivals (4/5)",
-        "[TODO] 🏙️ city life + 😈 rivals (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "dumb_x_dumber",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🤪 dumb x dumber (1/5)",
-        "[TODO] 🏙️ city life + 🤪 dumb x dumber (2/5)",
-        "[TODO] 🏙️ city life + 🤪 dumb x dumber (3/5)",
-        "[TODO] 🏙️ city life + 🤪 dumb x dumber (4/5)",
-        "[TODO] 🏙️ city life + 🤪 dumb x dumber (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "smart_x_dumb",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🧠 smart x dumb (1/5)",
-        "[TODO] 🏙️ city life + 🧠 smart x dumb (2/5)",
-        "[TODO] 🏙️ city life + 🧠 smart x dumb (3/5)",
-        "[TODO] 🏙️ city life + 🧠 smart x dumb (4/5)",
-        "[TODO] 🏙️ city life + 🧠 smart x dumb (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "rich_x_poor",
-      "summaries": [
-        "[TODO] 🏙️ city life + 💰 rich x poor (1/5)",
-        "[TODO] 🏙️ city life + 💰 rich x poor (2/5)",
-        "[TODO] 🏙️ city life + 💰 rich x poor (3/5)",
-        "[TODO] 🏙️ city life + 💰 rich x poor (4/5)",
-        "[TODO] 🏙️ city life + 💰 rich x poor (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "opposites_attract",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🔥 opposites attract (1/5)",
-        "[TODO] 🏙️ city life + 🔥 opposites attract (2/5)",
-        "[TODO] 🏙️ city life + 🔥 opposites attract (3/5)",
-        "[TODO] 🏙️ city life + 🔥 opposites attract (4/5)",
-        "[TODO] 🏙️ city life + 🔥 opposites attract (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "accidental_text",
-      "summaries": [
-        "[TODO] 🏙️ city life + 📱 accidental text (1/5)",
-        "[TODO] 🏙️ city life + 📱 accidental text (2/5)",
-        "[TODO] 🏙️ city life + 📱 accidental text (3/5)",
-        "[TODO] 🏙️ city life + 📱 accidental text (4/5)",
-        "[TODO] 🏙️ city life + 📱 accidental text (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "secret_identity",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🫢 secret identity (1/5)",
-        "[TODO] 🏙️ city life + 🫢 secret identity (2/5)",
-        "[TODO] 🏙️ city life + 🫢 secret identity (3/5)",
-        "[TODO] 🏙️ city life + 🫢 secret identity (4/5)",
-        "[TODO] 🏙️ city life + 🫢 secret identity (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "undercover",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🕶️ undercover (1/5)",
-        "[TODO] 🏙️ city life + 🕶️ undercover (2/5)",
-        "[TODO] 🏙️ city life + 🕶️ undercover (3/5)",
-        "[TODO] 🏙️ city life + 🕶️ undercover (4/5)",
-        "[TODO] 🏙️ city life + 🕶️ undercover (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "paparazzi_scandal",
-      "summaries": [
-        "[TODO] 🏙️ city life + 📸 paparazzi scandal (1/5)",
-        "[TODO] 🏙️ city life + 📸 paparazzi scandal (2/5)",
-        "[TODO] 🏙️ city life + 📸 paparazzi scandal (3/5)",
-        "[TODO] 🏙️ city life + 📸 paparazzi scandal (4/5)",
-        "[TODO] 🏙️ city life + 📸 paparazzi scandal (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "anonymous_confession_account",
-      "summaries": [
-        "[TODO] 🏙️ city life + 📝 anonymous confession account (1/5)",
-        "[TODO] 🏙️ city life + 📝 anonymous confession account (2/5)",
-        "[TODO] 🏙️ city life + 📝 anonymous confession account (3/5)",
-        "[TODO] 🏙️ city life + 📝 anonymous confession account (4/5)",
-        "[TODO] 🏙️ city life + 📝 anonymous confession account (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "anonymous_admirer",
-      "summaries": [
-        "[TODO] 🏙️ city life + 💌 anonymous admirer (1/5)",
-        "[TODO] 🏙️ city life + 💌 anonymous admirer (2/5)",
-        "[TODO] 🏙️ city life + 💌 anonymous admirer (3/5)",
-        "[TODO] 🏙️ city life + 💌 anonymous admirer (4/5)",
-        "[TODO] 🏙️ city life + 💌 anonymous admirer (5/5)"
-      ]
-    },
+{
+  "universeId": "city_life",
+  "dynamicId": "dumb_x_dumber",
+  "summaries": [
+    "two roommates attempting to navigate the city’s subway system and ending up on the wrong side of town at 2am.",
+    "two friends deciding to explore every rooftop party they can find in one night and immediately regretting it.",
+    "two chaotic best friends trying to start a street food blog despite having no idea how cooking works.",
+    "two idiots getting locked inside a 24-hour laundromat and treating it like the best hangout ever.",
+    "two friends trying to assemble IKEA furniture in their tiny apartment and almost destroying the entire room."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "smart_x_dumb",
+  "summaries": [
+    "an extremely organized city planner constantly rescuing their chaotic best friend from terrible decisions.",
+    "a genius grad student tutoring the same charming disaster who never remembers to study.",
+    "someone with their entire life scheduled falling for the friend who lives entirely day by day.",
+    "a responsible roommate trying to keep their impulsive friend from doing something illegal in the city.",
+    "a meticulous architect constantly dragged into ridiculous late night adventures by the same person."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "rich_x_poor",
+  "summaries": [
+    "a ridiculously rich heir becoming obsessed with the street food vendor who keeps teasing them.",
+    "a broke artist discovering the person buying their paintings owns half the city.",
+    "someone wealthy secretly hanging out at a tiny corner diner with the same broke regular every night.",
+    "a rich socialite pretending to be normal just to spend time with someone outside their world.",
+    "a broke musician accidentally befriending the billionaire who lives in the penthouse upstairs."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "opposites_attract",
+  "summaries": [
+    "a quiet bookstore employee constantly distracted by the loud street performer outside.",
+    "a meticulous office worker befriending the chaotic bartender from the bar downstairs.",
+    "someone who loves quiet nights meeting someone who thrives in the city’s nightlife.",
+    "a shy commuter constantly crossing paths with the most talkative stranger on the train.",
+    "two people with completely opposite lifestyles accidentally becoming each other’s favorite person."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "accidental_text",
+  "summaries": [
+    "someone sending a rant about their terrible subway commute to the wrong number and the stranger replying.",
+    "a mistaken text meant for a friend turning into nightly conversations with someone across the city.",
+    "someone accidentally texting their grocery list to a stranger who starts giving cooking advice.",
+    "a drunk late night text to the wrong contact starting a weirdly wholesome friendship.",
+    "two strangers realizing they’ve been texting the wrong number for months but neither wants to stop."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "secret_identity",
+  "summaries": [
+    "someone discovering their quiet neighbor is secretly a wildly famous musician.",
+    "a mysterious regular at a café who refuses to explain what they actually do for work.",
+    "a famous street artist hiding their identity from the person who keeps talking to them.",
+    "someone living a completely normal life while secretly being the city's biggest online influencer.",
+    "a person realizing their roommate has been hiding a second life entirely."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "undercover",
+  "summaries": [
+    "a journalist going undercover in a nightlife scene and getting distracted by one bartender.",
+    "someone pretending to be a customer every day just to see the same café worker again.",
+    "an undercover investigator in a city club slowly becoming part of the community.",
+    "someone secretly investigating strange things in their apartment building and meeting the cute neighbor.",
+    "a person maintaining a fake identity in the city until their feelings stop being fake."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "paparazzi_scandal",
+  "summaries": [
+    "a blurry paparazzi photo of two people leaving a rooftop party together going viral overnight.",
+    "someone waking up to discover a random street photo of them hugging their friend trending online.",
+    "a gossip blog insisting two strangers caught on camera in the rain are secretly dating.",
+    "a harmless late night diner photo turning into a ridiculous celebrity rumor.",
+    "two people pretending not to care that the internet decided they are a couple."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "anonymous_confession_account",
+  "summaries": [
+    "a city university confession page posting suspiciously detailed messages about two people.",
+    "someone realizing the anonymous confession account keeps describing their crush perfectly.",
+    "a confession post so specific everyone in the friend group knows who it's about.",
+    "two friends panicking because the confession page keeps shipping them.",
+    "someone becoming obsessed with discovering who runs the city's anonymous confession blog."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "anonymous_admirer",
+  "summaries": [
+    "someone finding a coffee waiting for them every morning with no note attached.",
+    "a street musician noticing someone leaving anonymous tips with small compliments.",
+    "someone receiving handwritten notes slipped under their apartment door.",
+    "a bookstore employee discovering anonymous bookmarks left in their favorite novels.",
+    "someone realizing the same stranger has been quietly watching out for them around the city."
+  ]
+},
     {
       "universeId": "city_life",
       "dynamicId": "bet_or_dare",

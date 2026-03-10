@@ -9,6 +9,7 @@ const {
   EmbedBuilder,
   Events,
   GatewayIntentBits,
+  PermissionFlagsBits,
   REST,
   Routes
 } = require('discord.js');
@@ -21,7 +22,7 @@ const {
   pickSummary
 } = require('./auData');
 
-const { buildCommands } = require('./commands');
+const { buildGlobalCommands, buildOfficialGuildCommands } = require('./commands');
 
 function requireEnv(name) {
   const v = process.env[name];
@@ -357,6 +358,57 @@ async function fetchJson(url) {
   });
 }
 
+async function fetchJsonWithInit(url, init) {
+  const hasFetch = typeof globalThis.fetch === 'function';
+  const method = (init && init.method ? String(init.method) : 'GET').toUpperCase();
+  const headers = (init && init.headers && typeof init.headers === 'object') ? init.headers : {};
+  const body = init && init.body !== undefined ? init.body : undefined;
+
+  if (hasFetch) {
+    const res = await globalThis.fetch(url, {
+      method,
+      headers,
+      body
+    });
+    const text = await res.text();
+    let json = null;
+    try {
+      json = text ? JSON.parse(text) : null;
+    } catch {
+      json = null;
+    }
+    return { ok: res.ok, status: res.status, json, text };
+  }
+
+  const https = require('node:https');
+  return await new Promise((resolve, reject) => {
+    const req = https.request(
+      url,
+      {
+        method,
+        headers
+      },
+      (res) => {
+        let out = '';
+        res.setEncoding('utf8');
+        res.on('data', (chunk) => (out += chunk));
+        res.on('end', () => {
+          let json = null;
+          try {
+            json = out ? JSON.parse(out) : null;
+          } catch {
+            json = null;
+          }
+          resolve({ ok: res.statusCode >= 200 && res.statusCode < 300, status: res.statusCode, json, text: out });
+        });
+      }
+    );
+    req.on('error', reject);
+    if (body !== undefined) req.write(body);
+    req.end();
+  });
+}
+
 async function resolveScenarioByInviteCode(inviteCode) {
   const base = normalizeOption(process.env.FEEDVERSE_API_BASE_URL);
   if (!base) return { ok: true, status: 0, scenario: null };
@@ -384,6 +436,75 @@ async function resolveScenarioByInviteCode(inviteCode) {
   return { ok: true, status: Number(res.status || 200), scenario };
 }
 
+function botApiBaseUrl() {
+  const base = normalizeOption(process.env.FEEDVERSE_API_BASE_URL);
+  if (!base) return null;
+  return base.endsWith('/') ? base.slice(0, -1) : base;
+}
+
+function botApiSecret() {
+  const v = normalizeOption(process.env.FEEDVERSE_BOT_API_SECRET);
+  return v || null;
+}
+
+async function botApiPostJson(path, bodyObj) {
+  const base = botApiBaseUrl();
+  const secret = botApiSecret();
+  if (!base) return { ok: false, status: 0, error: 'FEEDVERSE_API_BASE_URL is not set' };
+  if (!secret) return { ok: false, status: 0, error: 'FEEDVERSE_BOT_API_SECRET is not set' };
+
+  const url = base + path;
+  const res = await fetchJsonWithInit(url, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+      'x-bot-secret': secret
+    },
+    body: JSON.stringify(bodyObj || {})
+  });
+
+  if (!res.ok) {
+    const msg =
+      res.json && typeof res.json.error === 'string'
+        ? res.json.error
+        : res.text && String(res.text).trim()
+          ? String(res.text).slice(0, 300)
+          : 'Request failed (HTTP ' + String(res.status) + ')';
+    return { ok: false, status: Number(res.status || 0), error: msg };
+  }
+
+  return { ok: true, status: Number(res.status || 200), json: res.json };
+}
+
+async function botApiGetJson(pathWithQuery) {
+  const base = botApiBaseUrl();
+  const secret = botApiSecret();
+  if (!base) return { ok: false, status: 0, error: 'FEEDVERSE_API_BASE_URL is not set' };
+  if (!secret) return { ok: false, status: 0, error: 'FEEDVERSE_BOT_API_SECRET is not set' };
+
+  const url = base + pathWithQuery;
+  const res = await fetchJsonWithInit(url, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'x-bot-secret': secret
+    }
+  });
+
+  if (!res.ok) {
+    const msg =
+      res.json && typeof res.json.error === 'string'
+        ? res.json.error
+        : res.text && String(res.text).trim()
+          ? String(res.text).slice(0, 300)
+          : 'Request failed (HTTP ' + String(res.status) + ')';
+    return { ok: false, status: Number(res.status || 0), error: msg };
+  }
+
+  return { ok: true, status: Number(res.status || 200), json: res.json };
+}
+
 function toAutocompleteChoices(items, query, limit) {
   const q = (query || '').trim().toLowerCase();
   const filtered = q
@@ -394,35 +515,44 @@ function toAutocompleteChoices(items, query, limit) {
   return sorted.slice(0, limit);
 }
 
-async function registerCommands(token, clientId, guildId, commands) {
+async function registerCommands(token, clientId, devGuildId, officialGuildId, globalCommands, officialGuildCommands) {
   const rest = new REST({ version: '10' }).setToken(token);
-  const body = commands.map((c) => c.toJSON());
 
-  // Dev-friendly behavior:
-  // - If DISCORD_GUILD_ID is set, register guild commands (near-instant updates).
-  // - Otherwise, register global commands (works in any server; slower to propagate).
-  if (guildId) {
-    await rest.put(Routes.applicationGuildCommands(clientId, guildId), { body });
+  const globalBody = (globalCommands || []).map((c) => c.toJSON());
+  const officialBody = (officialGuildCommands || []).map((c) => c.toJSON());
+
+  // Dev override: register everything to a single guild for fast iteration.
+  if (devGuildId) {
+    const body = [...globalBody, ...officialBody];
+    await rest.put(Routes.applicationGuildCommands(clientId, devGuildId), { body });
     return;
   }
 
-  await rest.put(Routes.applicationCommands(clientId), { body });
+  // Prod behavior:
+  // - Global: public commands that can be used anywhere (including DMs).
+  // - Official guild: moderation commands ONLY.
+  await rest.put(Routes.applicationCommands(clientId), { body: globalBody });
+  if (officialGuildId && officialBody.length > 0) {
+    await rest.put(Routes.applicationGuildCommands(clientId, officialGuildId), { body: officialBody });
+  }
 }
 
 async function main() {
   const token = requireEnv('DISCORD_TOKEN');
   const clientId = requireEnv('DISCORD_CLIENT_ID');
-  const guildId = normalizeOption(process.env.DISCORD_GUILD_ID);
+  const devGuildId = normalizeOption(process.env.DISCORD_GUILD_ID);
+  const officialGuildId = normalizeOption(process.env.OFFICIAL_GUILD_ID);
 
   const auPath = resolveAuDataPath();
   const au = loadAuData(auPath);
 
-  const commands = buildCommands();
-  await registerCommands(token, clientId, guildId, commands);
+  const globalCommands = buildGlobalCommands();
+  const officialGuildCommands = buildOfficialGuildCommands();
+  await registerCommands(token, clientId, devGuildId, officialGuildId, globalCommands, officialGuildCommands);
 
   const client = new Client({ intents: [GatewayIntentBits.Guilds] });
   client.commands = new Collection();
-  for (const cmd of commands) {
+  for (const cmd of [...globalCommands, ...officialGuildCommands]) {
     client.commands.set(cmd.name, cmd);
   }
 
@@ -437,7 +567,7 @@ async function main() {
         const focused = interaction.options.getFocused(true);
         const value = normalizeOption(focused.value) || '';
 
-        if (focused.name === 'universe') {
+        if (focused.name === 'universe' || focused.name === 'setting') {
           const items = au.universes.map((u) => ({
             name: (u.emoji ? u.emoji + ' ' : '') + u.label + ' (' + u.id + ')',
             value: u.id
@@ -604,6 +734,75 @@ async function main() {
         return;
       }
 
+      if (interaction.commandName === 'prompt') {
+        const settingId = normalizeOption(interaction.options.getString('setting'));
+        const dynamicId = normalizeOption(interaction.options.getString('dynamic'));
+        const promptText = String(interaction.options.getString('prompt') || '').trim();
+
+        if (!settingId || !au.universeById || !au.universeById.has(settingId)) {
+          await interaction.reply({
+            content: 'Unknown setting. Use the autocomplete picker.',
+            ephemeral: interaction.inGuild()
+          });
+          return;
+        }
+
+        if (!dynamicId || !au.dynamicById || !au.dynamicById.has(dynamicId)) {
+          await interaction.reply({
+            content: 'Unknown dynamic. Use the autocomplete picker.',
+            ephemeral: interaction.inGuild()
+          });
+          return;
+        }
+
+        if (!promptText) {
+          await interaction.reply({
+            content: 'Prompt text is required.',
+            ephemeral: interaction.inGuild()
+          });
+          return;
+        }
+
+        if (promptText.length > 2000) {
+          await interaction.reply({
+            content: 'Prompt is too long (max 2000 chars).',
+            ephemeral: interaction.inGuild()
+          });
+          return;
+        }
+
+        const submitter = interaction.user;
+        const submitterName = submitter && typeof submitter.tag === 'string' ? submitter.tag : submitter.username;
+
+        const res = await botApiPostJson('/v1/au/prompt-submissions', {
+          settingId,
+          dynamicId,
+          promptText,
+          submitterDiscordUserId: String(submitter.id),
+          submitterDiscordUsername: String(submitterName || ''),
+          sourceGuildId: interaction.guildId ? String(interaction.guildId) : null,
+          sourceChannelId: interaction.channelId ? String(interaction.channelId) : null,
+          sourceMessageId: null
+        });
+
+        if (!res.ok) {
+          await interaction.reply({
+            content: 'Error submitting prompt: ' + res.error,
+            ephemeral: interaction.inGuild()
+          });
+          return;
+        }
+
+        const sub = res.json && res.json.submission ? res.json.submission : null;
+        const id = sub && sub.id ? String(sub.id) : '(unknown id)';
+
+        await interaction.reply({
+          content: 'Submitted for review. id: ' + id,
+          ephemeral: interaction.inGuild()
+        });
+        return;
+      }
+
       if (interaction.commandName === 'share') {
         const rawCode = interaction.options.getString('invite_code');
         const code = normalizeInviteCode(rawCode || '');
@@ -685,6 +884,115 @@ async function main() {
 
         await interaction.reply({ embeds: [embed], components });
         return;
+      }
+
+      if (
+        interaction.commandName === 'prompt-queue' ||
+        interaction.commandName === 'prompt-approve' ||
+        interaction.commandName === 'prompt-reject'
+      ) {
+        const officialGuild = normalizeOption(process.env.OFFICIAL_GUILD_ID);
+        if (!officialGuild || String(interaction.guildId || '') !== String(officialGuild)) {
+          await interaction.reply({ content: 'This command can only be used in the official guild.', ephemeral: true });
+          return;
+        }
+
+        const perms = interaction.memberPermissions;
+        const allowed =
+          perms &&
+          (perms.has(PermissionFlagsBits.Administrator) ||
+            perms.has(PermissionFlagsBits.ManageMessages) ||
+            perms.has(PermissionFlagsBits.BanMembers));
+        if (!allowed) {
+          await interaction.reply({ content: 'Not allowed.', ephemeral: true });
+          return;
+        }
+
+        if (interaction.commandName === 'prompt-queue') {
+          const q = await botApiGetJson('/v1/au/prompt-submissions?status=pending&limit=15');
+          if (!q.ok) {
+            await interaction.reply({ content: 'Error: ' + q.error, ephemeral: true });
+            return;
+          }
+
+          const items = q.json && Array.isArray(q.json.items) ? q.json.items : [];
+          if (items.length === 0) {
+            await interaction.reply({ content: 'No pending submissions.', ephemeral: true });
+            return;
+          }
+
+          const lines = [];
+          for (const it of items) {
+            const id = it && it.id ? String(it.id) : '';
+            const settingId = it && it.settingId ? String(it.settingId) : '';
+            const dynamicId = it && it.dynamicId ? String(it.dynamicId) : '';
+            const promptText = it && it.promptText ? String(it.promptText) : '';
+            const submitterName = it && it.submitterDiscordUsername ? String(it.submitterDiscordUsername) : '';
+            const settingLabel = formatUniverseLabel(au, settingId);
+            const dynamicLabel = formatDynamicLabel(au, dynamicId);
+            const snippet = promptText.length > 180 ? promptText.slice(0, 177) + '…' : promptText;
+            lines.push(id + ' — ' + settingLabel + ' + ' + dynamicLabel + (submitterName ? ' — by ' + submitterName : ''));
+            lines.push(snippet);
+            lines.push('');
+          }
+
+          await interaction.reply({
+            content: lines.join('\n').trim(),
+            ephemeral: true
+          });
+          return;
+        }
+
+        if (interaction.commandName === 'prompt-approve') {
+          const submissionId = String(interaction.options.getString('submission_id') || '').trim();
+          const note = normalizeOption(interaction.options.getString('note'));
+          if (!submissionId) {
+            await interaction.reply({ content: 'submission_id is required.', ephemeral: true });
+            return;
+          }
+
+          const mod = interaction.user;
+          const modName = mod && typeof mod.tag === 'string' ? mod.tag : mod.username;
+
+          const r = await botApiPostJson('/v1/au/prompt-submissions/' + encodeURIComponent(submissionId) + '/approve', {
+            moderatorDiscordUserId: String(mod.id),
+            moderatorDiscordUsername: String(modName || ''),
+            note: note || null
+          });
+          if (!r.ok) {
+            await interaction.reply({ content: 'Error: ' + r.error, ephemeral: true });
+            return;
+          }
+
+          const promptId = r.json && r.json.promptId ? String(r.json.promptId) : null;
+          await interaction.reply({ content: 'Approved. ' + (promptId ? 'prompt id: ' + promptId : ''), ephemeral: true });
+          return;
+        }
+
+        if (interaction.commandName === 'prompt-reject') {
+          const submissionId = String(interaction.options.getString('submission_id') || '').trim();
+          const note = normalizeOption(interaction.options.getString('note'));
+          if (!submissionId) {
+            await interaction.reply({ content: 'submission_id is required.', ephemeral: true });
+            return;
+          }
+
+          const mod = interaction.user;
+          const modName = mod && typeof mod.tag === 'string' ? mod.tag : mod.username;
+
+          const r = await botApiPostJson('/v1/au/prompt-submissions/' + encodeURIComponent(submissionId) + '/reject', {
+            moderatorDiscordUserId: String(mod.id),
+            moderatorDiscordUsername: String(modName || ''),
+            note: note || null
+          });
+          if (!r.ok) {
+            await interaction.reply({ content: 'Error: ' + r.error, ephemeral: true });
+            return;
+          }
+
+          await interaction.reply({ content: 'Rejected.', ephemeral: true });
+          return;
+        }
       }
     } catch (err) {
       const msg = err && err.message ? err.message : String(err);
