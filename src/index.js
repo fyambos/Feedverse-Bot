@@ -707,6 +707,49 @@ function formatTags(scenario) {
   return shown.join(' • ') + (more > 0 ? ' • +' + String(more) : '');
 }
 
+function getBotVersionString() {
+  try {
+    // index.js lives in src/, package.json at repo root.
+    const pkg = require('../package.json');
+    const v = pkg && typeof pkg.version === 'string' ? pkg.version.trim() : '';
+    return v ? v : null;
+  } catch {
+    return null;
+  }
+}
+
+function buildHelpMessage() {
+  const version = getBotVersionString();
+  const title = 'Feedverse' + (version ? ' (v' + version + ')' : '');
+  const tagline = 'AU prompts, daily threads, and easy sharing.';
+
+  const embed = new EmbedBuilder().setTitle(title).setDescription(tagline);
+
+  const cmds = [];
+  cmds.push('• `/' + 'generate` — generate one AU prompt (includes Favorite button)');
+  cmds.push('• `/' + 'share` — share a Feedverse scenario invite code');
+  cmds.push('• `/' + 'prompt` — submit a prompt for moderator review');
+  cmds.push('• `/' + 'setup daily` — post a daily prompt in a channel');
+  cmds.push('• `/' + 'view favorites` — view your favorited prompts');
+
+  embed.addFields({ name: 'Commands', value: cmds.join('\n') });
+  embed.addFields({
+    name: 'Tip',
+    value: 'Use `/' + 'setup daily` with a timezone (example: `/' + 'setup daily #channel 9:30pm America/New_York`).'
+  });
+
+  const invite = "https://discord.com/invite/pR8HbSDQdn"; // default to official support server
+  const components = [];
+  if (invite) {
+    const row = new ActionRowBuilder().addComponents(
+      new ButtonBuilder().setStyle(ButtonStyle.Link).setLabel('Join Discord').setURL(invite)
+    );
+    components.push(row);
+  }
+
+  return { embeds: [embed], components };
+}
+
 async function fetchJson(url) {
   const hasFetch = typeof globalThis.fetch === 'function';
   if (hasFetch) {
@@ -1524,17 +1567,8 @@ async function main() {
       if (!interaction.isChatInputCommand()) return;
 
       if (interaction.commandName === 'help') {
-        const lines = [];
-        lines.push('Commands:');
-        lines.push('');
-        lines.push('- /generate — generate one AU prompt (includes Favorite button)');
-        lines.push('- /share <invite_code> — share a Feedverse scenario');
-        lines.push('- /prompt <setting> <dynamic> <prompt> — submit a prompt for moderator review');
-        lines.push('- /setup daily <channel> [time] [timezone] — daily prompt (e.g. 9:30pm America/New_York)');
-        lines.push('- /view favorites — view your favorited prompts');
-        lines.push('');
-
-        await interaction.reply({ content: lines.join('\n') });
+        const msg = buildHelpMessage();
+        await interaction.reply({ embeds: msg.embeds, components: msg.components });
         return;
       }
 
