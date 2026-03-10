@@ -451,7 +451,7 @@ async function botApiPostJson(path, bodyObj) {
   const base = botApiBaseUrl();
   const secret = botApiSecret();
   if (!base) return { ok: false, status: 0, error: 'FEEDVERSE_API_BASE_URL is not set' };
-  if (!secret) return { ok: false, status: 0, error: 'FEEDVERSE_BOT_API_SECRET is not set' };
+  if (!secret) return { ok: false, status: 0, error: 'Bot API secret is not set' };
 
   const url = base + path;
   const res = await fetchJsonWithInit(url, {
@@ -481,7 +481,7 @@ async function botApiGetJson(pathWithQuery) {
   const base = botApiBaseUrl();
   const secret = botApiSecret();
   if (!base) return { ok: false, status: 0, error: 'FEEDVERSE_API_BASE_URL is not set' };
-  if (!secret) return { ok: false, status: 0, error: 'FEEDVERSE_BOT_API_SECRET is not set' };
+  if (!secret) return { ok: false, status: 0, error: 'Bot API secret is not set' };
 
   const url = base + pathWithQuery;
   const res = await fetchJsonWithInit(url, {
@@ -503,6 +503,41 @@ async function botApiGetJson(pathWithQuery) {
   }
 
   return { ok: true, status: Number(res.status || 200), json: res.json };
+}
+
+async function tryDmSubmitter(client, submission, statusLabel, modNote) {
+  try {
+    const submitterId = submission && submission.submitterDiscordUserId ? String(submission.submitterDiscordUserId) : '';
+    if (!submitterId) return false;
+
+    const settingId = submission && submission.settingId ? String(submission.settingId) : '';
+    const dynamicId = submission && submission.dynamicId ? String(submission.dynamicId) : '';
+    const promptText = submission && submission.promptText ? String(submission.promptText) : '';
+
+    const user = await client.users.fetch(submitterId);
+    if (!user) return false;
+
+    const lines = [];
+    lines.push('Your AU prompt submission was ' + statusLabel + '.');
+    if (settingId || dynamicId) {
+      lines.push('');
+      lines.push('Setting: ' + formatUniverseLabel(globalThis.__auDataForDM, settingId));
+      lines.push('Dynamic: ' + formatDynamicLabel(globalThis.__auDataForDM, dynamicId));
+    }
+    if (promptText) {
+      lines.push('');
+      lines.push(promptText.length > 800 ? promptText.slice(0, 797) + '…' : promptText);
+    }
+    if (modNote) {
+      lines.push('');
+      lines.push('Moderator note: ' + String(modNote).slice(0, 800));
+    }
+
+    await user.send({ content: lines.join('\n') });
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 function toAutocompleteChoices(items, query, limit) {
@@ -545,6 +580,8 @@ async function main() {
 
   const auPath = resolveAuDataPath();
   const au = loadAuData(auPath);
+  // Store for DM formatting helper (avoids threading au everywhere).
+  globalThis.__auDataForDM = au;
 
   const globalCommands = buildGlobalCommands();
   const officialGuildCommands = buildOfficialGuildCommands();
@@ -954,17 +991,22 @@ async function main() {
           const mod = interaction.user;
           const modName = mod && typeof mod.tag === 'string' ? mod.tag : mod.username;
 
-          const r = await botApiPostJson('/v1/au/prompt-submissions/' + encodeURIComponent(submissionId) + '/approve', {
-            moderatorDiscordUserId: String(mod.id),
-            moderatorDiscordUsername: String(modName || ''),
-            note: note || null
-          });
+          const r = await botApiPostJson(
+            '/v1/au/prompt-submissions/' + encodeURIComponent(submissionId) + '/approve',
+            {
+              moderatorDiscordUserId: String(mod.id),
+              moderatorDiscordUsername: String(modName || ''),
+              note: note || null
+            }
+          );
           if (!r.ok) {
             await interaction.reply({ content: 'Error: ' + r.error, ephemeral: true });
             return;
           }
 
           const promptId = r.json && r.json.promptId ? String(r.json.promptId) : null;
+          const submission = r.json && r.json.submission ? r.json.submission : null;
+          await tryDmSubmitter(client, submission, 'approved', note);
           await interaction.reply({ content: 'Approved. ' + (promptId ? 'prompt id: ' + promptId : ''), ephemeral: true });
           return;
         }
@@ -980,16 +1022,21 @@ async function main() {
           const mod = interaction.user;
           const modName = mod && typeof mod.tag === 'string' ? mod.tag : mod.username;
 
-          const r = await botApiPostJson('/v1/au/prompt-submissions/' + encodeURIComponent(submissionId) + '/reject', {
-            moderatorDiscordUserId: String(mod.id),
-            moderatorDiscordUsername: String(modName || ''),
-            note: note || null
-          });
+          const r = await botApiPostJson(
+            '/v1/au/prompt-submissions/' + encodeURIComponent(submissionId) + '/reject',
+            {
+              moderatorDiscordUserId: String(mod.id),
+              moderatorDiscordUsername: String(modName || ''),
+              note: note || null
+            }
+          );
           if (!r.ok) {
             await interaction.reply({ content: 'Error: ' + r.error, ephemeral: true });
             return;
           }
 
+          const submission = r.json && r.json.submission ? r.json.submission : null;
+          await tryDmSubmitter(client, submission, 'rejected', note);
           await interaction.reply({ content: 'Rejected.', ephemeral: true });
           return;
         }

@@ -23,7 +23,7 @@ npm install
 - (optional) `FEEDVERSE_WEB_BASE_URL` (alternative to template; `/share` links to `{base}/join/{CODE}`)
 - (optional) `FEEDVERSE_BRAND_ICON_URL` (embed thumbnail icon for `/share`)
 - (optional) `FEEDVERSE_API_BASE_URL` (used by `/share` to show scenario name/cover)
-- (required for `/prompt`) `FEEDVERSE_BOT_API_SECRET` (sent as `x-bot-secret` to the backend)
+- (required) `FEEDVERSE_BOT_API_SECRET` (sent as `x-bot-secret` to the backend)
 
 Only the person hosting/running the bot needs the `.env` file. Users who invite the bot to their server do not.
 
@@ -63,7 +63,10 @@ Behavior:
 ## Notes on command registration
 
 On startup the bot registers slash commands:
-- if `DISCORD_GUILD_ID` is set: guild commands only (appears almost immediately)
-- otherwise: global commands (works anywhere the bot is added to; may take time to appear)
+
+- If `DISCORD_GUILD_ID` is set (dev mode): registers ALL commands into that guild only (appears almost immediately).
+- Otherwise:
+  - registers public commands globally (`/generate`, `/share`, `/prompt`)
+  - registers moderation commands ONLY into `OFFICIAL_GUILD_ID` (`/prompt-queue`, `/prompt-approve`, `/prompt-reject`)
 
 If you want the bot to work in any server it’s invited to, leave `DISCORD_GUILD_ID` unset.
