@@ -22,7 +22,9 @@ npm install
   - alternative (requires rewrites): `https://feedverse.app/i/{CODE}` or `https://feedverse.com/join/{CODE}`
 - (optional) `FEEDVERSE_WEB_BASE_URL` (alternative to template; `/share` links to `{base}/join/{CODE}`)
 - (optional) `FEEDVERSE_BRAND_ICON_URL` (embed thumbnail icon for `/share`)
-- (optional) `FEEDVERSE_API_BASE_URL` (used by `/share` to show scenario name/cover)
+- (optional) `FEEDVERSE_API_BASE_URL`
+  - required for `/prompt` + moderation commands and for pulling approved prompts into `/generate` + daily
+  - also used by `/share` to show scenario name/cover (if set)
 - (required) `FEEDVERSE_BOT_API_SECRET` (sent as `x-bot-secret` to the backend)
 
 Only the person hosting/running the bot needs the `.env` file. Users who invite the bot to their server do not.
@@ -50,15 +52,28 @@ npm start
   - required `prompt` (text)
   - submits a prompt for moderator review (works in DMs or any server)
 
+- `/setup daily`
+  - required `channel`
+  - optional `time` (interpreted in the bot host's local timezone)
+    - examples: `21:30`, `9pm`, `9:30pm`
+  - posts 1 random prompt per day in that channel, and starts a thread for discussion (thread name is the prompt text, shortened if needed)
+
 Moderation (official guild only):
 - `/prompt-queue`
 - `/prompt-approve submission_id [note]`
 - `/prompt-reject submission_id [note]`
 
+`submission_id` can be any of:
+- a queue index like `3`
+- a short hex prefix like `a1b2c3d4`
+- a full UUID
+
 Behavior:
 - both set: picks 1 of the 5 for that exact (universe, dynamic)
 - only one set: picks randomly across all matching packs, then 1 of the 5
 - none: picks randomly across all packs, then 1 of the 5
+
+If `FEEDVERSE_API_BASE_URL` is set, `/generate` and daily will also include approved prompts from the backend (merged with the local JSON packs).
 
 ## Notes on command registration
 

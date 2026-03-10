@@ -13,6 +13,7 @@ const {
   Events,
   GatewayIntentBits,
   PermissionFlagsBits,
+  ThreadAutoArchiveDuration,
   REST,
   Routes
 } = require('discord.js');
@@ -95,6 +96,15 @@ function formatMinutesAsTime(mins) {
   const hh = Math.floor(m / 60) % 24;
   const mm = m % 60;
   return pad2(hh) + ':' + pad2(mm);
+}
+
+function makeThreadNameFromPrompt(promptText) {
+  const raw = typeof promptText === 'string' ? promptText : '';
+  const cleaned = raw.replace(/[\r\n\t]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
+  const base = cleaned || 'daily prompt';
+  const maxLen = 100;
+  if (base.length <= maxLen) return base;
+  return base.slice(0, maxLen - 1).trimEnd() + '…';
 }
 
 const DAILY_CONFIG_PATH = path.join(__dirname, '..', 'data', 'daily_config.json');
@@ -754,7 +764,19 @@ function startDailyScheduler(client, au) {
         const lines = [];
         lines.push(settingLabel + ' + ' + dynamicLabel);
         lines.push(summary);
-        await channel.send({ content: lines.join('\n') });
+        const msg = await channel.send({ content: lines.join('\n') });
+
+        // Best-effort: start a thread for discussion.
+        try {
+          if (msg && typeof msg.startThread === 'function') {
+            await msg.startThread({
+              name: makeThreadNameFromPrompt(summary),
+              autoArchiveDuration: ThreadAutoArchiveDuration.OneDay
+            });
+          }
+        } catch {
+          // ignore thread creation errors (missing perms / channel type)
+        }
 
         cfg.guilds[guildId] = {
           channelId,
