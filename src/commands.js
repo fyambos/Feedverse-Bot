@@ -53,7 +53,28 @@ function buildGlobalCommands() {
         .setRequired(true)
     );
 
-  return [generate, share, prompt];
+  const setup = new SlashCommandBuilder()
+    .setName('setup')
+    .setDescription('Setup commands')
+    .addSubcommand((sc) =>
+      sc
+        .setName('daily')
+        .setDescription('Send a random AU prompt every day in a channel')
+        .addChannelOption((opt) =>
+          opt
+            .setName('channel')
+            .setDescription('Channel to post the daily prompt in')
+            .setRequired(true)
+        )
+        .addStringOption((opt) =>
+          opt
+            .setName('time')
+            .setDescription('Optional time (e.g. 21:30 or 9:30pm, bot local time)')
+            .setRequired(false)
+        )
+    );
+
+  return [generate, share, prompt, setup];
 }
 
 function buildOfficialGuildCommands() {

@@ -1,5 +1,8 @@
 require('dotenv').config();
 
+const fs = require('fs');
+const path = require('path');
+
 const {
   Client,
   Collection,
@@ -36,6 +39,89 @@ function normalizeOption(value) {
   if (typeof value !== 'string') return null;
   const v = value.trim();
   return v === '' ? null : v;
+}
+
+function pad2(n) {
+  return String(n).padStart(2, '0');
+}
+
+function localDateKey(d) {
+  const dt = d instanceof Date ? d : new Date();
+  return String(dt.getFullYear()) + '-' + pad2(dt.getMonth() + 1) + '-' + pad2(dt.getDate());
+}
+
+function localMinutesOfDay(d) {
+  const dt = d instanceof Date ? d : new Date();
+  return dt.getHours() * 60 + dt.getMinutes();
+}
+
+function parseLocalTimeToMinutes(raw) {
+  if (typeof raw !== 'string') return null;
+  const v = raw.trim();
+  if (!v) return null;
+
+  // 24h: H, HH, H:MM, HH:MM
+  let m = v.match(/^([01]?\d|2[0-3])(?::([0-5]\d))?$/);
+  if (m) {
+    const hh = Number(m[1]);
+    const mm = m[2] != null ? Number(m[2]) : 0;
+    if (!Number.isFinite(hh) || !Number.isFinite(mm)) return null;
+    return hh * 60 + mm;
+  }
+
+  // 12h: H(am|pm), H:MM(am|pm), with optional space.
+  m = v.match(/^([1-9]|1[0-2])(?::([0-5]\d))?\s*(am|pm)$/i);
+  if (m) {
+    let hh = Number(m[1]);
+    const mm = m[2] != null ? Number(m[2]) : 0;
+    const ap = String(m[3] || '').toLowerCase();
+    if (!Number.isFinite(hh) || !Number.isFinite(mm)) return null;
+    if (ap === 'am') {
+      if (hh === 12) hh = 0;
+    } else if (ap === 'pm') {
+      if (hh !== 12) hh += 12;
+    } else {
+      return null;
+    }
+    return hh * 60 + mm;
+  }
+
+  return null;
+}
+
+function formatMinutesAsTime(mins) {
+  const m = Number(mins);
+  if (!Number.isFinite(m) || m < 0) return null;
+  const hh = Math.floor(m / 60) % 24;
+  const mm = m % 60;
+  return pad2(hh) + ':' + pad2(mm);
+}
+
+const DAILY_CONFIG_PATH = path.join(__dirname, '..', 'data', 'daily_config.json');
+
+function loadDailyConfig() {
+  try {
+    const raw = fs.readFileSync(DAILY_CONFIG_PATH, 'utf8');
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return { version: 1, guilds: {} };
+    const guilds = parsed.guilds && typeof parsed.guilds === 'object' ? parsed.guilds : {};
+    return { version: 1, guilds };
+  } catch {
+    return { version: 1, guilds: {} };
+  }
+}
+
+function saveDailyConfig(cfg) {
+  try {
+    const dir = path.dirname(DAILY_CONFIG_PATH);
+    fs.mkdirSync(dir, { recursive: true });
+    const tmp = DAILY_CONFIG_PATH + '.tmp';
+    fs.writeFileSync(tmp, JSON.stringify(cfg, null, 2) + '\n', 'utf8');
+    fs.renameSync(tmp, DAILY_CONFIG_PATH);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 const UUID_LIKE_REGEX = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
@@ -499,6 +585,65 @@ function botApiBaseUrl() {
   return base.endsWith('/') ? base.slice(0, -1) : base;
 }
 
+async function publicApiGetJson(pathWithQuery) {
+  const base = botApiBaseUrl();
+  if (!base) return { ok: false, status: 0, error: 'FEEDVERSE_API_BASE_URL is not set' };
+
+  const url = base + pathWithQuery;
+  const res = await fetchJsonWithInit(url, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json'
+    }
+  });
+
+  if (!res.ok) {
+    const msg =
+      res.json && typeof res.json.error === 'string'
+        ? res.json.error
+        : res.text && String(res.text).trim()
+          ? String(res.text).slice(0, 300)
+          : 'Request failed (HTTP ' + String(res.status) + ')';
+    return { ok: false, status: Number(res.status || 0), error: msg };
+  }
+
+  return { ok: true, status: Number(res.status || 200), json: res.json };
+}
+
+let __approvedPromptPacksCache = { atMs: 0, packs: [] };
+
+async function getApprovedPromptPacksCached() {
+  const ttlMs = 5 * 60 * 1000;
+  const now = Date.now();
+  if (__approvedPromptPacksCache.packs.length > 0 && now - __approvedPromptPacksCache.atMs < ttlMs) {
+    return __approvedPromptPacksCache.packs;
+  }
+
+  const r = await publicApiGetJson('/v1/au/prompts?limit=500');
+  if (!r.ok) return __approvedPromptPacksCache.packs;
+
+  const items = r.json && Array.isArray(r.json.items) ? r.json.items : [];
+  const packs = [];
+  for (const it of items) {
+    if (!it || typeof it !== 'object') continue;
+    const universeId = it.settingId != null ? String(it.settingId) : '';
+    const dynamicId = it.dynamicId != null ? String(it.dynamicId) : '';
+    const promptText = it.promptText != null ? String(it.promptText) : '';
+    if (!universeId || !dynamicId || !promptText) continue;
+    packs.push({ universeId, dynamicId, summaries: [promptText] });
+  }
+
+  __approvedPromptPacksCache = { atMs: now, packs };
+  return packs;
+}
+
+async function getMergedPacksForGenerate(au, universeId, dynamicId) {
+  const basePacks = au && Array.isArray(au.packs) ? au.packs : [];
+  const approvedPacks = await getApprovedPromptPacksCached();
+  const merged = approvedPacks.length > 0 ? basePacks.concat(approvedPacks) : basePacks;
+  return filterPacks(merged, universeId, dynamicId);
+}
+
 function botApiSecret() {
   const v = normalizeOption(process.env.FEEDVERSE_BOT_API_SECRET);
   return v || null;
@@ -560,6 +705,72 @@ async function botApiGetJson(pathWithQuery) {
   }
 
   return { ok: true, status: Number(res.status || 200), json: res.json };
+}
+
+function startDailyScheduler(client, au) {
+  let cfg = loadDailyConfig();
+
+  async function tick() {
+    try {
+      cfg = loadDailyConfig();
+      const now = new Date();
+      const today = localDateKey(now);
+      const nowMin = localMinutesOfDay(now);
+
+      const guildIds = Object.keys(cfg.guilds || {});
+      for (const guildId of guildIds) {
+        const g = cfg.guilds[guildId];
+        if (!g || typeof g !== 'object') continue;
+
+        const channelId = g.channelId ? String(g.channelId) : '';
+        // Backward compatibility: accept old UTC keys if present.
+        const sendAt = Number.isFinite(Number(g.sendAtMinutesLocal))
+          ? Number(g.sendAtMinutesLocal)
+          : Number.isFinite(Number(g.sendAtMinutesUtc))
+            ? Number(g.sendAtMinutesUtc)
+            : 0;
+        const lastSentDate = g.lastSentLocalDate
+          ? String(g.lastSentLocalDate)
+          : g.lastSentDate
+            ? String(g.lastSentDate)
+            : null;
+        if (!channelId) continue;
+        if (lastSentDate === today) continue;
+        if (nowMin < sendAt) continue;
+
+        const channel = await client.channels.fetch(channelId).catch(() => null);
+        if (!channel || typeof channel.send !== 'function') continue;
+
+        const matching = await getMergedPacksForGenerate(au, null, null);
+        const pickedPack = choice(matching);
+        if (!pickedPack) continue;
+        const summary = pickSummary(pickedPack);
+        if (!summary) continue;
+
+        const settingId = pickedPack && pickedPack.universeId ? String(pickedPack.universeId) : '';
+        const dynamicId = pickedPack && pickedPack.dynamicId ? String(pickedPack.dynamicId) : '';
+        const settingLabel = formatUniverseLabel(au, settingId);
+        const dynamicLabel = formatDynamicLabel(au, dynamicId);
+        const lines = [];
+        lines.push(settingLabel + ' + ' + dynamicLabel);
+        lines.push(summary);
+        await channel.send({ content: lines.join('\n') });
+
+        cfg.guilds[guildId] = {
+          channelId,
+          sendAtMinutesLocal: sendAt,
+          lastSentLocalDate: today
+        };
+        saveDailyConfig(cfg);
+      }
+    } catch {
+      // ignore
+    }
+  }
+
+  // Run once shortly after boot, then every minute.
+  setTimeout(tick, 10 * 1000);
+  setInterval(tick, 60 * 1000);
 }
 
 async function tryDmSubmitter(client, submission, statusLabel, modNote) {
@@ -653,6 +864,8 @@ async function main() {
   client.once(Events.ClientReady, (c) => {
     process.stdout.write('Logged in as ' + c.user.tag + '\n');
     process.stdout.write('Loaded AU data: ' + au.packs.length + ' packs\n');
+
+    startDailyScheduler(client, au);
   });
 
   client.on(Events.InteractionCreate, async (interaction) => {
@@ -790,7 +1003,7 @@ async function main() {
         const universeId = normalizeOption(interaction.options.getString('universe'));
         const dynamicId = normalizeOption(interaction.options.getString('dynamic'));
 
-        const matching = filterPacks(au.packs, universeId, dynamicId);
+        const matching = await getMergedPacksForGenerate(au, universeId, dynamicId);
         const pickedPack = choice(matching);
 
         if (!pickedPack) {
@@ -893,6 +1106,58 @@ async function main() {
         await interaction.reply({
           content: 'Submitted for review.',
           ephemeral: interaction.inGuild()
+        });
+        return;
+      }
+
+      if (interaction.commandName === 'setup') {
+        if (!interaction.inGuild() || !interaction.guildId) {
+          await interaction.reply({ content: 'This command can only be used in a server.', ephemeral: true });
+          return;
+        }
+
+        const sub = interaction.options.getSubcommand();
+        if (sub !== 'daily') {
+          await interaction.reply({ content: 'Unknown setup command.', ephemeral: true });
+          return;
+        }
+
+        const channel = interaction.options.getChannel('channel', true);
+        const channelId = channel && channel.id ? String(channel.id) : '';
+        if (!channelId) {
+          await interaction.reply({ content: 'Invalid channel.', ephemeral: true });
+          return;
+        }
+
+        const timeRaw = normalizeOption(interaction.options.getString('time'));
+        const parsedMinutes = timeRaw ? parseLocalTimeToMinutes(timeRaw) : null;
+        if (timeRaw && parsedMinutes == null) {
+          await interaction.reply({ content: 'Invalid time. Examples: 21:30 or 9:30pm (bot local time).', ephemeral: true });
+          return;
+        }
+
+        const cfg = loadDailyConfig();
+        const now = new Date();
+        const sendAt = parsedMinutes != null ? parsedMinutes : localMinutesOfDay(now);
+        cfg.guilds[String(interaction.guildId)] = {
+          channelId,
+          sendAtMinutesLocal: sendAt,
+          lastSentLocalDate: null
+        };
+        const ok = saveDailyConfig(cfg);
+        if (!ok) {
+          await interaction.reply({ content: 'Failed to save daily config.', ephemeral: true });
+          return;
+        }
+
+        const t = formatMinutesAsTime(sendAt);
+        await interaction.reply({
+          content:
+            'Daily prompt enabled for ' +
+            String(channel) +
+            (t ? ' at ' + t + '.' : '.') +
+            ' Time examples: 21:30 or 9:30pm.',
+          ephemeral: true
         });
         return;
       }
@@ -1063,14 +1328,14 @@ async function main() {
             body
           );
           if (!r.ok) {
-            await interaction.reply({ content: 'Error: ' + r.error, ephemeral: true });
+            await interaction.reply({ content: 'Error: ' + r.error, ephemeral: false });
             return;
           }
 
           const promptId = r.json && r.json.promptId ? String(r.json.promptId) : null;
           const submission = r.json && r.json.submission ? r.json.submission : null;
           await tryDmSubmitter(client, submission, 'approved', note);
-          await interaction.reply({ content: 'Approved. ' + (promptId ? 'prompt id: ' + promptId : ''), ephemeral: true });
+          await interaction.reply({ content: 'Approved. ' + (promptId ? 'prompt id: ' + promptId : ''), ephemeral: false });
           return;
         }
 
@@ -1098,13 +1363,13 @@ async function main() {
             body
           );
           if (!r.ok) {
-            await interaction.reply({ content: 'Error: ' + r.error, ephemeral: true });
+            await interaction.reply({ content: 'Error: ' + r.error, ephemeral: false });
             return;
           }
 
           const submission = r.json && r.json.submission ? r.json.submission : null;
           await tryDmSubmitter(client, submission, 'rejected', note);
-          await interaction.reply({ content: 'Rejected.', ephemeral: true });
+          await interaction.reply({ content: 'Rejected.', ephemeral: false });
           return;
         }
       }
