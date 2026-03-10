@@ -6037,292 +6037,290 @@
     "two chaotic baristas promising to behave during the morning rush and immediately causing a disaster."
   ]
 },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "smart_x_dumb",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🧠 smart x dumb (1/5)",
-        "[TODO] ☕ café / bakery + 🧠 smart x dumb (2/5)",
-        "[TODO] ☕ café / bakery + 🧠 smart x dumb (3/5)",
-        "[TODO] ☕ café / bakery + 🧠 smart x dumb (4/5)",
-        "[TODO] ☕ café / bakery + 🧠 smart x dumb (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "rich_x_poor",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 💰 rich x poor (1/5)",
-        "[TODO] ☕ café / bakery + 💰 rich x poor (2/5)",
-        "[TODO] ☕ café / bakery + 💰 rich x poor (3/5)",
-        "[TODO] ☕ café / bakery + 💰 rich x poor (4/5)",
-        "[TODO] ☕ café / bakery + 💰 rich x poor (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "opposites_attract",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🔥 opposites attract (1/5)",
-        "[TODO] ☕ café / bakery + 🔥 opposites attract (2/5)",
-        "[TODO] ☕ café / bakery + 🔥 opposites attract (3/5)",
-        "[TODO] ☕ café / bakery + 🔥 opposites attract (4/5)",
-        "[TODO] ☕ café / bakery + 🔥 opposites attract (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "accidental_text",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 📱 accidental text (1/5)",
-        "[TODO] ☕ café / bakery + 📱 accidental text (2/5)",
-        "[TODO] ☕ café / bakery + 📱 accidental text (3/5)",
-        "[TODO] ☕ café / bakery + 📱 accidental text (4/5)",
-        "[TODO] ☕ café / bakery + 📱 accidental text (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "secret_identity",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🫢 secret identity (1/5)",
-        "[TODO] ☕ café / bakery + 🫢 secret identity (2/5)",
-        "[TODO] ☕ café / bakery + 🫢 secret identity (3/5)",
-        "[TODO] ☕ café / bakery + 🫢 secret identity (4/5)",
-        "[TODO] ☕ café / bakery + 🫢 secret identity (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "undercover",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🕶️ undercover (1/5)",
-        "[TODO] ☕ café / bakery + 🕶️ undercover (2/5)",
-        "[TODO] ☕ café / bakery + 🕶️ undercover (3/5)",
-        "[TODO] ☕ café / bakery + 🕶️ undercover (4/5)",
-        "[TODO] ☕ café / bakery + 🕶️ undercover (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "paparazzi_scandal",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 📸 paparazzi scandal (1/5)",
-        "[TODO] ☕ café / bakery + 📸 paparazzi scandal (2/5)",
-        "[TODO] ☕ café / bakery + 📸 paparazzi scandal (3/5)",
-        "[TODO] ☕ café / bakery + 📸 paparazzi scandal (4/5)",
-        "[TODO] ☕ café / bakery + 📸 paparazzi scandal (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "anonymous_confession_account",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 📝 anonymous confession account (1/5)",
-        "[TODO] ☕ café / bakery + 📝 anonymous confession account (2/5)",
-        "[TODO] ☕ café / bakery + 📝 anonymous confession account (3/5)",
-        "[TODO] ☕ café / bakery + 📝 anonymous confession account (4/5)",
-        "[TODO] ☕ café / bakery + 📝 anonymous confession account (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "anonymous_admirer",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 💌 anonymous admirer (1/5)",
-        "[TODO] ☕ café / bakery + 💌 anonymous admirer (2/5)",
-        "[TODO] ☕ café / bakery + 💌 anonymous admirer (3/5)",
-        "[TODO] ☕ café / bakery + 💌 anonymous admirer (4/5)",
-        "[TODO] ☕ café / bakery + 💌 anonymous admirer (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "bet_or_dare",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🪤 bet / dare (1/5)",
-        "[TODO] ☕ café / bakery + 🪤 bet / dare (2/5)",
-        "[TODO] ☕ café / bakery + 🪤 bet / dare (3/5)",
-        "[TODO] ☕ café / bakery + 🪤 bet / dare (4/5)",
-        "[TODO] ☕ café / bakery + 🪤 bet / dare (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "only_one_bed",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🛏️ only one bed (1/5)",
-        "[TODO] ☕ café / bakery + 🛏️ only one bed (2/5)",
-        "[TODO] ☕ café / bakery + 🛏️ only one bed (3/5)",
-        "[TODO] ☕ café / bakery + 🛏️ only one bed (4/5)",
-        "[TODO] ☕ café / bakery + 🛏️ only one bed (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "slow_burn",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🫶 slow burn (1/5)",
-        "[TODO] ☕ café / bakery + 🫶 slow burn (2/5)",
-        "[TODO] ☕ café / bakery + 🫶 slow burn (3/5)",
-        "[TODO] ☕ café / bakery + 🫶 slow burn (4/5)",
-        "[TODO] ☕ café / bakery + 🫶 slow burn (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "mutual_pining",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 💞 mutual pining (1/5)",
-        "[TODO] ☕ café / bakery + 💞 mutual pining (2/5)",
-        "[TODO] ☕ café / bakery + 💞 mutual pining (3/5)",
-        "[TODO] ☕ café / bakery + 💞 mutual pining (4/5)",
-        "[TODO] ☕ café / bakery + 💞 mutual pining (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "unrequited_love",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🥀 unrequited love (1/5)",
-        "[TODO] ☕ café / bakery + 🥀 unrequited love (2/5)",
-        "[TODO] ☕ café / bakery + 🥀 unrequited love (3/5)",
-        "[TODO] ☕ café / bakery + 🥀 unrequited love (4/5)",
-        "[TODO] ☕ café / bakery + 🥀 unrequited love (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "ex_to_lovers",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 💔 ex to lovers (1/5)",
-        "[TODO] 💼 office / corporate + 💔 ex to lovers (2/5)",
-        "[TODO] 💼 office / corporate + 💔 ex to lovers (3/5)",
-        "[TODO] 💼 office / corporate + 💔 ex to lovers (4/5)",
-        "[TODO] 💼 office / corporate + 💔 ex to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "friends_to_lovers",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 🤝 friends to lovers (1/5)",
-        "[TODO] 💼 office / corporate + 🤝 friends to lovers (2/5)",
-        "[TODO] 💼 office / corporate + 🤝 friends to lovers (3/5)",
-        "[TODO] 💼 office / corporate + 🤝 friends to lovers (4/5)",
-        "[TODO] 💼 office / corporate + 🤝 friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "childhood_friends_to_lovers",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 🧸 childhood friends to lovers (1/5)",
-        "[TODO] 💼 office / corporate + 🧸 childhood friends to lovers (2/5)",
-        "[TODO] 💼 office / corporate + 🧸 childhood friends to lovers (3/5)",
-        "[TODO] 💼 office / corporate + 🧸 childhood friends to lovers (4/5)",
-        "[TODO] 💼 office / corporate + 🧸 childhood friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "enemies_to_lovers",
-      "summaries": [
-        "[TODO] 💼 office / corporate + ⚔️ enemies to lovers (1/5)",
-        "[TODO] 💼 office / corporate + ⚔️ enemies to lovers (2/5)",
-        "[TODO] 💼 office / corporate + ⚔️ enemies to lovers (3/5)",
-        "[TODO] 💼 office / corporate + ⚔️ enemies to lovers (4/5)",
-        "[TODO] 💼 office / corporate + ⚔️ enemies to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "fake_dating",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 💍 fake dating (1/5)",
-        "[TODO] 💼 office / corporate + 💍 fake dating (2/5)",
-        "[TODO] 💼 office / corporate + 💍 fake dating (3/5)",
-        "[TODO] 💼 office / corporate + 💍 fake dating (4/5)",
-        "[TODO] 💼 office / corporate + 💍 fake dating (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "arranged_marriage",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 📜 arranged marriage (1/5)",
-        "[TODO] 💼 office / corporate + 📜 arranged marriage (2/5)",
-        "[TODO] 💼 office / corporate + 📜 arranged marriage (3/5)",
-        "[TODO] 💼 office / corporate + 📜 arranged marriage (4/5)",
-        "[TODO] 💼 office / corporate + 📜 arranged marriage (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "coworkers",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 💼 coworkers (1/5)",
-        "[TODO] 💼 office / corporate + 💼 coworkers (2/5)",
-        "[TODO] 💼 office / corporate + 💼 coworkers (3/5)",
-        "[TODO] 💼 office / corporate + 💼 coworkers (4/5)",
-        "[TODO] 💼 office / corporate + 💼 coworkers (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "boss_x_employee",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 📊 boss x employee (1/5)",
-        "[TODO] 💼 office / corporate + 📊 boss x employee (2/5)",
-        "[TODO] 💼 office / corporate + 📊 boss x employee (3/5)",
-        "[TODO] 💼 office / corporate + 📊 boss x employee (4/5)",
-        "[TODO] 💼 office / corporate + 📊 boss x employee (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "tutor_x_student",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 🎓 tutor x student (1/5)",
-        "[TODO] 💼 office / corporate + 🎓 tutor x student (2/5)",
-        "[TODO] 💼 office / corporate + 🎓 tutor x student (3/5)",
-        "[TODO] 💼 office / corporate + 🎓 tutor x student (4/5)",
-        "[TODO] 💼 office / corporate + 🎓 tutor x student (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "senior_x_junior",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 🏫 senior x junior (1/5)",
-        "[TODO] 💼 office / corporate + 🏫 senior x junior (2/5)",
-        "[TODO] 💼 office / corporate + 🏫 senior x junior (3/5)",
-        "[TODO] 💼 office / corporate + 🏫 senior x junior (4/5)",
-        "[TODO] 💼 office / corporate + 🏫 senior x junior (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "prince_x_human",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 👑 prince x human (1/5)",
-        "[TODO] 💼 office / corporate + 👑 prince x human (2/5)",
-        "[TODO] 💼 office / corporate + 👑 prince x human (3/5)",
-        "[TODO] 💼 office / corporate + 👑 prince x human (4/5)",
-        "[TODO] 💼 office / corporate + 👑 prince x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "vampire_x_human",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 🩸 vampire x human (1/5)",
-        "[TODO] 💼 office / corporate + 🩸 vampire x human (2/5)",
-        "[TODO] 💼 office / corporate + 🩸 vampire x human (3/5)",
-        "[TODO] 💼 office / corporate + 🩸 vampire x human (4/5)",
-        "[TODO] 💼 office / corporate + 🩸 vampire x human (5/5)"
-      ]
-    },
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "smart_x_dumb",
+  "summaries": [
+    "the café’s perfectionist pastry chef keeps threatening to fire the barista who invents random drinks — until one of those disasters becomes the shop’s best seller.",
+    "a genius baker who measures everything to the gram being forced to share a shift with the barista who refuses to read recipes.",
+    "the calm, hyper-competent café manager slowly losing their mind over the chaotic employee who keeps flirting with customers.",
+    "a straight-A culinary student trying to train the new hire who somehow keeps improvising drinks that customers love.",
+    "the café’s smartest employee discovering their biggest weakness is the one coworker who never takes anything seriously."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "rich_x_poor",
+  "summaries": [
+    "a barista realizing the quiet regular who tips absurdly well arrives in a chauffeur-driven car every morning.",
+    "a broke bakery employee who keeps serving pastries to the same polite customer — until they learn he owns half the city.",
+    "a rich heir secretly working part-time in a tiny café just to escape their family’s expectations.",
+    "a barista discovering the person who keeps ordering the cheapest coffee actually owns the building.",
+    "a wealthy regular who keeps visiting the same struggling bakery and pretending they’ve never tasted anything better."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "opposites_attract",
+  "summaries": [
+    "a hyper-organized café manager constantly paired with the barista who improvises every drink.",
+    "a quiet baker who hates small talk working the same counter as the most talkative employee in the shop.",
+    "a rule-obsessed café owner trying to run a professional business with the most chaotic barista alive.",
+    "a shy pastry chef who barely speaks working beside the loud employee who befriends every customer.",
+    "a calm, introverted baker realizing the one person who disrupts their routine is also the one they wait for every morning."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "accidental_text",
+  "summaries": [
+    "a barista accidentally texting 'the baker at my café is the most annoying person alive' directly to the baker.",
+    "someone sending a rant about their coworker to the café group chat instead of their best friend.",
+    "a wrong-number text complaining about a terrible café shift turning into daily conversations with a stranger.",
+    "a barista trying to confess their crush over text and sending it to the wrong coworker.",
+    "a late-night message meant for a friend accidentally starting a conversation with the café owner."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "secret_identity",
+  "summaries": [
+    "a quiet café employee who never talks about their life outside work is secretly a famous pastry chef under a different name.",
+    "a mysterious regular customer who keeps sketching in the corner is actually a celebrity hiding from the press.",
+    "a barista discovering their coworker has a wildly successful baking channel online.",
+    "the shy baker who avoids attention turns out to be the anonymous food critic reviewing every café in the city.",
+    "a café employee realizing the person washing dishes beside them is secretly the owner."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "undercover",
+  "summaries": [
+    "a food critic going undercover as a café employee to review the place from the inside.",
+    "a journalist secretly working at a bakery to investigate a viral food trend.",
+    "someone taking a job in a café just to investigate rumors about the owner.",
+    "an undercover inspector joining the staff to investigate health violations.",
+    "a rival bakery sending someone to secretly work inside the competition."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "paparazzi_scandal",
+  "summaries": [
+    "a blurry paparazzi photo of two café coworkers laughing outside after closing suddenly going viral.",
+    "a tabloid claiming a celebrity was spotted on a date with a barista at a tiny bakery.",
+    "a viral video of two employees arguing behind the counter that looks suspiciously like flirting.",
+    "a paparazzi photo catching the city’s most famous chef visiting the same café employee every night.",
+    "an accidental livestream from the café capturing a moment that makes the internet ship two coworkers."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "anonymous_confession_account",
+  "summaries": [
+    "a campus confession account posting 'two baristas at the café on main street are painfully in love and everyone knows except them.'",
+    "an anonymous post describing a suspiciously specific moment between two bakery employees.",
+    "someone confessing online that the baker who always gives them free cookies is their biggest crush.",
+    "a confession page revealing secrets about the café staff that only someone working there would know.",
+    "a post appearing online that reads 'the person who keeps stealing the last croissant — i like you.'"
+  ]
+},{
+  "universeId": "cafe_bakery",
+  "dynamicId": "anonymous_admirer",
+  "summaries": [
+    "someone keeps leaving love notes in the tip jar addressed to the same barista.",
+    "a baker starts finding anonymous compliments slipped between recipe pages every morning.",
+    "a regular customer secretly leaves flowers on the counter before the café opens.",
+    "a barista keeps receiving pastries from an unknown coworker who refuses to sign their name.",
+    "someone writes a shy confession on a coffee sleeve and leaves it for the same employee daily."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "bet_or_dare",
+  "summaries": [
+    "a barista loses a bet and has to flirt with the grumpiest regular customer.",
+    "two coworkers dare someone to ask their rival out during the morning rush.",
+    "a bakery employee accepts a bet to make the quiet baker smile before closing.",
+    "someone dares their friend to get the strict café manager to agree to dinner.",
+    "a playful bet pushes one barista to confess feelings they swore they were hiding."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "only_one_bed",
+  "summaries": [
+    "two café coworkers stuck overnight during a storm share the tiny apartment above the bakery.",
+    "a baking competition trip leaves two rivals sharing the only motel bed available.",
+    "two employees crash after closing and end up sharing the couch in the café office.",
+    "a snowstorm traps two baristas in the café overnight with only one place to sleep.",
+    "a road trip to a pastry convention leaves two coworkers sharing the last hotel bed."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "slow_burn",
+  "summaries": [
+    "two baristas who have worked side by side for years slowly realize they wait for each other’s shifts.",
+    "a baker and a barista who start every morning together eventually stop pretending it's routine.",
+    "two coworkers whose quiet coffee breaks together slowly become the best part of their day.",
+    "a regular customer and the same barista exchanging small conversations that stretch into months.",
+    "two employees slowly falling for each other while sharing late night closing shifts."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "mutual_pining",
+  "summaries": [
+    "two café coworkers hopelessly crushing on each other while both insisting it means nothing.",
+    "everyone at the bakery knows the two baristas like each other except the baristas themselves.",
+    "two employees who flirt constantly but panic anytime someone calls it flirting.",
+    "two coworkers asking each other for love advice about completely fictional crushes.",
+    "two baristas who keep almost confessing and then laughing it off."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "unrequited_love",
+  "summaries": [
+    "a barista secretly in love with their coworker who only talks about their latest date.",
+    "someone baking their crush’s favorite pastry every morning without ever saying why.",
+    "a café employee who listens to their crush talk about someone else every shift.",
+    "someone falling harder for the regular customer who barely notices them.",
+    "a baker quietly loving their best friend who thinks the affection is only friendship."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "ex_to_lovers",
+  "summaries": [
+    "two exes unexpectedly assigned to the same high stakes project.",
+    "a new hire discovering their department manager is the person they once dated.",
+    "two former lovers forced to attend a week long corporate retreat together.",
+    "an office promotion putting someone directly under the supervision of their ex.",
+    "two coworkers pretending their breakup never happened while sharing the same office."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "friends_to_lovers",
+  "summaries": [
+    "two coworkers who always eat lunch together suddenly realizing everyone thinks they're dating.",
+    "a pair of office best friends who keep volunteering for the same projects just to work together.",
+    "two colleagues whose harmless flirting slowly stops feeling like a joke.",
+    "a work friendship that becomes suspiciously close during late nights at the office.",
+    "two coworkers who start every morning coffee break together."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "childhood_friends_to_lovers",
+  "summaries": [
+    "two childhood friends unexpectedly ending up in the same company years later.",
+    "a new employee recognizing their coworker as the kid they grew up with.",
+    "two former neighbors reconnecting when they discover they work in the same office.",
+    "childhood best friends realizing adulthood didn’t erase their feelings.",
+    "two coworkers remembering the promises they made as kids."
+  ]
+},{
+  "universeId": "office_corporate",
+  "dynamicId": "enemies_to_lovers",
+  "summaries": [
+    "two coworkers constantly competing for the same promotion get trapped working late on the same project.",
+    "an employee who hates their rival discovers they’re the only person assigned to partner with them.",
+    "two office rivals forced to share a tiny conference room start arguing like a couple in front of everyone.",
+    "a manager pairs the two most competitive employees together and accidentally creates undeniable chemistry.",
+    "two coworkers who fight in every meeting suddenly get mistaken for a couple by the entire department."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "fake_dating",
+  "summaries": [
+    "an employee asks a coworker to pretend they’re dating to stop their boss setting them up on awkward blind dates.",
+    "two coworkers fake a relationship during a corporate retreat and suddenly the whole office believes it.",
+    "someone blurts out that their colleague is their partner to avoid a persistent office flirt.",
+    "two employees pretend to date to win a company couple’s raffle prize and start enjoying the act.",
+    "a panicked employee tells their parents they’re dating a coworker and now the coworker must play along."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "arranged_marriage",
+  "summaries": [
+    "two heirs to rival corporations learn their families arranged a marriage to merge the companies.",
+    "a corporate successor discovers their future spouse is the infuriating executive they argue with daily.",
+    "two strangers forced into an arranged marriage must now run the same company division together.",
+    "an arranged engagement contract ties two ambitious executives to the same office and the same future.",
+    "two corporate heirs expected to marry for business reasons slowly realize the attraction is real."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "coworkers",
+  "summaries": [
+    "two coworkers who always stay late together start sharing quiet takeout dinners at their desks.",
+    "an office friendship built on daily coffee breaks slowly becomes something neither wants to name.",
+    "two employees who volunteer for the same projects just to keep working side by side.",
+    "coworkers who keep bumping into each other in the break room start looking forward to it.",
+    "two office employees whose harmless flirting becomes the department’s favorite running joke."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "boss_x_employee",
+  "summaries": [
+    "a strict boss who insists one employee stays late for meetings that somehow always turn personal.",
+    "an employee realizing their intimidating boss remembers every tiny detail about them.",
+    "a company executive who keeps finding excuses to personally review one employee’s work.",
+    "an assistant discovering their demanding boss only relaxes when they’re the one around.",
+    "a boss who keeps assigning the same employee to every business trip."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "tutor_x_student",
+  "summaries": [
+    "a new hire assigned to shadow the most talented employee in the company starts falling for them.",
+    "an experienced worker reluctantly mentoring the ambitious intern who refuses to leave their side.",
+    "late night training sessions between a mentor and trainee slowly turning personal.",
+    "a senior employee tasked with teaching the one trainee who keeps challenging them.",
+    "a mentor discovering their protégé’s admiration is becoming something deeper."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "senior_x_junior",
+  "summaries": [
+    "a senior employee constantly rescuing the same overwhelmed junior during chaotic deadlines.",
+    "a nervous new hire who only feels confident when their senior coworker is nearby.",
+    "a senior worker quietly fixing every mistake their junior makes without embarrassing them.",
+    "a junior employee trying far too hard to impress the person who trained them.",
+    "a senior who keeps offering to walk their junior coworker home after late shifts."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "prince_x_human",
+  "summaries": [
+    "an office worker discovering the quiet new intern is secretly a prince hiding from royal duties.",
+    "a royal heir taking a corporate internship just to experience normal life.",
+    "an employee realizing their mysterious coworker travels with discreet royal security.",
+    "a prince pretending to be an ordinary office worker but memorizing one colleague’s coffee order.",
+    "a corporate employee discovering their charming coworker is next in line for a throne."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "vampire_x_human",
+  "summaries": [
+    "an employee noticing their coworker only ever works night shifts and never attends daytime meetings.",
+    "a human worker realizing the mysterious colleague who never eats lunch might not be human.",
+    "an office employee discovering their charming coworker has worked at the company for decades unchanged.",
+    "a vampire executive quietly fascinated by the one human employee who keeps challenging them.",
+    "a human employee noticing their coworker’s reflection never appears in the office glass walls."
+  ]
+},
     {
       "universeId": "office_corporate",
       "dynamicId": "werewolf_x_human",

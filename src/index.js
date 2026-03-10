@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const fs = require('fs');
 const path = require('path');
+const { createHash } = require('node:crypto');
 
 const {
   Client,
@@ -107,31 +108,16 @@ function makeThreadNameFromPrompt(promptText) {
   return base.slice(0, maxLen - 1).trimEnd() + '…';
 }
 
-const DAILY_CONFIG_PATH = path.join(__dirname, '..', 'data', 'daily_config.json');
-
-function loadDailyConfig() {
-  try {
-    const raw = fs.readFileSync(DAILY_CONFIG_PATH, 'utf8');
-    const parsed = JSON.parse(raw);
-    if (!parsed || typeof parsed !== 'object') return { version: 1, guilds: {} };
-    const guilds = parsed.guilds && typeof parsed.guilds === 'object' ? parsed.guilds : {};
-    return { version: 1, guilds };
-  } catch {
-    return { version: 1, guilds: {} };
-  }
+function normalizePromptForKey(promptText) {
+  const raw = typeof promptText === 'string' ? promptText : '';
+  return raw.replace(/[\r\n\t]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
 }
 
-function saveDailyConfig(cfg) {
-  try {
-    const dir = path.dirname(DAILY_CONFIG_PATH);
-    fs.mkdirSync(dir, { recursive: true });
-    const tmp = DAILY_CONFIG_PATH + '.tmp';
-    fs.writeFileSync(tmp, JSON.stringify(cfg, null, 2) + '\n', 'utf8');
-    fs.renameSync(tmp, DAILY_CONFIG_PATH);
-    return true;
-  } catch {
-    return false;
-  }
+function computePromptKey({ settingId, dynamicId, promptText }) {
+  const s = settingId ? String(settingId).trim() : '';
+  const d = dynamicId ? String(dynamicId).trim() : '';
+  const p = normalizePromptForKey(promptText);
+  return createHash('sha256').update(s + '\n' + d + '\n' + p, 'utf8').digest('hex');
 }
 
 const UUID_LIKE_REGEX = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
@@ -267,6 +253,35 @@ function buildGenerateComponents({ ownerUserId, universeId, dynamicId }) {
       .setStyle(ButtonStyle.Primary)
   );
   return [row];
+}
+
+function withFavoriteButton(components, { source, settingId, dynamicId }) {
+  const row = components && components[0] ? components[0] : new ActionRowBuilder();
+  const s = safeCustomIdPart(settingId);
+  const d = safeCustomIdPart(dynamicId);
+  row.addComponents(
+    new ButtonBuilder()
+      .setCustomId('fav:add:' + safeCustomIdPart(source) + ':' + s + ':' + d)
+      .setLabel('Favorite')
+      .setStyle(ButtonStyle.Success)
+  );
+  return [row];
+}
+
+function extractPromptTextFromFavoriteMessage(message) {
+  const content = message && typeof message.content === 'string' ? message.content : '';
+  if (!content || !content.trim()) return null;
+  const trimmed = content.trim();
+
+  // Daily posts are: "<setting> + <dynamic>\n<prompt>".
+  const lines = trimmed.split('\n');
+  if (lines.length >= 2 && lines[0].includes(' + ')) {
+    const rest = lines.slice(1).join('\n').trim();
+    return rest ? rest : null;
+  }
+
+  // Generate posts are just the prompt text.
+  return trimmed;
 }
 
 function buildRemixChoiceComponents({ ownerUserId, universeId, dynamicId }) {
@@ -689,6 +704,14 @@ async function botApiPostJson(path, bodyObj) {
   return { ok: true, status: Number(res.status || 200), json: res.json };
 }
 
+async function botApiPostJsonNoThrow(path, bodyObj) {
+  try {
+    return await botApiPostJson(path, bodyObj);
+  } catch (e) {
+    return { ok: false, status: 0, error: e && e.message ? String(e.message) : 'Request failed' };
+  }
+}
+
 async function botApiGetJson(pathWithQuery) {
   const base = botApiBaseUrl();
   const secret = botApiSecret();
@@ -718,33 +741,25 @@ async function botApiGetJson(pathWithQuery) {
 }
 
 function startDailyScheduler(client, au) {
-  let cfg = loadDailyConfig();
-
   async function tick() {
     try {
-      cfg = loadDailyConfig();
       const now = new Date();
       const today = localDateKey(now);
       const nowMin = localMinutesOfDay(now);
 
-      const guildIds = Object.keys(cfg.guilds || {});
-      for (const guildId of guildIds) {
-        const g = cfg.guilds[guildId];
-        if (!g || typeof g !== 'object') continue;
+      const list = await botApiGetJson('/v1/au/daily-configs?limit=5000');
+      if (!list.ok) return;
+      const items = list.json && Array.isArray(list.json.items) ? list.json.items : [];
 
-        const channelId = g.channelId ? String(g.channelId) : '';
-        // Backward compatibility: accept old UTC keys if present.
-        const sendAt = Number.isFinite(Number(g.sendAtMinutesLocal))
-          ? Number(g.sendAtMinutesLocal)
-          : Number.isFinite(Number(g.sendAtMinutesUtc))
-            ? Number(g.sendAtMinutesUtc)
-            : 0;
-        const lastSentDate = g.lastSentLocalDate
-          ? String(g.lastSentLocalDate)
-          : g.lastSentDate
-            ? String(g.lastSentDate)
-            : null;
-        if (!channelId) continue;
+      for (const it of items) {
+        if (!it || typeof it !== 'object') continue;
+
+        const guildId = it.guildId ? String(it.guildId) : '';
+        const channelId = it.channelId ? String(it.channelId) : '';
+        const sendAt = Number.isFinite(Number(it.sendAtMinutesLocal)) ? Number(it.sendAtMinutesLocal) : 0;
+        const lastSentDate = it.lastSentLocalDate != null ? String(it.lastSentLocalDate) : null;
+
+        if (!guildId || !channelId) continue;
         if (lastSentDate === today) continue;
         if (nowMin < sendAt) continue;
 
@@ -764,7 +779,8 @@ function startDailyScheduler(client, au) {
         const lines = [];
         lines.push(settingLabel + ' + ' + dynamicLabel);
         lines.push(summary);
-        const msg = await channel.send({ content: lines.join('\n') });
+        const dailyComponents = withFavoriteButton([], { source: 'daily', settingId, dynamicId });
+        const msg = await channel.send({ content: lines.join('\n'), components: dailyComponents });
 
         // Best-effort: start a thread for discussion.
         try {
@@ -778,12 +794,7 @@ function startDailyScheduler(client, au) {
           // ignore thread creation errors (missing perms / channel type)
         }
 
-        cfg.guilds[guildId] = {
-          channelId,
-          sendAtMinutesLocal: sendAt,
-          lastSentLocalDate: today
-        };
-        saveDailyConfig(cfg);
+        await botApiPostJsonNoThrow('/v1/au/daily-configs/mark-sent', { guildId, localDate: today });
       }
     } catch {
       // ignore
@@ -922,6 +933,40 @@ async function main() {
 
       if (interaction.isButton()) {
         const id = String(interaction.customId || '');
+        if (id.startsWith('fav:')) {
+          const parts = id.split(':');
+          const action = parts[1] || '';
+          const source = decodeCustomIdPart(parts[2] || '-') || 'generate';
+          const settingId = decodeCustomIdPart(parts[3] || '-') || null;
+          const dynamicId = decodeCustomIdPart(parts[4] || '-') || null;
+
+          if (action !== 'add') return;
+
+          const promptText = extractPromptTextFromFavoriteMessage(interaction.message);
+          if (!promptText) {
+            await interaction.reply({ content: 'Could not read prompt text from this message.', ephemeral: true });
+            return;
+          }
+
+          const normalizedPrompt = normalizePromptForKey(promptText).slice(0, 2000);
+          const res = await botApiPostJson('/v1/au/favorites', {
+            userDiscordUserId: String(interaction.user.id),
+            settingId,
+            dynamicId,
+            promptText: normalizedPrompt,
+            source
+          });
+
+          if (!res.ok) {
+            await interaction.reply({ content: 'Error saving favorite: ' + res.error, ephemeral: true });
+            return;
+          }
+
+          const created = Boolean(res.json && res.json.created);
+          await interaction.reply({ content: created ? 'Saved to your favorites.' : 'Already in your favorites.', ephemeral: true });
+          return;
+        }
+
         if (!id.startsWith('gen:')) return;
 
         const parts = id.split(':');
@@ -995,11 +1040,18 @@ async function main() {
 
         const embed = buildGenerateMetaEmbed(au, nextUniverseId, nextDynamicId);
 
-        const components = buildGenerateComponents({
-          ownerUserId: interaction.user.id,
-          universeId: nextUniverseId,
-          dynamicId: nextDynamicId
-        });
+        const components = withFavoriteButton(
+          buildGenerateComponents({
+            ownerUserId: interaction.user.id,
+            universeId: nextUniverseId,
+            dynamicId: nextDynamicId
+          }),
+          {
+            source: 'generate',
+            settingId: pickedPack && pickedPack.universeId ? String(pickedPack.universeId) : null,
+            dynamicId: pickedPack && pickedPack.dynamicId ? String(pickedPack.dynamicId) : null
+          }
+        );
 
         if (action === 'spin') {
           await interaction.update({
@@ -1049,11 +1101,18 @@ async function main() {
         // If neither is set, it picks from all packs.
         const embed = buildGenerateMetaEmbed(au, universeId, dynamicId);
 
-        const components = buildGenerateComponents({
-          ownerUserId: interaction.user.id,
-          universeId,
-          dynamicId
-        });
+        const components = withFavoriteButton(
+          buildGenerateComponents({
+            ownerUserId: interaction.user.id,
+            universeId,
+            dynamicId
+          }),
+          {
+            source: 'generate',
+            settingId: pickedPack && pickedPack.universeId ? String(pickedPack.universeId) : null,
+            dynamicId: pickedPack && pickedPack.dynamicId ? String(pickedPack.dynamicId) : null
+          }
+        );
 
         await interaction.reply({
           content: summary,
@@ -1158,17 +1217,16 @@ async function main() {
           return;
         }
 
-        const cfg = loadDailyConfig();
         const now = new Date();
         const sendAt = parsedMinutes != null ? parsedMinutes : localMinutesOfDay(now);
-        cfg.guilds[String(interaction.guildId)] = {
+
+        const up = await botApiPostJson('/v1/au/daily-configs', {
+          guildId: String(interaction.guildId),
           channelId,
-          sendAtMinutesLocal: sendAt,
-          lastSentLocalDate: null
-        };
-        const ok = saveDailyConfig(cfg);
-        if (!ok) {
-          await interaction.reply({ content: 'Failed to save daily config.', ephemeral: true });
+          sendAtMinutesLocal: sendAt
+        });
+        if (!up.ok) {
+          await interaction.reply({ content: 'Failed to save daily config: ' + up.error, ephemeral: true });
           return;
         }
 
@@ -1181,6 +1239,53 @@ async function main() {
             ' Time examples: 21:30 or 9:30pm.',
           ephemeral: true
         });
+        return;
+      }
+
+      if (interaction.commandName === 'view') {
+        const sub = interaction.options.getSubcommand();
+        if (sub !== 'favorites') {
+          await interaction.reply({ content: 'Unknown view command.', ephemeral: true });
+          return;
+        }
+
+        const r = await botApiGetJson(
+          '/v1/au/favorites?userDiscordUserId=' + encodeURIComponent(String(interaction.user.id)) + '&limit=20'
+        );
+        if (!r.ok) {
+          await interaction.reply({ content: 'Error loading favorites: ' + r.error, ephemeral: interaction.inGuild() });
+          return;
+        }
+
+        const items = r.json && Array.isArray(r.json.items) ? r.json.items : [];
+        if (items.length === 0) {
+          await interaction.reply({ content: 'No favorites yet. Use the Favorite button on a prompt.', ephemeral: interaction.inGuild() });
+          return;
+        }
+
+        const lines = [];
+        lines.push('Your favorites (latest first):');
+        lines.push('');
+        for (const it of items) {
+          if (!it || typeof it !== 'object') continue;
+          const settingId = it.settingId != null ? String(it.settingId) : null;
+          const dynamicId = it.dynamicId != null ? String(it.dynamicId) : null;
+          const promptText = it.promptText != null ? String(it.promptText) : '';
+          const meta =
+            settingId || dynamicId
+              ? (settingId ? formatUniverseLabel(au, settingId) : 'unknown') +
+                ' + ' +
+                (dynamicId ? formatDynamicLabel(au, dynamicId) : 'unknown')
+              : null;
+
+          const block = [];
+          if (meta) block.push(meta);
+          block.push(promptText.length > 800 ? promptText.slice(0, 797) + '…' : promptText);
+          lines.push('- ' + block.join('\n'));
+        }
+
+        const out = lines.join('\n');
+        await interaction.reply({ content: out.length > 1900 ? out.slice(0, 1897) + '…' : out, ephemeral: interaction.inGuild() });
         return;
       }
 

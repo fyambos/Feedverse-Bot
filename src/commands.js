@@ -74,7 +74,12 @@ function buildGlobalCommands() {
         )
     );
 
-  return [generate, share, prompt, setup];
+  const view = new SlashCommandBuilder()
+    .setName('view')
+    .setDescription('View things')
+    .addSubcommand((sc) => sc.setName('favorites').setDescription('View your favorited prompts'));
+
+  return [generate, share, prompt, setup, view];
 }
 
 function buildOfficialGuildCommands() {

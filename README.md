@@ -23,7 +23,8 @@ npm install
 - (optional) `FEEDVERSE_WEB_BASE_URL` (alternative to template; `/share` links to `{base}/join/{CODE}`)
 - (optional) `FEEDVERSE_BRAND_ICON_URL` (embed thumbnail icon for `/share`)
 - (optional) `FEEDVERSE_API_BASE_URL`
-  - required for `/prompt` + moderation commands and for pulling approved prompts into `/generate` + daily
+  - required for `/prompt` + moderation commands, `/setup daily`, and favorites
+  - also used for pulling approved prompts into `/generate` + daily
   - also used by `/share` to show scenario name/cover (if set)
 - (required) `FEEDVERSE_BOT_API_SECRET` (sent as `x-bot-secret` to the backend)
 
@@ -40,6 +41,7 @@ npm start
 - `/generate`
   - optional `universe` (autocomplete)
   - optional `dynamic` (autocomplete)
+  - includes a **Favorite** button to save the prompt
 
 - `/share`
   - required `invite_code` (scenario invite code like `KPOP2024`)
@@ -57,6 +59,10 @@ npm start
   - optional `time` (interpreted in the bot host's local timezone)
     - examples: `21:30`, `9pm`, `9:30pm`
   - posts 1 random prompt per day in that channel, and starts a thread for discussion (thread name is the prompt text, shortened if needed)
+  - configuration is stored in the backend database (safe for many servers)
+
+- `/view favorites`
+  - shows your favorited prompts (latest first)
 
 Moderation (official guild only):
 - `/prompt-queue`
@@ -74,6 +80,10 @@ Behavior:
 - none: picks randomly across all packs, then 1 of the 5
 
 If `FEEDVERSE_API_BASE_URL` is set, `/generate` and daily will also include approved prompts from the backend (merged with the local JSON packs).
+
+## Favorites
+
+Use the **Favorite** button on a prompt message (from `/generate` or from the daily post). Favorites are stored in the backend database and keyed by Discord user id (not usernames).
 
 ## Notes on command registration
 
