@@ -1,6 +1,6 @@
 # feedverse-bot
 
-Discord bot that generates AU prompts from `data/au_summaries_filled.json`.
+Discord bot that generates AU prompts and drops Feedverse scenarios join links.
 
 ## Setup
 
@@ -18,6 +18,7 @@ npm install
 - (optional) `AU_DATA_PATH` (defaults to `./data/au_summaries_filled.json`)
 - (optional) `FEEDVERSE_JOIN_URL_TEMPLATE` (used by `/drop`, e.g. `https://feedverse.com/join/{CODE}`)
 - (optional) `FEEDVERSE_WEB_BASE_URL` (alternative to template; `/drop` links to `{base}/join/{CODE}`)
+- (optional) `FEEDVERSE_BRAND_ICON_URL` (embed thumbnail icon for `/drop`)
 - (optional) `FEEDVERSE_API_BASE_URL` (used by `/drop` to show scenario name/cover)
 
 Only the person hosting/running the bot needs the `.env` file. Users who invite the bot to their server do not.

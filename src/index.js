@@ -61,6 +61,53 @@ function buildJoinLink(inviteCode) {
   return base + '/join/' + encodeURIComponent(inviteCode);
 }
 
+function getBrandIconUrl() {
+  const explicit = normalizeOption(process.env.FEEDVERSE_BRAND_ICON_URL);
+  if (explicit) return explicit;
+
+  const webBase = normalizeOption(process.env.FEEDVERSE_WEB_BASE_URL);
+  if (webBase) {
+    const base = webBase.endsWith('/') ? webBase.slice(0, -1) : webBase;
+    return base + '/feedverse-icon-full.png';
+  }
+
+  return 'https://feedverse.app/feedverse-icon-full.png';
+}
+
+function formatMode(raw) {
+  const v = typeof raw === 'string' ? raw.trim().toLowerCase() : '';
+  if (!v) return null;
+  if (v === 'story') return 'Story';
+  if (v === 'campaign') return 'Campaign';
+  return v[0].toUpperCase() + v.slice(1);
+}
+
+function formatPlayers(scenario) {
+  const count = Number(scenario && scenario.player_count);
+  const capRaw = scenario && scenario.player_cap;
+  const cap = capRaw == null ? null : Number(capRaw);
+
+  if (!Number.isFinite(count) || count < 0) return null;
+  if (cap == null) return String(count) + '/∞';
+  if (!Number.isFinite(cap) || cap <= 0) return String(count);
+  return String(count) + '/' + String(cap);
+}
+
+function formatTags(scenario) {
+  const raw = scenario && scenario.tags;
+  if (!Array.isArray(raw) || raw.length === 0) return null;
+
+  const names = raw
+    .map((t) => (t && typeof t.name === 'string' ? t.name.trim() : ''))
+    .filter(Boolean);
+  if (names.length === 0) return null;
+
+  const MAX = 8;
+  const shown = names.slice(0, MAX);
+  const more = names.length - shown.length;
+  return shown.join(' • ') + (more > 0 ? ' • +' + String(more) : '');
+}
+
 async function fetchJson(url) {
   const hasFetch = typeof globalThis.fetch === 'function';
   if (hasFetch) {
@@ -254,14 +301,25 @@ async function main() {
         }
 
         const joinLink = buildJoinLink(code);
+        const brandIcon = getBrandIconUrl();
 
         const resolved = await resolveScenarioByInviteCode(code);
         if (resolved.ok && resolved.status === 0) {
-          const lines = [];
-          lines.push('feedverse scenario invite code: **' + code + '**');
-          if (joinLink) lines.push(joinLink);
-          lines.push('open feedverse → join scenario → enter code ' + code);
-          await interaction.reply({ content: lines.join('\n') });
+          const embed = new EmbedBuilder().setTitle('Feedverse').setThumbnail(brandIcon);
+          embed.addFields([{ name: 'Invite code', value: code, inline: true }]);
+
+          const components = [];
+          if (joinLink) {
+            const row = new ActionRowBuilder().addComponents(
+              new ButtonBuilder()
+                .setStyle(ButtonStyle.Link)
+                .setLabel('Join')
+                .setURL(joinLink)
+            );
+            components.push(row);
+          }
+
+          await interaction.reply({ embeds: [embed], components });
           return;
         }
         if (resolved.ok && resolved.status === 404) {
@@ -285,15 +343,19 @@ async function main() {
         const cover = scenario && typeof scenario.cover === 'string' ? scenario.cover : '';
         const description = scenario && typeof scenario.description === 'string' ? scenario.description : '';
 
-        const embed = new EmbedBuilder().setTitle(name);
-        if (joinLink) embed.setURL(joinLink);
+        const players = formatPlayers(scenario);
+        const mode = formatMode(scenario && scenario.mode);
+        const tags = formatTags(scenario);
+
+        const embed = new EmbedBuilder().setTitle(name).setThumbnail(brandIcon);
         if (description) embed.setDescription(description.slice(0, 300));
         if (cover) embed.setImage(cover);
-        embed.addFields([{ name: 'Invite code', value: code, inline: true }]);
 
-        const lines = [];
-        if (joinLink) lines.push(joinLink);
-        lines.push('open feedverse → join scenario → enter code ' + code);
+        const fields = [{ name: 'Invite code', value: code, inline: true }];
+        if (players) fields.push({ name: 'Players', value: players, inline: true });
+        if (mode) fields.push({ name: 'Mode', value: mode, inline: true });
+        if (tags) fields.push({ name: 'Tags', value: tags, inline: false });
+        embed.addFields(fields);
 
         const components = [];
         if (joinLink) {
@@ -306,7 +368,7 @@ async function main() {
           components.push(row);
         }
 
-        await interaction.reply({ content: lines.join('\n'), embeds: [embed], components });
+        await interaction.reply({ embeds: [embed], components });
         return;
       }
     } catch (err) {
