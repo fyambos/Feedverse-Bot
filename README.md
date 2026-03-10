@@ -16,7 +16,9 @@ npm install
 - `DISCORD_CLIENT_ID` (application client id)
 - (optional) `DISCORD_GUILD_ID` (dev guild id)
 - (optional) `AU_DATA_PATH` (defaults to `./data/au_summaries_filled.json`)
-- (optional) `FEEDVERSE_JOIN_URL_TEMPLATE` (used by `/drop`, e.g. `https://feedverse.com/join/{CODE}`)
+- (optional) `FEEDVERSE_JOIN_URL_TEMPLATE` (used by `/drop`)
+  - recommended: `https://feedverse.app/i/?code={CODE}` (works even without host rewrites)
+  - alternative (requires rewrites): `https://feedverse.app/i/{CODE}` or `https://feedverse.com/join/{CODE}`
 - (optional) `FEEDVERSE_WEB_BASE_URL` (alternative to template; `/drop` links to `{base}/join/{CODE}`)
 - (optional) `FEEDVERSE_BRAND_ICON_URL` (embed thumbnail icon for `/drop`)
 - (optional) `FEEDVERSE_API_BASE_URL` (used by `/drop` to show scenario name/cover)

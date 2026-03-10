@@ -41,6 +41,197 @@ function startsWithFold(a, b) {
   return a.toLowerCase().startsWith(b.toLowerCase());
 }
 
+function safeCustomIdPart(value) {
+  if (typeof value !== 'string') return '-';
+  const v = value.trim();
+  if (!v) return '-';
+  if (v.length > 40) return '-';
+  // Keep customId simple and parseable.
+  if (!/^[A-Za-z0-9_]+$/.test(v)) return '-';
+  return v;
+}
+
+function decodeCustomIdPart(part) {
+  if (typeof part !== 'string') return null;
+  return part === '-' ? null : part;
+}
+
+function formatUniverseLabel(au, universeId) {
+  if (!universeId) return 'none';
+  const u = au && au.universeById ? au.universeById.get(universeId) : null;
+  if (!u) return universeId;
+  const emoji = typeof u.emoji === 'string' && u.emoji.trim() ? u.emoji.trim() + ' ' : '';
+  const label = typeof u.label === 'string' && u.label.trim() ? u.label.trim() : universeId;
+  return emoji + label;
+}
+
+function formatDynamicLabel(au, dynamicId) {
+  if (!dynamicId) return 'none';
+  const d = au && au.dynamicById ? au.dynamicById.get(dynamicId) : null;
+  if (!d) return dynamicId;
+  const emoji = typeof d.emoji === 'string' && d.emoji.trim() ? d.emoji.trim() + ' ' : '';
+  const label = typeof d.label === 'string' && d.label.trim() ? d.label.trim() : dynamicId;
+  return emoji + label;
+}
+
+function buildGenerateComponents({ ownerUserId, universeId, dynamicId }) {
+  const row = new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+      .setCustomId(
+        'gen:spin:' +
+          String(ownerUserId) +
+          ':' +
+          safeCustomIdPart(universeId) +
+          ':' +
+          safeCustomIdPart(dynamicId)
+      )
+      .setLabel('Spin again')
+      .setStyle(ButtonStyle.Secondary),
+    new ButtonBuilder()
+      .setCustomId(
+        'gen:remix:' +
+          String(ownerUserId) +
+          ':' +
+          safeCustomIdPart(universeId) +
+          ':' +
+          safeCustomIdPart(dynamicId)
+      )
+      .setLabel('Remix')
+      .setStyle(ButtonStyle.Primary)
+  );
+  return [row];
+}
+
+function buildRemixChoiceComponents({ ownerUserId, universeId, dynamicId }) {
+  const row = new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+      .setCustomId(
+        'gen:remixpick:' +
+          String(ownerUserId) +
+          ':dynamic:' +
+          safeCustomIdPart(universeId) +
+          ':' +
+          safeCustomIdPart(dynamicId)
+      )
+      .setLabel('Swap dynamic')
+      .setStyle(ButtonStyle.Secondary),
+    new ButtonBuilder()
+      .setCustomId(
+        'gen:remixpick:' +
+          String(ownerUserId) +
+          ':universe:' +
+          safeCustomIdPart(universeId) +
+          ':' +
+          safeCustomIdPart(dynamicId)
+      )
+      .setLabel('Swap universe')
+      .setStyle(ButtonStyle.Secondary),
+    new ButtonBuilder()
+      .setCustomId(
+        'gen:remixpick:' +
+          String(ownerUserId) +
+          ':both:' +
+          safeCustomIdPart(universeId) +
+          ':' +
+          safeCustomIdPart(dynamicId)
+      )
+      .setLabel('Swap both')
+      .setStyle(ButtonStyle.Primary)
+  );
+  return [row];
+}
+
+function extractPreviousPromptFromMessage(msg) {
+  try {
+    if (msg && Array.isArray(msg.embeds) && msg.embeds.length > 0) {
+      const e = msg.embeds[0];
+      const desc = e && typeof e.description === 'string' ? e.description : '';
+      if (desc && desc.trim()) return desc.trim();
+    }
+  } catch {
+    // ignore
+  }
+  const content = msg && typeof msg.content === 'string' ? msg.content : '';
+  return content && content.trim() ? content.trim() : null;
+}
+
+function pickSummaryNotEqual(pack, previous) {
+  if (!pack) return null;
+  const prev = typeof previous === 'string' ? previous.trim() : '';
+  let out = null;
+  for (let i = 0; i < 7; i++) {
+    const s = pickSummary(pack);
+    if (!s) continue;
+    if (!prev) return s;
+    if (s.trim() !== prev) return s;
+    out = s;
+  }
+  return out;
+}
+
+function pickAlternateDynamicId(au, packs, universeId, currentDynamicId) {
+  // Prefer choosing among dynamics that actually exist for the selected universe.
+  const current = typeof currentDynamicId === 'string' ? currentDynamicId : null;
+
+  const available = new Set();
+  for (const p of Array.isArray(packs) ? packs : []) {
+    if (!p || typeof p !== 'object') continue;
+    if (universeId && p.universeId !== universeId) continue;
+    if (typeof p.dynamicId !== 'string' || !p.dynamicId) continue;
+    available.add(p.dynamicId);
+  }
+
+  const candidates = Array.from(available).filter((id) => (current ? id !== current : true));
+  if (candidates.length > 0) return choice(candidates);
+
+  const all = Array.isArray(au && au.dynamics) ? au.dynamics.map((d) => (d ? d.id : null)).filter(Boolean) : [];
+  const fallback = all.filter((id) => (current ? id !== current : true));
+  if (fallback.length === 0) return current;
+  return choice(fallback);
+}
+
+function pickAlternateUniverseId(au, packs, dynamicId, currentUniverseId) {
+  const current = typeof currentUniverseId === 'string' ? currentUniverseId : null;
+
+  const available = new Set();
+  for (const p of Array.isArray(packs) ? packs : []) {
+    if (!p || typeof p !== 'object') continue;
+    if (dynamicId && p.dynamicId !== dynamicId) continue;
+    if (typeof p.universeId !== 'string' || !p.universeId) continue;
+    available.add(p.universeId);
+  }
+
+  const candidates = Array.from(available).filter((id) => (current ? id !== current : true));
+  if (candidates.length > 0) return choice(candidates);
+
+  const all = Array.isArray(au && au.universes) ? au.universes.map((u) => (u ? u.id : null)).filter(Boolean) : [];
+  const fallback = all.filter((id) => (current ? id !== current : true));
+  if (fallback.length === 0) return current;
+  return choice(fallback);
+}
+
+function pickAlternateUniverseAndDynamic(au, packs, universeId, dynamicId) {
+  const u = typeof universeId === 'string' ? universeId : null;
+  const d = typeof dynamicId === 'string' ? dynamicId : null;
+
+  const candidates = (Array.isArray(packs) ? packs : []).filter((p) => {
+    if (!p || typeof p !== 'object') return false;
+    if (typeof p.universeId !== 'string' || typeof p.dynamicId !== 'string') return false;
+    // Exclude the exact same combo (if one/both are null, this still excludes only when equal).
+    if (u && d) return !(p.universeId === u && p.dynamicId === d);
+    if (u) return p.universeId !== u;
+    if (d) return p.dynamicId !== d;
+    return true;
+  });
+
+  const picked = choice(candidates.length ? candidates : packs);
+  if (!picked) return { universeId: u, dynamicId: d };
+  return {
+    universeId: typeof picked.universeId === 'string' ? picked.universeId : u,
+    dynamicId: typeof picked.dynamicId === 'string' ? picked.dynamicId : d
+  };
+}
+
 function normalizeInviteCode(raw) {
   if (typeof raw !== 'string') return null;
   const code = raw.trim().toUpperCase();
@@ -257,6 +448,102 @@ async function main() {
         return;
       }
 
+      if (interaction.isButton()) {
+        const id = String(interaction.customId || '');
+        if (!id.startsWith('gen:')) return;
+
+        const parts = id.split(':');
+        const action = parts[1] || '';
+        const ownerUserId = parts[2] || '';
+
+        // gen:spin:<owner>:<universe>:<dynamic>
+        // gen:remix:<owner>:<universe>:<dynamic>
+        // gen:remixpick:<owner>:<mode>:<universe>:<dynamic>
+        const remixMode = action === 'remixpick' ? (parts[3] || '') : '';
+        const universeId = decodeCustomIdPart((action === 'remixpick' ? parts[4] : parts[3]) || '-');
+        const dynamicId = decodeCustomIdPart((action === 'remixpick' ? parts[5] : parts[4]) || '-');
+
+        if (ownerUserId && String(interaction.user.id) !== String(ownerUserId)) {
+          await interaction.reply({
+            content: 'Run /generate to get your own remix buttons.',
+            ephemeral: true
+          });
+          return;
+        }
+
+        if (action === 'remix') {
+          const components = buildRemixChoiceComponents({
+            ownerUserId: interaction.user.id,
+            universeId,
+            dynamicId
+          });
+
+          await interaction.reply({
+            content: 'What do you want to swap?',
+            ephemeral: true,
+            components
+          });
+          return;
+        }
+
+        let nextUniverseId = universeId;
+        let nextDynamicId = dynamicId;
+
+        if (action === 'remixpick') {
+          if (remixMode === 'dynamic') {
+            nextDynamicId = pickAlternateDynamicId(au, au.packs, nextUniverseId, nextDynamicId);
+          } else if (remixMode === 'universe') {
+            nextUniverseId = pickAlternateUniverseId(au, au.packs, nextDynamicId, nextUniverseId);
+          } else {
+            const out = pickAlternateUniverseAndDynamic(au, au.packs, nextUniverseId, nextDynamicId);
+            nextUniverseId = out.universeId;
+            nextDynamicId = out.dynamicId;
+          }
+        }
+
+        const matching = filterPacks(au.packs, nextUniverseId, nextDynamicId);
+        const pickedPack = choice(matching);
+        if (!pickedPack) {
+          await interaction.reply({
+            content: 'No prompts found for that filter.',
+            ephemeral: true
+          });
+          return;
+        }
+
+        const prev = action === 'spin' ? extractPreviousPromptFromMessage(interaction.message) : null;
+        const summary = pickSummaryNotEqual(pickedPack, prev);
+        if (!summary) {
+          await interaction.reply({
+            content: 'Found a matching pack, but it has no usable summaries.',
+            ephemeral: true
+          });
+          return;
+        }
+
+        const embed = new EmbedBuilder()
+          .setTitle('AU prompt')
+          .addFields([
+            { name: 'Universe', value: formatUniverseLabel(au, nextUniverseId), inline: true },
+            { name: 'Dynamic', value: formatDynamicLabel(au, nextDynamicId), inline: true }
+          ]);
+
+        const components = buildGenerateComponents({
+          ownerUserId: interaction.user.id,
+          universeId: nextUniverseId,
+          dynamicId: nextDynamicId
+        });
+
+        if (action === 'spin') {
+          await interaction.update({ content: summary, embeds: [embed], components });
+          return;
+        }
+
+        // Remix always posts a new message (keeps the original prompt intact).
+        await interaction.reply({ content: summary, embeds: [embed], components });
+        return;
+      }
+
       if (!interaction.isChatInputCommand()) return;
 
       if (interaction.commandName === 'generate') {
@@ -285,7 +572,20 @@ async function main() {
 
         // If only one filter is set, this picks across all possibilities for the other dimension.
         // If neither is set, it picks from all packs.
-        await interaction.reply({ content: summary });
+        const embed = new EmbedBuilder()
+          .setTitle('AU prompt')
+          .addFields([
+            { name: 'Universe', value: formatUniverseLabel(au, universeId), inline: true },
+            { name: 'Dynamic', value: formatDynamicLabel(au, dynamicId), inline: true }
+          ]);
+
+        const components = buildGenerateComponents({
+          ownerUserId: interaction.user.id,
+          universeId,
+          dynamicId
+        });
+
+        await interaction.reply({ content: summary, embeds: [embed], components });
         return;
       }
 
