@@ -3,6 +3,9 @@ require('dotenv').config();
 const {
   Client,
   Collection,
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle,
   EmbedBuilder,
   Events,
   GatewayIntentBits,
@@ -47,9 +50,15 @@ function normalizeInviteCode(raw) {
 
 function buildJoinLink(inviteCode) {
   const tpl = normalizeOption(process.env.FEEDVERSE_JOIN_URL_TEMPLATE);
-  if (!tpl) return null;
-  if (!tpl.includes('{CODE}')) return null;
-  return tpl.replaceAll('{CODE}', encodeURIComponent(inviteCode));
+  if (tpl) {
+    if (!tpl.includes('{CODE}')) return null;
+    return tpl.replaceAll('{CODE}', encodeURIComponent(inviteCode));
+  }
+
+  const webBase = normalizeOption(process.env.FEEDVERSE_WEB_BASE_URL);
+  if (!webBase) return null;
+  const base = webBase.endsWith('/') ? webBase.slice(0, -1) : webBase;
+  return base + '/join/' + encodeURIComponent(inviteCode);
 }
 
 async function fetchJson(url) {
@@ -286,7 +295,18 @@ async function main() {
         if (joinLink) lines.push(joinLink);
         lines.push('open feedverse → join scenario → enter code ' + code);
 
-        await interaction.reply({ content: lines.join('\n'), embeds: [embed] });
+        const components = [];
+        if (joinLink) {
+          const row = new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+              .setStyle(ButtonStyle.Link)
+              .setLabel('Join')
+              .setURL(joinLink)
+          );
+          components.push(row);
+        }
+
+        await interaction.reply({ content: lines.join('\n'), embeds: [embed], components });
         return;
       }
     } catch (err) {

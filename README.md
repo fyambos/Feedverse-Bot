@@ -17,6 +17,7 @@ npm install
 - (optional) `DISCORD_GUILD_ID` (dev guild id)
 - (optional) `AU_DATA_PATH` (defaults to `./data/au_summaries_filled.json`)
 - (optional) `FEEDVERSE_JOIN_URL_TEMPLATE` (used by `/drop`, e.g. `https://feedverse.com/join/{CODE}`)
+- (optional) `FEEDVERSE_WEB_BASE_URL` (alternative to template; `/drop` links to `{base}/join/{CODE}`)
 - (optional) `FEEDVERSE_API_BASE_URL` (used by `/drop` to show scenario name/cover)
 
 Only the person hosting/running the bot needs the `.env` file. Users who invite the bot to their server do not.
@@ -36,7 +37,7 @@ npm start
 - `/drop`
   - required `invite_code` (scenario invite code like `KPOP2024`)
   - posts an embed with scenario info if `FEEDVERSE_API_BASE_URL` is set
-  - always includes the invite code (and optionally a join link if `FEEDVERSE_JOIN_URL_TEMPLATE` is set)
+  - always includes the invite code (and optionally a join link if `FEEDVERSE_JOIN_URL_TEMPLATE` or `FEEDVERSE_WEB_BASE_URL` is set)
 
 Behavior:
 - both set: picks 1 of the 5 for that exact (universe, dynamic)
