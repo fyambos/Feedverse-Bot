@@ -604,7 +604,7 @@ async function main() {
         return;
       }
 
-      if (interaction.commandName === 'drop') {
+      if (interaction.commandName === 'share') {
         const rawCode = interaction.options.getString('invite_code');
         const code = normalizeInviteCode(rawCode || '');
         if (!code) {
