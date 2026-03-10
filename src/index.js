@@ -80,19 +80,19 @@ async function resolveSubmissionIdFromInput(inputRaw) {
 
   // Allow using a short hex prefix (e.g. first 8 chars).
   if (isHexPrefix(raw)) {
-    const prefix = raw.toLowerCase();
+    const id = raw.toLowerCase();
     const q = await botApiGetJson('/v1/au/prompt-submissions?status=pending&limit=50');
     if (!q.ok) return { ok: false, error: 'Error loading queue: ' + q.error };
     const items = q.json && Array.isArray(q.json.items) ? q.json.items : [];
     const matches = items
       .map((it) => (it && it.id ? String(it.id).trim() : ''))
-      .filter((id) => id && id.toLowerCase().startsWith(prefix));
+      .filter((fullId) => fullId && fullId.toLowerCase().startsWith(id));
     if (matches.length === 1) return { ok: true, id: matches[0] };
-    if (matches.length === 0) return { ok: false, error: 'No pending submission matches that id/prefix.' };
-    return { ok: false, error: 'That prefix matches multiple submissions; paste the full UUID.' };
+    if (matches.length === 0) return { ok: false, error: 'No pending submission matches that id.' };
+    return { ok: false, error: 'That id matches multiple submissions; paste the full UUID.' };
   }
 
-  return { ok: false, error: 'Invalid submission id. Use queue index (e.g. 1), a short prefix (e.g. ecd38f4d), or paste the UUID.' };
+  return { ok: false, error: 'Invalid submission id. Use the id from /prompt-queue.' };
 }
 
 function startsWithFold(a, b) {
@@ -1027,7 +1027,7 @@ async function main() {
             const dynamicLabel = formatDynamicLabel(au, dynamicId);
             const snippet = promptText.length > 180 ? promptText.slice(0, 177) + '…' : promptText;
             const shortId = shortSubmissionId(id);
-            lines.push('#' + String(i + 1) + ' ' + shortId + (id ? ' (' + id + ')' : '') + ' — ' + settingLabel + ' + ' + dynamicLabel + (submitterName ? ' — by ' + submitterName : ''));
+            lines.push('#' + String(i + 1) + ' ' + shortId + ' — ' + settingLabel + ' + ' + dynamicLabel + (submitterName ? ' — by ' + submitterName : ''));
             lines.push(snippet);
             lines.push('');
           }
