@@ -3,6 +3,7 @@ require('dotenv').config();
 const {
   Client,
   Collection,
+  EmbedBuilder,
   Events,
   GatewayIntentBits,
   REST,
@@ -35,6 +36,92 @@ function normalizeOption(value) {
 
 function startsWithFold(a, b) {
   return a.toLowerCase().startsWith(b.toLowerCase());
+}
+
+function normalizeInviteCode(raw) {
+  if (typeof raw !== 'string') return null;
+  const code = raw.trim().toUpperCase();
+  if (!/^[A-Z0-9]{6,20}$/.test(code)) return null;
+  return code;
+}
+
+function buildJoinLink(inviteCode) {
+  const tpl = normalizeOption(process.env.FEEDVERSE_JOIN_URL_TEMPLATE);
+  if (!tpl) return null;
+  if (!tpl.includes('{CODE}')) return null;
+  return tpl.replaceAll('{CODE}', encodeURIComponent(inviteCode));
+}
+
+async function fetchJson(url) {
+  const hasFetch = typeof globalThis.fetch === 'function';
+  if (hasFetch) {
+    const res = await globalThis.fetch(url, {
+      method: 'GET',
+      headers: { Accept: 'application/json' }
+    });
+    const text = await res.text();
+    let json = null;
+    try {
+      json = text ? JSON.parse(text) : null;
+    } catch {
+      json = null;
+    }
+    return { ok: res.ok, status: res.status, json, text };
+  }
+
+  const https = require('node:https');
+  return await new Promise((resolve, reject) => {
+    const req = https.request(
+      url,
+      {
+        method: 'GET',
+        headers: { Accept: 'application/json' }
+      },
+      (res) => {
+        let body = '';
+        res.setEncoding('utf8');
+        res.on('data', (chunk) => (body += chunk));
+        res.on('end', () => {
+          let json = null;
+          try {
+            json = body ? JSON.parse(body) : null;
+          } catch {
+            json = null;
+          }
+          resolve({ ok: res.statusCode >= 200 && res.statusCode < 300, status: res.statusCode, json, text: body });
+        });
+      }
+    );
+    req.on('error', reject);
+    req.end();
+  });
+}
+
+async function resolveScenarioByInviteCode(inviteCode) {
+  const base = normalizeOption(process.env.FEEDVERSE_API_BASE_URL);
+  if (!base) return { ok: true, status: 0, scenario: null };
+
+  const baseUrl = base.endsWith('/') ? base.slice(0, -1) : base;
+  const url = baseUrl + '/v1/scenarios/resolve?inviteCode=' + encodeURIComponent(inviteCode);
+  const res = await fetchJson(url);
+
+  if (res.status === 404) return { ok: true, status: 404, scenario: null };
+  if (!res.ok) {
+    const msg =
+      res.json && typeof res.json.error === 'string'
+        ? res.json.error
+        : res.text && String(res.text).trim()
+          ? String(res.text).slice(0, 300)
+          : 'Resolve failed (HTTP ' + String(res.status) + ')';
+    return { ok: false, status: Number(res.status || 0), scenario: null, error: msg };
+  }
+
+  const scenario = res.json && res.json.scenario ? res.json.scenario : null;
+  if (!scenario || typeof scenario !== 'object') {
+    return { ok: false, status: Number(res.status || 0), scenario: null, error: 'Invalid API response' };
+  }
+
+  return { ok: true, status: Number(res.status || 200), scenario };
 }
 
 function toAutocompleteChoices(items, query, limit) {
@@ -115,34 +202,93 @@ async function main() {
       }
 
       if (!interaction.isChatInputCommand()) return;
-      if (interaction.commandName !== 'generate') return;
 
-      const universeId = normalizeOption(interaction.options.getString('universe'));
-      const dynamicId = normalizeOption(interaction.options.getString('dynamic'));
+      if (interaction.commandName === 'generate') {
+        const universeId = normalizeOption(interaction.options.getString('universe'));
+        const dynamicId = normalizeOption(interaction.options.getString('dynamic'));
 
-      const matching = filterPacks(au.packs, universeId, dynamicId);
-      const pickedPack = choice(matching);
+        const matching = filterPacks(au.packs, universeId, dynamicId);
+        const pickedPack = choice(matching);
 
-      if (!pickedPack) {
-        await interaction.reply({
-          content: 'No prompts found for that filter.',
-          ephemeral: true
-        });
+        if (!pickedPack) {
+          await interaction.reply({
+            content: 'No prompts found for that filter.',
+            ephemeral: true
+          });
+          return;
+        }
+
+        const summary = pickSummary(pickedPack);
+        if (!summary) {
+          await interaction.reply({
+            content: 'Found a matching pack, but it has no usable summaries.',
+            ephemeral: true
+          });
+          return;
+        }
+
+        // If only one filter is set, this picks across all possibilities for the other dimension.
+        // If neither is set, it picks from all packs.
+        await interaction.reply({ content: summary });
         return;
       }
 
-      const summary = pickSummary(pickedPack);
-      if (!summary) {
-        await interaction.reply({
-          content: 'Found a matching pack, but it has no usable summaries.',
-          ephemeral: true
-        });
+      if (interaction.commandName === 'drop') {
+        const rawCode = interaction.options.getString('invite_code');
+        const code = normalizeInviteCode(rawCode || '');
+        if (!code) {
+          await interaction.reply({
+            content: 'Invalid invite code. Use 6–20 chars: A–Z and 0–9 (example: KPOP2024).',
+            ephemeral: true
+          });
+          return;
+        }
+
+        const joinLink = buildJoinLink(code);
+
+        const resolved = await resolveScenarioByInviteCode(code);
+        if (resolved.ok && resolved.status === 0) {
+          const lines = [];
+          lines.push('feedverse scenario invite code: **' + code + '**');
+          if (joinLink) lines.push(joinLink);
+          lines.push('open feedverse → join scenario → enter code ' + code);
+          await interaction.reply({ content: lines.join('\n') });
+          return;
+        }
+        if (resolved.ok && resolved.status === 404) {
+          await interaction.reply({
+            content: 'Unknown invite code: ' + code,
+            ephemeral: true
+          });
+          return;
+        }
+
+        if (!resolved.ok) {
+          await interaction.reply({
+            content: resolved.error ? 'Error: ' + resolved.error : 'Error: could not resolve invite code.',
+            ephemeral: true
+          });
+          return;
+        }
+
+        const scenario = resolved.scenario;
+        const name = scenario && typeof scenario.name === 'string' ? scenario.name : 'Feedverse scenario';
+        const cover = scenario && typeof scenario.cover === 'string' ? scenario.cover : '';
+        const description = scenario && typeof scenario.description === 'string' ? scenario.description : '';
+
+        const embed = new EmbedBuilder().setTitle(name);
+        if (joinLink) embed.setURL(joinLink);
+        if (description) embed.setDescription(description.slice(0, 300));
+        if (cover) embed.setImage(cover);
+        embed.addFields([{ name: 'Invite code', value: code, inline: true }]);
+
+        const lines = [];
+        if (joinLink) lines.push(joinLink);
+        lines.push('open feedverse → join scenario → enter code ' + code);
+
+        await interaction.reply({ content: lines.join('\n'), embeds: [embed] });
         return;
       }
-
-      // If only one filter is set, this picks across all possibilities for the other dimension.
-      // If neither is set, it picks from all packs.
-      await interaction.reply({ content: summary });
     } catch (err) {
       const msg = err && err.message ? err.message : String(err);
       if (interaction.isRepliable()) {

@@ -4027,1469 +4027,1457 @@
     ]
   }
 ],
-    {
-      "universeId": "royal_court",
-      "dynamicId": "only_one_bed",
-      "summaries": [
-        "[TODO] 🏰 royal court + 🛏️ only one bed (1/5)",
-        "[TODO] 🏰 royal court + 🛏️ only one bed (2/5)",
-        "[TODO] 🏰 royal court + 🛏️ only one bed (3/5)",
-        "[TODO] 🏰 royal court + 🛏️ only one bed (4/5)",
-        "[TODO] 🏰 royal court + 🛏️ only one bed (5/5)"
-      ]
-    },
-    {
-      "universeId": "royal_court",
-      "dynamicId": "slow_burn",
-      "summaries": [
-        "[TODO] 🏰 royal court + 🫶 slow burn (1/5)",
-        "[TODO] 🏰 royal court + 🫶 slow burn (2/5)",
-        "[TODO] 🏰 royal court + 🫶 slow burn (3/5)",
-        "[TODO] 🏰 royal court + 🫶 slow burn (4/5)",
-        "[TODO] 🏰 royal court + 🫶 slow burn (5/5)"
-      ]
-    },
-    {
-      "universeId": "royal_court",
-      "dynamicId": "mutual_pining",
-      "summaries": [
-        "[TODO] 🏰 royal court + 💞 mutual pining (1/5)",
-        "[TODO] 🏰 royal court + 💞 mutual pining (2/5)",
-        "[TODO] 🏰 royal court + 💞 mutual pining (3/5)",
-        "[TODO] 🏰 royal court + 💞 mutual pining (4/5)",
-        "[TODO] 🏰 royal court + 💞 mutual pining (5/5)"
-      ]
-    },
-    {
-      "universeId": "royal_court",
-      "dynamicId": "unrequited_love",
-      "summaries": [
-        "[TODO] 🏰 royal court + 🥀 unrequited love (1/5)",
-        "[TODO] 🏰 royal court + 🥀 unrequited love (2/5)",
-        "[TODO] 🏰 royal court + 🥀 unrequited love (3/5)",
-        "[TODO] 🏰 royal court + 🥀 unrequited love (4/5)",
-        "[TODO] 🏰 royal court + 🥀 unrequited love (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "ex_to_lovers",
-      "summaries": [
-        "[TODO] 🔫 mafia + 💔 ex to lovers (1/5)",
-        "[TODO] 🔫 mafia + 💔 ex to lovers (2/5)",
-        "[TODO] 🔫 mafia + 💔 ex to lovers (3/5)",
-        "[TODO] 🔫 mafia + 💔 ex to lovers (4/5)",
-        "[TODO] 🔫 mafia + 💔 ex to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "friends_to_lovers",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🤝 friends to lovers (1/5)",
-        "[TODO] 🔫 mafia + 🤝 friends to lovers (2/5)",
-        "[TODO] 🔫 mafia + 🤝 friends to lovers (3/5)",
-        "[TODO] 🔫 mafia + 🤝 friends to lovers (4/5)",
-        "[TODO] 🔫 mafia + 🤝 friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "childhood_friends_to_lovers",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🧸 childhood friends to lovers (1/5)",
-        "[TODO] 🔫 mafia + 🧸 childhood friends to lovers (2/5)",
-        "[TODO] 🔫 mafia + 🧸 childhood friends to lovers (3/5)",
-        "[TODO] 🔫 mafia + 🧸 childhood friends to lovers (4/5)",
-        "[TODO] 🔫 mafia + 🧸 childhood friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "enemies_to_lovers",
-      "summaries": [
-        "[TODO] 🔫 mafia + ⚔️ enemies to lovers (1/5)",
-        "[TODO] 🔫 mafia + ⚔️ enemies to lovers (2/5)",
-        "[TODO] 🔫 mafia + ⚔️ enemies to lovers (3/5)",
-        "[TODO] 🔫 mafia + ⚔️ enemies to lovers (4/5)",
-        "[TODO] 🔫 mafia + ⚔️ enemies to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "fake_dating",
-      "summaries": [
-        "[TODO] 🔫 mafia + 💍 fake dating (1/5)",
-        "[TODO] 🔫 mafia + 💍 fake dating (2/5)",
-        "[TODO] 🔫 mafia + 💍 fake dating (3/5)",
-        "[TODO] 🔫 mafia + 💍 fake dating (4/5)",
-        "[TODO] 🔫 mafia + 💍 fake dating (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "arranged_marriage",
-      "summaries": [
-        "[TODO] 🔫 mafia + 📜 arranged marriage (1/5)",
-        "[TODO] 🔫 mafia + 📜 arranged marriage (2/5)",
-        "[TODO] 🔫 mafia + 📜 arranged marriage (3/5)",
-        "[TODO] 🔫 mafia + 📜 arranged marriage (4/5)",
-        "[TODO] 🔫 mafia + 📜 arranged marriage (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "coworkers",
-      "summaries": [
-        "[TODO] 🔫 mafia + 💼 coworkers (1/5)",
-        "[TODO] 🔫 mafia + 💼 coworkers (2/5)",
-        "[TODO] 🔫 mafia + 💼 coworkers (3/5)",
-        "[TODO] 🔫 mafia + 💼 coworkers (4/5)",
-        "[TODO] 🔫 mafia + 💼 coworkers (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "boss_x_employee",
-      "summaries": [
-        "[TODO] 🔫 mafia + 📊 boss x employee (1/5)",
-        "[TODO] 🔫 mafia + 📊 boss x employee (2/5)",
-        "[TODO] 🔫 mafia + 📊 boss x employee (3/5)",
-        "[TODO] 🔫 mafia + 📊 boss x employee (4/5)",
-        "[TODO] 🔫 mafia + 📊 boss x employee (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "tutor_x_student",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🎓 tutor x student (1/5)",
-        "[TODO] 🔫 mafia + 🎓 tutor x student (2/5)",
-        "[TODO] 🔫 mafia + 🎓 tutor x student (3/5)",
-        "[TODO] 🔫 mafia + 🎓 tutor x student (4/5)",
-        "[TODO] 🔫 mafia + 🎓 tutor x student (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "senior_x_junior",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🏫 senior x junior (1/5)",
-        "[TODO] 🔫 mafia + 🏫 senior x junior (2/5)",
-        "[TODO] 🔫 mafia + 🏫 senior x junior (3/5)",
-        "[TODO] 🔫 mafia + 🏫 senior x junior (4/5)",
-        "[TODO] 🔫 mafia + 🏫 senior x junior (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "prince_x_human",
-      "summaries": [
-        "[TODO] 🔫 mafia + 👑 prince x human (1/5)",
-        "[TODO] 🔫 mafia + 👑 prince x human (2/5)",
-        "[TODO] 🔫 mafia + 👑 prince x human (3/5)",
-        "[TODO] 🔫 mafia + 👑 prince x human (4/5)",
-        "[TODO] 🔫 mafia + 👑 prince x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "vampire_x_human",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🩸 vampire x human (1/5)",
-        "[TODO] 🔫 mafia + 🩸 vampire x human (2/5)",
-        "[TODO] 🔫 mafia + 🩸 vampire x human (3/5)",
-        "[TODO] 🔫 mafia + 🩸 vampire x human (4/5)",
-        "[TODO] 🔫 mafia + 🩸 vampire x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "werewolf_x_human",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🐺 werewolf x human (1/5)",
-        "[TODO] 🔫 mafia + 🐺 werewolf x human (2/5)",
-        "[TODO] 🔫 mafia + 🐺 werewolf x human (3/5)",
-        "[TODO] 🔫 mafia + 🐺 werewolf x human (4/5)",
-        "[TODO] 🔫 mafia + 🐺 werewolf x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "rivals",
-      "summaries": [
-        "[TODO] 🔫 mafia + 😈 rivals (1/5)",
-        "[TODO] 🔫 mafia + 😈 rivals (2/5)",
-        "[TODO] 🔫 mafia + 😈 rivals (3/5)",
-        "[TODO] 🔫 mafia + 😈 rivals (4/5)",
-        "[TODO] 🔫 mafia + 😈 rivals (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "dumb_x_dumber",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🤪 dumb x dumber (1/5)",
-        "[TODO] 🔫 mafia + 🤪 dumb x dumber (2/5)",
-        "[TODO] 🔫 mafia + 🤪 dumb x dumber (3/5)",
-        "[TODO] 🔫 mafia + 🤪 dumb x dumber (4/5)",
-        "[TODO] 🔫 mafia + 🤪 dumb x dumber (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "smart_x_dumb",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🧠 smart x dumb (1/5)",
-        "[TODO] 🔫 mafia + 🧠 smart x dumb (2/5)",
-        "[TODO] 🔫 mafia + 🧠 smart x dumb (3/5)",
-        "[TODO] 🔫 mafia + 🧠 smart x dumb (4/5)",
-        "[TODO] 🔫 mafia + 🧠 smart x dumb (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "rich_x_poor",
-      "summaries": [
-        "[TODO] 🔫 mafia + 💰 rich x poor (1/5)",
-        "[TODO] 🔫 mafia + 💰 rich x poor (2/5)",
-        "[TODO] 🔫 mafia + 💰 rich x poor (3/5)",
-        "[TODO] 🔫 mafia + 💰 rich x poor (4/5)",
-        "[TODO] 🔫 mafia + 💰 rich x poor (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "opposites_attract",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🔥 opposites attract (1/5)",
-        "[TODO] 🔫 mafia + 🔥 opposites attract (2/5)",
-        "[TODO] 🔫 mafia + 🔥 opposites attract (3/5)",
-        "[TODO] 🔫 mafia + 🔥 opposites attract (4/5)",
-        "[TODO] 🔫 mafia + 🔥 opposites attract (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "accidental_text",
-      "summaries": [
-        "[TODO] 🔫 mafia + 📱 accidental text (1/5)",
-        "[TODO] 🔫 mafia + 📱 accidental text (2/5)",
-        "[TODO] 🔫 mafia + 📱 accidental text (3/5)",
-        "[TODO] 🔫 mafia + 📱 accidental text (4/5)",
-        "[TODO] 🔫 mafia + 📱 accidental text (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "secret_identity",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🫢 secret identity (1/5)",
-        "[TODO] 🔫 mafia + 🫢 secret identity (2/5)",
-        "[TODO] 🔫 mafia + 🫢 secret identity (3/5)",
-        "[TODO] 🔫 mafia + 🫢 secret identity (4/5)",
-        "[TODO] 🔫 mafia + 🫢 secret identity (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "undercover",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🕶️ undercover (1/5)",
-        "[TODO] 🔫 mafia + 🕶️ undercover (2/5)",
-        "[TODO] 🔫 mafia + 🕶️ undercover (3/5)",
-        "[TODO] 🔫 mafia + 🕶️ undercover (4/5)",
-        "[TODO] 🔫 mafia + 🕶️ undercover (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "paparazzi_scandal",
-      "summaries": [
-        "[TODO] 🔫 mafia + 📸 paparazzi scandal (1/5)",
-        "[TODO] 🔫 mafia + 📸 paparazzi scandal (2/5)",
-        "[TODO] 🔫 mafia + 📸 paparazzi scandal (3/5)",
-        "[TODO] 🔫 mafia + 📸 paparazzi scandal (4/5)",
-        "[TODO] 🔫 mafia + 📸 paparazzi scandal (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "anonymous_confession_account",
-      "summaries": [
-        "[TODO] 🔫 mafia + 📝 anonymous confession account (1/5)",
-        "[TODO] 🔫 mafia + 📝 anonymous confession account (2/5)",
-        "[TODO] 🔫 mafia + 📝 anonymous confession account (3/5)",
-        "[TODO] 🔫 mafia + 📝 anonymous confession account (4/5)",
-        "[TODO] 🔫 mafia + 📝 anonymous confession account (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "anonymous_admirer",
-      "summaries": [
-        "[TODO] 🔫 mafia + 💌 anonymous admirer (1/5)",
-        "[TODO] 🔫 mafia + 💌 anonymous admirer (2/5)",
-        "[TODO] 🔫 mafia + 💌 anonymous admirer (3/5)",
-        "[TODO] 🔫 mafia + 💌 anonymous admirer (4/5)",
-        "[TODO] 🔫 mafia + 💌 anonymous admirer (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "bet_or_dare",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🪤 bet / dare (1/5)",
-        "[TODO] 🔫 mafia + 🪤 bet / dare (2/5)",
-        "[TODO] 🔫 mafia + 🪤 bet / dare (3/5)",
-        "[TODO] 🔫 mafia + 🪤 bet / dare (4/5)",
-        "[TODO] 🔫 mafia + 🪤 bet / dare (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "only_one_bed",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🛏️ only one bed (1/5)",
-        "[TODO] 🔫 mafia + 🛏️ only one bed (2/5)",
-        "[TODO] 🔫 mafia + 🛏️ only one bed (3/5)",
-        "[TODO] 🔫 mafia + 🛏️ only one bed (4/5)",
-        "[TODO] 🔫 mafia + 🛏️ only one bed (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "slow_burn",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🫶 slow burn (1/5)",
-        "[TODO] 🔫 mafia + 🫶 slow burn (2/5)",
-        "[TODO] 🔫 mafia + 🫶 slow burn (3/5)",
-        "[TODO] 🔫 mafia + 🫶 slow burn (4/5)",
-        "[TODO] 🔫 mafia + 🫶 slow burn (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "mutual_pining",
-      "summaries": [
-        "[TODO] 🔫 mafia + 💞 mutual pining (1/5)",
-        "[TODO] 🔫 mafia + 💞 mutual pining (2/5)",
-        "[TODO] 🔫 mafia + 💞 mutual pining (3/5)",
-        "[TODO] 🔫 mafia + 💞 mutual pining (4/5)",
-        "[TODO] 🔫 mafia + 💞 mutual pining (5/5)"
-      ]
-    },
-    {
-      "universeId": "mafia",
-      "dynamicId": "unrequited_love",
-      "summaries": [
-        "[TODO] 🔫 mafia + 🥀 unrequited love (1/5)",
-        "[TODO] 🔫 mafia + 🥀 unrequited love (2/5)",
-        "[TODO] 🔫 mafia + 🥀 unrequited love (3/5)",
-        "[TODO] 🔫 mafia + 🥀 unrequited love (4/5)",
-        "[TODO] 🔫 mafia + 🥀 unrequited love (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "ex_to_lovers",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 💔 ex to lovers (1/5)",
-        "[TODO] 🕵️ crime / detective + 💔 ex to lovers (2/5)",
-        "[TODO] 🕵️ crime / detective + 💔 ex to lovers (3/5)",
-        "[TODO] 🕵️ crime / detective + 💔 ex to lovers (4/5)",
-        "[TODO] 🕵️ crime / detective + 💔 ex to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "friends_to_lovers",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🤝 friends to lovers (1/5)",
-        "[TODO] 🕵️ crime / detective + 🤝 friends to lovers (2/5)",
-        "[TODO] 🕵️ crime / detective + 🤝 friends to lovers (3/5)",
-        "[TODO] 🕵️ crime / detective + 🤝 friends to lovers (4/5)",
-        "[TODO] 🕵️ crime / detective + 🤝 friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "childhood_friends_to_lovers",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🧸 childhood friends to lovers (1/5)",
-        "[TODO] 🕵️ crime / detective + 🧸 childhood friends to lovers (2/5)",
-        "[TODO] 🕵️ crime / detective + 🧸 childhood friends to lovers (3/5)",
-        "[TODO] 🕵️ crime / detective + 🧸 childhood friends to lovers (4/5)",
-        "[TODO] 🕵️ crime / detective + 🧸 childhood friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "enemies_to_lovers",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + ⚔️ enemies to lovers (1/5)",
-        "[TODO] 🕵️ crime / detective + ⚔️ enemies to lovers (2/5)",
-        "[TODO] 🕵️ crime / detective + ⚔️ enemies to lovers (3/5)",
-        "[TODO] 🕵️ crime / detective + ⚔️ enemies to lovers (4/5)",
-        "[TODO] 🕵️ crime / detective + ⚔️ enemies to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "fake_dating",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 💍 fake dating (1/5)",
-        "[TODO] 🕵️ crime / detective + 💍 fake dating (2/5)",
-        "[TODO] 🕵️ crime / detective + 💍 fake dating (3/5)",
-        "[TODO] 🕵️ crime / detective + 💍 fake dating (4/5)",
-        "[TODO] 🕵️ crime / detective + 💍 fake dating (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "arranged_marriage",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 📜 arranged marriage (1/5)",
-        "[TODO] 🕵️ crime / detective + 📜 arranged marriage (2/5)",
-        "[TODO] 🕵️ crime / detective + 📜 arranged marriage (3/5)",
-        "[TODO] 🕵️ crime / detective + 📜 arranged marriage (4/5)",
-        "[TODO] 🕵️ crime / detective + 📜 arranged marriage (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "coworkers",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 💼 coworkers (1/5)",
-        "[TODO] 🕵️ crime / detective + 💼 coworkers (2/5)",
-        "[TODO] 🕵️ crime / detective + 💼 coworkers (3/5)",
-        "[TODO] 🕵️ crime / detective + 💼 coworkers (4/5)",
-        "[TODO] 🕵️ crime / detective + 💼 coworkers (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "boss_x_employee",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 📊 boss x employee (1/5)",
-        "[TODO] 🕵️ crime / detective + 📊 boss x employee (2/5)",
-        "[TODO] 🕵️ crime / detective + 📊 boss x employee (3/5)",
-        "[TODO] 🕵️ crime / detective + 📊 boss x employee (4/5)",
-        "[TODO] 🕵️ crime / detective + 📊 boss x employee (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "tutor_x_student",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🎓 tutor x student (1/5)",
-        "[TODO] 🕵️ crime / detective + 🎓 tutor x student (2/5)",
-        "[TODO] 🕵️ crime / detective + 🎓 tutor x student (3/5)",
-        "[TODO] 🕵️ crime / detective + 🎓 tutor x student (4/5)",
-        "[TODO] 🕵️ crime / detective + 🎓 tutor x student (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "senior_x_junior",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🏫 senior x junior (1/5)",
-        "[TODO] 🕵️ crime / detective + 🏫 senior x junior (2/5)",
-        "[TODO] 🕵️ crime / detective + 🏫 senior x junior (3/5)",
-        "[TODO] 🕵️ crime / detective + 🏫 senior x junior (4/5)",
-        "[TODO] 🕵️ crime / detective + 🏫 senior x junior (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "prince_x_human",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 👑 prince x human (1/5)",
-        "[TODO] 🕵️ crime / detective + 👑 prince x human (2/5)",
-        "[TODO] 🕵️ crime / detective + 👑 prince x human (3/5)",
-        "[TODO] 🕵️ crime / detective + 👑 prince x human (4/5)",
-        "[TODO] 🕵️ crime / detective + 👑 prince x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "vampire_x_human",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🩸 vampire x human (1/5)",
-        "[TODO] 🕵️ crime / detective + 🩸 vampire x human (2/5)",
-        "[TODO] 🕵️ crime / detective + 🩸 vampire x human (3/5)",
-        "[TODO] 🕵️ crime / detective + 🩸 vampire x human (4/5)",
-        "[TODO] 🕵️ crime / detective + 🩸 vampire x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "werewolf_x_human",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🐺 werewolf x human (1/5)",
-        "[TODO] 🕵️ crime / detective + 🐺 werewolf x human (2/5)",
-        "[TODO] 🕵️ crime / detective + 🐺 werewolf x human (3/5)",
-        "[TODO] 🕵️ crime / detective + 🐺 werewolf x human (4/5)",
-        "[TODO] 🕵️ crime / detective + 🐺 werewolf x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "rivals",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 😈 rivals (1/5)",
-        "[TODO] 🕵️ crime / detective + 😈 rivals (2/5)",
-        "[TODO] 🕵️ crime / detective + 😈 rivals (3/5)",
-        "[TODO] 🕵️ crime / detective + 😈 rivals (4/5)",
-        "[TODO] 🕵️ crime / detective + 😈 rivals (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "dumb_x_dumber",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🤪 dumb x dumber (1/5)",
-        "[TODO] 🕵️ crime / detective + 🤪 dumb x dumber (2/5)",
-        "[TODO] 🕵️ crime / detective + 🤪 dumb x dumber (3/5)",
-        "[TODO] 🕵️ crime / detective + 🤪 dumb x dumber (4/5)",
-        "[TODO] 🕵️ crime / detective + 🤪 dumb x dumber (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "smart_x_dumb",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🧠 smart x dumb (1/5)",
-        "[TODO] 🕵️ crime / detective + 🧠 smart x dumb (2/5)",
-        "[TODO] 🕵️ crime / detective + 🧠 smart x dumb (3/5)",
-        "[TODO] 🕵️ crime / detective + 🧠 smart x dumb (4/5)",
-        "[TODO] 🕵️ crime / detective + 🧠 smart x dumb (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "rich_x_poor",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 💰 rich x poor (1/5)",
-        "[TODO] 🕵️ crime / detective + 💰 rich x poor (2/5)",
-        "[TODO] 🕵️ crime / detective + 💰 rich x poor (3/5)",
-        "[TODO] 🕵️ crime / detective + 💰 rich x poor (4/5)",
-        "[TODO] 🕵️ crime / detective + 💰 rich x poor (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "opposites_attract",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🔥 opposites attract (1/5)",
-        "[TODO] 🕵️ crime / detective + 🔥 opposites attract (2/5)",
-        "[TODO] 🕵️ crime / detective + 🔥 opposites attract (3/5)",
-        "[TODO] 🕵️ crime / detective + 🔥 opposites attract (4/5)",
-        "[TODO] 🕵️ crime / detective + 🔥 opposites attract (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "accidental_text",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 📱 accidental text (1/5)",
-        "[TODO] 🕵️ crime / detective + 📱 accidental text (2/5)",
-        "[TODO] 🕵️ crime / detective + 📱 accidental text (3/5)",
-        "[TODO] 🕵️ crime / detective + 📱 accidental text (4/5)",
-        "[TODO] 🕵️ crime / detective + 📱 accidental text (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "secret_identity",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🫢 secret identity (1/5)",
-        "[TODO] 🕵️ crime / detective + 🫢 secret identity (2/5)",
-        "[TODO] 🕵️ crime / detective + 🫢 secret identity (3/5)",
-        "[TODO] 🕵️ crime / detective + 🫢 secret identity (4/5)",
-        "[TODO] 🕵️ crime / detective + 🫢 secret identity (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "undercover",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🕶️ undercover (1/5)",
-        "[TODO] 🕵️ crime / detective + 🕶️ undercover (2/5)",
-        "[TODO] 🕵️ crime / detective + 🕶️ undercover (3/5)",
-        "[TODO] 🕵️ crime / detective + 🕶️ undercover (4/5)",
-        "[TODO] 🕵️ crime / detective + 🕶️ undercover (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "paparazzi_scandal",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 📸 paparazzi scandal (1/5)",
-        "[TODO] 🕵️ crime / detective + 📸 paparazzi scandal (2/5)",
-        "[TODO] 🕵️ crime / detective + 📸 paparazzi scandal (3/5)",
-        "[TODO] 🕵️ crime / detective + 📸 paparazzi scandal (4/5)",
-        "[TODO] 🕵️ crime / detective + 📸 paparazzi scandal (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "anonymous_confession_account",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 📝 anonymous confession account (1/5)",
-        "[TODO] 🕵️ crime / detective + 📝 anonymous confession account (2/5)",
-        "[TODO] 🕵️ crime / detective + 📝 anonymous confession account (3/5)",
-        "[TODO] 🕵️ crime / detective + 📝 anonymous confession account (4/5)",
-        "[TODO] 🕵️ crime / detective + 📝 anonymous confession account (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "anonymous_admirer",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 💌 anonymous admirer (1/5)",
-        "[TODO] 🕵️ crime / detective + 💌 anonymous admirer (2/5)",
-        "[TODO] 🕵️ crime / detective + 💌 anonymous admirer (3/5)",
-        "[TODO] 🕵️ crime / detective + 💌 anonymous admirer (4/5)",
-        "[TODO] 🕵️ crime / detective + 💌 anonymous admirer (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "bet_or_dare",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🪤 bet / dare (1/5)",
-        "[TODO] 🕵️ crime / detective + 🪤 bet / dare (2/5)",
-        "[TODO] 🕵️ crime / detective + 🪤 bet / dare (3/5)",
-        "[TODO] 🕵️ crime / detective + 🪤 bet / dare (4/5)",
-        "[TODO] 🕵️ crime / detective + 🪤 bet / dare (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "only_one_bed",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🛏️ only one bed (1/5)",
-        "[TODO] 🕵️ crime / detective + 🛏️ only one bed (2/5)",
-        "[TODO] 🕵️ crime / detective + 🛏️ only one bed (3/5)",
-        "[TODO] 🕵️ crime / detective + 🛏️ only one bed (4/5)",
-        "[TODO] 🕵️ crime / detective + 🛏️ only one bed (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "slow_burn",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🫶 slow burn (1/5)",
-        "[TODO] 🕵️ crime / detective + 🫶 slow burn (2/5)",
-        "[TODO] 🕵️ crime / detective + 🫶 slow burn (3/5)",
-        "[TODO] 🕵️ crime / detective + 🫶 slow burn (4/5)",
-        "[TODO] 🕵️ crime / detective + 🫶 slow burn (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "mutual_pining",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 💞 mutual pining (1/5)",
-        "[TODO] 🕵️ crime / detective + 💞 mutual pining (2/5)",
-        "[TODO] 🕵️ crime / detective + 💞 mutual pining (3/5)",
-        "[TODO] 🕵️ crime / detective + 💞 mutual pining (4/5)",
-        "[TODO] 🕵️ crime / detective + 💞 mutual pining (5/5)"
-      ]
-    },
-    {
-      "universeId": "crime_detective",
-      "dynamicId": "unrequited_love",
-      "summaries": [
-        "[TODO] 🕵️ crime / detective + 🥀 unrequited love (1/5)",
-        "[TODO] 🕵️ crime / detective + 🥀 unrequited love (2/5)",
-        "[TODO] 🕵️ crime / detective + 🥀 unrequited love (3/5)",
-        "[TODO] 🕵️ crime / detective + 🥀 unrequited love (4/5)",
-        "[TODO] 🕵️ crime / detective + 🥀 unrequited love (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "ex_to_lovers",
-      "summaries": [
-        "[TODO] 📱 gossip school + 💔 ex to lovers (1/5)",
-        "[TODO] 📱 gossip school + 💔 ex to lovers (2/5)",
-        "[TODO] 📱 gossip school + 💔 ex to lovers (3/5)",
-        "[TODO] 📱 gossip school + 💔 ex to lovers (4/5)",
-        "[TODO] 📱 gossip school + 💔 ex to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "friends_to_lovers",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🤝 friends to lovers (1/5)",
-        "[TODO] 📱 gossip school + 🤝 friends to lovers (2/5)",
-        "[TODO] 📱 gossip school + 🤝 friends to lovers (3/5)",
-        "[TODO] 📱 gossip school + 🤝 friends to lovers (4/5)",
-        "[TODO] 📱 gossip school + 🤝 friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "childhood_friends_to_lovers",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🧸 childhood friends to lovers (1/5)",
-        "[TODO] 📱 gossip school + 🧸 childhood friends to lovers (2/5)",
-        "[TODO] 📱 gossip school + 🧸 childhood friends to lovers (3/5)",
-        "[TODO] 📱 gossip school + 🧸 childhood friends to lovers (4/5)",
-        "[TODO] 📱 gossip school + 🧸 childhood friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "enemies_to_lovers",
-      "summaries": [
-        "[TODO] 📱 gossip school + ⚔️ enemies to lovers (1/5)",
-        "[TODO] 📱 gossip school + ⚔️ enemies to lovers (2/5)",
-        "[TODO] 📱 gossip school + ⚔️ enemies to lovers (3/5)",
-        "[TODO] 📱 gossip school + ⚔️ enemies to lovers (4/5)",
-        "[TODO] 📱 gossip school + ⚔️ enemies to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "fake_dating",
-      "summaries": [
-        "[TODO] 📱 gossip school + 💍 fake dating (1/5)",
-        "[TODO] 📱 gossip school + 💍 fake dating (2/5)",
-        "[TODO] 📱 gossip school + 💍 fake dating (3/5)",
-        "[TODO] 📱 gossip school + 💍 fake dating (4/5)",
-        "[TODO] 📱 gossip school + 💍 fake dating (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "arranged_marriage",
-      "summaries": [
-        "[TODO] 📱 gossip school + 📜 arranged marriage (1/5)",
-        "[TODO] 📱 gossip school + 📜 arranged marriage (2/5)",
-        "[TODO] 📱 gossip school + 📜 arranged marriage (3/5)",
-        "[TODO] 📱 gossip school + 📜 arranged marriage (4/5)",
-        "[TODO] 📱 gossip school + 📜 arranged marriage (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "coworkers",
-      "summaries": [
-        "[TODO] 📱 gossip school + 💼 coworkers (1/5)",
-        "[TODO] 📱 gossip school + 💼 coworkers (2/5)",
-        "[TODO] 📱 gossip school + 💼 coworkers (3/5)",
-        "[TODO] 📱 gossip school + 💼 coworkers (4/5)",
-        "[TODO] 📱 gossip school + 💼 coworkers (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "boss_x_employee",
-      "summaries": [
-        "[TODO] 📱 gossip school + 📊 boss x employee (1/5)",
-        "[TODO] 📱 gossip school + 📊 boss x employee (2/5)",
-        "[TODO] 📱 gossip school + 📊 boss x employee (3/5)",
-        "[TODO] 📱 gossip school + 📊 boss x employee (4/5)",
-        "[TODO] 📱 gossip school + 📊 boss x employee (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "tutor_x_student",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🎓 tutor x student (1/5)",
-        "[TODO] 📱 gossip school + 🎓 tutor x student (2/5)",
-        "[TODO] 📱 gossip school + 🎓 tutor x student (3/5)",
-        "[TODO] 📱 gossip school + 🎓 tutor x student (4/5)",
-        "[TODO] 📱 gossip school + 🎓 tutor x student (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "senior_x_junior",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🏫 senior x junior (1/5)",
-        "[TODO] 📱 gossip school + 🏫 senior x junior (2/5)",
-        "[TODO] 📱 gossip school + 🏫 senior x junior (3/5)",
-        "[TODO] 📱 gossip school + 🏫 senior x junior (4/5)",
-        "[TODO] 📱 gossip school + 🏫 senior x junior (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "prince_x_human",
-      "summaries": [
-        "[TODO] 📱 gossip school + 👑 prince x human (1/5)",
-        "[TODO] 📱 gossip school + 👑 prince x human (2/5)",
-        "[TODO] 📱 gossip school + 👑 prince x human (3/5)",
-        "[TODO] 📱 gossip school + 👑 prince x human (4/5)",
-        "[TODO] 📱 gossip school + 👑 prince x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "vampire_x_human",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🩸 vampire x human (1/5)",
-        "[TODO] 📱 gossip school + 🩸 vampire x human (2/5)",
-        "[TODO] 📱 gossip school + 🩸 vampire x human (3/5)",
-        "[TODO] 📱 gossip school + 🩸 vampire x human (4/5)",
-        "[TODO] 📱 gossip school + 🩸 vampire x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "werewolf_x_human",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🐺 werewolf x human (1/5)",
-        "[TODO] 📱 gossip school + 🐺 werewolf x human (2/5)",
-        "[TODO] 📱 gossip school + 🐺 werewolf x human (3/5)",
-        "[TODO] 📱 gossip school + 🐺 werewolf x human (4/5)",
-        "[TODO] 📱 gossip school + 🐺 werewolf x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "rivals",
-      "summaries": [
-        "[TODO] 📱 gossip school + 😈 rivals (1/5)",
-        "[TODO] 📱 gossip school + 😈 rivals (2/5)",
-        "[TODO] 📱 gossip school + 😈 rivals (3/5)",
-        "[TODO] 📱 gossip school + 😈 rivals (4/5)",
-        "[TODO] 📱 gossip school + 😈 rivals (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "dumb_x_dumber",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🤪 dumb x dumber (1/5)",
-        "[TODO] 📱 gossip school + 🤪 dumb x dumber (2/5)",
-        "[TODO] 📱 gossip school + 🤪 dumb x dumber (3/5)",
-        "[TODO] 📱 gossip school + 🤪 dumb x dumber (4/5)",
-        "[TODO] 📱 gossip school + 🤪 dumb x dumber (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "smart_x_dumb",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🧠 smart x dumb (1/5)",
-        "[TODO] 📱 gossip school + 🧠 smart x dumb (2/5)",
-        "[TODO] 📱 gossip school + 🧠 smart x dumb (3/5)",
-        "[TODO] 📱 gossip school + 🧠 smart x dumb (4/5)",
-        "[TODO] 📱 gossip school + 🧠 smart x dumb (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "rich_x_poor",
-      "summaries": [
-        "[TODO] 📱 gossip school + 💰 rich x poor (1/5)",
-        "[TODO] 📱 gossip school + 💰 rich x poor (2/5)",
-        "[TODO] 📱 gossip school + 💰 rich x poor (3/5)",
-        "[TODO] 📱 gossip school + 💰 rich x poor (4/5)",
-        "[TODO] 📱 gossip school + 💰 rich x poor (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "opposites_attract",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🔥 opposites attract (1/5)",
-        "[TODO] 📱 gossip school + 🔥 opposites attract (2/5)",
-        "[TODO] 📱 gossip school + 🔥 opposites attract (3/5)",
-        "[TODO] 📱 gossip school + 🔥 opposites attract (4/5)",
-        "[TODO] 📱 gossip school + 🔥 opposites attract (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "accidental_text",
-      "summaries": [
-        "[TODO] 📱 gossip school + 📱 accidental text (1/5)",
-        "[TODO] 📱 gossip school + 📱 accidental text (2/5)",
-        "[TODO] 📱 gossip school + 📱 accidental text (3/5)",
-        "[TODO] 📱 gossip school + 📱 accidental text (4/5)",
-        "[TODO] 📱 gossip school + 📱 accidental text (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "secret_identity",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🫢 secret identity (1/5)",
-        "[TODO] 📱 gossip school + 🫢 secret identity (2/5)",
-        "[TODO] 📱 gossip school + 🫢 secret identity (3/5)",
-        "[TODO] 📱 gossip school + 🫢 secret identity (4/5)",
-        "[TODO] 📱 gossip school + 🫢 secret identity (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "undercover",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🕶️ undercover (1/5)",
-        "[TODO] 📱 gossip school + 🕶️ undercover (2/5)",
-        "[TODO] 📱 gossip school + 🕶️ undercover (3/5)",
-        "[TODO] 📱 gossip school + 🕶️ undercover (4/5)",
-        "[TODO] 📱 gossip school + 🕶️ undercover (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "paparazzi_scandal",
-      "summaries": [
-        "[TODO] 📱 gossip school + 📸 paparazzi scandal (1/5)",
-        "[TODO] 📱 gossip school + 📸 paparazzi scandal (2/5)",
-        "[TODO] 📱 gossip school + 📸 paparazzi scandal (3/5)",
-        "[TODO] 📱 gossip school + 📸 paparazzi scandal (4/5)",
-        "[TODO] 📱 gossip school + 📸 paparazzi scandal (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "anonymous_confession_account",
-      "summaries": [
-        "[TODO] 📱 gossip school + 📝 anonymous confession account (1/5)",
-        "[TODO] 📱 gossip school + 📝 anonymous confession account (2/5)",
-        "[TODO] 📱 gossip school + 📝 anonymous confession account (3/5)",
-        "[TODO] 📱 gossip school + 📝 anonymous confession account (4/5)",
-        "[TODO] 📱 gossip school + 📝 anonymous confession account (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "anonymous_admirer",
-      "summaries": [
-        "[TODO] 📱 gossip school + 💌 anonymous admirer (1/5)",
-        "[TODO] 📱 gossip school + 💌 anonymous admirer (2/5)",
-        "[TODO] 📱 gossip school + 💌 anonymous admirer (3/5)",
-        "[TODO] 📱 gossip school + 💌 anonymous admirer (4/5)",
-        "[TODO] 📱 gossip school + 💌 anonymous admirer (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "bet_or_dare",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🪤 bet / dare (1/5)",
-        "[TODO] 📱 gossip school + 🪤 bet / dare (2/5)",
-        "[TODO] 📱 gossip school + 🪤 bet / dare (3/5)",
-        "[TODO] 📱 gossip school + 🪤 bet / dare (4/5)",
-        "[TODO] 📱 gossip school + 🪤 bet / dare (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "only_one_bed",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🛏️ only one bed (1/5)",
-        "[TODO] 📱 gossip school + 🛏️ only one bed (2/5)",
-        "[TODO] 📱 gossip school + 🛏️ only one bed (3/5)",
-        "[TODO] 📱 gossip school + 🛏️ only one bed (4/5)",
-        "[TODO] 📱 gossip school + 🛏️ only one bed (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "slow_burn",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🫶 slow burn (1/5)",
-        "[TODO] 📱 gossip school + 🫶 slow burn (2/5)",
-        "[TODO] 📱 gossip school + 🫶 slow burn (3/5)",
-        "[TODO] 📱 gossip school + 🫶 slow burn (4/5)",
-        "[TODO] 📱 gossip school + 🫶 slow burn (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "mutual_pining",
-      "summaries": [
-        "[TODO] 📱 gossip school + 💞 mutual pining (1/5)",
-        "[TODO] 📱 gossip school + 💞 mutual pining (2/5)",
-        "[TODO] 📱 gossip school + 💞 mutual pining (3/5)",
-        "[TODO] 📱 gossip school + 💞 mutual pining (4/5)",
-        "[TODO] 📱 gossip school + 💞 mutual pining (5/5)"
-      ]
-    },
-    {
-      "universeId": "gossip_school",
-      "dynamicId": "unrequited_love",
-      "summaries": [
-        "[TODO] 📱 gossip school + 🥀 unrequited love (1/5)",
-        "[TODO] 📱 gossip school + 🥀 unrequited love (2/5)",
-        "[TODO] 📱 gossip school + 🥀 unrequited love (3/5)",
-        "[TODO] 📱 gossip school + 🥀 unrequited love (4/5)",
-        "[TODO] 📱 gossip school + 🥀 unrequited love (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "ex_to_lovers",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 💔 ex to lovers (1/5)",
-        "[TODO] 🌿 slice of life + 💔 ex to lovers (2/5)",
-        "[TODO] 🌿 slice of life + 💔 ex to lovers (3/5)",
-        "[TODO] 🌿 slice of life + 💔 ex to lovers (4/5)",
-        "[TODO] 🌿 slice of life + 💔 ex to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "friends_to_lovers",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🤝 friends to lovers (1/5)",
-        "[TODO] 🌿 slice of life + 🤝 friends to lovers (2/5)",
-        "[TODO] 🌿 slice of life + 🤝 friends to lovers (3/5)",
-        "[TODO] 🌿 slice of life + 🤝 friends to lovers (4/5)",
-        "[TODO] 🌿 slice of life + 🤝 friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "childhood_friends_to_lovers",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🧸 childhood friends to lovers (1/5)",
-        "[TODO] 🌿 slice of life + 🧸 childhood friends to lovers (2/5)",
-        "[TODO] 🌿 slice of life + 🧸 childhood friends to lovers (3/5)",
-        "[TODO] 🌿 slice of life + 🧸 childhood friends to lovers (4/5)",
-        "[TODO] 🌿 slice of life + 🧸 childhood friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "enemies_to_lovers",
-      "summaries": [
-        "[TODO] 🌿 slice of life + ⚔️ enemies to lovers (1/5)",
-        "[TODO] 🌿 slice of life + ⚔️ enemies to lovers (2/5)",
-        "[TODO] 🌿 slice of life + ⚔️ enemies to lovers (3/5)",
-        "[TODO] 🌿 slice of life + ⚔️ enemies to lovers (4/5)",
-        "[TODO] 🌿 slice of life + ⚔️ enemies to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "fake_dating",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 💍 fake dating (1/5)",
-        "[TODO] 🌿 slice of life + 💍 fake dating (2/5)",
-        "[TODO] 🌿 slice of life + 💍 fake dating (3/5)",
-        "[TODO] 🌿 slice of life + 💍 fake dating (4/5)",
-        "[TODO] 🌿 slice of life + 💍 fake dating (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "arranged_marriage",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 📜 arranged marriage (1/5)",
-        "[TODO] 🌿 slice of life + 📜 arranged marriage (2/5)",
-        "[TODO] 🌿 slice of life + 📜 arranged marriage (3/5)",
-        "[TODO] 🌿 slice of life + 📜 arranged marriage (4/5)",
-        "[TODO] 🌿 slice of life + 📜 arranged marriage (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "coworkers",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 💼 coworkers (1/5)",
-        "[TODO] 🌿 slice of life + 💼 coworkers (2/5)",
-        "[TODO] 🌿 slice of life + 💼 coworkers (3/5)",
-        "[TODO] 🌿 slice of life + 💼 coworkers (4/5)",
-        "[TODO] 🌿 slice of life + 💼 coworkers (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "boss_x_employee",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 📊 boss x employee (1/5)",
-        "[TODO] 🌿 slice of life + 📊 boss x employee (2/5)",
-        "[TODO] 🌿 slice of life + 📊 boss x employee (3/5)",
-        "[TODO] 🌿 slice of life + 📊 boss x employee (4/5)",
-        "[TODO] 🌿 slice of life + 📊 boss x employee (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "tutor_x_student",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🎓 tutor x student (1/5)",
-        "[TODO] 🌿 slice of life + 🎓 tutor x student (2/5)",
-        "[TODO] 🌿 slice of life + 🎓 tutor x student (3/5)",
-        "[TODO] 🌿 slice of life + 🎓 tutor x student (4/5)",
-        "[TODO] 🌿 slice of life + 🎓 tutor x student (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "senior_x_junior",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🏫 senior x junior (1/5)",
-        "[TODO] 🌿 slice of life + 🏫 senior x junior (2/5)",
-        "[TODO] 🌿 slice of life + 🏫 senior x junior (3/5)",
-        "[TODO] 🌿 slice of life + 🏫 senior x junior (4/5)",
-        "[TODO] 🌿 slice of life + 🏫 senior x junior (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "prince_x_human",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 👑 prince x human (1/5)",
-        "[TODO] 🌿 slice of life + 👑 prince x human (2/5)",
-        "[TODO] 🌿 slice of life + 👑 prince x human (3/5)",
-        "[TODO] 🌿 slice of life + 👑 prince x human (4/5)",
-        "[TODO] 🌿 slice of life + 👑 prince x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "vampire_x_human",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🩸 vampire x human (1/5)",
-        "[TODO] 🌿 slice of life + 🩸 vampire x human (2/5)",
-        "[TODO] 🌿 slice of life + 🩸 vampire x human (3/5)",
-        "[TODO] 🌿 slice of life + 🩸 vampire x human (4/5)",
-        "[TODO] 🌿 slice of life + 🩸 vampire x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "werewolf_x_human",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🐺 werewolf x human (1/5)",
-        "[TODO] 🌿 slice of life + 🐺 werewolf x human (2/5)",
-        "[TODO] 🌿 slice of life + 🐺 werewolf x human (3/5)",
-        "[TODO] 🌿 slice of life + 🐺 werewolf x human (4/5)",
-        "[TODO] 🌿 slice of life + 🐺 werewolf x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "rivals",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 😈 rivals (1/5)",
-        "[TODO] 🌿 slice of life + 😈 rivals (2/5)",
-        "[TODO] 🌿 slice of life + 😈 rivals (3/5)",
-        "[TODO] 🌿 slice of life + 😈 rivals (4/5)",
-        "[TODO] 🌿 slice of life + 😈 rivals (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "dumb_x_dumber",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🤪 dumb x dumber (1/5)",
-        "[TODO] 🌿 slice of life + 🤪 dumb x dumber (2/5)",
-        "[TODO] 🌿 slice of life + 🤪 dumb x dumber (3/5)",
-        "[TODO] 🌿 slice of life + 🤪 dumb x dumber (4/5)",
-        "[TODO] 🌿 slice of life + 🤪 dumb x dumber (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "smart_x_dumb",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🧠 smart x dumb (1/5)",
-        "[TODO] 🌿 slice of life + 🧠 smart x dumb (2/5)",
-        "[TODO] 🌿 slice of life + 🧠 smart x dumb (3/5)",
-        "[TODO] 🌿 slice of life + 🧠 smart x dumb (4/5)",
-        "[TODO] 🌿 slice of life + 🧠 smart x dumb (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "rich_x_poor",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 💰 rich x poor (1/5)",
-        "[TODO] 🌿 slice of life + 💰 rich x poor (2/5)",
-        "[TODO] 🌿 slice of life + 💰 rich x poor (3/5)",
-        "[TODO] 🌿 slice of life + 💰 rich x poor (4/5)",
-        "[TODO] 🌿 slice of life + 💰 rich x poor (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "opposites_attract",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🔥 opposites attract (1/5)",
-        "[TODO] 🌿 slice of life + 🔥 opposites attract (2/5)",
-        "[TODO] 🌿 slice of life + 🔥 opposites attract (3/5)",
-        "[TODO] 🌿 slice of life + 🔥 opposites attract (4/5)",
-        "[TODO] 🌿 slice of life + 🔥 opposites attract (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "accidental_text",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 📱 accidental text (1/5)",
-        "[TODO] 🌿 slice of life + 📱 accidental text (2/5)",
-        "[TODO] 🌿 slice of life + 📱 accidental text (3/5)",
-        "[TODO] 🌿 slice of life + 📱 accidental text (4/5)",
-        "[TODO] 🌿 slice of life + 📱 accidental text (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "secret_identity",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🫢 secret identity (1/5)",
-        "[TODO] 🌿 slice of life + 🫢 secret identity (2/5)",
-        "[TODO] 🌿 slice of life + 🫢 secret identity (3/5)",
-        "[TODO] 🌿 slice of life + 🫢 secret identity (4/5)",
-        "[TODO] 🌿 slice of life + 🫢 secret identity (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "undercover",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🕶️ undercover (1/5)",
-        "[TODO] 🌿 slice of life + 🕶️ undercover (2/5)",
-        "[TODO] 🌿 slice of life + 🕶️ undercover (3/5)",
-        "[TODO] 🌿 slice of life + 🕶️ undercover (4/5)",
-        "[TODO] 🌿 slice of life + 🕶️ undercover (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "paparazzi_scandal",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 📸 paparazzi scandal (1/5)",
-        "[TODO] 🌿 slice of life + 📸 paparazzi scandal (2/5)",
-        "[TODO] 🌿 slice of life + 📸 paparazzi scandal (3/5)",
-        "[TODO] 🌿 slice of life + 📸 paparazzi scandal (4/5)",
-        "[TODO] 🌿 slice of life + 📸 paparazzi scandal (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "anonymous_confession_account",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 📝 anonymous confession account (1/5)",
-        "[TODO] 🌿 slice of life + 📝 anonymous confession account (2/5)",
-        "[TODO] 🌿 slice of life + 📝 anonymous confession account (3/5)",
-        "[TODO] 🌿 slice of life + 📝 anonymous confession account (4/5)",
-        "[TODO] 🌿 slice of life + 📝 anonymous confession account (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "anonymous_admirer",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 💌 anonymous admirer (1/5)",
-        "[TODO] 🌿 slice of life + 💌 anonymous admirer (2/5)",
-        "[TODO] 🌿 slice of life + 💌 anonymous admirer (3/5)",
-        "[TODO] 🌿 slice of life + 💌 anonymous admirer (4/5)",
-        "[TODO] 🌿 slice of life + 💌 anonymous admirer (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "bet_or_dare",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🪤 bet / dare (1/5)",
-        "[TODO] 🌿 slice of life + 🪤 bet / dare (2/5)",
-        "[TODO] 🌿 slice of life + 🪤 bet / dare (3/5)",
-        "[TODO] 🌿 slice of life + 🪤 bet / dare (4/5)",
-        "[TODO] 🌿 slice of life + 🪤 bet / dare (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "only_one_bed",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🛏️ only one bed (1/5)",
-        "[TODO] 🌿 slice of life + 🛏️ only one bed (2/5)",
-        "[TODO] 🌿 slice of life + 🛏️ only one bed (3/5)",
-        "[TODO] 🌿 slice of life + 🛏️ only one bed (4/5)",
-        "[TODO] 🌿 slice of life + 🛏️ only one bed (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "slow_burn",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🫶 slow burn (1/5)",
-        "[TODO] 🌿 slice of life + 🫶 slow burn (2/5)",
-        "[TODO] 🌿 slice of life + 🫶 slow burn (3/5)",
-        "[TODO] 🌿 slice of life + 🫶 slow burn (4/5)",
-        "[TODO] 🌿 slice of life + 🫶 slow burn (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "mutual_pining",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 💞 mutual pining (1/5)",
-        "[TODO] 🌿 slice of life + 💞 mutual pining (2/5)",
-        "[TODO] 🌿 slice of life + 💞 mutual pining (3/5)",
-        "[TODO] 🌿 slice of life + 💞 mutual pining (4/5)",
-        "[TODO] 🌿 slice of life + 💞 mutual pining (5/5)"
-      ]
-    },
-    {
-      "universeId": "slice_of_life",
-      "dynamicId": "unrequited_love",
-      "summaries": [
-        "[TODO] 🌿 slice of life + 🥀 unrequited love (1/5)",
-        "[TODO] 🌿 slice of life + 🥀 unrequited love (2/5)",
-        "[TODO] 🌿 slice of life + 🥀 unrequited love (3/5)",
-        "[TODO] 🌿 slice of life + 🥀 unrequited love (4/5)",
-        "[TODO] 🌿 slice of life + 🥀 unrequited love (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "ex_to_lovers",
-      "summaries": [
-        "[TODO] 🏙️ city life + 💔 ex to lovers (1/5)",
-        "[TODO] 🏙️ city life + 💔 ex to lovers (2/5)",
-        "[TODO] 🏙️ city life + 💔 ex to lovers (3/5)",
-        "[TODO] 🏙️ city life + 💔 ex to lovers (4/5)",
-        "[TODO] 🏙️ city life + 💔 ex to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "friends_to_lovers",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🤝 friends to lovers (1/5)",
-        "[TODO] 🏙️ city life + 🤝 friends to lovers (2/5)",
-        "[TODO] 🏙️ city life + 🤝 friends to lovers (3/5)",
-        "[TODO] 🏙️ city life + 🤝 friends to lovers (4/5)",
-        "[TODO] 🏙️ city life + 🤝 friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "childhood_friends_to_lovers",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🧸 childhood friends to lovers (1/5)",
-        "[TODO] 🏙️ city life + 🧸 childhood friends to lovers (2/5)",
-        "[TODO] 🏙️ city life + 🧸 childhood friends to lovers (3/5)",
-        "[TODO] 🏙️ city life + 🧸 childhood friends to lovers (4/5)",
-        "[TODO] 🏙️ city life + 🧸 childhood friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "enemies_to_lovers",
-      "summaries": [
-        "[TODO] 🏙️ city life + ⚔️ enemies to lovers (1/5)",
-        "[TODO] 🏙️ city life + ⚔️ enemies to lovers (2/5)",
-        "[TODO] 🏙️ city life + ⚔️ enemies to lovers (3/5)",
-        "[TODO] 🏙️ city life + ⚔️ enemies to lovers (4/5)",
-        "[TODO] 🏙️ city life + ⚔️ enemies to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "fake_dating",
-      "summaries": [
-        "[TODO] 🏙️ city life + 💍 fake dating (1/5)",
-        "[TODO] 🏙️ city life + 💍 fake dating (2/5)",
-        "[TODO] 🏙️ city life + 💍 fake dating (3/5)",
-        "[TODO] 🏙️ city life + 💍 fake dating (4/5)",
-        "[TODO] 🏙️ city life + 💍 fake dating (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "arranged_marriage",
-      "summaries": [
-        "[TODO] 🏙️ city life + 📜 arranged marriage (1/5)",
-        "[TODO] 🏙️ city life + 📜 arranged marriage (2/5)",
-        "[TODO] 🏙️ city life + 📜 arranged marriage (3/5)",
-        "[TODO] 🏙️ city life + 📜 arranged marriage (4/5)",
-        "[TODO] 🏙️ city life + 📜 arranged marriage (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "coworkers",
-      "summaries": [
-        "[TODO] 🏙️ city life + 💼 coworkers (1/5)",
-        "[TODO] 🏙️ city life + 💼 coworkers (2/5)",
-        "[TODO] 🏙️ city life + 💼 coworkers (3/5)",
-        "[TODO] 🏙️ city life + 💼 coworkers (4/5)",
-        "[TODO] 🏙️ city life + 💼 coworkers (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "boss_x_employee",
-      "summaries": [
-        "[TODO] 🏙️ city life + 📊 boss x employee (1/5)",
-        "[TODO] 🏙️ city life + 📊 boss x employee (2/5)",
-        "[TODO] 🏙️ city life + 📊 boss x employee (3/5)",
-        "[TODO] 🏙️ city life + 📊 boss x employee (4/5)",
-        "[TODO] 🏙️ city life + 📊 boss x employee (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "tutor_x_student",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🎓 tutor x student (1/5)",
-        "[TODO] 🏙️ city life + 🎓 tutor x student (2/5)",
-        "[TODO] 🏙️ city life + 🎓 tutor x student (3/5)",
-        "[TODO] 🏙️ city life + 🎓 tutor x student (4/5)",
-        "[TODO] 🏙️ city life + 🎓 tutor x student (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "senior_x_junior",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🏫 senior x junior (1/5)",
-        "[TODO] 🏙️ city life + 🏫 senior x junior (2/5)",
-        "[TODO] 🏙️ city life + 🏫 senior x junior (3/5)",
-        "[TODO] 🏙️ city life + 🏫 senior x junior (4/5)",
-        "[TODO] 🏙️ city life + 🏫 senior x junior (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "prince_x_human",
-      "summaries": [
-        "[TODO] 🏙️ city life + 👑 prince x human (1/5)",
-        "[TODO] 🏙️ city life + 👑 prince x human (2/5)",
-        "[TODO] 🏙️ city life + 👑 prince x human (3/5)",
-        "[TODO] 🏙️ city life + 👑 prince x human (4/5)",
-        "[TODO] 🏙️ city life + 👑 prince x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "vampire_x_human",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🩸 vampire x human (1/5)",
-        "[TODO] 🏙️ city life + 🩸 vampire x human (2/5)",
-        "[TODO] 🏙️ city life + 🩸 vampire x human (3/5)",
-        "[TODO] 🏙️ city life + 🩸 vampire x human (4/5)",
-        "[TODO] 🏙️ city life + 🩸 vampire x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "werewolf_x_human",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🐺 werewolf x human (1/5)",
-        "[TODO] 🏙️ city life + 🐺 werewolf x human (2/5)",
-        "[TODO] 🏙️ city life + 🐺 werewolf x human (3/5)",
-        "[TODO] 🏙️ city life + 🐺 werewolf x human (4/5)",
-        "[TODO] 🏙️ city life + 🐺 werewolf x human (5/5)"
-      ]
-    },
+  {
+    "universeId": "royal_court",
+    "dynamicId": "only_one_bed",
+    "summaries": [
+      "a diplomatic tour leaves the prince and his rival sharing the last bed in a countryside manor.",
+      "a palace renovation forces the princess to share a chamber with the courtier she keeps arguing with.",
+      "two nobles stranded during a royal hunt end up sharing the only bed in a tiny hunting lodge.",
+      "a late night council meeting ends with the prince offering his bed to the one advisor still awake.",
+      "a snowstorm traps two visiting royals overnight with only one guest bed left."
+    ]
+  },
+  {
+    "universeId": "royal_court",
+    "dynamicId": "slow_burn",
+    "summaries": [
+      "years of quiet strategy meetings slowly turning into something softer between the prince and his advisor.",
+      "the princess gradually realizing the knight beside her has always been watching a little too carefully.",
+      "two courtiers spending every evening together working on politics until the silence grows comfortable.",
+      "a royal heir slowly noticing the same person always finds them in crowded halls.",
+      "the prince and his closest confidant discovering loyalty has turned into something harder to ignore."
+    ]
+  },
+  {
+    "universeId": "royal_court",
+    "dynamicId": "mutual_pining",
+    "summaries": [
+      "the prince and his guard both convinced loving the other would destroy everything.",
+      "two advisors secretly in love while both assuming the other only feels professional respect.",
+      "the princess and her knight spending years pretending the tension between them is nothing.",
+      "everyone in court certain the prince and his strategist are together except the two of them.",
+      "two nobles constantly choosing each other for missions while denying the reason."
+    ]
+  },
+  {
+    "universeId": "royal_court",
+    "dynamicId": "unrequited_love",
+    "summaries": [
+      "a knight quietly in love with the prince who trusts them but loves someone else.",
+      "the princess secretly loving the diplomat arranging her marriage to another kingdom.",
+      "a court musician writing songs about the royal heir who barely notices them.",
+      "the prince realizing the one person who loved him most has already left court.",
+      "a loyal advisor loving the monarch they serve but never daring to show it."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "ex_to_lovers",
+    "summaries": [
+      "two former lovers forced to negotiate peace when their rival crime families call a truce.",
+      "a mob boss unexpectedly runs into the partner who vanished after their last job together.",
+      "ex lovers reunited during a tense mafia alliance neither of them trusts.",
+      "the person who broke the don’s heart suddenly returns asking for protection.",
+      "two criminals with unfinished history forced into the same safehouse overnight."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "friends_to_lovers",
+    "summaries": [
+      "two mafia runners who survive every dangerous job together starting to notice the tension.",
+      "a mob boss trusting only their childhood friend with secrets no one else hears.",
+      "late night stakeouts slowly turning into conversations neither wants to end.",
+      "two partners in crime realizing they always check if the other is alive first.",
+      "a mafia heir discovering their best friend looks different after the last mission."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "childhood_friends_to_lovers",
+    "summaries": [
+      "two kids raised in the same crime family reconnecting as adults after years apart.",
+      "a mafia heir meeting the childhood friend who once promised to run away with them.",
+      "two childhood partners in crime realizing their loyalty has changed into something deeper.",
+      "a mob boss reunited with the only person who knew them before the violence.",
+      "childhood friends from rival gangs meeting again across a negotiation table."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "enemies_to_lovers",
+    "summaries": [
+      "two rival gang leaders constantly crossing paths during dangerous territory negotiations.",
+      "a mafia enforcer chasing the thief who keeps stealing from their family operations.",
+      "two criminals from opposing families stuck hiding in the same safehouse.",
+      "a mob heir forced to cooperate with the rival who nearly ruined their last deal.",
+      "a gang leader discovering the informant they are hunting is impossible to forget."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "fake_dating",
+    "summaries": [
+      "two mafia heirs pretend to date to convince rival families they are united.",
+      "a mob boss claims someone as their partner to stop enemies targeting them.",
+      "pretending to be together during a tense mafia dinner suddenly becomes believable.",
+      "two gang members fake a relationship to survive a dangerous undercover job.",
+      "a mafia heir invents a partner to avoid an arranged alliance with another family."
+    ]
+  },  {
+    "universeId": "mafia",
+    "dynamicId": "arranged_marriage",
+    "summaries": [
+      "two rival mafia families force their heirs into marriage to end a war neither of them started.",
+      "a mob boss learns they have been promised to the quiet heir of an allied crime family.",
+      "an arranged mafia marriage begins with mutual distrust and a house full of armed bodyguards.",
+      "two crime family heirs meet for the first time at the dinner announcing their engagement.",
+      "a mafia alliance demands marriage between the one heir who hates the idea and the one who planned it."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "coworkers",
+    "summaries": [
+      "two mafia operatives assigned to every dangerous job together start trusting each other too much.",
+      "partners in a crime family constantly arguing while still watching each other's backs in every fight.",
+      "two enforcers forced to share long stakeouts begin talking about things neither should admit.",
+      "a mafia courier and the bodyguard assigned to them slowly becoming inseparable on missions.",
+      "two gang members stuck handling the same territory starting to feel territorial about each other too."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "boss_x_employee",
+    "summaries": [
+      "a mafia boss realizing the one employee they trust most is dangerously easy to keep close.",
+      "the crime family's strategist trying very hard not to fall for the boss they serve.",
+      "a mob leader assigning the same person to every job because they refuse to let them out of sight.",
+      "a loyal enforcer who has followed their boss for years finally noticing the tension between them.",
+      "a mafia boss discovering their most trusted employee is the only one who talks back."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "tutor_x_student",
+    "summaries": [
+      "a young mafia heir forced to train under the most feared enforcer in the organization.",
+      "a crime boss assigns their heir a mentor who refuses to treat them like royalty.",
+      "combat lessons between a seasoned mafia fighter and the reckless heir they must train.",
+      "a reluctant mentor teaching the mob heir everything needed to survive their future.",
+      "late night training sessions between a mafia prodigy and the mentor who keeps pushing them harder."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "senior_x_junior",
+    "summaries": [
+      "a veteran mafia operative stuck training the newest recruit who refuses to listen.",
+      "the crime family's best enforcer reluctantly mentoring the reckless rookie assigned to them.",
+      "a junior gangster constantly shadowing the senior they secretly admire.",
+      "a new recruit discovering the intimidating senior watching them is strangely protective.",
+      "two mafia members paired for field work despite the senior insisting the junior is a liability."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "prince_x_human",
+    "summaries": [
+      "a crime empire heir secretly spending time with the civilian who has no idea who they are.",
+      "a mafia prince falling for the one person outside the criminal world.",
+      "a sheltered civilian discovering the charming stranger they met is heir to a crime syndicate.",
+      "a mafia heir trying to keep their normal human friend far away from their dangerous life.",
+      "a civilian accidentally saving the life of the future head of a crime family."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "vampire_x_human",
+    "summaries": [
+      "a vampire running a crime family becoming fascinated with the human who works for them.",
+      "a human courier discovering their mafia boss has been alive for centuries.",
+      "a vampire mob leader trying very hard not to treat their favorite human like prey.",
+      "a human witness dragged into a supernatural crime war after meeting a vampire gangster.",
+      "a vampire crime lord protecting the one human who knows their secret."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "werewolf_x_human",
+    "summaries": [
+      "a werewolf enforcer in a crime family assigned to guard a stubborn human witness.",
+      "a human discovering the terrifying gangster protecting them turns into a wolf at night.",
+      "a werewolf mob lieutenant unexpectedly attached to the civilian under their protection.",
+      "a human caught in mafia territory realizing the gang leader is something not entirely human.",
+      "a werewolf crime family hiding their nature while one member grows close to a human outsider."
+    ]
+  },
+  {
+    "universeId": "mafia",
+    "dynamicId": "rivals",
+    "summaries": [
+      "two rival gang heirs constantly sabotaging each other's deals while refusing to stay away.",
+      "a mafia enforcer chasing the same rival criminal through every city deal gone wrong.",
+      "two crime family successors meeting at negotiations and leaving with worse tension every time.",
+      "a gang leader realizing the rival they hate most understands them best.",
+      "two rival mafia strategists always one step ahead of each other and always meeting again."
+    ]
+  },{
+  "universeId": "mafia",
+  "dynamicId": "dumb_x_dumber",
+  "summaries": [
+    "two mafia heirs who keep getting assigned serious missions despite being the dumbest people in the room.",
+    "a crime family realizing their two most chaotic members are suspiciously inseparable lately.",
+    "two gang members constantly getting yelled at by their boss and immediately flirting about it after.",
+    "a mafia crew watching two idiots survive shootouts purely by accident and questionable teamwork.",
+    "two criminals with one shared braincell somehow becoming the most feared duo in the organization."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "smart_x_dumb",
+  "summaries": [
+    "a meticulous mafia strategist stuck cleaning up the messes of the reckless idiot they secretly like.",
+    "a crime boss assigning the most disciplined planner to babysit the crew’s biggest disaster.",
+    "a genius criminal trying to stay professional while their favorite idiot leans too close during meetings.",
+    "a careful mafia lieutenant paired with someone who keeps ruining plans and smiling about it.",
+    "a strategist who swears they hate chaos until the same chaotic gangster shows up."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "rich_x_poor",
+  "summaries": [
+    "a mafia prince fascinated with the broke mechanic who fixes their bullet-riddled cars.",
+    "a mob heir secretly hanging out with the bartender who keeps kicking them out.",
+    "a crime family's golden child obsessed with the one civilian who refuses to be impressed.",
+    "a mafia boss who keeps visiting the same tiny café just to see the owner again.",
+    "a street thief who accidentally steals from the wrong mafia heir and gets chased for weeks."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "opposites_attract",
+  "summaries": [
+    "a calm mafia strategist slowly losing their mind over the reckless fighter assigned to them.",
+    "a ruthless gang leader fascinated by the one person in their crew who laughs at them.",
+    "a quiet mob accountant constantly dragged into chaos by the loudest criminal in the room.",
+    "a careful planner realizing the chaos magnet they hate working with is impossible to avoid.",
+    "a cold mafia heir unexpectedly drawn to the warmest person in their organization."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "accidental_text",
+  "summaries": [
+    "a civilian accidentally texts a mafia phone number complaining about their terrible day.",
+    "a mob boss getting a wrong-number rant and replying out of boredom.",
+    "a mistaken message meant for a friend reaches a mafia heir who keeps answering anyway.",
+    "someone accidentally texts a gang phone and now the stranger refuses to stop talking.",
+    "a wrong number conversation slowly turning into nightly texts with a criminal."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "secret_identity",
+  "summaries": [
+    "a mafia heir living under a fake name until someone recognizes them instantly.",
+    "a crime boss pretending to be normal around the one person who must never find out.",
+    "a civilian realizing the charming stranger they like appears on a police wanted board.",
+    "a mob prince secretly dating someone who thinks they work a boring office job.",
+    "a feared enforcer who acts harmless whenever one specific person is around."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "undercover",
+  "summaries": [
+    "an undercover cop infiltrating a mafia crew and getting too close to one member.",
+    "a rival gang spy who keeps forgetting they are supposed to betray the person beside them.",
+    "an undercover agent realizing the mafia heir they were watching trusts them.",
+    "a spy embedded in a crime family slowly becoming part of it.",
+    "an undercover operation complicated by the one gangster who refuses to stay away."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "paparazzi_scandal",
+  "summaries": [
+    "a blurry paparazzi photo shows a mafia heir holding someone’s hand.",
+    "gossip blogs explode after spotting a notorious gangster with the same person again.",
+    "a leaked photo reveals the mob boss leaving a hotel with someone unexpected.",
+    "a scandal spreads online after someone recognizes a mafia prince in a viral photo.",
+    "the city's rumor mill goes wild after a gangster is caught looking suspiciously soft."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "anonymous_confession_account",
+  "summaries": [
+    "an anonymous confession account starts posting suspiciously accurate crushes inside a mafia crew.",
+    "someone keeps anonymously confessing their feelings about a certain mafia heir online.",
+    "a gang group chat panics after a confession page exposes someone’s obvious crush.",
+    "anonymous posts about two mafia members spread through the city's underground forums.",
+    "a crime family discovering someone is anonymously shipping two of their most dangerous members."
+  ]
+},{
+  "universeId": "mafia",
+  "dynamicId": "anonymous_admirer",
+  "summaries": [
+    "someone keeps leaving anonymous love notes in the mafia heir’s jacket pockets.",
+    "a feared mob boss starts receiving flowers with no name attached.",
+    "anonymous messages keep appearing on a mafia phone that only one person could have accessed.",
+    "a crime family discovers someone has been secretly leaving gifts for their most dangerous member.",
+    "the mafia prince keeps finding handwritten notes that say they were watching tonight."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "bet_or_dare",
+  "summaries": [
+    "a drunken mafia bet dares someone to flirt with the one gangster nobody dares approach.",
+    "two mobsters make a stupid bet about who can get the cold mafia heir to smile.",
+    "a gang party dare forces someone to kiss the most dangerous person in the room.",
+    "a careless bet at a mafia gathering accidentally starts something real.",
+    "someone accepts a ridiculous dare involving the mafia boss and immediately regrets it."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "only_one_bed",
+  "summaries": [
+    "a mission goes wrong and two mafia members end up hiding overnight in a motel with one bed.",
+    "a snowstorm traps two criminals in a safehouse with one bedroom and too much tension.",
+    "a long mafia job leaves them stranded in a tiny roadside motel room.",
+    "a gang hideout has plenty of guns but only one bed left.",
+    "two criminals forced to lay low together discover the safehouse only has one mattress."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "slow_burn",
+  "summaries": [
+    "years of mafia missions together slowly turning into something neither mentions.",
+    "two crime family members who always choose each other for jobs without saying why.",
+    "late night strategy meetings that last longer than necessary.",
+    "a mob boss realizing the same person is always standing beside them after every fight.",
+    "two gang members who have trusted each other for years finally noticing the tension."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "mutual_pining",
+  "summaries": [
+    "two mafia members secretly in love while both convinced the other only feels loyalty.",
+    "a mob boss and their right hand both pretending the tension between them does not exist.",
+    "two criminals constantly protecting each other while refusing to talk about it.",
+    "everyone in the crime family noticing their obvious feelings except them.",
+    "two gang members who would kill for each other but still call it friendship."
+  ]
+},
+{
+  "universeId": "mafia",
+  "dynamicId": "unrequited_love",
+  "summaries": [
+    "a mafia bodyguard quietly in love with the boss they protect.",
+    "someone watching the mafia heir fall for someone else.",
+    "a gang member realizing the person they love only trusts them as a partner in crime.",
+    "the mafia prince unaware their closest ally has loved them for years.",
+    "a criminal forced to watch the person they love walk into danger for someone else."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "ex_to_lovers",
+  "summaries": [
+    "two detectives who broke up years ago forced to work the same murder case.",
+    "a detective realizing their ex is now the lead investigator on their case.",
+    "ex partners reunited on a crime scene neither expected to share again.",
+    "two former lovers who know each other too well investigating the same suspect.",
+    "a cold case reopening forces two exes back into the same detective unit."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "friends_to_lovers",
+  "summaries": [
+    "two detectives who always get partnered together starting to notice the tension.",
+    "late night stakeouts turning into conversations neither wants to end.",
+    "partners on the force realizing they trust each other more than anyone else.",
+    "a detective noticing their partner looks at them differently after a dangerous case.",
+    "two investigators who survive too many close calls together."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "childhood_friends_to_lovers",
+  "summaries": [
+    "two childhood friends reunite as detectives working in the same precinct.",
+    "a detective discovering their new partner is the kid they used to solve mysteries with.",
+    "childhood friends meeting again while investigating the same crime.",
+    "two detectives who grew up together realizing things have changed.",
+    "a cold case from their childhood brings two friends back together as investigators."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "enemies_to_lovers",
+  "summaries": [
+    "a detective constantly clashing with the criminal profiler assigned to their case.",
+    "two investigators competing to solve the same murder first.",
+    "a detective forced to cooperate with the one officer they cannot stand.",
+    "two crime specialists arguing through every case they solve together.",
+    "a detective realizing the rival investigator understands them too well."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "fake_dating",
+  "summaries": [
+    "two detectives pretending to date to infiltrate a suspect’s social circle.",
+    "an undercover investigation requires two officers to pose as a couple.",
+    "a detective asking their partner to fake a relationship during a case.",
+    "a sting operation forcing two investigators to act like they are together.",
+    "pretending to be a couple for a case becomes suspiciously convincing."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "arranged_marriage",
+  "summaries": [
+    "two detectives forced into a fake marriage for a long undercover operation.",
+    "a police department orders two investigators to pose as a married couple for months.",
+    "an undercover assignment requires a detective to move in with their partner.",
+    "two crime investigators pretending to be spouses while tracking a suspect.",
+    "a long undercover case traps two detectives in the same house."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "coworkers",
+  "summaries": [
+    "two detectives constantly assigned to the same cases.",
+    "partners on the force who somehow survive every investigation together.",
+    "a detective unit watching two coworkers argue through every case.",
+    "two investigators who work too well together to avoid each other.",
+    "crime partners whose teamwork is suspiciously synchronized."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "boss_x_employee",
+  "summaries": [
+    "a detective captain realizing their best investigator is impossible to ignore.",
+    "an officer constantly challenging the detective who outranks them.",
+    "a police chief assigning the same detective to every important case.",
+    "a senior investigator watching their subordinate break every rule except loyalty.",
+    "a detective who refuses to treat their boss like authority."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "tutor_x_student",
+  "summaries": [
+    "a veteran detective forced to mentor the academy’s most stubborn recruit.",
+    "a rookie officer learning investigations from the most feared detective in the precinct.",
+    "late night training sessions between a detective and their trainee.",
+    "a detective assigned to train someone who refuses to listen.",
+    "a young recruit idolizing their mentor and realizing their mentor notices everything, and not only in the crime department."
+  ]
+},{
+  "universeId": "crime_detective",
+  "dynamicId": "senior_x_junior",
+  "summaries": [
+    "a rookie detective assigned to shadow the most intimidating investigator in the precinct.",
+    "a senior detective realizing their new junior refuses to be scared of them.",
+    "a rookie who keeps following the senior detective into dangerous cases anyway.",
+    "a veteran investigator forced to mentor the one junior who argues back.",
+    "a junior detective who somehow keeps impressing the senior who swore they were a mistake."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "prince_x_human",
+  "summaries": [
+    "a royal heir visiting the city keeps showing up around the detective assigned to protect them.",
+    "a detective realizing the witness they are protecting is secretly a prince.",
+    "a prince who keeps sneaking away from security just to talk to the same detective.",
+    "a bodyguard detective slowly realizing the royal they guard refuses to behave like royalty.",
+    "a detective trying very hard not to get attached to the prince in their custody."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "vampire_x_human",
+  "summaries": [
+    "a detective investigating strange murders starts suspecting their favorite witness is not human.",
+    "a vampire trying very hard to stay calm while the detective keeps asking questions.",
+    "a detective who keeps running into the same suspiciously pale stranger at every crime scene.",
+    "a vampire informant who always seems to know too much about the murders.",
+    "a detective realizing the person helping their investigation never shows up during daylight."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "werewolf_x_human",
+  "summaries": [
+    "a detective noticing their partner disappears every full moon.",
+    "a werewolf trying to solve crimes while hiding what they become at night.",
+    "a detective discovering their partner's bite marks are definitely not from a dog.",
+    "a werewolf investigator who keeps solving cases before anyone else can.",
+    "a detective who slowly realizes their partner can smell lies."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "rivals",
+  "summaries": [
+    "two detectives constantly competing to solve the same case first.",
+    "a private investigator and a police detective forced to share the same investigation.",
+    "two rival investigators who somehow keep showing up at the same crime scenes.",
+    "a detective who cannot stand the profiler assigned to their case.",
+    "two crime solvers who argue through every case but never stop working together."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "dumb_x_dumber",
+  "summaries": [
+    "two detectives who somehow solve crimes despite making terrible decisions.",
+    "a precinct realizing their most chaotic detectives still have the highest case closure rate.",
+    "two investigators who argue about everything except their loyalty to each other.",
+    "a detective duo famous for breaking rules and somehow getting results.",
+    "two detectives who share exactly one braincell but still catch criminals."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "smart_x_dumb",
+  "summaries": [
+    "a genius detective stuck partnered with the most reckless officer in the precinct.",
+    "a brilliant investigator constantly cleaning up their partner’s chaotic crime scene tactics.",
+    "a careful detective paired with someone who trusts pure instinct.",
+    "a strategist detective losing patience with the partner who keeps ignoring plans.",
+    "a smart detective discovering the one reckless partner they cannot stop trusting."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "rich_x_poor",
+  "summaries": [
+    "a wealthy private investigator teaming up with a broke detective who hates their methods.",
+    "a rich heir turned detective paired with someone who grew up on the streets.",
+    "a private investigator with unlimited resources working with a struggling officer.",
+    "a rich consultant constantly clashing with the detective assigned to them.",
+    "a detective realizing their rich informant is much harder to ignore than expected."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "opposites_attract",
+  "summaries": [
+    "a calm forensic analyst constantly dragged into chaos by the loudest detective in the precinct.",
+    "a rule-following investigator partnered with someone who breaks every protocol.",
+    "a quiet detective paired with the most dramatic officer on the force.",
+    "a careful analyst working with a detective who solves crimes through pure instinct.",
+    "a detective realizing the one person who drives them insane is also the one they trust."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "accidental_text",
+  "summaries": [
+    "someone accidentally texts a detective complaining about a crime they witnessed.",
+    "a wrong number text turns into a conversation with a detective on a case.",
+    "a detective receiving a message meant for someone else about suspicious activity.",
+    "a mistaken text that slowly becomes nightly conversations with the same detective.",
+    "a stranger accidentally texting the number of the detective investigating them."
+  ]
+},{
+  "universeId": "crime_detective",
+  "dynamicId": "secret_identity",
+  "summaries": [
+    "a detective slowly realizing the charming civilian they keep seeing is the criminal they’re hunting.",
+    "a vigilante secretly helping police investigations while hiding their identity from the detective they like.",
+    "a detective falling for the mysterious informant who refuses to show their face.",
+    "two investigators unknowingly chasing each other across different identities online and offline.",
+    "a detective discovering the person they trust most has been hiding a second life."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "undercover",
+  "summaries": [
+    "two detectives forced to pretend to be a couple while infiltrating a suspect’s social circle.",
+    "an undercover officer trying not to get attached to the partner who thinks the act is real.",
+    "a detective infiltrating a criminal group only to find another undercover agent already there.",
+    "an undercover mission where pretending to flirt becomes suspiciously convincing.",
+    "two investigators maintaining a fake relationship for a case that refuses to end."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "paparazzi_scandal",
+  "summaries": [
+    "a detective becomes the center of online gossip after paparazzi catch them leaving a suspect’s apartment.",
+    "a viral photo shows a detective holding hands with someone connected to their case.",
+    "a scandal breaks when paparazzi capture a late-night meeting between a detective and a suspect.",
+    "the city's gossip pages explode after spotting the same detective with the same mysterious person again.",
+    "a blurry paparazzi photo sparks rumors about a detective’s suspicious relationship."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "anonymous_confession_account",
+  "summaries": [
+    "an anonymous campus confession page starts posting suspiciously detailed rumors about two detectives.",
+    "someone keeps submitting anonymous confessions about their crush on a certain investigator.",
+    "a precinct group chat panics after a confession account exposes someone's obvious feelings.",
+    "an online confession page keeps shipping two detectives who insist they hate each other.",
+    "anonymous posts about a detective’s secret crush start spreading through the department."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "anonymous_admirer",
+  "summaries": [
+    "a detective keeps finding anonymous notes tucked into their case files.",
+    "someone begins leaving coffee and unsigned messages on a detective’s desk every morning.",
+    "a mysterious admirer keeps sending clues that only help one specific detective.",
+    "a detective starts receiving flowers with no name attached at the precinct.",
+    "an anonymous admirer who clearly knows the detective’s cases better than anyone else."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "bet_or_dare",
+  "summaries": [
+    "a precinct bet dares someone to ask out the most intimidating detective in the department.",
+    "two officers make a bet about who can get the stoic investigator to smile first.",
+    "a ridiculous dare during a detective party accidentally starts something real.",
+    "someone accepts a bet to flirt with their rival investigator during a case briefing.",
+    "a late-night precinct game leads to a dare involving the one detective nobody approaches."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "only_one_bed",
+  "summaries": [
+    "two detectives stuck overnight in a remote motel during a case discover there is only one bed.",
+    "a stakeout turns into an overnight stay in a tiny safehouse with one mattress.",
+    "a storm traps two investigators in a cabin while tracking a suspect.",
+    "an undercover assignment leaves two detectives sharing the same hotel room unexpectedly.",
+    "a case in a small town forces two partners to share the last room available."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "slow_burn",
+  "summaries": [
+    "two detectives working cases together for years slowly realizing their partnership means more.",
+    "late-night stakeouts and shared coffee gradually becoming something harder to ignore.",
+    "two investigators who always pick each other as partners without ever explaining why.",
+    "a detective realizing the same person is always beside them after every case.",
+    "a partnership built on trust slowly turning into something neither talks about."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "mutual_pining",
+  "summaries": [
+    "two detectives secretly in love while both convinced the other only sees them as a partner.",
+    "a stoic investigator and their partner both pretending the tension between them is professional.",
+    "everyone in the precinct noticing their chemistry except the two detectives themselves.",
+    "two partners constantly risking their lives for each other but still calling it friendship.",
+    "two investigators who would cross every line for each other but never confess why."
+  ]
+},
+{
+  "universeId": "crime_detective",
+  "dynamicId": "unrequited_love",
+  "summaries": [
+    "a detective quietly in love with the partner who only trusts them as a friend.",
+    "someone watching the detective they love fall for someone else on the force.",
+    "a rookie realizing their feelings for their partner will never be returned.",
+    "a detective protecting the person they love even though they will never know.",
+    "someone forced to watch their partner build a life with someone else."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "ex_to_lovers",
+  "summaries": [
+    "two exes forced into the same group project while rumors about them explode online.",
+    "a school gossip page keeps posting about two students who insist they broke up for good.",
+    "exes who cannot avoid each other after the entire school starts shipping them again.",
+    "a leaked photo forces two exes back into the same spotlight.",
+    "two former couples pretending they do not care while the gossip account posts about them daily."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "friends_to_lovers",
+  "summaries": [
+    "two best friends suddenly the main topic of the school’s gossip page.",
+    "a gossip account starts shipping two friends who insist they are just classmates.",
+    "two students who always sit together becoming suspiciously interesting to the rumor mill.",
+    "a gossip blog posting photos of the same two friends everywhere on campus.",
+    "two friends realizing the entire school thinks they are already dating."
+  ]
+},{
+  "universeId": "gossip_school",
+  "dynamicId": "childhood_friends_to_lovers",
+  "summaries": [
+    "two childhood best friends suddenly becoming the school's favorite gossip page ship.",
+    "a gossip account posting old childhood photos of two students who insist they are just friends.",
+    "childhood friends realizing everyone at school thinks they are secretly dating.",
+    "a rumor spreads that the inseparable childhood duo finally confessed.",
+    "two lifelong friends panicking when the gossip page posts 'they are obviously in love'."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "enemies_to_lovers",
+  "summaries": [
+    "two students constantly fighting suddenly trending on the gossip page as a couple.",
+    "a gossip account documenting every argument between two rivals like it is romantic tension.",
+    "two enemies forced into the same project while rumors about them explode online.",
+    "the entire school waiting for two academic rivals to finally kiss instead of argue.",
+    "two students who swear they hate each other becoming the gossip page's favorite storyline."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "fake_dating",
+  "summaries": [
+    "two students pretend to date just to confuse the school gossip account.",
+    "a fake relationship started to stop rumors somehow making the gossip page worse.",
+    "two classmates staging a romance so the gossip blog stops shipping them with other people.",
+    "a fake couple situation that quickly becomes the school's biggest rumor.",
+    "two students pretending to date for a bet while the gossip page tracks every moment."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "arranged_marriage",
+  "summaries": [
+    "a gossip account claims two rich students have been promised to each other since childhood.",
+    "rumors spread that two elite families expect their kids to marry someday.",
+    "the gossip page insists two students are in a secret arranged relationship.",
+    "two classmates joking about their parents wanting them to marry becomes a school rumor.",
+    "a viral post claiming two students are 'basically engaged already'."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "coworkers",
+  "summaries": [
+    "two students working together on the school gossip blog slowly becoming the next rumor.",
+    "a gossip account admin and the student trying to expose them constantly crossing paths.",
+    "two classmates forced to run the school news page together.",
+    "two club officers working late every night while rumors about them spread.",
+    "two students managing the school's biggest gossip account together."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "boss_x_employee",
+  "summaries": [
+    "the editor of the gossip blog constantly assigning stories to the same student reporter.",
+    "a school gossip account admin ordering their assistant to investigate rumors together.",
+    "a club president who keeps giving the same student special responsibilities.",
+    "the gossip blog leader and the student who keeps challenging them.",
+    "a school page admin realizing the one person helping them is hard to ignore."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "tutor_x_student",
+  "summaries": [
+    "a tutor helping the same student every week while the gossip page starts rumors.",
+    "a top student assigned to tutor the one person constantly trending on the gossip blog.",
+    "late night study sessions that somehow become the school's next rumor.",
+    "a tutor realizing their student is the main character of the gossip account.",
+    "two students meeting for tutoring sessions the gossip page refuses to ignore."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "senior_x_junior",
+  "summaries": [
+    "a senior student constantly rescuing the same junior from school rumors.",
+    "a junior who keeps getting mentioned on the gossip page with the same senior.",
+    "a senior mentoring the junior everyone thinks they are secretly dating.",
+    "a gossip account obsessed with pairing a senior and a junior together.",
+    "a junior discovering the senior who keeps helping them is trending online."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "prince_x_human",
+  "summaries": [
+    "a rumored royal transfer student becoming the school's biggest gossip topic.",
+    "a gossip account claiming the quiet new student is secretly a prince.",
+    "a student discovering their mysterious classmate comes from a royal family.",
+    "the gossip page tracking every appearance of the rumored royal at school.",
+    "a prince attending school anonymously while rumors spread about them."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "vampire_x_human",
+  "summaries": [
+    "the gossip page convinced the pale new student is secretly a vampire.",
+    "rumors spread about the mysterious student who never appears in daylight events.",
+    "a student noticing their classmate never eats in the cafeteria.",
+    "the gossip blog obsessed with the 'vampire student' theory.",
+    "a mysterious student becoming the center of supernatural rumors online."
+  ]
+},{
+  "universeId": "gossip_school",
+  "dynamicId": "werewolf_x_human",
+  "summaries": [
+    "the gossip page starts a rumor that the quiet transfer student is secretly a werewolf.",
+    "someone keeps posting blurry photos of a student disappearing into the woods after school.",
+    "a student realizes their classmate always vanishes during full moon parties.",
+    "the gossip account becomes obsessed with the theory that one student is not human.",
+    "a human student discovering their mysterious classmate might actually turn into a wolf."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "rivals",
+  "summaries": [
+    "two top students constantly fighting in class become the gossip page's favorite ship.",
+    "academic rivals whose arguments keep trending on the school rumor account.",
+    "two student leaders competing for everything while the gossip page posts about them daily.",
+    "a gossip blog documenting every fight between two rivals like a love story.",
+    "two students who swear they hate each other becoming the school's most talked about duo."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "dumb_x_dumber",
+  "summaries": [
+    "two chaotic students accidentally becoming the main characters of the gossip page.",
+    "the gossip account obsessed with documenting two idiots causing trouble together.",
+    "two students constantly trending online for the dumbest reasons imaginable.",
+    "the entire school watching two chaotic best friends fail spectacularly at everything.",
+    "two students whose bad decisions somehow become the school's daily entertainment."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "smart_x_dumb",
+  "summaries": [
+    "the top student constantly cleaning up the chaos caused by their favorite idiot.",
+    "a genius student paired with the most chaotic person in class for a semester project.",
+    "the gossip page obsessed with the smart student who keeps hanging out with a disaster.",
+    "a straight-A student slowly losing patience with the class clown they cannot avoid.",
+    "the smartest student in school constantly dragged into chaos by one specific person."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "rich_x_poor",
+  "summaries": [
+    "a rich student becoming fascinated with the one classmate who refuses to care.",
+    "the gossip page obsessed with pairing the richest kid in school with the poorest.",
+    "a wealthy student secretly spending time with someone completely outside their circle.",
+    "two students from opposite social groups suddenly trending together online.",
+    "rumors spreading about the rich student who keeps showing up at the same small café."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "opposites_attract",
+  "summaries": [
+    "the quiet honor student constantly paired with the loudest troublemaker in school.",
+    "the gossip page documenting every interaction between two students who should not get along.",
+    "a shy student constantly dragged into chaos by the most outgoing person in class.",
+    "two complete opposites becoming the school's newest rumor topic.",
+    "a calm student realizing the chaotic one keeps showing up everywhere."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "accidental_text",
+  "summaries": [
+    "a student accidentally texts a stranger about school gossip and keeps talking anyway.",
+    "a wrong number message turns into late night conversations between two students.",
+    "someone sends a rant about school rumors to the wrong contact.",
+    "a mistaken message leads to texting the same mysterious student every night.",
+    "a wrong number conversation that slowly becomes the best part of someone's day."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "secret_identity",
+  "summaries": [
+    "a student discovers their classmate is secretly running the school's gossip page.",
+    "the gossip account admin hiding their identity from the one person getting close to them.",
+    "a student falling for someone who is secretly the anonymous rumor poster.",
+    "someone trying to expose the gossip blog without realizing their crush runs it.",
+    "two students unknowingly arguing online while meeting every day at school."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "undercover",
+  "summaries": [
+    "a student pretending to be someone else online to infiltrate the school gossip account.",
+    "two students secretly investigating who runs the rumor page.",
+    "someone going undercover in a club just to find the source of the school's gossip.",
+    "a student pretending to join the gossip blog team to figure out who started the rumors.",
+    "an undercover investigation inside the student body to expose the anonymous gossip admin."
+  ]
+},{
+  "universeId": "gossip_school",
+  "dynamicId": "paparazzi_scandal",
+  "summaries": [
+    "a blurry photo of two students leaving a party together suddenly appears on the school gossip page.",
+    "the rumor account posts a zoomed-in picture of someone holding hands in the hallway.",
+    "a late night photo of two students outside a convenience store sends the entire school into detective mode.",
+    "someone secretly photographs two students laughing together after hours and uploads it online.",
+    "the gossip blog posts a mysterious photo of two silhouettes on the rooftop and everyone starts guessing."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "anonymous_confession_account",
+  "summaries": [
+    "a new confession page starts posting suspiciously specific crush confessions about two students.",
+    "the anonymous confession account keeps posting about the same two people and the school notices.",
+    "someone submits a confession describing a crush so precisely everyone knows who it is.",
+    "the confession page suddenly becomes obsessed with one particular pair of students.",
+    "a series of anonymous posts about someone's crush slowly turns into a school-wide investigation."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "anonymous_admirer",
+  "summaries": [
+    "a student starts receiving anonymous notes that somehow know too much about their day.",
+    "someone keeps leaving small gifts in a student's locker with no name attached.",
+    "an anonymous account starts liking every single post from one specific student.",
+    "mysterious messages keep appearing in a student's locker signed only with a heart.",
+    "a student realizes someone has been quietly watching and admiring them for months."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "bet_or_dare",
+  "summaries": [
+    "a stupid group chat bet dares someone to flirt with the one student everyone fears.",
+    "a dare during a party forces someone to ask out their academic rival.",
+    "someone accepts a ridiculous bet that involves pretending to date a classmate.",
+    "a harmless dare to text a crush spirals into something real.",
+    "a party game challenge accidentally starts a school-wide rumor about two students."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "only_one_bed",
+  "summaries": [
+    "a school trip hotel mix-up leaves two students stuck sharing the only bed in the room.",
+    "during a class trip the hotel runs out of rooms and two rivals get the last one.",
+    "a storm forces two classmates to stay overnight in a tiny cabin with one bed.",
+    "a sleepover disaster means two students end up sharing the only mattress.",
+    "a school camping trip leaves two students arguing over the only sleeping bag."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "slow_burn",
+  "summaries": [
+    "two students who sit next to each other every year slowly becoming inseparable.",
+    "a rivalry that slowly turns into long conversations after school.",
+    "two classmates who start as strangers gradually becoming the person they look for first.",
+    "a quiet friendship that everyone else notices turning into something more.",
+    "two students realizing they have been orbiting each other for years."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "mutual_pining",
+  "summaries": [
+    "two students secretly liking each other while assuming the feeling is one sided.",
+    "two people constantly flirting but convinced the other is joking.",
+    "everyone at school realizing two students like each other except them.",
+    "two classmates hopelessly crushing on each other while pretending nothing is happening.",
+    "two students carefully hiding their feelings while their friends watch the chaos."
+  ]
+},
+{
+  "universeId": "gossip_school",
+  "dynamicId": "unrequited_love",
+  "summaries": [
+    "a student hopelessly in love with someone who thinks they are just friends.",
+    "someone secretly writing about their crush in the school confession page.",
+    "a quiet crush that everyone notices except the person it is about.",
+    "a student trying to get over someone they see every day in class.",
+    "someone pretending to be fine while their crush dates someone else."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "ex_to_lovers",
+  "summaries": [
+    "two exes forced to work the same shift at a café again.",
+    "running into an ex at the same convenience store every night.",
+    "two people who broke up years ago suddenly living in the same apartment building.",
+    "exes accidentally joining the same friend group again.",
+    "two former lovers rediscovering each other in the most ordinary moments."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "friends_to_lovers",
+  "summaries": [
+    "two best friends realizing their daily routines revolve around each other.",
+    "friends who start holding hands without noticing when it started.",
+    "a friendship slowly turning into something softer and impossible to ignore.",
+    "two roommates discovering their comfortable life together might be more than friendship.",
+    "best friends realizing everyone else already assumed they were dating."
+  ]
+},{
+  "universeId": "slice_of_life",
+  "dynamicId": "childhood_friends_to_lovers",
+  "summaries": [
+    "childhood best friends who used to promise to marry each other at eight suddenly reunite at a wedding where someone asks why they never did.",
+    "two childhood neighbors who haven't spoken in years are forced to share a train ride across the country.",
+    "someone finds the old 'marriage contract' they wrote as kids and jokingly sends a photo of it to the other person.",
+    "childhood best friends accidentally renting the same apartment unit without realizing the other applied too.",
+    "two people who used to walk home together every day meet again when one of them moves back to town."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "enemies_to_lovers",
+  "summaries": [
+    "two neighbors who constantly file noise complaints against each other get trapped in the same elevator for hours.",
+    "coworkers who hate each other are forced to pretend to be a happy couple during a company retreat game.",
+    "two people who have been arguing online for months realize they just matched on a dating app.",
+    "a long running argument about the last parking spot in the building turns into a ridiculous rivalry.",
+    "two baristas who cannot stand each other are scheduled on the same shift every single week."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "fake_dating",
+  "summaries": [
+    "someone hires a fake date for a family wedding and accidentally chooses their ex's best friend.",
+    "two friends pretend to date to get a discount at a couples resort their friends booked.",
+    "someone asks a stranger to pretend to be their partner so their ex stops bothering them.",
+    "two coworkers fake date for office gossip reasons and suddenly become the office's favorite couple.",
+    "a fake dating agreement written on a napkin at 2am slowly becoming suspiciously real."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "arranged_marriage",
+  "summaries": [
+    "two strangers agree to marry for visa reasons and discover they actually like living together.",
+    "families arrange a marriage between two people who secretly start a group chat complaining about it together.",
+    "an arranged marriage that begins with a very awkward first meeting at a café.",
+    "two people marrying for inheritance reasons who both expect the other to be unbearable.",
+    "an arranged marriage contract that slowly becomes a very domestic routine."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "coworkers",
+  "summaries": [
+    "two coworkers stuck closing the store every night slowly learning everything about each other.",
+    "coworkers competing for the same promotion while accidentally becoming best friends.",
+    "two people who share a tiny office slowly developing an entire routine together.",
+    "coworkers who only talk during lunch breaks realizing those breaks are the best part of their day.",
+    "two coworkers constantly mistaken for a couple by customers."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "boss_x_employee",
+  "summaries": [
+    "an employee accidentally drunk texting their boss about how attractive they are.",
+    "a boss discovering their favorite employee is secretly running a meme account about the office.",
+    "late night project deadlines turning into pizza and personal conversations.",
+    "a boss who keeps inventing reasons to call one employee into their office.",
+    "an employee realizing their intimidating boss becomes awkward around them."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "tutor_x_student",
+  "summaries": [
+    "a tutoring session that keeps getting extended because neither of them wants to leave.",
+    "a tutor discovering their student only signed up for lessons to spend time with them.",
+    "study sessions in a café slowly turning into weekly hangouts.",
+    "a tutor watching their worst student improve dramatically because they finally started trying.",
+    "two people who start studying together out of desperation before exams."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "senior_x_junior",
+  "summaries": [
+    "a senior student unofficially adopting a chaotic junior who keeps showing up everywhere.",
+    "a junior constantly asking the same senior for advice until it becomes routine.",
+    "a senior mentoring someone who reminds them too much of their younger self.",
+    "a junior who keeps bribing their senior with coffee to help them survive the semester.",
+    "a senior realizing they enjoy spending time with the one junior who annoys them."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "prince_x_human",
+  "summaries": [
+    "a prince secretly working part time at a café to experience normal life.",
+    "a royal heir escaping a formal event and meeting someone who has no idea who they are.",
+    "a prince befriending someone who constantly complains about the royal family.",
+    "a royal hiding their identity while enjoying ordinary city life.",
+    "a prince fascinated by someone who refuses to treat them like royalty."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "vampire_x_human",
+  "summaries": [
+    "someone moves into an apartment building and realizes their neighbor only leaves the house after sunset.",
+    "a human discovering their roommate has an entire fridge full of blood bags labeled like juice cartons.",
+    "a vampire accidentally signing up for a university blood drive and panicking when they realize what the event is.",
+    "someone noticing the same person has been working the night shift at the convenience store for decades.",
+    "a human realizing their friend refuses to enter any restaurant that has mirrors on the walls."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "werewolf_x_human",
+  "summaries": [
+    "a human roommate realizing their apartment mysteriously gets destroyed once every full moon.",
+    "someone noticing their neighbor suddenly becomes extremely sick and disappears for one night every month.",
+    "a werewolf desperately trying to cancel plans every full moon while their friend keeps insisting on hanging out.",
+    "a human discovering their friend has a hidden emergency bag labeled 'full moon supplies'.",
+    "someone realizing their dog is weirdly obsessed with one specific person in the neighborhood."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "rivals",
+  "summaries": [
+    "two neighbors turning their shared apartment hallway into a silent competition over who decorates it better.",
+    "two gym rivals who keep increasing the treadmill speed every time the other looks away.",
+    "two coworkers secretly trying to outdo each other's coffee orders every morning.",
+    "two people in a cooking class constantly sabotaging each other's dishes in petty ways.",
+    "two rival gamers forced onto the same team during a tournament."
+  ]
+},{
+  "universeId": "slice_of_life",
+  "dynamicId": "dumb_x_dumber",
+  "summaries": [
+    "two best friends pretending to be each other's fake dates at a wedding and immediately getting way too into the bit.",
+    "two idiots trying to bake cookies at 2am, setting off the fire alarm, and meeting the cute neighbor who comes to check on them. except they both think they like the cute neighbor when they actually like each other.",
+    "two friends who keep accidentally flirting while arguing about who ruined the group trip itinerary.",
+    "two chaotic roommates deciding to start a 'self improvement month' and failing spectacularly within the first day.",
+    "two disaster friends getting locked inside a supermarket overnight and treating it like the best date of their lives."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "smart_x_dumb",
+  "summaries": [
+    "an extremely organized person trying to plan a perfect road trip while their chaotic best friend keeps turning it into a disaster.",
+    "a tutor who swore they wouldn't get emotionally involved slowly losing their composure over their ridiculously charming student.",
+    "someone with their entire life scheduled falling for the one person who refuses to follow any plan.",
+    "a responsible roommate constantly rescuing the same reckless idiot and realizing they secretly enjoy it.",
+    "a genius strategist watching their favorite disaster flirt their way out of every problem."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "rich_x_poor",
+  "summaries": [
+    "a ridiculously rich heir becoming a regular at a tiny café just to see the barista who keeps roasting them.",
+    "someone from a wealthy family secretly escaping fancy parties to hang out at a cheap diner with the same person every night.",
+    "a broke artist discovering the stranger who keeps buying their paintings is absurdly rich.",
+    "a rich heir trying to live on a normal budget and constantly asking their broke friend for survival tips.",
+    "someone rich enough to have everything becoming obsessed with the one person who refuses to be impressed."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "opposites_attract",
+  "summaries": [
+    "a chaotic extrovert deciding the quietest person in the room is their new favorite project.",
+    "a neat freak slowly losing their mind over the extremely messy roommate they cannot stop thinking about.",
+    "someone who hates leaving the house befriending someone who drags them on midnight adventures.",
+    "a quiet bookstore employee constantly getting distracted by the loud regular customer who flirts with them.",
+    "two people with completely opposite personalities accidentally becoming each other's comfort person."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "accidental_text",
+  "summaries": [
+    "someone sending a dramatic rant about their terrible date to the wrong number and the stranger asking how it ended.",
+    "a wrong number text turning into late night conversations neither of them wants to stop.",
+    "someone accidentally texting their grocery list to a stranger and continuing the conversation anyway.",
+    "a drunk message sent to the wrong contact starting a daily texting routine.",
+    "two strangers realizing they have been texting the wrong person for months but neither wants to correct the mistake."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "secret_identity",
+  "summaries": [
+    "someone discovering their quiet coworker secretly runs the internet's most chaotic meme account.",
+    "a mysterious neighbor who disappears every weekend and refuses to explain where they go.",
+    "a person living a completely normal life while secretly being wildly famous online.",
+    "someone realizing the anonymous artist they admire is actually their best friend.",
+    "a secret hobby slowly becoming impossible to hide from the one person always around."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "undercover",
+  "summaries": [
+    "someone pretending to join a hobby club just to spend more time with one specific person.",
+    "a journalist going undercover at a workplace and developing a crush on a coworker.",
+    "someone secretly investigating their building and getting distracted by the cute neighbor.",
+    "a person pretending to be a customer every day just to flirt with the same barista.",
+    "someone keeping up a fake identity for a project until the feelings stop being fake."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "paparazzi_scandal",
+  "summaries": [
+    "a blurry photo of two people leaving a late night restaurant together suddenly going viral.",
+    "someone waking up to discover a random paparazzi photo of them hugging their friend trending online.",
+    "a gossip blog insisting two people are secretly dating after a single photo goes viral.",
+    "a harmless party picture turning into a ridiculous online scandal overnight.",
+    "two friends pretending not to care that the internet has decided they are a couple."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "anonymous_confession_account",
+  "summaries": [
+    "a campus confession page posting suspiciously specific messages about two people who definitely recognize themselves.",
+    "someone discovering the anonymous confession account keeps describing their crush perfectly.",
+    "a confession post so detailed the entire friend group knows who it is about.",
+    "two friends panicking because the confession page keeps shipping them.",
+    "someone becoming obsessed with figuring out who keeps anonymously confessing their feelings online."
+  ]
+},{
+  "universeId": "slice_of_life",
+  "dynamicId": "anonymous_admirer",
+  "summaries": [
+    "someone keeps finding their favorite snack on their desk every morning with no note attached.",
+    "a barista noticing that the same mysterious customer always pays for their coffee before they arrive.",
+    "someone receiving anonymous playlists that perfectly match their mood every week.",
+    "a student finding sticky notes in their books with small compliments written in messy handwriting.",
+    "someone realizing the anonymous flowers left at their door always arrive on the worst days."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "bet_or_dare",
+  "summaries": [
+    "someone losing a bet and being forced to ask out the one person they absolutely cannot flirt with.",
+    "a group dare turning into chaos when someone actually goes through with confessing to their crush.",
+    "someone jokingly betting they could get a stranger’s number in ten minutes and immediately regretting it.",
+    "a party game dare forcing someone to kiss the person they have secretly liked for years.",
+    "a stupid bet about pretending to date for a week becoming much harder to stop than expected."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "only_one_bed",
+  "summaries": [
+    "two friends arriving at a tiny vacation rental and realizing the host definitely exaggerated the sleeping arrangements.",
+    "a last minute road trip ending with two people sharing the only bed in a sketchy roadside motel.",
+    "two coworkers stranded overnight after a storm and the only couch barely fits one person.",
+    "a sleepover turning awkward when the air mattress deflates halfway through the night.",
+    "two people arguing over who should take the bed until someone suggests they both stop being dramatic."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "slow_burn",
+  "summaries": [
+    "two strangers who keep running into each other on the same morning train every day.",
+    "neighbors who start leaving each other small favors in the hallway without ever saying much.",
+    "two people who begin as awkward coworkers and slowly become the first person the other texts.",
+    "a friendship built on late night conversations that neither of them expected to mean so much.",
+    "two regulars at the same café who start timing their visits to see each other."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "mutual_pining",
+  "summaries": [
+    "two friends who constantly flirt but panic the moment anyone asks if they are serious.",
+    "everyone in the group chat knowing two people like each other except the two involved.",
+    "two roommates both asking their friends for advice about the same person.",
+    "two people convinced their crush would never feel the same way.",
+    "two best friends carefully avoiding the topic of feelings while acting like a couple anyway."
+  ]
+},
+{
+  "universeId": "slice_of_life",
+  "dynamicId": "unrequited_love",
+  "summaries": [
+    "someone pretending to be happy about their crush’s new relationship while quietly breaking inside.",
+    "a person writing unsent messages to someone they know will never love them back.",
+    "someone trying to move on while seeing the person they love every single day.",
+    "a quiet crush that lasts years because confessing would ruin everything.",
+    "someone slowly realizing the person they adore will never notice them the same way."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "ex_to_lovers",
+  "summaries": [
+    "two exes who swore they would never speak again accidentally moving into the same apartment building.",
+    "running into an ex during a midnight grocery run and discovering the conversation isn’t finished.",
+    "two former lovers forced to work together again on a city project they both care about.",
+    "exes who keep crossing paths in the same tiny neighborhood they thought was big enough to avoid each other.",
+    "two people who broke up years ago realizing the feelings never actually disappeared."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "friends_to_lovers",
+  "summaries": [
+    "two friends exploring the city together every weekend until people start assuming they are dating.",
+    "best friends who share an apartment and slowly realize they cannot imagine living without each other.",
+    "a friendship built on midnight walks through the city turning into something softer.",
+    "two friends who keep joking about dating until the joke stops feeling like one.",
+    "a long friendship suddenly feeling different after someone casually holds the other’s hand."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "childhood_friends_to_lovers",
+  "summaries": [
+    "two childhood neighbors unexpectedly reconnecting when one moves back to the city.",
+    "best friends from years ago bumping into each other on a crowded subway platform.",
+    "two people rediscovering the old park where they used to spend their summers together.",
+    "childhood friends meeting again as adults and realizing how much they changed.",
+    "two people who grew up together noticing the city feels different when they are reunited."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "enemies_to_lovers",
+  "summaries": [
+    "two neighbors constantly fighting over noise complaints in a thin-walled apartment building.",
+    "two rival food truck owners competing for the same corner every day.",
+    "a taxi driver and a cyclist who keep arguing during the same commute route.",
+    "two coworkers who cannot stand each other getting stuck together during a city blackout.",
+    "two people who clash every time they meet slowly realizing the tension feels different."
+  ]
+},{
+  "universeId": "city_life",
+  "dynamicId": "fake_dating",
+  "summaries": [
+    "someone asking a stranger in a crowded café to pretend to be their partner when their ex suddenly walks in.",
+    "two neighbors agreeing to fake date so their landlord stops assuming they’re secretly together anyway.",
+    "someone hiring a fake date for a very public charity gala and realizing halfway through the night they are having too much fun.",
+    "two coworkers pretending to be a couple during a work retreat and accidentally convincing the entire office.",
+    "a fake dating agreement meant to make someone jealous slowly turning into late night texts and real dates."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "arranged_marriage",
+  "summaries": [
+    "two strangers meeting for the first time in a lawyer’s office to discuss the marriage their families already agreed to.",
+    "an arranged marriage that begins with two people quietly complaining about the situation over takeout.",
+    "two people marrying for inheritance reasons and discovering they unexpectedly enjoy living together.",
+    "an arranged marriage contract that starts as a practical deal and slowly becomes a routine life together in the city.",
+    "two people meeting on their wedding day with absolutely no idea what the other is like."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "coworkers",
+  "summaries": [
+    "two coworkers constantly getting stuck closing the office together long after everyone else leaves.",
+    "two baristas working opposite shifts who only see each other during the chaotic morning handover.",
+    "coworkers competing over promotions but always ending up sharing lunch breaks anyway.",
+    "two employees who swear they dislike each other but keep saving seats for one another during meetings.",
+    "two coworkers discovering they live in the same building after months of awkward elevator rides."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "boss_x_employee",
+  "summaries": [
+    "an employee accidentally sending a very personal late night message to their boss instead of a friend.",
+    "a boss who insists on personally mentoring one specific employee for every new project.",
+    "late night deadlines turning into shared pizza and conversations neither of them expected.",
+    "an employee realizing their intimidating boss becomes strangely soft around them.",
+    "a boss who keeps inventing meetings that suspiciously involve only one employee."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "tutor_x_student",
+  "summaries": [
+    "a tutoring session in a noisy café that turns into hours of talking long after the studying ends.",
+    "a tutor discovering their worst student only signed up because they enjoy the company.",
+    "late night exam prep slowly becoming the highlight of both their weeks.",
+    "a tutor watching their student improve dramatically after months of frustration.",
+    "two people who begin meeting for lessons and end up exploring the city afterward."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "senior_x_junior",
+  "summaries": [
+    "a senior employee unofficially adopting the most chaotic new hire in the office.",
+    "a junior constantly asking the same senior for advice until it becomes part of their daily routine.",
+    "a mentorship that slowly turns into late night coffee runs after work.",
+    "a senior who pretends to be annoyed but always waits for the junior to finish work before leaving.",
+    "a junior realizing the person they admire most keeps quietly looking out for them."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "prince_x_human",
+  "summaries": [
+    "a prince secretly wandering the city alone for a day and meeting someone who treats him like anyone else.",
+    "a royal heir escaping a formal event and hiding in a tiny late night diner.",
+    "a prince fascinated by the person who keeps complaining about the royal family to his face.",
+    "a royal trying to experience normal life in the city and meeting someone who refuses to be impressed.",
+    "a prince pretending to be an ordinary tourist and unexpectedly enjoying the company of one stranger."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "vampire_x_human",
+  "summaries": [
+    "a human noticing the same mysterious person working the night shift at the corner store every night.",
+    "a vampire trying to survive city life without anyone noticing they never show up during the day.",
+    "a human realizing their new roommate has a fridge full of blood bags labeled like juice cartons.",
+    "a vampire accidentally befriending the one person who keeps inviting them to daytime events.",
+    "someone noticing their friend never appears in mirrors around the apartment."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "werewolf_x_human",
+  "summaries": [
+    "a human realizing their neighbor disappears every full moon night without explanation.",
+    "a werewolf desperately trying to cancel plans once a month while their friend keeps insisting on hanging out.",
+    "someone noticing their roommate always comes back home covered in dirt after certain nights.",
+    "a human discovering a mysterious emergency kit labeled 'full moon supplies' hidden in the apartment.",
+    "a werewolf trying to keep distance from the one person who keeps inviting them on camping trips."
+  ]
+},
     {
       "universeId": "city_life",
       "dynamicId": "rivals",

@@ -19,7 +19,17 @@ function buildCommands() {
         .setRequired(false)
     );
 
-  return [generate];
+  const drop = new SlashCommandBuilder()
+    .setName('drop')
+    .setDescription('Share a Feedverse scenario invite code')
+    .addStringOption((opt) =>
+      opt
+        .setName('invite_code')
+        .setDescription('Scenario invite code (e.g. KPOP2024)')
+        .setRequired(true)
+    );
+
+  return [generate, drop];
 }
 
 module.exports = { buildCommands };
