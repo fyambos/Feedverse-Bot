@@ -175,31 +175,74 @@ function trunc(text, max) {
   return s.slice(0, Math.max(0, max - 1)).trimEnd() + '…';
 }
 
-function buildFavoritesPageMessage({ au, items, cursorBeforeId, nextBeforeId, selectedId, mode }) {
+function encodeCursorBase36(n) {
+  if (n == null) return '0';
+  const v = Number(n);
+  if (!Number.isFinite(v) || v <= 0) return '0';
+  return Math.floor(v).toString(36);
+}
+
+function decodeCursorBase36(raw) {
+  const s = typeof raw === 'string' ? raw.trim().toLowerCase() : '';
+  if (!s || s === '0') return 0;
+  const v = parseInt(s, 36);
+  if (!Number.isFinite(v) || v < 0) return 0;
+  return v;
+}
+
+function encodeCursorHistory(list) {
+  const arr = Array.isArray(list) ? list : [];
+  const out = [];
+  for (const n of arr) {
+    const v = Number(n);
+    if (!Number.isFinite(v) || v < 0) continue;
+    out.push(encodeCursorBase36(v));
+  }
+  // Bound size so customId stays under Discord limits.
+  const MAX = 12;
+  const trimmed = out.length > MAX ? out.slice(out.length - MAX) : out;
+  return trimmed.length ? trimmed.join('.') : '-';
+}
+
+function decodeCursorHistory(raw) {
+  const s = typeof raw === 'string' ? raw.trim() : '';
+  if (!s || s === '-') return [];
+  return s
+    .split('.')
+    .map((p) => decodeCursorBase36(p))
+    .filter((n) => Number.isFinite(n) && n >= 0);
+}
+
+function buildFavoritesPageMessage({ au, items, cursorBeforeId, nextBeforeId, selectedId, mode, history }) {
   const safeItems = Array.isArray(items) ? items.filter((x) => x && typeof x === 'object') : [];
-  const cursor = cursorBeforeId != null ? String(cursorBeforeId) : '0';
+  const cursorEnc = encodeCursorBase36(cursorBeforeId);
+  const histEnc = encodeCursorHistory(history);
   const sel = selectedId != null ? String(selectedId) : null;
   const pageMode = mode === 'confirm' ? 'confirm' : 'normal';
-
-  const listLines = [];
-  for (let i = 0; i < safeItems.length; i++) {
-    const it = safeItems[i];
-    const settingId = it.settingId != null ? String(it.settingId) : null;
-    const dynamicId = it.dynamicId != null ? String(it.dynamicId) : null;
-    const meta =
-      settingId || dynamicId
-        ? (settingId ? formatUniverseLabel(au, settingId) : 'unknown') + ' + ' + (dynamicId ? formatDynamicLabel(au, dynamicId) : 'unknown')
-        : 'unknown';
-    const prefix = sel && String(it.id) === sel ? '→ ' : '';
-    listLines.push(prefix + String(i + 1) + '. ' + meta);
-  }
 
   const selected = sel ? safeItems.find((x) => x && String(x.id) === sel) : null;
   const selectedPrompt = selected && selected.promptText != null ? String(selected.promptText) : null;
 
   const embed = new EmbedBuilder()
     .setTitle('Your favorites')
-    .setDescription(listLines.length ? listLines.join('\n') : 'No favorites yet.');
+    .setDescription(safeItems.length ? 'Showing 10 favorites.' : 'No favorites yet.');
+
+  if (safeItems.length) {
+    const maxEach = 300;
+    for (let i = 0; i < safeItems.length; i++) {
+      const it = safeItems[i];
+      const settingId = it.settingId != null ? String(it.settingId) : null;
+      const dynamicId = it.dynamicId != null ? String(it.dynamicId) : null;
+      const meta =
+        settingId || dynamicId
+          ? (settingId ? formatUniverseLabel(au, settingId) : 'unknown') + ' + ' + (dynamicId ? formatDynamicLabel(au, dynamicId) : 'unknown')
+          : 'unknown';
+      const promptText = it.promptText != null ? String(it.promptText) : '';
+      const prefix = sel && String(it.id) === sel ? '→ ' : '';
+      const value = '```\n' + trunc(promptText, maxEach) + '\n```';
+      embed.addFields({ name: prefix + '#' + String(i + 1) + ' ' + trunc(meta, 200), value });
+    }
+  }
 
   if (selectedPrompt) {
     // Keep it copyable; constrain to Discord limits.
@@ -216,8 +259,8 @@ function buildFavoritesPageMessage({ au, items, cursorBeforeId, nextBeforeId, se
   }
 
   const select = new StringSelectMenuBuilder()
-    .setCustomId('fav:pick:' + cursor)
-    .setPlaceholder('Select a favorite…')
+    .setCustomId('fav:pick:' + cursorEnc + ':' + histEnc)
+    .setPlaceholder('Select to remove…')
     .setMinValues(1)
     .setMaxValues(1)
     .setDisabled(pageMode === 'confirm');
@@ -253,31 +296,39 @@ function buildFavoritesPageMessage({ au, items, cursorBeforeId, nextBeforeId, se
   const removeIdPart = sel ? sel : 'none';
 
   const row1 = new ActionRowBuilder().addComponents(select);
+  const hasPrev = Array.isArray(history) && history.length > 0;
   const row2 =
     pageMode === 'confirm'
       ? new ActionRowBuilder().addComponents(
           new ButtonBuilder()
-            .setCustomId('fav:confirm:' + removeIdPart + ':' + cursor)
+            .setCustomId('fav:confirm:' + removeIdPart + ':' + cursorEnc + ':' + histEnc)
             .setStyle(ButtonStyle.Danger)
             .setLabel('Confirm remove')
             .setDisabled(removeDisabled),
           new ButtonBuilder()
-            .setCustomId('fav:cancel:' + removeIdPart + ':' + cursor)
+            .setCustomId('fav:cancel:' + removeIdPart + ':' + cursorEnc + ':' + histEnc)
             .setStyle(ButtonStyle.Secondary)
             .setLabel('Cancel')
         )
       : new ActionRowBuilder().addComponents(
           new ButtonBuilder()
-            .setCustomId('fav:rm:' + removeIdPart + ':' + cursor)
+            .setCustomId('fav:rm:' + removeIdPart + ':' + cursorEnc + ':' + histEnc)
             .setStyle(ButtonStyle.Danger)
             .setLabel('Remove')
             .setDisabled(removeDisabled),
-          new ButtonBuilder().setCustomId('fav:refresh:0').setStyle(ButtonStyle.Secondary).setLabel('Refresh'),
           new ButtonBuilder()
-            .setCustomId('fav:next:' + (nextBeforeId != null ? String(nextBeforeId) : 'none'))
+            .setCustomId('fav:prev:' + cursorEnc + ':' + histEnc)
+            .setStyle(ButtonStyle.Secondary)
+            .setLabel('Prev')
+            .setDisabled(!hasPrev),
+          new ButtonBuilder()
+            .setCustomId(
+              'fav:next:' + (nextBeforeId != null ? encodeCursorBase36(nextBeforeId) : '0') + ':' + cursorEnc + ':' + histEnc
+            )
             .setStyle(ButtonStyle.Secondary)
             .setLabel('Next')
-            .setDisabled(nextBeforeId == null)
+            .setDisabled(nextBeforeId == null),
+          new ButtonBuilder().setCustomId('fav:refresh:0').setStyle(ButtonStyle.Secondary).setLabel('Refresh')
         );
 
   return { embeds: [embed], components: [row1, row2] };
@@ -1113,9 +1164,12 @@ async function main() {
         const id = String(interaction.customId || '');
         if (!id.startsWith('fav:pick:')) return;
 
-        const cursor = id.split(':')[2] || '0';
+        const cursorEnc = id.split(':')[2] || '0';
+        const histEnc = id.split(':')[3] || '-';
         const picked = Array.isArray(interaction.values) && interaction.values[0] ? String(interaction.values[0]) : null;
-        const beforeId = cursor && cursor !== '0' ? Number(cursor) : null;
+        const beforeIdNum = decodeCursorBase36(cursorEnc);
+        const beforeId = beforeIdNum > 0 ? beforeIdNum : null;
+        const history = decodeCursorHistory(histEnc);
 
         const page = await fetchFavoritesPage(interaction.user.id, { beforeId, limit: 10 });
         if (!page.ok) {
@@ -1130,7 +1184,8 @@ async function main() {
           cursorBeforeId: beforeId,
           nextBeforeId: page.json.nextBeforeId,
           selectedId: picked,
-          mode: 'normal'
+          mode: 'normal',
+          history
         });
         await interaction.update({ embeds: msg.embeds, components: msg.components });
         return;
@@ -1157,17 +1212,25 @@ async function main() {
               cursorBeforeId: null,
               nextBeforeId,
               selectedId: null,
-              mode: 'normal'
+              mode: 'normal',
+              history: []
             });
             await interaction.update({ embeds: msg.embeds, components: msg.components });
             return;
           }
 
           if (action === 'next') {
-            const cursor = parts[2] || 'none';
-            if (!cursor || cursor === 'none') return;
+            const nextEnc = parts[2] || '0';
+            const cursorEnc = parts[3] || '0';
+            const histEnc = parts[4] || '-';
 
-            const beforeId = Number(cursor);
+            const nextCursorBeforeId = decodeCursorBase36(nextEnc);
+            if (!nextCursorBeforeId) return;
+            const currentBeforeId = decodeCursorBase36(cursorEnc);
+            const history = decodeCursorHistory(histEnc);
+            const newHistory = history.concat([currentBeforeId]);
+
+            const beforeId = nextCursorBeforeId > 0 ? nextCursorBeforeId : null;
             const page = await fetchFavoritesPage(interaction.user.id, { beforeId, limit: 10 });
             if (!page.ok) {
               await interaction.reply({ content: 'Error loading favorites: ' + page.error, ephemeral: interaction.inGuild() });
@@ -1175,25 +1238,58 @@ async function main() {
             }
 
             const items = page.json.items;
-            const nextBeforeId = page.json.nextBeforeId;
             const msg = buildFavoritesPageMessage({
               au,
               items,
               cursorBeforeId: beforeId,
-              nextBeforeId,
+              nextBeforeId: page.json.nextBeforeId,
               selectedId: null,
-              mode: 'normal'
+              mode: 'normal',
+              history: newHistory
             });
+            await interaction.update({ embeds: msg.embeds, components: msg.components });
+            return;
+          }
+
+          if (action === 'prev') {
+            const cursorEnc = parts[2] || '0';
+            const histEnc = parts[3] || '-';
+
+            const history = decodeCursorHistory(histEnc);
+            if (history.length === 0) return;
+            const prevBeforeId = history[history.length - 1];
+            const newHistory = history.slice(0, Math.max(0, history.length - 1));
+
+            const beforeId = prevBeforeId > 0 ? prevBeforeId : null;
+            const page = await fetchFavoritesPage(interaction.user.id, { beforeId, limit: 10 });
+            if (!page.ok) {
+              await interaction.reply({ content: 'Error loading favorites: ' + page.error, ephemeral: interaction.inGuild() });
+              return;
+            }
+
+            const msg = buildFavoritesPageMessage({
+              au,
+              items: page.json.items,
+              cursorBeforeId: beforeId,
+              nextBeforeId: page.json.nextBeforeId,
+              selectedId: null,
+              mode: 'normal',
+              history: newHistory
+            });
+
             await interaction.update({ embeds: msg.embeds, components: msg.components });
             return;
           }
 
           if (action === 'rm') {
             const favId = parts[2] || 'none';
-            const cursor = parts[3] || '0';
+            const cursorEnc = parts[3] || '0';
+            const histEnc = parts[4] || '-';
             if (!favId || favId === 'none') return;
 
-            const beforeId = cursor && cursor !== '0' ? Number(cursor) : null;
+            const beforeIdNum = decodeCursorBase36(cursorEnc);
+            const beforeId = beforeIdNum > 0 ? beforeIdNum : null;
+            const history = decodeCursorHistory(histEnc);
             const page = await fetchFavoritesPage(interaction.user.id, { beforeId, limit: 10 });
             if (!page.ok) {
               await interaction.reply({ content: 'Error loading favorites: ' + page.error, ephemeral: interaction.inGuild() });
@@ -1206,7 +1302,8 @@ async function main() {
               cursorBeforeId: beforeId,
               nextBeforeId: page.json.nextBeforeId,
               selectedId: favId,
-              mode: 'confirm'
+              mode: 'confirm',
+              history
             });
 
             await interaction.update({
@@ -1219,7 +1316,8 @@ async function main() {
 
           if (action === 'confirm') {
             const favId = parts[2] || 'none';
-            const cursor = parts[3] || '0';
+            const cursorEnc = parts[3] || '0';
+            const histEnc = parts[4] || '-';
             if (!favId || favId === 'none') return;
 
             const del = await botApiPostJson('/v1/au/favorites/delete', {
@@ -1235,7 +1333,9 @@ async function main() {
               return;
             }
 
-            const beforeId = cursor && cursor !== '0' ? Number(cursor) : null;
+            const beforeIdNum = decodeCursorBase36(cursorEnc);
+            const beforeId = beforeIdNum > 0 ? beforeIdNum : null;
+            const history = decodeCursorHistory(histEnc);
             const page = await fetchFavoritesPage(interaction.user.id, { beforeId, limit: 10 });
             if (!page.ok) {
               await interaction.update({ content: 'Removed, but failed to reload list: ' + page.error, components: [] });
@@ -1250,7 +1350,8 @@ async function main() {
               cursorBeforeId: beforeId,
               nextBeforeId,
               selectedId: null,
-              mode: 'normal'
+              mode: 'normal',
+              history
             });
 
             await interaction.update({ content: null, embeds: msg.embeds, components: msg.components });
@@ -1259,9 +1360,12 @@ async function main() {
 
           if (action === 'cancel') {
             const favId = parts[2] || 'none';
-            const cursor = parts[3] || '0';
+            const cursorEnc = parts[3] || '0';
+            const histEnc = parts[4] || '-';
 
-            const beforeId = cursor && cursor !== '0' ? Number(cursor) : null;
+            const beforeIdNum = decodeCursorBase36(cursorEnc);
+            const beforeId = beforeIdNum > 0 ? beforeIdNum : null;
+            const history = decodeCursorHistory(histEnc);
             const page = await fetchFavoritesPage(interaction.user.id, { beforeId, limit: 10 });
             if (!page.ok) {
               await interaction.update({ content: 'Error loading favorites: ' + page.error, components: [] });
@@ -1274,7 +1378,8 @@ async function main() {
               cursorBeforeId: beforeId,
               nextBeforeId: page.json.nextBeforeId,
               selectedId: favId !== 'none' ? favId : null,
-              mode: 'normal'
+              mode: 'normal',
+              history
             });
 
             await interaction.update({ content: null, embeds: msg.embeds, components: msg.components });
@@ -1646,7 +1751,8 @@ async function main() {
           cursorBeforeId: null,
           nextBeforeId: r.json.nextBeforeId,
           selectedId: null,
-          mode: 'normal'
+          mode: 'normal',
+          history: []
         });
         await interaction.reply({
           embeds: msg.embeds,
