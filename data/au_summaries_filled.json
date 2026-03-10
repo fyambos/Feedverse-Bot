@@ -5676,117 +5676,116 @@
     "a prince sneaks out of security detail to wander the hospital at night and keeps finding the same human on break in the stairwell.",
     "a royal recovering in secret at a city hospital becoming obsessed with the one person who never bows, flatters, or asks questions."
   ]
+},{
+  "universeId": "hospital_medical",
+  "dynamicId": "vampire_x_human",
+  "summaries": [
+    "a human night nurse realizes the new trauma surgeon never casts a reflection in the stainless-steel instrument trays.",
+    "someone working the blood bank notices a certain doctor keeps requesting expired bags no one else would ever need.",
+    "a human resident discovers the mysterious patient who survived impossible injuries refuses to be treated during daylight hours.",
+    "a vampire doctor assigned to the night shift keeps saving patients in ways that don’t make medical sense.",
+    "a human intern becomes suspicious when their favorite attending never eats, never sleeps, and never appears before sunset."
+  ]
 },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "vampire_x_human",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🩸 vampire x human (1/5)",
-        "[TODO] 🏥 hospital / medical + 🩸 vampire x human (2/5)",
-        "[TODO] 🏥 hospital / medical + 🩸 vampire x human (3/5)",
-        "[TODO] 🏥 hospital / medical + 🩸 vampire x human (4/5)",
-        "[TODO] 🏥 hospital / medical + 🩸 vampire x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "werewolf_x_human",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🐺 werewolf x human (1/5)",
-        "[TODO] 🏥 hospital / medical + 🐺 werewolf x human (2/5)",
-        "[TODO] 🏥 hospital / medical + 🐺 werewolf x human (3/5)",
-        "[TODO] 🏥 hospital / medical + 🐺 werewolf x human (4/5)",
-        "[TODO] 🏥 hospital / medical + 🐺 werewolf x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "rivals",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 😈 rivals (1/5)",
-        "[TODO] 🏥 hospital / medical + 😈 rivals (2/5)",
-        "[TODO] 🏥 hospital / medical + 😈 rivals (3/5)",
-        "[TODO] 🏥 hospital / medical + 😈 rivals (4/5)",
-        "[TODO] 🏥 hospital / medical + 😈 rivals (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "dumb_x_dumber",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🤪 dumb x dumber (1/5)",
-        "[TODO] 🏥 hospital / medical + 🤪 dumb x dumber (2/5)",
-        "[TODO] 🏥 hospital / medical + 🤪 dumb x dumber (3/5)",
-        "[TODO] 🏥 hospital / medical + 🤪 dumb x dumber (4/5)",
-        "[TODO] 🏥 hospital / medical + 🤪 dumb x dumber (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "smart_x_dumb",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🧠 smart x dumb (1/5)",
-        "[TODO] 🏥 hospital / medical + 🧠 smart x dumb (2/5)",
-        "[TODO] 🏥 hospital / medical + 🧠 smart x dumb (3/5)",
-        "[TODO] 🏥 hospital / medical + 🧠 smart x dumb (4/5)",
-        "[TODO] 🏥 hospital / medical + 🧠 smart x dumb (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "rich_x_poor",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 💰 rich x poor (1/5)",
-        "[TODO] 🏥 hospital / medical + 💰 rich x poor (2/5)",
-        "[TODO] 🏥 hospital / medical + 💰 rich x poor (3/5)",
-        "[TODO] 🏥 hospital / medical + 💰 rich x poor (4/5)",
-        "[TODO] 🏥 hospital / medical + 💰 rich x poor (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "opposites_attract",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🔥 opposites attract (1/5)",
-        "[TODO] 🏥 hospital / medical + 🔥 opposites attract (2/5)",
-        "[TODO] 🏥 hospital / medical + 🔥 opposites attract (3/5)",
-        "[TODO] 🏥 hospital / medical + 🔥 opposites attract (4/5)",
-        "[TODO] 🏥 hospital / medical + 🔥 opposites attract (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "accidental_text",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 📱 accidental text (1/5)",
-        "[TODO] 🏥 hospital / medical + 📱 accidental text (2/5)",
-        "[TODO] 🏥 hospital / medical + 📱 accidental text (3/5)",
-        "[TODO] 🏥 hospital / medical + 📱 accidental text (4/5)",
-        "[TODO] 🏥 hospital / medical + 📱 accidental text (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "secret_identity",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🫢 secret identity (1/5)",
-        "[TODO] 🏥 hospital / medical + 🫢 secret identity (2/5)",
-        "[TODO] 🏥 hospital / medical + 🫢 secret identity (3/5)",
-        "[TODO] 🏥 hospital / medical + 🫢 secret identity (4/5)",
-        "[TODO] 🏥 hospital / medical + 🫢 secret identity (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "undercover",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🕶️ undercover (1/5)",
-        "[TODO] 🏥 hospital / medical + 🕶️ undercover (2/5)",
-        "[TODO] 🏥 hospital / medical + 🕶️ undercover (3/5)",
-        "[TODO] 🏥 hospital / medical + 🕶️ undercover (4/5)",
-        "[TODO] 🏥 hospital / medical + 🕶️ undercover (5/5)"
-      ]
-    },
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "werewolf_x_human",
+  "summaries": [
+    "a human doctor realizes their coworker mysteriously calls in sick every full moon and always returns with fresh injuries.",
+    "a paramedic keeps bringing in the same patient every month with strange bite marks and zero memory of what happened.",
+    "someone working the emergency department notices their favorite nurse can smell incoming seizures before any machine detects them.",
+    "a human resident discovers the hospital quietly prepares for one very strange night every month.",
+    "a doctor assigned to a rural clinic slowly realizes why the staff call it the full-moon ward."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "rivals",
+  "summaries": [
+    "two surgeons competing for the same fellowship keep stealing each other’s most impressive cases.",
+    "two residents constantly arguing over diagnoses until the entire hospital starts placing bets on their fights.",
+    "a trauma surgeon and an ER doctor who hate each other keep being forced into the same emergency cases.",
+    "two medical prodigies trying to outdo each other during rounds until the competition becomes personal.",
+    "two doctors determined to prove the other wrong accidentally becoming the most effective team in the hospital."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "dumb_x_dumber",
+  "summaries": [
+    "two exhausted interns trying to survive night shift with caffeine, chaos, and very questionable decision-making.",
+    "the two most chaotic residents somehow keep saving patients despite breaking every hospital rule.",
+    "two coworkers who definitely should not be on the same shift keep covering for each other’s mistakes.",
+    "two interns getting trapped in the on-call room overnight and deciding that counts as bonding.",
+    "two doctors who absolutely share one brain cell somehow becoming the hospital’s favorite disaster duo."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "smart_x_dumb",
+  "summaries": [
+    "the hospital’s most brilliant diagnostician constantly cleaning up after the same reckless resident.",
+    "a genius surgeon paired with the most chaotic ER doctor in the building.",
+    "someone with perfect grades and perfect discipline assigned to mentor the one intern who never reads instructions.",
+    "a meticulous resident slowly losing their mind over their charming but reckless partner.",
+    "the smartest doctor in the department constantly rescuing the same idiot who somehow keeps being right."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "rich_x_poor",
+  "summaries": [
+    "the heir to the hospital foundation becoming obsessed with the broke resident who sleeps in the call room.",
+    "a wealthy patient keeps finding excuses to visit the clinic where the same doctor works.",
+    "someone from a powerful medical dynasty falling for the nurse working three jobs to stay in school.",
+    "a rich hospital board member secretly volunteering shifts just to see one specific staff member.",
+    "a privileged surgeon meeting the one person in the hospital completely unimpressed by their reputation."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "opposites_attract",
+  "summaries": [
+    "the hospital’s calmest surgeon constantly paired with the loudest ER doctor on staff.",
+    "a rule-following resident working with the most chaotic paramedic in the city.",
+    "a quiet doctor who hates conversation getting stuck with a coworker who talks to every patient for ten minutes.",
+    "two doctors with completely opposite bedside manners somehow forming the best medical team.",
+    "a perfectionist surgeon slowly falling for the one nurse who refuses to be intimidated."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "accidental_text",
+  "summaries": [
+    "a resident accidentally sends a dramatic rant about their attending directly to that attending.",
+    "someone texts 'i think i’m in love with the ER doctor' to the hospital group chat instead of their best friend.",
+    "a nurse forwards a patient update to the wrong number and starts a midnight conversation with a stranger.",
+    "someone tries to complain about their coworker and accidentally messages the coworker themselves.",
+    "a wrong-number text during night shift turns into daily conversations between two hospital workers."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "secret_identity",
+  "summaries": [
+    "the quiet resident nobody notices is secretly the heir to the hospital that employs them.",
+    "a beloved doctor hiding the fact that they lost their license years ago under another name.",
+    "someone discovers their coworker is actually the anonymous donor funding half the hospital.",
+    "the mysterious new surgeon has a reputation nobody in the hospital recognizes yet.",
+    "a doctor with a spotless record hiding a past scandal that could destroy their career."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "undercover",
+  "summaries": [
+    "an investigative journalist goes undercover as hospital staff to expose corruption in the department.",
+    "a detective posing as a patient to investigate suspicious medical deaths.",
+    "someone secretly infiltrates the residency program to uncover illegal experiments happening in the hospital.",
+    "an undercover inspector joins the hospital to investigate malpractice rumors.",
+    "a government investigator working night shifts while secretly building a case against the hospital."
+  ]
+},
     {
       "universeId": "hospital_medical",
       "dynamicId": "paparazzi_scandal",
