@@ -10,6 +10,8 @@ const {
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
+  StringSelectMenuBuilder,
+  StringSelectMenuOptionBuilder,
   EmbedBuilder,
   Events,
   GatewayIntentBits,
@@ -167,54 +169,130 @@ function computePromptKey({ settingId, dynamicId, promptText }) {
   return createHash('sha256').update(s + '\n' + d + '\n' + p, 'utf8').digest('hex');
 }
 
-function buildFavoritesView({ au, items, limit }) {
+function trunc(text, max) {
+  const s = typeof text === 'string' ? text : '';
+  if (s.length <= max) return s;
+  return s.slice(0, Math.max(0, max - 1)).trimEnd() + '…';
+}
+
+function buildFavoritesPageMessage({ au, items, cursorBeforeId, nextBeforeId, selectedId, mode }) {
   const safeItems = Array.isArray(items) ? items.filter((x) => x && typeof x === 'object') : [];
-  const shown = safeItems.slice(0, Math.max(1, Math.min(Number(limit || 10), 25)));
+  const cursor = cursorBeforeId != null ? String(cursorBeforeId) : '0';
+  const sel = selectedId != null ? String(selectedId) : null;
+  const pageMode = mode === 'confirm' ? 'confirm' : 'normal';
 
-  const lines = [];
-  lines.push('Your favorites (latest first):');
-  if (safeItems.length > shown.length) lines.push('(showing latest ' + String(shown.length) + ' of ' + String(safeItems.length) + ')');
-  lines.push('');
-
-  const buttons = [];
-  for (let i = 0; i < shown.length; i++) {
-    const it = shown[i];
-    const id = it.id != null ? String(it.id) : '';
+  const listLines = [];
+  for (let i = 0; i < safeItems.length; i++) {
+    const it = safeItems[i];
     const settingId = it.settingId != null ? String(it.settingId) : null;
     const dynamicId = it.dynamicId != null ? String(it.dynamicId) : null;
-    const promptText = it.promptText != null ? String(it.promptText) : '';
-
     const meta =
       settingId || dynamicId
         ? (settingId ? formatUniverseLabel(au, settingId) : 'unknown') + ' + ' + (dynamicId ? formatDynamicLabel(au, dynamicId) : 'unknown')
-        : null;
-
-    const block = [];
-    if (meta) block.push(meta);
-    block.push(promptText.length > 500 ? promptText.slice(0, 497) + '…' : promptText);
-    lines.push(String(i + 1) + '. ' + block.join('\n'));
-    lines.push('');
-
-    if (id) {
-      buttons.push(
-        new ButtonBuilder()
-          .setCustomId('fav:rm:' + id)
-          .setStyle(ButtonStyle.Danger)
-          .setEmoji('❌')
-          .setLabel(String(i + 1))
-      );
-    }
+        : 'unknown';
+    const prefix = sel && String(it.id) === sel ? '→ ' : '';
+    listLines.push(prefix + String(i + 1) + '. ' + meta);
   }
 
-  const components = [];
-  for (let i = 0; i < buttons.length; i += 5) {
-    const row = new ActionRowBuilder().addComponents(buttons.slice(i, i + 5));
-    components.push(row);
-    if (components.length >= 5) break;
+  const selected = sel ? safeItems.find((x) => x && String(x.id) === sel) : null;
+  const selectedPrompt = selected && selected.promptText != null ? String(selected.promptText) : null;
+
+  const embed = new EmbedBuilder()
+    .setTitle('Your favorites')
+    .setDescription(listLines.length ? listLines.join('\n') : 'No favorites yet.');
+
+  if (selectedPrompt) {
+    // Keep it copyable; constrain to Discord limits.
+    const maxPrompt = 1800;
+    const promptBlock = '```\n' + trunc(selectedPrompt, maxPrompt) + '\n```';
+    embed.addFields({ name: 'Selected', value: promptBlock });
   }
 
-  const content = lines.join('\n').trim();
-  return { content: content.length > 1900 ? content.slice(0, 1897) + '…' : content, components };
+  if (safeItems.length === 0) {
+    const row = new ActionRowBuilder().addComponents(
+      new ButtonBuilder().setCustomId('fav:refresh:0').setStyle(ButtonStyle.Secondary).setLabel('Refresh')
+    );
+    return { embeds: [embed], components: [row] };
+  }
+
+  const select = new StringSelectMenuBuilder()
+    .setCustomId('fav:pick:' + cursor)
+    .setPlaceholder('Select a favorite…')
+    .setMinValues(1)
+    .setMaxValues(1)
+    .setDisabled(pageMode === 'confirm');
+
+  const opts = safeItems
+    .slice(0, 25)
+    .filter((it) => it && it.id != null && String(it.id))
+    .map((it, idx) => {
+    const id = String(it.id);
+    const settingId = it.settingId != null ? String(it.settingId) : null;
+    const dynamicId = it.dynamicId != null ? String(it.dynamicId) : null;
+    const meta =
+      settingId || dynamicId
+        ? (settingId ? formatUniverseLabel(au, settingId) : 'unknown') + ' + ' + (dynamicId ? formatDynamicLabel(au, dynamicId) : 'unknown')
+        : 'unknown';
+    const promptText = it.promptText != null ? String(it.promptText) : '';
+    return new StringSelectMenuOptionBuilder()
+      .setLabel(trunc(String(idx + 1) + '. ' + meta, 100))
+      .setDescription(trunc(promptText.replace(/[\r\n\t]+/g, ' ').replace(/\s{2,}/g, ' ').trim(), 100) || ' ') // description cannot be empty
+      .setValue(id);
+  });
+
+  if (opts.length === 0) {
+    const row = new ActionRowBuilder().addComponents(
+      new ButtonBuilder().setCustomId('fav:refresh:0').setStyle(ButtonStyle.Secondary).setLabel('Refresh')
+    );
+    return { embeds: [embed], components: [row] };
+  }
+
+  select.addOptions(opts);
+
+  const removeDisabled = !sel;
+  const removeIdPart = sel ? sel : 'none';
+
+  const row1 = new ActionRowBuilder().addComponents(select);
+  const row2 =
+    pageMode === 'confirm'
+      ? new ActionRowBuilder().addComponents(
+          new ButtonBuilder()
+            .setCustomId('fav:confirm:' + removeIdPart + ':' + cursor)
+            .setStyle(ButtonStyle.Danger)
+            .setLabel('Confirm remove')
+            .setDisabled(removeDisabled),
+          new ButtonBuilder()
+            .setCustomId('fav:cancel:' + removeIdPart + ':' + cursor)
+            .setStyle(ButtonStyle.Secondary)
+            .setLabel('Cancel')
+        )
+      : new ActionRowBuilder().addComponents(
+          new ButtonBuilder()
+            .setCustomId('fav:rm:' + removeIdPart + ':' + cursor)
+            .setStyle(ButtonStyle.Danger)
+            .setLabel('Remove')
+            .setDisabled(removeDisabled),
+          new ButtonBuilder().setCustomId('fav:refresh:0').setStyle(ButtonStyle.Secondary).setLabel('Refresh'),
+          new ButtonBuilder()
+            .setCustomId('fav:next:' + (nextBeforeId != null ? String(nextBeforeId) : 'none'))
+            .setStyle(ButtonStyle.Secondary)
+            .setLabel('Next')
+            .setDisabled(nextBeforeId == null)
+        );
+
+  return { embeds: [embed], components: [row1, row2] };
+}
+
+async function fetchFavoritesPage(userId, { beforeId, limit }) {
+  const qs = [];
+  qs.push('userDiscordUserId=' + encodeURIComponent(String(userId)));
+  qs.push('limit=' + encodeURIComponent(String(limit || 10)));
+  if (beforeId != null) qs.push('beforeId=' + encodeURIComponent(String(beforeId)));
+  const r = await botApiGetJson('/v1/au/favorites?' + qs.join('&'));
+  if (!r.ok) return r;
+  const items = r.json && Array.isArray(r.json.items) ? r.json.items : [];
+  const nextBeforeId = r.json && r.json.nextBeforeId != null ? Number(r.json.nextBeforeId) : null;
+  return { ok: true, status: r.status, json: { items, nextBeforeId } };
 }
 
 const UUID_LIKE_REGEX = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
@@ -1031,35 +1109,118 @@ async function main() {
         return;
       }
 
+      if (interaction.isStringSelectMenu()) {
+        const id = String(interaction.customId || '');
+        if (!id.startsWith('fav:pick:')) return;
+
+        const cursor = id.split(':')[2] || '0';
+        const picked = Array.isArray(interaction.values) && interaction.values[0] ? String(interaction.values[0]) : null;
+        const beforeId = cursor && cursor !== '0' ? Number(cursor) : null;
+
+        const page = await fetchFavoritesPage(interaction.user.id, { beforeId, limit: 10 });
+        if (!page.ok) {
+          await interaction.reply({ content: 'Error loading favorites: ' + page.error, ephemeral: interaction.inGuild() });
+          return;
+        }
+
+        const items = page.json.items;
+        const msg = buildFavoritesPageMessage({
+          au,
+          items,
+          cursorBeforeId: beforeId,
+          nextBeforeId: page.json.nextBeforeId,
+          selectedId: picked,
+          mode: 'normal'
+        });
+        await interaction.update({ embeds: msg.embeds, components: msg.components });
+        return;
+      }
+
       if (interaction.isButton()) {
         const id = String(interaction.customId || '');
         if (id.startsWith('fav:')) {
           const parts = id.split(':');
           const action = parts[1] || '';
 
+          if (action === 'refresh') {
+            const page = await fetchFavoritesPage(interaction.user.id, { beforeId: null, limit: 10 });
+            if (!page.ok) {
+              await interaction.reply({ content: 'Error loading favorites: ' + page.error, ephemeral: interaction.inGuild() });
+              return;
+            }
+
+            const items = page.json.items;
+            const nextBeforeId = page.json.nextBeforeId;
+            const msg = buildFavoritesPageMessage({
+              au,
+              items,
+              cursorBeforeId: null,
+              nextBeforeId,
+              selectedId: null,
+              mode: 'normal'
+            });
+            await interaction.update({ embeds: msg.embeds, components: msg.components });
+            return;
+          }
+
+          if (action === 'next') {
+            const cursor = parts[2] || 'none';
+            if (!cursor || cursor === 'none') return;
+
+            const beforeId = Number(cursor);
+            const page = await fetchFavoritesPage(interaction.user.id, { beforeId, limit: 10 });
+            if (!page.ok) {
+              await interaction.reply({ content: 'Error loading favorites: ' + page.error, ephemeral: interaction.inGuild() });
+              return;
+            }
+
+            const items = page.json.items;
+            const nextBeforeId = page.json.nextBeforeId;
+            const msg = buildFavoritesPageMessage({
+              au,
+              items,
+              cursorBeforeId: beforeId,
+              nextBeforeId,
+              selectedId: null,
+              mode: 'normal'
+            });
+            await interaction.update({ embeds: msg.embeds, components: msg.components });
+            return;
+          }
+
           if (action === 'rm') {
-            const favId = parts[2] || '';
-            if (!favId) return;
+            const favId = parts[2] || 'none';
+            const cursor = parts[3] || '0';
+            if (!favId || favId === 'none') return;
 
-            const confirmRow = new ActionRowBuilder().addComponents(
-              new ButtonBuilder()
-                .setCustomId('fav:rmconfirm:' + favId)
-                .setStyle(ButtonStyle.Danger)
-                .setLabel('Remove'),
-              new ButtonBuilder().setCustomId('fav:rmcancel:' + favId).setStyle(ButtonStyle.Secondary).setLabel('Cancel')
-            );
+            const beforeId = cursor && cursor !== '0' ? Number(cursor) : null;
+            const page = await fetchFavoritesPage(interaction.user.id, { beforeId, limit: 10 });
+            if (!page.ok) {
+              await interaction.reply({ content: 'Error loading favorites: ' + page.error, ephemeral: interaction.inGuild() });
+              return;
+            }
 
-            await interaction.reply({
+            const msg = buildFavoritesPageMessage({
+              au,
+              items: page.json.items,
+              cursorBeforeId: beforeId,
+              nextBeforeId: page.json.nextBeforeId,
+              selectedId: favId,
+              mode: 'confirm'
+            });
+
+            await interaction.update({
               content: 'Remove this favorite? This cannot be undone.',
-              ephemeral: interaction.inGuild(),
-              components: [confirmRow]
+              embeds: msg.embeds,
+              components: msg.components
             });
             return;
           }
 
-          if (action === 'rmconfirm') {
-            const favId = parts[2] || '';
-            if (!favId) return;
+          if (action === 'confirm') {
+            const favId = parts[2] || 'none';
+            const cursor = parts[3] || '0';
+            if (!favId || favId === 'none') return;
 
             const del = await botApiPostJson('/v1/au/favorites/delete', {
               userDiscordUserId: String(interaction.user.id),
@@ -1067,35 +1228,56 @@ async function main() {
             });
 
             if (!del.ok || !(del.json && del.json.ok)) {
-              await interaction.reply({
+              await interaction.update({
                 content: 'Failed to remove favorite: ' + (del.ok ? 'Not found.' : del.error),
-                ephemeral: interaction.inGuild()
+                components: []
               });
               return;
             }
 
-            await interaction.update({ content: 'Removed from your favorites.', components: [] });
-
-            const r = await botApiGetJson(
-              '/v1/au/favorites?userDiscordUserId=' + encodeURIComponent(String(interaction.user.id)) + '&limit=20'
-            );
-            if (r.ok) {
-              const items = r.json && Array.isArray(r.json.items) ? r.json.items : [];
-              if (items.length > 0) {
-                const view = buildFavoritesView({ au, items, limit: 10 });
-                await interaction.followUp({
-                  content: view.content,
-                  components: view.components,
-                  ephemeral: interaction.inGuild()
-                });
-              }
+            const beforeId = cursor && cursor !== '0' ? Number(cursor) : null;
+            const page = await fetchFavoritesPage(interaction.user.id, { beforeId, limit: 10 });
+            if (!page.ok) {
+              await interaction.update({ content: 'Removed, but failed to reload list: ' + page.error, components: [] });
+              return;
             }
 
+            const items = page.json.items;
+            const nextBeforeId = page.json.nextBeforeId;
+            const msg = buildFavoritesPageMessage({
+              au,
+              items,
+              cursorBeforeId: beforeId,
+              nextBeforeId,
+              selectedId: null,
+              mode: 'normal'
+            });
+
+            await interaction.update({ content: null, embeds: msg.embeds, components: msg.components });
             return;
           }
 
-          if (action === 'rmcancel') {
-            await interaction.update({ content: 'Cancelled.', components: [] });
+          if (action === 'cancel') {
+            const favId = parts[2] || 'none';
+            const cursor = parts[3] || '0';
+
+            const beforeId = cursor && cursor !== '0' ? Number(cursor) : null;
+            const page = await fetchFavoritesPage(interaction.user.id, { beforeId, limit: 10 });
+            if (!page.ok) {
+              await interaction.update({ content: 'Error loading favorites: ' + page.error, components: [] });
+              return;
+            }
+
+            const msg = buildFavoritesPageMessage({
+              au,
+              items: page.json.items,
+              cursorBeforeId: beforeId,
+              nextBeforeId: page.json.nextBeforeId,
+              selectedId: favId !== 'none' ? favId : null,
+              mode: 'normal'
+            });
+
+            await interaction.update({ content: null, embeds: msg.embeds, components: msg.components });
             return;
           }
 
@@ -1446,25 +1628,29 @@ async function main() {
           return;
         }
 
-        const r = await botApiGetJson(
-          '/v1/au/favorites?userDiscordUserId=' + encodeURIComponent(String(interaction.user.id)) + '&limit=20'
-        );
+        const r = await fetchFavoritesPage(interaction.user.id, { beforeId: null, limit: 10 });
         if (!r.ok) {
           await interaction.reply({ content: 'Error loading favorites: ' + r.error, ephemeral: interaction.inGuild() });
           return;
         }
 
-        const items = r.json && Array.isArray(r.json.items) ? r.json.items : [];
+        const items = r.json.items;
         if (items.length === 0) {
-          await interaction.reply({ content: 'No favorites yet. Use the Favorite button on a prompt.', ephemeral: interaction.inGuild() });
+          await interaction.reply({ content: 'No favorites yet. Use the Favorite button on a prompt.' });
           return;
         }
 
-        const view = buildFavoritesView({ au, items, limit: 10 });
+        const msg = buildFavoritesPageMessage({
+          au,
+          items,
+          cursorBeforeId: null,
+          nextBeforeId: r.json.nextBeforeId,
+          selectedId: null,
+          mode: 'normal'
+        });
         await interaction.reply({
-          content: view.content,
-          components: view.components,
-          ephemeral: interaction.inGuild()
+          embeds: msg.embeds,
+          components: msg.components
         });
         return;
       }
