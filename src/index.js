@@ -891,7 +891,7 @@ async function main() {
         const id = sub && sub.id ? String(sub.id) : '(unknown id)';
 
         await interaction.reply({
-          content: 'Submitted for review. id: ' + id,
+          content: 'Submitted for review.',
           ephemeral: interaction.inGuild()
         });
         return;
@@ -1052,13 +1052,15 @@ async function main() {
           const mod = interaction.user;
           const modName = mod && typeof mod.tag === 'string' ? mod.tag : mod.username;
 
+          const body = {
+            moderatorDiscordUserId: String(mod.id),
+            moderatorDiscordUsername: String(modName || '')
+          };
+          if (note) body.note = note;
+
           const r = await botApiPostJson(
             '/v1/au/prompt-submissions/' + encodeURIComponent(submissionId) + '/approve',
-            {
-              moderatorDiscordUserId: String(mod.id),
-              moderatorDiscordUsername: String(modName || ''),
-              note: note || null
-            }
+            body
           );
           if (!r.ok) {
             await interaction.reply({ content: 'Error: ' + r.error, ephemeral: true });
@@ -1085,13 +1087,15 @@ async function main() {
           const mod = interaction.user;
           const modName = mod && typeof mod.tag === 'string' ? mod.tag : mod.username;
 
+          const body = {
+            moderatorDiscordUserId: String(mod.id),
+            moderatorDiscordUsername: String(modName || '')
+          };
+          if (note) body.note = note;
+
           const r = await botApiPostJson(
             '/v1/au/prompt-submissions/' + encodeURIComponent(submissionId) + '/reject',
-            {
-              moderatorDiscordUserId: String(mod.id),
-              moderatorDiscordUsername: String(modName || ''),
-              note: note || null
-            }
+            body
           );
           if (!r.ok) {
             await interaction.reply({ content: 'Error: ' + r.error, ephemeral: true });
