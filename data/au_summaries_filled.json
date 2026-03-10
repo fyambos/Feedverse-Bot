@@ -6320,106 +6320,105 @@
     "a vampire executive quietly fascinated by the one human employee who keeps challenging them.",
     "a human employee noticing their coworker’s reflection never appears in the office glass walls."
   ]
+},{
+  "universeId": "office_corporate",
+  "dynamicId": "werewolf_x_human",
+  "summaries": [
+    "a coworker notices their usually calm colleague always calls in sick during full moon nights.",
+    "an employee keeps covering for the charming coworker who disappears from the office every full moon.",
+    "a human worker discovers their intimidating manager turns strangely protective during late-night shifts.",
+    "a new hire realizes their quiet cubicle neighbor can smell lunch from three floors away.",
+    "an employee starts suspecting their attractive coworker’s monthly 'family emergency' is something much stranger."
+  ]
 },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "werewolf_x_human",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 🐺 werewolf x human (1/5)",
-        "[TODO] 💼 office / corporate + 🐺 werewolf x human (2/5)",
-        "[TODO] 💼 office / corporate + 🐺 werewolf x human (3/5)",
-        "[TODO] 💼 office / corporate + 🐺 werewolf x human (4/5)",
-        "[TODO] 💼 office / corporate + 🐺 werewolf x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "rivals",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 😈 rivals (1/5)",
-        "[TODO] 💼 office / corporate + 😈 rivals (2/5)",
-        "[TODO] 💼 office / corporate + 😈 rivals (3/5)",
-        "[TODO] 💼 office / corporate + 😈 rivals (4/5)",
-        "[TODO] 💼 office / corporate + 😈 rivals (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "dumb_x_dumber",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 🤪 dumb x dumber (1/5)",
-        "[TODO] 💼 office / corporate + 🤪 dumb x dumber (2/5)",
-        "[TODO] 💼 office / corporate + 🤪 dumb x dumber (3/5)",
-        "[TODO] 💼 office / corporate + 🤪 dumb x dumber (4/5)",
-        "[TODO] 💼 office / corporate + 🤪 dumb x dumber (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "smart_x_dumb",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 🧠 smart x dumb (1/5)",
-        "[TODO] 💼 office / corporate + 🧠 smart x dumb (2/5)",
-        "[TODO] 💼 office / corporate + 🧠 smart x dumb (3/5)",
-        "[TODO] 💼 office / corporate + 🧠 smart x dumb (4/5)",
-        "[TODO] 💼 office / corporate + 🧠 smart x dumb (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "rich_x_poor",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 💰 rich x poor (1/5)",
-        "[TODO] 💼 office / corporate + 💰 rich x poor (2/5)",
-        "[TODO] 💼 office / corporate + 💰 rich x poor (3/5)",
-        "[TODO] 💼 office / corporate + 💰 rich x poor (4/5)",
-        "[TODO] 💼 office / corporate + 💰 rich x poor (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "opposites_attract",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 🔥 opposites attract (1/5)",
-        "[TODO] 💼 office / corporate + 🔥 opposites attract (2/5)",
-        "[TODO] 💼 office / corporate + 🔥 opposites attract (3/5)",
-        "[TODO] 💼 office / corporate + 🔥 opposites attract (4/5)",
-        "[TODO] 💼 office / corporate + 🔥 opposites attract (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "accidental_text",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 📱 accidental text (1/5)",
-        "[TODO] 💼 office / corporate + 📱 accidental text (2/5)",
-        "[TODO] 💼 office / corporate + 📱 accidental text (3/5)",
-        "[TODO] 💼 office / corporate + 📱 accidental text (4/5)",
-        "[TODO] 💼 office / corporate + 📱 accidental text (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "secret_identity",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 🫢 secret identity (1/5)",
-        "[TODO] 💼 office / corporate + 🫢 secret identity (2/5)",
-        "[TODO] 💼 office / corporate + 🫢 secret identity (3/5)",
-        "[TODO] 💼 office / corporate + 🫢 secret identity (4/5)",
-        "[TODO] 💼 office / corporate + 🫢 secret identity (5/5)"
-      ]
-    },
-    {
-      "universeId": "office_corporate",
-      "dynamicId": "undercover",
-      "summaries": [
-        "[TODO] 💼 office / corporate + 🕶️ undercover (1/5)",
-        "[TODO] 💼 office / corporate + 🕶️ undercover (2/5)",
-        "[TODO] 💼 office / corporate + 🕶️ undercover (3/5)",
-        "[TODO] 💼 office / corporate + 🕶️ undercover (4/5)",
-        "[TODO] 💼 office / corporate + 🕶️ undercover (5/5)"
-      ]
-    },
+{
+  "universeId": "office_corporate",
+  "dynamicId": "rivals",
+  "summaries": [
+    "two ambitious coworkers competing for the same promotion keep sabotaging each other and flirting about it.",
+    "office rivals forced to collaborate on a major project start arguing like a married couple.",
+    "two employees determined to outshine each other suddenly realize the entire office ships them.",
+    "a company competition pits two rivals against each other and the tension turns suspiciously romantic.",
+    "two coworkers who can’t stand each other keep volunteering for the same assignments anyway."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "dumb_x_dumber",
+  "summaries": [
+    "two coworkers accidentally send the entire company a flirtatious message meant for each other.",
+    "two chaotic employees pretending to understand corporate strategy while secretly flirting through presentations.",
+    "an office duo known for terrible ideas somehow keeps getting assigned to projects together.",
+    "two coworkers who share one brain cell keep accidentally turning meetings into flirting contests.",
+    "the two most chaotic people in the department somehow become the office’s favorite pair."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "smart_x_dumb",
+  "summaries": [
+    "a meticulous analyst keeps fixing the reckless coworker’s mistakes and catching feelings in the process.",
+    "the smartest employee in the office keeps getting distracted by the one coworker who refuses to take work seriously.",
+    "a brilliant manager assigned to supervise the most chaotic new hire starts enjoying the chaos.",
+    "an employee who always has a plan falling for the coworker who improvises everything.",
+    "a genius strategist paired with the company’s most carefree employee for a high-stakes project."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "rich_x_poor",
+  "summaries": [
+    "an overworked intern discovers their charming coworker is secretly the CEO’s heir.",
+    "a struggling employee finds out the quiet colleague who shares their lunch is absurdly wealthy.",
+    "a corporate heir working undercover falls for the one coworker unimpressed by their status.",
+    "an employee realizes the person who always insists on paying for lunch owns half the company.",
+    "a broke office worker discovering their desk neighbor’s family runs the entire corporation."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "opposites_attract",
+  "summaries": [
+    "a rule-following manager constantly clashing with the rebellious coworker they can’t stop noticing.",
+    "a quiet introvert stuck sharing a desk cluster with the loudest charmer in the office.",
+    "a workaholic executive paired with the most relaxed employee in the department.",
+    "an organized perfectionist assigned to work with someone who thrives in chaos.",
+    "two coworkers with completely opposite personalities becoming the office’s most effective team."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "accidental_text",
+  "summaries": [
+    "an employee accidentally texts their boss a rant about their secret office crush.",
+    "someone sends a flirty message meant for a friend to their coworker instead.",
+    "a mistaken text about a terrible meeting turns into a late-night conversation with a colleague.",
+    "two coworkers keep texting after one accidental message during a boring meeting.",
+    "an employee accidentally confesses their feelings in a message sent to the wrong coworker."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "secret_identity",
+  "summaries": [
+    "an employee discovers their quiet coworker is secretly the anonymous blogger exposing company gossip.",
+    "a reserved intern turns out to be the heir to the company no one has ever met.",
+    "a coworker realizes the person in the next cubicle runs a famous anonymous advice account.",
+    "a charming colleague hiding their true position in the company to see how people treat them.",
+    "an employee slowly realizing their coworker’s mysterious life outside the office is far bigger than expected."
+  ]
+},
+{
+  "universeId": "office_corporate",
+  "dynamicId": "undercover",
+  "summaries": [
+    "an undercover auditor joins the office and keeps getting distracted by one particular coworker.",
+    "a corporate spy assigned to investigate the company starts falling for the person helping them.",
+    "an employee secretly investigating company corruption keeps asking the same coworker for help.",
+    "an undercover executive pretending to be a junior employee grows close to a colleague.",
+    "someone infiltrating the office for a story keeps getting pulled into a suspiciously charming coworker’s orbit."
+  ]
+},
     {
       "universeId": "office_corporate",
       "dynamicId": "paparazzi_scandal",

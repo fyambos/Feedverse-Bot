@@ -1,6 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
 
 function buildGlobalCommands() {
+  const help = new SlashCommandBuilder().setName('help').setDescription('Show bot commands and usage');
+
   const generate = new SlashCommandBuilder()
     .setName('generate')
     .setDescription('Generate one AU prompt')
@@ -69,8 +71,14 @@ function buildGlobalCommands() {
         .addStringOption((opt) =>
           opt
             .setName('time')
-            .setDescription('Optional time (e.g. 21:30 or 9:30pm, bot local time)')
+            .setDescription('Optional time (e.g. 21:30 or 9:30pm)')
             .setRequired(false)
+        )
+        .addStringOption((opt) =>
+          opt
+            .setName('timezone')
+            .setDescription('Your timezone (IANA), e.g. America/New_York')
+            .setRequired(true)
         )
     );
 
@@ -79,7 +87,7 @@ function buildGlobalCommands() {
     .setDescription('View things')
     .addSubcommand((sc) => sc.setName('favorites').setDescription('View your favorited prompts'));
 
-  return [generate, share, prompt, setup, view];
+  return [help, generate, share, prompt, setup, view];
 }
 
 function buildOfficialGuildCommands() {

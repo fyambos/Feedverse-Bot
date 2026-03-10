@@ -57,6 +57,53 @@ function localMinutesOfDay(d) {
   return dt.getHours() * 60 + dt.getMinutes();
 }
 
+function isValidTimeZone(tz) {
+  if (typeof tz !== 'string') return false;
+  const v = tz.trim();
+  if (!v) return false;
+  try {
+    // Throws RangeError on invalid IANA timezone.
+    new Intl.DateTimeFormat('en-US', { timeZone: v }).format(new Date());
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function timeZoneDateKeyAndMinutes(d, timeZone) {
+  const dt = d instanceof Date ? d : new Date();
+  if (!isValidTimeZone(timeZone)) return null;
+
+  const fmt = new Intl.DateTimeFormat('en-US', {
+    timeZone: String(timeZone).trim(),
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    hourCycle: 'h23'
+  });
+
+  const parts = fmt.formatToParts(dt);
+  const map = {};
+  for (const p of parts) {
+    if (p && p.type && p.type !== 'literal') map[p.type] = p.value;
+  }
+
+  const year = Number(map.year);
+  const month = Number(map.month);
+  const day = Number(map.day);
+  let hour = Number(map.hour);
+  const minute = Number(map.minute);
+  if (![year, month, day, hour, minute].every((n) => Number.isFinite(n))) return null;
+  if (hour === 24) hour = 0;
+
+  const dateKey = String(year) + '-' + pad2(month) + '-' + pad2(day);
+  const minutes = hour * 60 + minute;
+  return { dateKey, minutes };
+}
+
 function parseLocalTimeToMinutes(raw) {
   if (typeof raw !== 'string') return null;
   const v = raw.trim();
@@ -118,6 +165,56 @@ function computePromptKey({ settingId, dynamicId, promptText }) {
   const d = dynamicId ? String(dynamicId).trim() : '';
   const p = normalizePromptForKey(promptText);
   return createHash('sha256').update(s + '\n' + d + '\n' + p, 'utf8').digest('hex');
+}
+
+function buildFavoritesView({ au, items, limit }) {
+  const safeItems = Array.isArray(items) ? items.filter((x) => x && typeof x === 'object') : [];
+  const shown = safeItems.slice(0, Math.max(1, Math.min(Number(limit || 10), 25)));
+
+  const lines = [];
+  lines.push('Your favorites (latest first):');
+  if (safeItems.length > shown.length) lines.push('(showing latest ' + String(shown.length) + ' of ' + String(safeItems.length) + ')');
+  lines.push('');
+
+  const buttons = [];
+  for (let i = 0; i < shown.length; i++) {
+    const it = shown[i];
+    const id = it.id != null ? String(it.id) : '';
+    const settingId = it.settingId != null ? String(it.settingId) : null;
+    const dynamicId = it.dynamicId != null ? String(it.dynamicId) : null;
+    const promptText = it.promptText != null ? String(it.promptText) : '';
+
+    const meta =
+      settingId || dynamicId
+        ? (settingId ? formatUniverseLabel(au, settingId) : 'unknown') + ' + ' + (dynamicId ? formatDynamicLabel(au, dynamicId) : 'unknown')
+        : null;
+
+    const block = [];
+    if (meta) block.push(meta);
+    block.push(promptText.length > 500 ? promptText.slice(0, 497) + '…' : promptText);
+    lines.push(String(i + 1) + '. ' + block.join('\n'));
+    lines.push('');
+
+    if (id) {
+      buttons.push(
+        new ButtonBuilder()
+          .setCustomId('fav:rm:' + id)
+          .setStyle(ButtonStyle.Danger)
+          .setEmoji('❌')
+          .setLabel(String(i + 1))
+      );
+    }
+  }
+
+  const components = [];
+  for (let i = 0; i < buttons.length; i += 5) {
+    const row = new ActionRowBuilder().addComponents(buttons.slice(i, i + 5));
+    components.push(row);
+    if (components.length >= 5) break;
+  }
+
+  const content = lines.join('\n').trim();
+  return { content: content.length > 1900 ? content.slice(0, 1897) + '…' : content, components };
 }
 
 const UUID_LIKE_REGEX = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
@@ -744,8 +841,6 @@ function startDailyScheduler(client, au) {
   async function tick() {
     try {
       const now = new Date();
-      const today = localDateKey(now);
-      const nowMin = localMinutesOfDay(now);
 
       const list = await botApiGetJson('/v1/au/daily-configs?limit=5000');
       if (!list.ok) return;
@@ -757,9 +852,14 @@ function startDailyScheduler(client, au) {
         const guildId = it.guildId ? String(it.guildId) : '';
         const channelId = it.channelId ? String(it.channelId) : '';
         const sendAt = Number.isFinite(Number(it.sendAtMinutesLocal)) ? Number(it.sendAtMinutesLocal) : 0;
+        const timeZone = it.timeZone != null ? String(it.timeZone) : null;
         const lastSentDate = it.lastSentLocalDate != null ? String(it.lastSentLocalDate) : null;
 
         if (!guildId || !channelId) continue;
+
+        const zoned = timeZone ? timeZoneDateKeyAndMinutes(now, timeZone) : null;
+        const today = zoned ? zoned.dateKey : localDateKey(now);
+        const nowMin = zoned ? zoned.minutes : localMinutesOfDay(now);
         if (lastSentDate === today) continue;
         if (nowMin < sendAt) continue;
 
@@ -936,6 +1036,69 @@ async function main() {
         if (id.startsWith('fav:')) {
           const parts = id.split(':');
           const action = parts[1] || '';
+
+          if (action === 'rm') {
+            const favId = parts[2] || '';
+            if (!favId) return;
+
+            const confirmRow = new ActionRowBuilder().addComponents(
+              new ButtonBuilder()
+                .setCustomId('fav:rmconfirm:' + favId)
+                .setStyle(ButtonStyle.Danger)
+                .setLabel('Remove'),
+              new ButtonBuilder().setCustomId('fav:rmcancel:' + favId).setStyle(ButtonStyle.Secondary).setLabel('Cancel')
+            );
+
+            await interaction.reply({
+              content: 'Remove this favorite? This cannot be undone.',
+              ephemeral: interaction.inGuild(),
+              components: [confirmRow]
+            });
+            return;
+          }
+
+          if (action === 'rmconfirm') {
+            const favId = parts[2] || '';
+            if (!favId) return;
+
+            const del = await botApiPostJson('/v1/au/favorites/delete', {
+              userDiscordUserId: String(interaction.user.id),
+              id: favId
+            });
+
+            if (!del.ok || !(del.json && del.json.ok)) {
+              await interaction.reply({
+                content: 'Failed to remove favorite: ' + (del.ok ? 'Not found.' : del.error),
+                ephemeral: interaction.inGuild()
+              });
+              return;
+            }
+
+            await interaction.update({ content: 'Removed from your favorites.', components: [] });
+
+            const r = await botApiGetJson(
+              '/v1/au/favorites?userDiscordUserId=' + encodeURIComponent(String(interaction.user.id)) + '&limit=20'
+            );
+            if (r.ok) {
+              const items = r.json && Array.isArray(r.json.items) ? r.json.items : [];
+              if (items.length > 0) {
+                const view = buildFavoritesView({ au, items, limit: 10 });
+                await interaction.followUp({
+                  content: view.content,
+                  components: view.components,
+                  ephemeral: interaction.inGuild()
+                });
+              }
+            }
+
+            return;
+          }
+
+          if (action === 'rmcancel') {
+            await interaction.update({ content: 'Cancelled.', components: [] });
+            return;
+          }
+
           const source = decodeCustomIdPart(parts[2] || '-') || 'generate';
           const settingId = decodeCustomIdPart(parts[3] || '-') || null;
           const dynamicId = decodeCustomIdPart(parts[4] || '-') || null;
@@ -1072,6 +1235,21 @@ async function main() {
       }
 
       if (!interaction.isChatInputCommand()) return;
+
+      if (interaction.commandName === 'help') {
+        const lines = [];
+        lines.push('Commands:');
+        lines.push('');
+        lines.push('- /generate — generate one AU prompt (includes Favorite button)');
+        lines.push('- /share <invite_code> — share a Feedverse scenario');
+        lines.push('- /prompt <setting> <dynamic> <prompt> — submit a prompt for moderator review');
+        lines.push('- /setup daily <channel> [time] [timezone] — daily prompt (e.g. 9:30pm America/New_York)');
+        lines.push('- /view favorites — view your favorited prompts');
+        lines.push('');
+
+        await interaction.reply({ content: lines.join('\n') });
+        return;
+      }
 
       if (interaction.commandName === 'generate') {
         const universeId = normalizeOption(interaction.options.getString('universe'));
@@ -1213,17 +1391,36 @@ async function main() {
         const timeRaw = normalizeOption(interaction.options.getString('time'));
         const parsedMinutes = timeRaw ? parseLocalTimeToMinutes(timeRaw) : null;
         if (timeRaw && parsedMinutes == null) {
-          await interaction.reply({ content: 'Invalid time. Examples: 21:30 or 9:30pm (bot local time).', ephemeral: true });
+          await interaction.reply({ content: 'Invalid time. Examples: 21:30 or 9:30pm.', ephemeral: true });
+          return;
+        }
+
+        const timeZoneRaw = normalizeOption(interaction.options.getString('timezone'));
+        if (!timeZoneRaw) {
+          await interaction.reply({
+            content:
+              'Timezone is required because Discord does not provide your timezone. Example: /setup daily #channel 9:30pm America/New_York',
+            ephemeral: true
+          });
+          return;
+        }
+        if (!isValidTimeZone(timeZoneRaw)) {
+          await interaction.reply({
+            content: 'Invalid timezone. Use an IANA timezone like America/New_York, Europe/London, Asia/Tokyo.',
+            ephemeral: true
+          });
           return;
         }
 
         const now = new Date();
-        const sendAt = parsedMinutes != null ? parsedMinutes : localMinutesOfDay(now);
+        const zonedNow = timeZoneDateKeyAndMinutes(now, timeZoneRaw);
+        const sendAt = parsedMinutes != null ? parsedMinutes : zonedNow ? zonedNow.minutes : localMinutesOfDay(now);
 
         const up = await botApiPostJson('/v1/au/daily-configs', {
           guildId: String(interaction.guildId),
           channelId,
-          sendAtMinutesLocal: sendAt
+          sendAtMinutesLocal: sendAt,
+          timeZone: timeZoneRaw
         });
         if (!up.ok) {
           await interaction.reply({ content: 'Failed to save daily config: ' + up.error, ephemeral: true });
@@ -1235,7 +1432,7 @@ async function main() {
           content:
             'Daily prompt enabled for ' +
             String(channel) +
-            (t ? ' at ' + t + '.' : '.') +
+            (t ? ' at ' + t + ' (' + timeZoneRaw + ').' : ' (' + timeZoneRaw + ').') +
             ' Time examples: 21:30 or 9:30pm.',
           ephemeral: true
         });
@@ -1263,29 +1460,12 @@ async function main() {
           return;
         }
 
-        const lines = [];
-        lines.push('Your favorites (latest first):');
-        lines.push('');
-        for (const it of items) {
-          if (!it || typeof it !== 'object') continue;
-          const settingId = it.settingId != null ? String(it.settingId) : null;
-          const dynamicId = it.dynamicId != null ? String(it.dynamicId) : null;
-          const promptText = it.promptText != null ? String(it.promptText) : '';
-          const meta =
-            settingId || dynamicId
-              ? (settingId ? formatUniverseLabel(au, settingId) : 'unknown') +
-                ' + ' +
-                (dynamicId ? formatDynamicLabel(au, dynamicId) : 'unknown')
-              : null;
-
-          const block = [];
-          if (meta) block.push(meta);
-          block.push(promptText.length > 800 ? promptText.slice(0, 797) + '…' : promptText);
-          lines.push('- ' + block.join('\n'));
-        }
-
-        const out = lines.join('\n');
-        await interaction.reply({ content: out.length > 1900 ? out.slice(0, 1897) + '…' : out, ephemeral: interaction.inGuild() });
+        const view = buildFavoritesView({ au, items, limit: 10 });
+        await interaction.reply({
+          content: view.content,
+          components: view.components,
+          ephemeral: interaction.inGuild()
+        });
         return;
       }
 

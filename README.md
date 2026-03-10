@@ -94,4 +94,8 @@ On startup the bot registers slash commands:
   - registers public commands globally (`/generate`, `/share`, `/prompt`)
   - registers moderation commands ONLY into `OFFICIAL_GUILD_ID` (`/prompt-queue`, `/prompt-approve`, `/prompt-reject`)
 
+### Dev guild duplicates
+
+If the same Discord application has **global** commands registered and you also set `DISCORD_GUILD_ID`, Discord will show duplicates in that dev guild (one global + one guild-scoped). This is expected.
+
 If you want the bot to work in any server it’s invited to, leave `DISCORD_GUILD_ID` unset.
