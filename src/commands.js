@@ -67,7 +67,7 @@ function buildOfficialGuildCommands() {
     .addStringOption((opt) =>
       opt
         .setName('submission_id')
-        .setDescription('Submission id (UUID)')
+        .setDescription('Submission id (UUID), short prefix, or queue index')
         .setRequired(true)
     )
     .addStringOption((opt) =>
@@ -83,7 +83,7 @@ function buildOfficialGuildCommands() {
     .addStringOption((opt) =>
       opt
         .setName('submission_id')
-        .setDescription('Submission id (UUID)')
+        .setDescription('Submission id (UUID), short prefix, or queue index')
         .setRequired(true)
     )
     .addStringOption((opt) =>

@@ -38,6 +38,63 @@ function normalizeOption(value) {
   return v === '' ? null : v;
 }
 
+const UUID_LIKE_REGEX = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
+
+function extractUuidLike(text) {
+  if (typeof text !== 'string') return null;
+  const m = text.match(UUID_LIKE_REGEX);
+  return m && m[0] ? String(m[0]).trim() : null;
+}
+
+function isHexPrefix(text) {
+  return typeof text === 'string' && /^[0-9a-f]{6,32}$/i.test(text.trim());
+}
+
+function shortSubmissionId(id) {
+  if (typeof id !== 'string') return '';
+  const v = id.trim();
+  return v.length >= 8 ? v.slice(0, 8) : v;
+}
+
+async function resolveSubmissionIdFromInput(inputRaw) {
+  const raw = typeof inputRaw === 'string' ? inputRaw.trim() : '';
+  if (!raw) return { ok: false, error: 'submission_id is required.' };
+
+  // If the user pasted a whole line from /prompt-queue, extract the UUID.
+  const extracted = extractUuidLike(raw);
+  if (extracted) return { ok: true, id: extracted };
+
+  // Allow using the queue index (1..N) for convenience.
+  if (/^\d{1,2}$/.test(raw)) {
+    const idx = Number(raw);
+    if (!Number.isFinite(idx) || idx <= 0) return { ok: false, error: 'Invalid submission id.' };
+    const q = await botApiGetJson('/v1/au/prompt-submissions?status=pending&limit=50');
+    if (!q.ok) return { ok: false, error: 'Error loading queue: ' + q.error };
+    const items = q.json && Array.isArray(q.json.items) ? q.json.items : [];
+    if (idx > items.length) return { ok: false, error: 'Queue index out of range (1..' + String(items.length) + ').' };
+    const item = items[idx - 1];
+    const id = item && item.id ? String(item.id).trim() : '';
+    if (!id) return { ok: false, error: 'Invalid queue item id.' };
+    return { ok: true, id };
+  }
+
+  // Allow using a short hex prefix (e.g. first 8 chars).
+  if (isHexPrefix(raw)) {
+    const prefix = raw.toLowerCase();
+    const q = await botApiGetJson('/v1/au/prompt-submissions?status=pending&limit=50');
+    if (!q.ok) return { ok: false, error: 'Error loading queue: ' + q.error };
+    const items = q.json && Array.isArray(q.json.items) ? q.json.items : [];
+    const matches = items
+      .map((it) => (it && it.id ? String(it.id).trim() : ''))
+      .filter((id) => id && id.toLowerCase().startsWith(prefix));
+    if (matches.length === 1) return { ok: true, id: matches[0] };
+    if (matches.length === 0) return { ok: false, error: 'No pending submission matches that id/prefix.' };
+    return { ok: false, error: 'That prefix matches multiple submissions; paste the full UUID.' };
+  }
+
+  return { ok: false, error: 'Invalid submission id. Use queue index (e.g. 1), a short prefix (e.g. ecd38f4d), or paste the UUID.' };
+}
+
 function startsWithFold(a, b) {
   return a.toLowerCase().startsWith(b.toLowerCase());
 }
@@ -959,7 +1016,8 @@ async function main() {
           }
 
           const lines = [];
-          for (const it of items) {
+          for (let i = 0; i < items.length; i++) {
+            const it = items[i];
             const id = it && it.id ? String(it.id) : '';
             const settingId = it && it.settingId ? String(it.settingId) : '';
             const dynamicId = it && it.dynamicId ? String(it.dynamicId) : '';
@@ -968,7 +1026,8 @@ async function main() {
             const settingLabel = formatUniverseLabel(au, settingId);
             const dynamicLabel = formatDynamicLabel(au, dynamicId);
             const snippet = promptText.length > 180 ? promptText.slice(0, 177) + '…' : promptText;
-            lines.push(id + ' — ' + settingLabel + ' + ' + dynamicLabel + (submitterName ? ' — by ' + submitterName : ''));
+            const shortId = shortSubmissionId(id);
+            lines.push('#' + String(i + 1) + ' ' + shortId + (id ? ' (' + id + ')' : '') + ' — ' + settingLabel + ' + ' + dynamicLabel + (submitterName ? ' — by ' + submitterName : ''));
             lines.push(snippet);
             lines.push('');
           }
@@ -981,12 +1040,14 @@ async function main() {
         }
 
         if (interaction.commandName === 'prompt-approve') {
-          const submissionId = String(interaction.options.getString('submission_id') || '').trim();
+          const submissionIdRaw = String(interaction.options.getString('submission_id') || '').trim();
           const note = normalizeOption(interaction.options.getString('note'));
-          if (!submissionId) {
-            await interaction.reply({ content: 'submission_id is required.', ephemeral: true });
+          const resolvedId = await resolveSubmissionIdFromInput(submissionIdRaw);
+          if (!resolvedId.ok) {
+            await interaction.reply({ content: resolvedId.error, ephemeral: true });
             return;
           }
+          const submissionId = resolvedId.id;
 
           const mod = interaction.user;
           const modName = mod && typeof mod.tag === 'string' ? mod.tag : mod.username;
@@ -1012,12 +1073,14 @@ async function main() {
         }
 
         if (interaction.commandName === 'prompt-reject') {
-          const submissionId = String(interaction.options.getString('submission_id') || '').trim();
+          const submissionIdRaw = String(interaction.options.getString('submission_id') || '').trim();
           const note = normalizeOption(interaction.options.getString('note'));
-          if (!submissionId) {
-            await interaction.reply({ content: 'submission_id is required.', ephemeral: true });
+          const resolvedId = await resolveSubmissionIdFromInput(submissionIdRaw);
+          if (!resolvedId.ok) {
+            await interaction.reply({ content: resolvedId.error, ephemeral: true });
             return;
           }
+          const submissionId = resolvedId.id;
 
           const mod = interaction.user;
           const modName = mod && typeof mod.tag === 'string' ? mod.tag : mod.username;

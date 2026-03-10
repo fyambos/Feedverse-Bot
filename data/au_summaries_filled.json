@@ -5501,183 +5501,182 @@
     "a bookstore employee discovering anonymous bookmarks left in their favorite novels.",
     "someone realizing the same stranger has been quietly watching out for them around the city."
   ]
+},{
+  "universeId": "city_life",
+  "dynamicId": "bet_or_dare",
+  "summaries": [
+    "someone loses a rooftop party dare and has to ask the beautiful stranger on the fire escape for a lighter they do not need.",
+    "a stupid friend group bet challenges someone to get their rival’s number before the last subway home.",
+    "someone drunkenly bets they can make the cold regular at the corner store smile before sunrise.",
+    "a dare to kiss the next person who walks into the karaoke room goes very badly and then very well.",
+    "someone bets they can survive one fake date with the city’s worst flirt and ends up wanting a second."
+  ]
 },
-    {
-      "universeId": "city_life",
-      "dynamicId": "bet_or_dare",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🪤 bet / dare (1/5)",
-        "[TODO] 🏙️ city life + 🪤 bet / dare (2/5)",
-        "[TODO] 🏙️ city life + 🪤 bet / dare (3/5)",
-        "[TODO] 🏙️ city life + 🪤 bet / dare (4/5)",
-        "[TODO] 🏙️ city life + 🪤 bet / dare (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "only_one_bed",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🛏️ only one bed (1/5)",
-        "[TODO] 🏙️ city life + 🛏️ only one bed (2/5)",
-        "[TODO] 🏙️ city life + 🛏️ only one bed (3/5)",
-        "[TODO] 🏙️ city life + 🛏️ only one bed (4/5)",
-        "[TODO] 🏙️ city life + 🛏️ only one bed (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "slow_burn",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🫶 slow burn (1/5)",
-        "[TODO] 🏙️ city life + 🫶 slow burn (2/5)",
-        "[TODO] 🏙️ city life + 🫶 slow burn (3/5)",
-        "[TODO] 🏙️ city life + 🫶 slow burn (4/5)",
-        "[TODO] 🏙️ city life + 🫶 slow burn (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "mutual_pining",
-      "summaries": [
-        "[TODO] 🏙️ city life + 💞 mutual pining (1/5)",
-        "[TODO] 🏙️ city life + 💞 mutual pining (2/5)",
-        "[TODO] 🏙️ city life + 💞 mutual pining (3/5)",
-        "[TODO] 🏙️ city life + 💞 mutual pining (4/5)",
-        "[TODO] 🏙️ city life + 💞 mutual pining (5/5)"
-      ]
-    },
-    {
-      "universeId": "city_life",
-      "dynamicId": "unrequited_love",
-      "summaries": [
-        "[TODO] 🏙️ city life + 🥀 unrequited love (1/5)",
-        "[TODO] 🏙️ city life + 🥀 unrequited love (2/5)",
-        "[TODO] 🏙️ city life + 🥀 unrequited love (3/5)",
-        "[TODO] 🏙️ city life + 🥀 unrequited love (4/5)",
-        "[TODO] 🏙️ city life + 🥀 unrequited love (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "ex_to_lovers",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 💔 ex to lovers (1/5)",
-        "[TODO] 🏥 hospital / medical + 💔 ex to lovers (2/5)",
-        "[TODO] 🏥 hospital / medical + 💔 ex to lovers (3/5)",
-        "[TODO] 🏥 hospital / medical + 💔 ex to lovers (4/5)",
-        "[TODO] 🏥 hospital / medical + 💔 ex to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "friends_to_lovers",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🤝 friends to lovers (1/5)",
-        "[TODO] 🏥 hospital / medical + 🤝 friends to lovers (2/5)",
-        "[TODO] 🏥 hospital / medical + 🤝 friends to lovers (3/5)",
-        "[TODO] 🏥 hospital / medical + 🤝 friends to lovers (4/5)",
-        "[TODO] 🏥 hospital / medical + 🤝 friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "childhood_friends_to_lovers",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🧸 childhood friends to lovers (1/5)",
-        "[TODO] 🏥 hospital / medical + 🧸 childhood friends to lovers (2/5)",
-        "[TODO] 🏥 hospital / medical + 🧸 childhood friends to lovers (3/5)",
-        "[TODO] 🏥 hospital / medical + 🧸 childhood friends to lovers (4/5)",
-        "[TODO] 🏥 hospital / medical + 🧸 childhood friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "enemies_to_lovers",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + ⚔️ enemies to lovers (1/5)",
-        "[TODO] 🏥 hospital / medical + ⚔️ enemies to lovers (2/5)",
-        "[TODO] 🏥 hospital / medical + ⚔️ enemies to lovers (3/5)",
-        "[TODO] 🏥 hospital / medical + ⚔️ enemies to lovers (4/5)",
-        "[TODO] 🏥 hospital / medical + ⚔️ enemies to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "fake_dating",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 💍 fake dating (1/5)",
-        "[TODO] 🏥 hospital / medical + 💍 fake dating (2/5)",
-        "[TODO] 🏥 hospital / medical + 💍 fake dating (3/5)",
-        "[TODO] 🏥 hospital / medical + 💍 fake dating (4/5)",
-        "[TODO] 🏥 hospital / medical + 💍 fake dating (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "arranged_marriage",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 📜 arranged marriage (1/5)",
-        "[TODO] 🏥 hospital / medical + 📜 arranged marriage (2/5)",
-        "[TODO] 🏥 hospital / medical + 📜 arranged marriage (3/5)",
-        "[TODO] 🏥 hospital / medical + 📜 arranged marriage (4/5)",
-        "[TODO] 🏥 hospital / medical + 📜 arranged marriage (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "coworkers",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 💼 coworkers (1/5)",
-        "[TODO] 🏥 hospital / medical + 💼 coworkers (2/5)",
-        "[TODO] 🏥 hospital / medical + 💼 coworkers (3/5)",
-        "[TODO] 🏥 hospital / medical + 💼 coworkers (4/5)",
-        "[TODO] 🏥 hospital / medical + 💼 coworkers (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "boss_x_employee",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 📊 boss x employee (1/5)",
-        "[TODO] 🏥 hospital / medical + 📊 boss x employee (2/5)",
-        "[TODO] 🏥 hospital / medical + 📊 boss x employee (3/5)",
-        "[TODO] 🏥 hospital / medical + 📊 boss x employee (4/5)",
-        "[TODO] 🏥 hospital / medical + 📊 boss x employee (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "tutor_x_student",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🎓 tutor x student (1/5)",
-        "[TODO] 🏥 hospital / medical + 🎓 tutor x student (2/5)",
-        "[TODO] 🏥 hospital / medical + 🎓 tutor x student (3/5)",
-        "[TODO] 🏥 hospital / medical + 🎓 tutor x student (4/5)",
-        "[TODO] 🏥 hospital / medical + 🎓 tutor x student (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "senior_x_junior",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🏫 senior x junior (1/5)",
-        "[TODO] 🏥 hospital / medical + 🏫 senior x junior (2/5)",
-        "[TODO] 🏥 hospital / medical + 🏫 senior x junior (3/5)",
-        "[TODO] 🏥 hospital / medical + 🏫 senior x junior (4/5)",
-        "[TODO] 🏥 hospital / medical + 🏫 senior x junior (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "prince_x_human",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 👑 prince x human (1/5)",
-        "[TODO] 🏥 hospital / medical + 👑 prince x human (2/5)",
-        "[TODO] 🏥 hospital / medical + 👑 prince x human (3/5)",
-        "[TODO] 🏥 hospital / medical + 👑 prince x human (4/5)",
-        "[TODO] 🏥 hospital / medical + 👑 prince x human (5/5)"
-      ]
-    },
+{
+  "universeId": "city_life",
+  "dynamicId": "only_one_bed",
+  "summaries": [
+    "two almost-strangers miss the last train after a concert and the only motel room left has one bed and a broken lock.",
+    "a citywide blackout leaves two coworkers stranded in a tiny studio apartment with one mattress on the floor.",
+    "two friends crash at a mutual friend’s place after a night out and discover the couch is gone and the bed is not that big.",
+    "a snowstorm traps two people in a short-term rental that looked much bigger in the listing photos.",
+    "two rivals get stuck in the same hotel room during a conference because someone definitely booked wrong on purpose."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "slow_burn",
+  "summaries": [
+    "two strangers keep ending up on the same nearly empty train car every night until one of them finally says hello.",
+    "a florist and the bookstore owner across the street slowly falling into each other’s routines without noticing.",
+    "two people who always share a table at the laundromat because neither of them asks and neither of them minds.",
+    "neighbors who start with borrowed sugar and somehow end up knowing each other’s coffee order, work schedule, and worst days.",
+    "two regulars at a 24-hour diner becoming the soft part of each other’s week."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "mutual_pining",
+  "summaries": [
+    "two best friends in the city giving each other terrible dating advice because both of them think the other is in love with someone else.",
+    "roommates who keep bringing home little things that remind them of each other and pretending it means nothing.",
+    "two people who flirt through every commute, every coffee run, every midnight walk, and still call it banter.",
+    "everyone in the friend group thinks they are already together except the two idiots writing each other off as impossible.",
+    "two coworkers sharing cab rides home after late shifts and both spending the whole ride trying not to say something reckless."
+  ]
+},
+{
+  "universeId": "city_life",
+  "dynamicId": "unrequited_love",
+  "summaries": [
+    "someone keeps waiting up to hear their roommate come home even though the roommate is in love with someone else.",
+    "being the person your crush calls after every terrible date because you are 'safe' and that word is ruining your life.",
+    "someone helping the person they love move into the apartment they picked with somebody else.",
+    "a quiet, years-long crush made worse by the fact that the city keeps throwing you back together.",
+    "loving someone who reaches for your hand when they are tired but never long enough to mean anything."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "ex_to_lovers",
+  "summaries": [
+    "two exes who have avoided each other for years get assigned the same brutal overnight shift in the er.",
+    "a surgeon walks into the operating room and finds their ex already scrubbed in across the table.",
+    "former lovers forced back into daily contact when one transfers into the other’s department.",
+    "two exes keeping things professional until a code blue strips every lie right off them.",
+    "the hospital gala seating chart puts two exes at the same table and unfortunately neither of them is over it."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "friends_to_lovers",
+  "summaries": [
+    "two exhausted residents surviving on vending machine coffee and private jokes until one of them realizes they wait all day to see the other.",
+    "best friends on the same ward slowly becoming each other’s person between night shifts and 3 a.m. charting.",
+    "two nurses who always split the worst shifts and somehow still laugh through them.",
+    "a friendship built in supply closets, stairwells, and those five stolen minutes after a hard case.",
+    "two med students who swore they would never date within the hospital and then kept walking each other home anyway."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "childhood_friends_to_lovers",
+  "summaries": [
+    "two childhood best friends who used to play doctor together end up working in the same hospital years later.",
+    "someone starts their first day of residency and finds the kid they grew up with leaning against the nurses’ station.",
+    "childhood friends who promised to save lives together and somehow actually did.",
+    "two old friends reconnecting in a hospital hallway after years apart, both in scrubs, both a little stunned.",
+    "the one person who knew them before all the grades, debt, pressure, and disaster suddenly being back in their life every day."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "enemies_to_lovers",
+  "summaries": [
+    "two doctors who cannot agree on treatment plans keep getting assigned the same impossible cases.",
+    "a surgical resident and an er resident with a personal grudge and wildly different god complexes.",
+    "two rivals trying to outdo each other at morning rounds and accidentally becoming the hospital’s favorite slow-motion disaster.",
+    "they fight in the corridor, glare through procedures, and still notice first when the other has skipped lunch again.",
+    "two enemies stuck on the same research project with one deadline, no supervision, and far too much tension."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "fake_dating",
+  "summaries": [
+    "two coworkers fake date for one hospital fundraiser and then have to keep lying because somehow everyone has become emotionally invested.",
+    "someone blurts out 'my partner’s picking me up' to dodge a terrible setup and accidentally names the one coworker standing behind them.",
+    "two doctors pretend to be together so their families stop trying to marry them off to strangers.",
+    "a fake relationship starts as a joke in the break room and gets harder to end the moment jealousy shows up.",
+    "they only meant to hold hands once to shut the gossip down and now half the hospital thinks they are soulmates."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "arranged_marriage",
+  "summaries": [
+    "two heirs to rival medical dynasties get pushed into an arranged marriage while trying to survive the same teaching hospital.",
+    "an arranged marriage meant to merge hospitals, reputations, and two people who have never been allowed to want anything for themselves.",
+    "they meet in a private family office to discuss a marriage contract and then run into each other an hour later in scrubs.",
+    "two doctors promised to each other for political reasons deciding to treat the whole thing like a business arrangement until feelings make that impossible.",
+    "someone finds out their future spouse is the infuriating specialist they already hate consulting."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "coworkers",
+  "summaries": [
+    "two hospital coworkers who keep ending up alone at the nurses’ station at the worst possible hours.",
+    "they only talk during stolen coffee breaks at first, then during handoff, then during everything.",
+    "two staff members from different departments who keep saving each other in small, embarrassing ways.",
+    "a hospital rumor that two coworkers are secretly together becomes much less funny when neither of them denies it fast enough.",
+    "they work terrifyingly well together, which would be less of a problem if everyone would stop noticing."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "boss_x_employee",
+  "summaries": [
+    "a terrifying attending with impossible standards and the resident who is somehow the only one brave enough to argue back.",
+    "someone develops a very inconvenient thing for the department head who only ever looks gentle with them after midnight shifts.",
+    "an attending who keeps giving one specific resident the hardest cases and the softest looks.",
+    "the hospital’s coldest surgeon and the assistant who refuses to be intimidated by reputation, money, or eye contact.",
+    "a boss-employee dynamic held together by pager messages, suppressed feelings, and one very bad idea in an on-call room."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "tutor_x_student",
+  "summaries": [
+    "a brutal but brilliant senior doctor tutors one struggling med student after hours and neither of them leaves when the lesson ends.",
+    "someone only signs up for extra anatomy help because the tutor smiles once and it completely wrecks their semester.",
+    "late-night exam prep in empty lecture halls becoming the most romantic thing neither of them will admit to.",
+    "a tutor who insists this is strictly academic and a student who keeps showing up with coffee and impossible questions.",
+    "one-on-one clinical practice that gets very complicated the moment they stop pretending the tension is imaginary."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "senior_x_junior",
+  "summaries": [
+    "a junior resident falling disastrously hard for the senior who keeps rescuing them without ever making it obvious.",
+    "a senior doctor who pretends to be annoyed every time the same junior shows up in their orbit and then quietly waits for them anyway.",
+    "the whole hospital knows that one senior-junior pair has a thing except the pair in question.",
+    "a junior who memorizes one senior’s coffee order, schedule, and moods long before they mean to.",
+    "a senior trying very hard to maintain boundaries while their favorite junior keeps looking at them like that."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "prince_x_human",
+  "summaries": [
+    "a prince under a fake name gets admitted for a minor injury and falls for the only nurse who has no idea who he is.",
+    "a royal heir volunteers at a children’s hospital to escape palace life and meets someone who treats him like an ordinary intern.",
+    "the hospital quietly locks down for a vip patient and one exhausted doctor is far too tired to be impressed by the prince involved.",
+    "a prince sneaks out of security detail to wander the hospital at night and keeps finding the same human on break in the stairwell.",
+    "a royal recovering in secret at a city hospital becoming obsessed with the one person who never bows, flatters, or asks questions."
+  ]
+},
     {
       "universeId": "hospital_medical",
       "dynamicId": "vampire_x_human",
