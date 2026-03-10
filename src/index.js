@@ -1699,6 +1699,12 @@ async function main() {
           return;
         }
 
+        const perms = interaction.memberPermissions;
+        if (!perms || !perms.has(PermissionFlagsBits.Administrator)) {
+          await interaction.reply({ content: 'You need Administrator permission to use this command.', ephemeral: true });
+          return;
+        }
+
         const sub = interaction.options.getSubcommand();
         if (sub !== 'daily') {
           await interaction.reply({ content: 'Unknown setup command.', ephemeral: true });

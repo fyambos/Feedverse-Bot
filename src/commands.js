@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 
 function buildGlobalCommands() {
   const help = new SlashCommandBuilder().setName('help').setDescription('Show bot commands and usage');
@@ -58,6 +58,7 @@ function buildGlobalCommands() {
   const setup = new SlashCommandBuilder()
     .setName('setup')
     .setDescription('Setup commands')
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addSubcommand((sc) =>
       sc
         .setName('daily')
