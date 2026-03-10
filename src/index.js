@@ -74,6 +74,19 @@ function formatDynamicLabel(au, dynamicId) {
   return emoji + label;
 }
 
+function buildGenerateMetaEmbed(au, universeId, dynamicId) {
+  const hasUniverse = typeof universeId === 'string' && universeId.trim() !== '';
+  const hasDynamic = typeof dynamicId === 'string' && dynamicId.trim() !== '';
+  if (!hasUniverse && !hasDynamic) return null;
+
+  const fields = [];
+  if (hasUniverse) fields.push({ name: 'Universe', value: formatUniverseLabel(au, universeId), inline: true });
+  if (hasDynamic) fields.push({ name: 'Dynamic', value: formatDynamicLabel(au, dynamicId), inline: true });
+
+  // No title; keep this as purely metadata.
+  return new EmbedBuilder().addFields(fields);
+}
+
 function buildGenerateComponents({ ownerUserId, universeId, dynamicId }) {
   const row = new ActionRowBuilder().addComponents(
     new ButtonBuilder()
@@ -521,12 +534,7 @@ async function main() {
           return;
         }
 
-        const embed = new EmbedBuilder()
-          .setTitle('AU prompt')
-          .addFields([
-            { name: 'Universe', value: formatUniverseLabel(au, nextUniverseId), inline: true },
-            { name: 'Dynamic', value: formatDynamicLabel(au, nextDynamicId), inline: true }
-          ]);
+        const embed = buildGenerateMetaEmbed(au, nextUniverseId, nextDynamicId);
 
         const components = buildGenerateComponents({
           ownerUserId: interaction.user.id,
@@ -535,12 +543,20 @@ async function main() {
         });
 
         if (action === 'spin') {
-          await interaction.update({ content: summary, embeds: [embed], components });
+          await interaction.update({
+            content: summary,
+            embeds: embed ? [embed] : [],
+            components
+          });
           return;
         }
 
         // Remix always posts a new message (keeps the original prompt intact).
-        await interaction.reply({ content: summary, embeds: [embed], components });
+        await interaction.reply({
+          content: summary,
+          embeds: embed ? [embed] : [],
+          components
+        });
         return;
       }
 
@@ -572,12 +588,7 @@ async function main() {
 
         // If only one filter is set, this picks across all possibilities for the other dimension.
         // If neither is set, it picks from all packs.
-        const embed = new EmbedBuilder()
-          .setTitle('AU prompt')
-          .addFields([
-            { name: 'Universe', value: formatUniverseLabel(au, universeId), inline: true },
-            { name: 'Dynamic', value: formatDynamicLabel(au, dynamicId), inline: true }
-          ]);
+        const embed = buildGenerateMetaEmbed(au, universeId, dynamicId);
 
         const components = buildGenerateComponents({
           ownerUserId: interaction.user.id,
@@ -585,7 +596,11 @@ async function main() {
           dynamicId
         });
 
-        await interaction.reply({ content: summary, embeds: [embed], components });
+        await interaction.reply({
+          content: summary,
+          embeds: embed ? [embed] : [],
+          components
+        });
         return;
       }
 
