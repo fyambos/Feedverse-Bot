@@ -504,30 +504,6 @@ function botApiSecret() {
   return v || null;
 }
 
-function formatBackendError(res) {
-  const baseMsg =
-    res.json && typeof res.json.error === 'string'
-      ? String(res.json.error)
-      : res.text && String(res.text).trim()
-        ? String(res.text).slice(0, 300)
-        : 'Request failed (HTTP ' + String(res.status) + ')';
-
-  const issues =
-    res.json &&
-    res.json.details &&
-    Array.isArray(res.json.details.issues)
-      ? res.json.details.issues
-      : null;
-
-  if (!issues || issues.length === 0) return baseMsg;
-
-  const first = issues[0];
-  const path = first && typeof first.path === 'string' && first.path.trim() ? first.path.trim() : '';
-  const message = first && typeof first.message === 'string' && first.message.trim() ? first.message.trim() : '';
-  const detail = message ? (path ? path + ': ' + message : message) : '';
-  return detail ? baseMsg + ' (' + detail + ')' : baseMsg;
-}
-
 async function botApiPostJson(path, bodyObj) {
   const base = botApiBaseUrl();
   const secret = botApiSecret();
@@ -546,7 +522,12 @@ async function botApiPostJson(path, bodyObj) {
   });
 
   if (!res.ok) {
-    const msg = formatBackendError(res);
+    const msg =
+      res.json && typeof res.json.error === 'string'
+        ? res.json.error
+        : res.text && String(res.text).trim()
+          ? String(res.text).slice(0, 300)
+          : 'Request failed (HTTP ' + String(res.status) + ')';
     return { ok: false, status: Number(res.status || 0), error: msg };
   }
 
@@ -569,7 +550,12 @@ async function botApiGetJson(pathWithQuery) {
   });
 
   if (!res.ok) {
-    const msg = formatBackendError(res);
+    const msg =
+      res.json && typeof res.json.error === 'string'
+        ? res.json.error
+        : res.text && String(res.text).trim()
+          ? String(res.text).slice(0, 300)
+          : 'Request failed (HTTP ' + String(res.status) + ')';
     return { ok: false, status: Number(res.status || 0), error: msg };
   }
 

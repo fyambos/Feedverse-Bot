@@ -5785,260 +5785,258 @@
     "an undercover inspector joins the hospital to investigate malpractice rumors.",
     "a government investigator working night shifts while secretly building a case against the hospital."
   ]
+},{
+  "universeId": "hospital_medical",
+  "dynamicId": "paparazzi_scandal",
+  "summaries": [
+    "a tabloid photo of the hospital’s most famous surgeon carrying someone bridal-style through the ER doors explodes online overnight.",
+    "a paparazzi stakeout for a celebrity patient accidentally captures two doctors arguing like a married couple in the ambulance bay.",
+    "a blurry photo of two coworkers asleep against each other in the on-call room leaks and the hospital gossip mill goes feral.",
+    "someone posts a midnight photo of the hospital’s coldest attending laughing with one specific resident and nobody can believe it.",
+    "a viral video shows two doctors sprinting out of the hospital hand-in-hand during a fire alarm and the internet invents a love story immediately."
+  ]
 },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "paparazzi_scandal",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 📸 paparazzi scandal (1/5)",
-        "[TODO] 🏥 hospital / medical + 📸 paparazzi scandal (2/5)",
-        "[TODO] 🏥 hospital / medical + 📸 paparazzi scandal (3/5)",
-        "[TODO] 🏥 hospital / medical + 📸 paparazzi scandal (4/5)",
-        "[TODO] 🏥 hospital / medical + 📸 paparazzi scandal (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "anonymous_confession_account",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 📝 anonymous confession account (1/5)",
-        "[TODO] 🏥 hospital / medical + 📝 anonymous confession account (2/5)",
-        "[TODO] 🏥 hospital / medical + 📝 anonymous confession account (3/5)",
-        "[TODO] 🏥 hospital / medical + 📝 anonymous confession account (4/5)",
-        "[TODO] 🏥 hospital / medical + 📝 anonymous confession account (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "anonymous_admirer",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 💌 anonymous admirer (1/5)",
-        "[TODO] 🏥 hospital / medical + 💌 anonymous admirer (2/5)",
-        "[TODO] 🏥 hospital / medical + 💌 anonymous admirer (3/5)",
-        "[TODO] 🏥 hospital / medical + 💌 anonymous admirer (4/5)",
-        "[TODO] 🏥 hospital / medical + 💌 anonymous admirer (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "bet_or_dare",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🪤 bet / dare (1/5)",
-        "[TODO] 🏥 hospital / medical + 🪤 bet / dare (2/5)",
-        "[TODO] 🏥 hospital / medical + 🪤 bet / dare (3/5)",
-        "[TODO] 🏥 hospital / medical + 🪤 bet / dare (4/5)",
-        "[TODO] 🏥 hospital / medical + 🪤 bet / dare (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "only_one_bed",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🛏️ only one bed (1/5)",
-        "[TODO] 🏥 hospital / medical + 🛏️ only one bed (2/5)",
-        "[TODO] 🏥 hospital / medical + 🛏️ only one bed (3/5)",
-        "[TODO] 🏥 hospital / medical + 🛏️ only one bed (4/5)",
-        "[TODO] 🏥 hospital / medical + 🛏️ only one bed (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "slow_burn",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🫶 slow burn (1/5)",
-        "[TODO] 🏥 hospital / medical + 🫶 slow burn (2/5)",
-        "[TODO] 🏥 hospital / medical + 🫶 slow burn (3/5)",
-        "[TODO] 🏥 hospital / medical + 🫶 slow burn (4/5)",
-        "[TODO] 🏥 hospital / medical + 🫶 slow burn (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "mutual_pining",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 💞 mutual pining (1/5)",
-        "[TODO] 🏥 hospital / medical + 💞 mutual pining (2/5)",
-        "[TODO] 🏥 hospital / medical + 💞 mutual pining (3/5)",
-        "[TODO] 🏥 hospital / medical + 💞 mutual pining (4/5)",
-        "[TODO] 🏥 hospital / medical + 💞 mutual pining (5/5)"
-      ]
-    },
-    {
-      "universeId": "hospital_medical",
-      "dynamicId": "unrequited_love",
-      "summaries": [
-        "[TODO] 🏥 hospital / medical + 🥀 unrequited love (1/5)",
-        "[TODO] 🏥 hospital / medical + 🥀 unrequited love (2/5)",
-        "[TODO] 🏥 hospital / medical + 🥀 unrequited love (3/5)",
-        "[TODO] 🏥 hospital / medical + 🥀 unrequited love (4/5)",
-        "[TODO] 🏥 hospital / medical + 🥀 unrequited love (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "ex_to_lovers",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 💔 ex to lovers (1/5)",
-        "[TODO] ☕ café / bakery + 💔 ex to lovers (2/5)",
-        "[TODO] ☕ café / bakery + 💔 ex to lovers (3/5)",
-        "[TODO] ☕ café / bakery + 💔 ex to lovers (4/5)",
-        "[TODO] ☕ café / bakery + 💔 ex to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "friends_to_lovers",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🤝 friends to lovers (1/5)",
-        "[TODO] ☕ café / bakery + 🤝 friends to lovers (2/5)",
-        "[TODO] ☕ café / bakery + 🤝 friends to lovers (3/5)",
-        "[TODO] ☕ café / bakery + 🤝 friends to lovers (4/5)",
-        "[TODO] ☕ café / bakery + 🤝 friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "childhood_friends_to_lovers",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🧸 childhood friends to lovers (1/5)",
-        "[TODO] ☕ café / bakery + 🧸 childhood friends to lovers (2/5)",
-        "[TODO] ☕ café / bakery + 🧸 childhood friends to lovers (3/5)",
-        "[TODO] ☕ café / bakery + 🧸 childhood friends to lovers (4/5)",
-        "[TODO] ☕ café / bakery + 🧸 childhood friends to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "enemies_to_lovers",
-      "summaries": [
-        "[TODO] ☕ café / bakery + ⚔️ enemies to lovers (1/5)",
-        "[TODO] ☕ café / bakery + ⚔️ enemies to lovers (2/5)",
-        "[TODO] ☕ café / bakery + ⚔️ enemies to lovers (3/5)",
-        "[TODO] ☕ café / bakery + ⚔️ enemies to lovers (4/5)",
-        "[TODO] ☕ café / bakery + ⚔️ enemies to lovers (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "fake_dating",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 💍 fake dating (1/5)",
-        "[TODO] ☕ café / bakery + 💍 fake dating (2/5)",
-        "[TODO] ☕ café / bakery + 💍 fake dating (3/5)",
-        "[TODO] ☕ café / bakery + 💍 fake dating (4/5)",
-        "[TODO] ☕ café / bakery + 💍 fake dating (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "arranged_marriage",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 📜 arranged marriage (1/5)",
-        "[TODO] ☕ café / bakery + 📜 arranged marriage (2/5)",
-        "[TODO] ☕ café / bakery + 📜 arranged marriage (3/5)",
-        "[TODO] ☕ café / bakery + 📜 arranged marriage (4/5)",
-        "[TODO] ☕ café / bakery + 📜 arranged marriage (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "coworkers",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 💼 coworkers (1/5)",
-        "[TODO] ☕ café / bakery + 💼 coworkers (2/5)",
-        "[TODO] ☕ café / bakery + 💼 coworkers (3/5)",
-        "[TODO] ☕ café / bakery + 💼 coworkers (4/5)",
-        "[TODO] ☕ café / bakery + 💼 coworkers (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "boss_x_employee",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 📊 boss x employee (1/5)",
-        "[TODO] ☕ café / bakery + 📊 boss x employee (2/5)",
-        "[TODO] ☕ café / bakery + 📊 boss x employee (3/5)",
-        "[TODO] ☕ café / bakery + 📊 boss x employee (4/5)",
-        "[TODO] ☕ café / bakery + 📊 boss x employee (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "tutor_x_student",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🎓 tutor x student (1/5)",
-        "[TODO] ☕ café / bakery + 🎓 tutor x student (2/5)",
-        "[TODO] ☕ café / bakery + 🎓 tutor x student (3/5)",
-        "[TODO] ☕ café / bakery + 🎓 tutor x student (4/5)",
-        "[TODO] ☕ café / bakery + 🎓 tutor x student (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "senior_x_junior",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🏫 senior x junior (1/5)",
-        "[TODO] ☕ café / bakery + 🏫 senior x junior (2/5)",
-        "[TODO] ☕ café / bakery + 🏫 senior x junior (3/5)",
-        "[TODO] ☕ café / bakery + 🏫 senior x junior (4/5)",
-        "[TODO] ☕ café / bakery + 🏫 senior x junior (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "prince_x_human",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 👑 prince x human (1/5)",
-        "[TODO] ☕ café / bakery + 👑 prince x human (2/5)",
-        "[TODO] ☕ café / bakery + 👑 prince x human (3/5)",
-        "[TODO] ☕ café / bakery + 👑 prince x human (4/5)",
-        "[TODO] ☕ café / bakery + 👑 prince x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "vampire_x_human",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🩸 vampire x human (1/5)",
-        "[TODO] ☕ café / bakery + 🩸 vampire x human (2/5)",
-        "[TODO] ☕ café / bakery + 🩸 vampire x human (3/5)",
-        "[TODO] ☕ café / bakery + 🩸 vampire x human (4/5)",
-        "[TODO] ☕ café / bakery + 🩸 vampire x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "werewolf_x_human",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🐺 werewolf x human (1/5)",
-        "[TODO] ☕ café / bakery + 🐺 werewolf x human (2/5)",
-        "[TODO] ☕ café / bakery + 🐺 werewolf x human (3/5)",
-        "[TODO] ☕ café / bakery + 🐺 werewolf x human (4/5)",
-        "[TODO] ☕ café / bakery + 🐺 werewolf x human (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "rivals",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 😈 rivals (1/5)",
-        "[TODO] ☕ café / bakery + 😈 rivals (2/5)",
-        "[TODO] ☕ café / bakery + 😈 rivals (3/5)",
-        "[TODO] ☕ café / bakery + 😈 rivals (4/5)",
-        "[TODO] ☕ café / bakery + 😈 rivals (5/5)"
-      ]
-    },
-    {
-      "universeId": "cafe_bakery",
-      "dynamicId": "dumb_x_dumber",
-      "summaries": [
-        "[TODO] ☕ café / bakery + 🤪 dumb x dumber (1/5)",
-        "[TODO] ☕ café / bakery + 🤪 dumb x dumber (2/5)",
-        "[TODO] ☕ café / bakery + 🤪 dumb x dumber (3/5)",
-        "[TODO] ☕ café / bakery + 🤪 dumb x dumber (4/5)",
-        "[TODO] ☕ café / bakery + 🤪 dumb x dumber (5/5)"
-      ]
-    },
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "anonymous_confession_account",
+  "summaries": [
+    "a hospital confession page posts 'two people in trauma surgery are secretly in love and everyone knows except them.'",
+    "an anonymous post describing a specific late-night stairwell conversation makes two doctors panic immediately.",
+    "someone confesses on the hospital forum that their crush keeps stealing their coffee during night shift.",
+    "a confession appears describing a certain pair of residents with alarming accuracy.",
+    "someone posts 'if the ER doctor who saved my life sees this, I think I'm in love with you.'"
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "anonymous_admirer",
+  "summaries": [
+    "someone keeps leaving fresh coffee on a doctor’s desk every night shift with no name attached.",
+    "a nurse keeps finding small snacks in their locker before long shifts.",
+    "someone secretly fixes the broken equipment in one specific resident’s station every morning.",
+    "anonymous notes start appearing in a surgeon’s coat pocket with reminders to eat and sleep.",
+    "someone keeps leaving origami animals at the nurses’ station for the same person."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "bet_or_dare",
+  "summaries": [
+    "someone loses a shift-room bet and has to flirt with the scariest attending in the hospital.",
+    "a dare challenges someone to ask their rival to grab coffee after shift.",
+    "two interns bet who can survive the longest working with the hospital’s most impossible surgeon.",
+    "a drunken residency party bet forces someone to ask the ER doctor they hate out on a date.",
+    "someone jokingly bets they can make the coldest doctor in the hospital smile before sunrise."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "only_one_bed",
+  "summaries": [
+    "two residents get stuck overnight in a snowstorm during an out-of-town conference with only one hotel bed.",
+    "a hospital power outage traps two coworkers in the on-call room with one couch.",
+    "two doctors miss the last train home after a night shift and end up sharing a motel bed.",
+    "a medical mission trip leaves two rivals sharing the only sleeping space in a field clinic.",
+    "a chaotic night shift ends with two exhausted residents passing out in the same call room bed."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "slow_burn",
+  "summaries": [
+    "two doctors who keep ending every shift together at the vending machines slowly become part of each other’s routine.",
+    "two residents who always share the same night shifts start relying on each other more than anyone else.",
+    "two coworkers who walk each other to the parking lot after midnight shifts every night.",
+    "a quiet friendship built from shared coffee breaks, exhausted laughter, and surviving impossible shifts.",
+    "two doctors who slowly realize they wait for each other more than they should."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "mutual_pining",
+  "summaries": [
+    "two doctors convinced the other could never like them back despite flirting constantly.",
+    "two coworkers asking each other for dating advice about completely fictional people.",
+    "everyone in the hospital thinks two residents are secretly dating except the two idiots involved.",
+    "two friends who panic every time someone asks if they’re together.",
+    "two doctors who always pick each other as partners during shifts and pretend it means nothing."
+  ]
+},
+{
+  "universeId": "hospital_medical",
+  "dynamicId": "unrequited_love",
+  "summaries": [
+    "someone helping their crush prepare for a date with another coworker.",
+    "a doctor secretly in love with the one person who confides in them about their dating life.",
+    "someone always staying late during shift just to spend a little more time with their crush.",
+    "a quiet crush that lasts through years of residency.",
+    "watching the person you love walk out of the hospital with someone else."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "ex_to_lovers",
+  "summaries": [
+    "someone walks into a café for coffee and discovers their ex now owns the place.",
+    "two exes forced to work together when their friends open a bakery together.",
+    "someone returning to their hometown café only to find their ex behind the counter.",
+    "a baker and their ex running competing cafés on the same street.",
+    "two exes stuck sharing a booth every morning because the café is always full."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "friends_to_lovers",
+  "summaries": [
+    "two best friends working the same café shifts slowly becoming inseparable.",
+    "friends who always split pastries after closing realizing their routine feels suspiciously romantic.",
+    "two coworkers who stay after closing to clean up and end up talking for hours.",
+    "two baristas who flirt with customers all day but never notice each other.",
+    "two friends who start a tiny bakery together and accidentally fall in love."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "childhood_friends_to_lovers",
+  "summaries": [
+    "two childhood friends reopening the small bakery their families once ran together.",
+    "best friends who grew up eating at the same café now working there side by side.",
+    "two childhood neighbors who always met at the same bakery after school.",
+    "childhood friends inheriting a café together years later.",
+    "two people who spent their childhood afternoons in the same bakery realizing nothing has changed."
+  ]
+},{
+  "universeId": "cafe_bakery",
+  "dynamicId": "enemies_to_lovers",
+  "summaries": [
+    "two rival baristas on opposite sides of the counter keep arguing over whose coffee recipe customers actually prefer.",
+    "a quiet neighborhood bakery suddenly gets competition when a new café opens directly across the street.",
+    "two pastry chefs forced to collaborate for a baking competition despite openly hating each other.",
+    "a café employee constantly clashing with the health inspector who keeps showing up unannounced.",
+    "two coworkers who can't stand each other somehow always end up closing the café together."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "fake_dating",
+  "summaries": [
+    "a barista pretending to date their coworker to stop a regular customer from flirting every morning.",
+    "two café employees fake a relationship so the owner stops scheduling them on opposite shifts.",
+    "someone pretends their coworker is their partner to impress visiting family during a busy brunch shift.",
+    "a bakery worker asks their rival to fake-date them to make their ex jealous during a café reunion event.",
+    "two baristas jokingly pretend to be a couple for tips until customers start believing it."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "arranged_marriage",
+  "summaries": [
+    "two people whose families own neighboring bakeries are forced into an engagement to merge the businesses.",
+    "a struggling café owner learns their future spouse is the heir to the rival bakery across the street.",
+    "two heirs to famous pastry shops are promised to each other to unite the family brands.",
+    "an arranged engagement forces two complete strangers to run the same bakery together.",
+    "two people expected to marry for business reasons try to pretend they aren't actually enjoying working together."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "coworkers",
+  "summaries": [
+    "two baristas who survive every chaotic morning rush together.",
+    "two coworkers who always get stuck closing the café long after everyone else leaves.",
+    "two bakery employees constantly sharing leftover pastries after shifts.",
+    "two coworkers who keep covering each other’s mistakes during the busiest hours.",
+    "two baristas who start every shift teasing each other across the counter."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "boss_x_employee",
+  "summaries": [
+    "a strict café owner constantly exasperated by their most chaotic barista.",
+    "a bakery owner who keeps inventing excuses to personally train one specific new employee.",
+    "an intimidating café manager who secretly lets their favorite employee break every rule.",
+    "a boss who insists on taste-testing every pastry their employee bakes.",
+    "a new employee realizing their boss remembers every tiny detail about them."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "tutor_x_student",
+  "summaries": [
+    "a skilled pastry chef reluctantly teaching a new hire how to bake anything edible.",
+    "a barista tutoring a coworker who can't remember a single coffee recipe.",
+    "a bakery apprentice learning under a chef who refuses to go easy on them.",
+    "a pastry student begging the café’s best baker to secretly teach them after hours.",
+    "late-night baking lessons that turn into long conversations in an empty kitchen."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "senior_x_junior",
+  "summaries": [
+    "a veteran barista stuck mentoring the most chaotic new employee.",
+    "a new hire trying desperately to impress the café’s most experienced worker.",
+    "a senior bakery employee quietly fixing every mistake their junior makes.",
+    "a new barista constantly asking the same senior coworker for help during rush hour.",
+    "a junior employee who only feels calm when working the same shift as their senior."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "prince_x_human",
+  "summaries": [
+    "a café employee discovering their favorite regular customer is secretly a prince traveling incognito.",
+    "a royal heir escaping palace life by secretly working shifts in a small bakery.",
+    "a prince visiting the same tiny café every morning just to see the same barista.",
+    "a café worker realizing the shy customer who tips too much is part of the royal family.",
+    "a prince pretending to be an ordinary tourist while spending every afternoon in the same bakery."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "vampire_x_human",
+  "summaries": [
+    "a barista noticing one regular customer only ever shows up after sunset.",
+    "a night café employee realizing their quiet coworker never eats any of the food they serve.",
+    "a human baker discovering their favorite customer orders nothing but black coffee every night.",
+    "a vampire secretly running a bakery that only opens after midnight.",
+    "a human employee starting to suspect why their coworker disappears before sunrise."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "werewolf_x_human",
+  "summaries": [
+    "a barista noticing their coworker always calls in sick during full moons.",
+    "a bakery employee returning from certain nights covered in flour, dirt, and suspicious scratches.",
+    "a human worker discovering why the café closes early once a month.",
+    "a werewolf constantly inventing ridiculous excuses for disappearing during night shifts.",
+    "a barista realizing their coworker can smell burnt pastries before anyone else."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "rivals",
+  "summaries": [
+    "two baristas constantly competing to see who can make the best latte art.",
+    "two pastry chefs turning every recipe into a silent competition.",
+    "two café employees competing for the same promotion.",
+    "two workers trying to prove whose regular customers are more loyal.",
+    "two bakers who insist the other stole their pastry recipe."
+  ]
+},
+{
+  "universeId": "cafe_bakery",
+  "dynamicId": "dumb_x_dumber",
+  "summaries": [
+    "two baristas who definitely share one brain cell somehow running the café together.",
+    "two coworkers improvising coffee recipes when they forget the real ones.",
+    "two employees trying to survive rush hour with increasingly terrible ideas.",
+    "two bakers who burn half the pastries but keep laughing about it.",
+    "two chaotic coworkers turning every shift into complete nonsense."
+  ]
+},
     {
       "universeId": "cafe_bakery",
       "dynamicId": "smart_x_dumb",
