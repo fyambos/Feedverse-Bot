@@ -874,7 +874,7 @@ function buildLeaderboardEmbed({ items }) {
     const level = Number.isFinite(Number(it.level)) ? Number(it.level) : 1;
     const xp = Number.isFinite(Number(it.xp)) ? Number(it.xp) : 0;
     const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '•';
-    lines.push(medal + ' ' + String(i + 1) + '. <@' + userId + '> — ✅ ' + String(accepted) + ' here | 🎖️ ' + String(level) + ' | ⚡ ' + String(xp));
+    lines.push(medal + ' ' + String(i + 1) + '. <@' + userId + '> — ✅ ' + String(accepted) + ' here | LV🎖️ ' + String(level) + ' | ⚡ ' + String(xp) + ' xp');
   }
 
   embed.addFields({ name: 'Rankings', value: lines.join('\n').slice(0, 1024) || ' ' });
@@ -1630,19 +1630,22 @@ async function main() {
         let nextUniverseId = universeId;
         let nextDynamicId = dynamicId;
 
+        // Use the same merged pool as /generate (local JSON + approved DB prompts).
+        const mergedAllPacks = await getMergedPacksForGenerate(au, null, null);
+
         if (action === 'remixpick') {
           if (remixMode === 'dynamic') {
-            nextDynamicId = pickAlternateDynamicId(au, au.packs, nextUniverseId, nextDynamicId);
+            nextDynamicId = pickAlternateDynamicId(au, mergedAllPacks, nextUniverseId, nextDynamicId);
           } else if (remixMode === 'universe') {
-            nextUniverseId = pickAlternateUniverseId(au, au.packs, nextDynamicId, nextUniverseId);
+            nextUniverseId = pickAlternateUniverseId(au, mergedAllPacks, nextDynamicId, nextUniverseId);
           } else {
-            const out = pickAlternateUniverseAndDynamic(au, au.packs, nextUniverseId, nextDynamicId);
+            const out = pickAlternateUniverseAndDynamic(au, mergedAllPacks, nextUniverseId, nextDynamicId);
             nextUniverseId = out.universeId;
             nextDynamicId = out.dynamicId;
           }
         }
 
-        const matching = filterPacks(au.packs, nextUniverseId, nextDynamicId);
+        const matching = await getMergedPacksForGenerate(au, nextUniverseId, nextDynamicId);
         const pickedPack = choice(matching);
         if (!pickedPack) {
           await interaction.reply({
