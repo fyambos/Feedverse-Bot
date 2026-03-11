@@ -806,17 +806,24 @@ function buildHelpMessage() {
   return { embeds: [embed], components };
 }
 
-function buildProfileEmbed({ au, userId, profile }) {
+function buildProfileEmbed({ au, userId, profile, page, pageSize }) {
   const safe = profile && typeof profile === 'object' ? profile : {};
   const level = Number.isFinite(Number(safe.level)) ? Number(safe.level) : 1;
   const xp = Number.isFinite(Number(safe.xp)) ? Number(safe.xp) : 0;
   const accepted = Number.isFinite(Number(safe.acceptedCount)) ? Number(safe.acceptedCount) : 0;
   const xpInto = Number.isFinite(Number(safe.xpIntoLevel)) ? Number(safe.xpIntoLevel) : 0;
   const xpForNext = Number.isFinite(Number(safe.xpForNextLevel)) ? Number(safe.xpForNextLevel) : 0;
+  const pageNum = Number.isFinite(Number(page)) ? Number(page) : 0;
+  const perPage = Number.isFinite(Number(pageSize)) ? Number(pageSize) : null;
 
   const embed = new EmbedBuilder()
     .setTitle('🧾 Profile')
     .setDescription('👤 <@' + String(userId) + '>');
+
+  if (pageNum > 0 || perPage) {
+    const label = 'Page ' + String(pageNum + 1) + (perPage ? ' • ' + String(perPage) + '/page' : '');
+    embed.setFooter({ text: label });
+  }
 
   embed.addFields(
     { name: '🎖️ Level', value: String(level), inline: true },
@@ -858,6 +865,21 @@ function buildProfileEmbed({ au, userId, profile }) {
   }
 
   return embed;
+}
+
+function buildProfileComponents({ ownerUserId, targetUserId, page, hasMore }) {
+  const p = Number.isFinite(Number(page)) ? Math.max(0, Number(page)) : 0;
+  const olderDisabled = !hasMore;
+  const newerDisabled = p <= 0;
+
+  const newerId = 'prof:page:' + String(ownerUserId) + ':' + String(targetUserId) + ':' + String(Math.max(0, p - 1));
+  const olderId = 'prof:page:' + String(ownerUserId) + ':' + String(targetUserId) + ':' + String(p + 1);
+
+  const row = new ActionRowBuilder().addComponents(
+    new ButtonBuilder().setCustomId(newerId).setLabel('Newer').setStyle(ButtonStyle.Secondary).setDisabled(newerDisabled),
+    new ButtonBuilder().setCustomId(olderId).setLabel('Older').setStyle(ButtonStyle.Secondary).setDisabled(olderDisabled)
+  );
+  return [row];
 }
 
 function buildLeaderboardEmbed({ items }) {
@@ -1591,6 +1613,44 @@ async function main() {
           return;
         }
 
+        if (id.startsWith('prof:page:')) {
+          const parts = id.split(':');
+          const ownerUserId = parts[2] || '';
+          const targetUserId = parts[3] || '';
+          const pageRaw = parts[4] || '0';
+          const page = Math.max(0, parseInt(pageRaw, 10) || 0);
+
+          if (!ownerUserId || String(interaction.user.id) !== String(ownerUserId)) {
+            await interaction.reply({
+              content: 'Run /profile to get your own pagination buttons.',
+              ephemeral: true
+            });
+            return;
+          }
+
+          const PAGE_SIZE = 10;
+          const offset = page * PAGE_SIZE;
+          const r = await botApiGetJson(
+            '/v1/au/profile?userDiscordUserId=' + encodeURIComponent(String(targetUserId)) + '&limit=' + String(PAGE_SIZE) + '&offset=' + String(offset)
+          );
+          if (!r.ok) {
+            await interaction.reply({ content: 'Error loading profile: ' + r.error, ephemeral: true });
+            return;
+          }
+
+          const hasMore = Boolean(r.json && r.json.pagination && r.json.pagination.hasMore);
+          const embed = buildProfileEmbed({ au, userId: targetUserId, profile: r.json, page, pageSize: PAGE_SIZE });
+          const components = buildProfileComponents({
+            ownerUserId: interaction.user.id,
+            targetUserId,
+            page,
+            hasMore
+          });
+
+          await interaction.update({ embeds: [embed], components });
+          return;
+        }
+
         if (!id.startsWith('gen:')) return;
 
         const parts = id.split(':');
@@ -1710,14 +1770,25 @@ async function main() {
         const optUser = interaction.options.getUser('user');
         const userId = optUser && optUser.id ? String(optUser.id) : interaction.user && interaction.user.id ? String(interaction.user.id) : '';
 
-        const r = await botApiGetJson('/v1/au/profile?userDiscordUserId=' + encodeURIComponent(userId) + '&limit=10');
+        const PAGE_SIZE = 10;
+        const page = 0;
+        const r = await botApiGetJson(
+          '/v1/au/profile?userDiscordUserId=' + encodeURIComponent(userId) + '&limit=' + String(PAGE_SIZE) + '&offset=0'
+        );
         if (!r.ok) {
           await interaction.reply({ content: 'Error loading profile: ' + r.error, ephemeral: interaction.inGuild() });
           return;
         }
 
-        const embed = buildProfileEmbed({ au, userId, profile: r.json });
-        await interaction.reply({ embeds: [embed] });
+        const hasMore = Boolean(r.json && r.json.pagination && r.json.pagination.hasMore);
+        const embed = buildProfileEmbed({ au, userId, profile: r.json, page, pageSize: PAGE_SIZE });
+        const components = buildProfileComponents({
+          ownerUserId: interaction.user.id,
+          targetUserId: userId,
+          page,
+          hasMore
+        });
+        await interaction.reply({ embeds: [embed], components });
         return;
       }
 

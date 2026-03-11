@@ -62,6 +62,7 @@ Behavior:
 - `/profile`
   - optional `user`
   - shows AU prompt stats (level + XP + accepted prompts)
+  - use the **Newer**/**Older** buttons to page through prompt history
 
 - `/leaderboard`
   - shows the top users in this server by accepted prompts (with level + XP)
