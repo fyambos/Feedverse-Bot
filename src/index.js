@@ -140,6 +140,57 @@ function parseLocalTimeToMinutes(raw) {
   return null;
 }
 
+function normalizeSubmittedPromptText(raw) {
+  const input = typeof raw === 'string' ? raw : '';
+  if (!input) return '';
+
+  const tokens = [];
+  const re = /[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)*/g;
+  let last = 0;
+  for (let m = re.exec(input); m; m = re.exec(input)) {
+    const start = m.index;
+    const end = start + m[0].length;
+    if (start > last) tokens.push({ kind: 'sep', value: input.slice(last, start) });
+    tokens.push({ kind: 'word', value: m[0] });
+    last = end;
+  }
+  if (last < input.length) tokens.push({ kind: 'sep', value: input.slice(last) });
+
+  const isAllCapsWord = (w) => {
+    const letters = String(w || '').replace(/[^A-Za-z]/g, '');
+    if (!letters) return { ok: false, lettersLen: 0 };
+    const ok = letters === letters.toUpperCase() && letters !== letters.toLowerCase();
+    return { ok, lettersLen: letters.length };
+  };
+
+  const wordIdx = [];
+  for (let i = 0; i < tokens.length; i++) if (tokens[i].kind === 'word') wordIdx.push(i);
+
+  for (let k = 0; k < wordIdx.length; k++) {
+    const i = wordIdx[k];
+    const word = tokens[i].value;
+
+    const cur = isAllCapsWord(word);
+    if (!cur.ok) {
+      tokens[i].value = String(word).toLowerCase();
+      continue;
+    }
+
+    // Preserve multi-letter ALLCAPS words always (e.g. LOT).
+    // Also preserve single-letter ALLCAPS when it sits next to other ALLCAPS words
+    // to avoid breaking phrases like "THIS IS A NIGHTMARE".
+    const prevWord = k > 0 ? tokens[wordIdx[k - 1]].value : null;
+    const nextWord = k + 1 < wordIdx.length ? tokens[wordIdx[k + 1]].value : null;
+    const prevAll = prevWord ? isAllCapsWord(prevWord).ok : false;
+    const nextAll = nextWord ? isAllCapsWord(nextWord).ok : false;
+
+    const preserve = cur.lettersLen > 1 || prevAll || nextAll;
+    tokens[i].value = preserve ? String(word) : String(word).toLowerCase();
+  }
+
+  return tokens.map((t) => t.value).join('');
+}
+
 function formatMinutesAsTime(mins) {
   const m = Number(mins);
   if (!Number.isFinite(m) || m < 0) return null;
@@ -1661,13 +1712,15 @@ async function main() {
           return;
         }
 
+        const normalizedPromptText = normalizeSubmittedPromptText(promptText);
+
         const submitter = interaction.user;
         const submitterName = submitter && typeof submitter.tag === 'string' ? submitter.tag : submitter.username;
 
         const res = await botApiPostJson('/v1/au/prompt-submissions', {
           settingId,
           dynamicId,
-          promptText,
+          promptText: normalizedPromptText,
           submitterDiscordUserId: String(submitter.id),
           submitterDiscordUsername: String(submitterName || ''),
           sourceGuildId: interaction.guildId ? String(interaction.guildId) : null,
