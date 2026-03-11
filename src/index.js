@@ -777,6 +777,8 @@ function buildHelpMessage() {
   const embed = new EmbedBuilder().setTitle(title).setDescription(tagline);
 
   const cmds = [];
+  cmds.push('• `/' + 'profile` — view your XP, level, and prompt history');
+  cmds.push('• `/' + 'leaderboard` — see top prompt contributors');
   cmds.push('• `/' + 'generate` — generate one AU prompt (includes Favorite button)');
   cmds.push('• `/' + 'share` — share a Feedverse scenario invite code');
   cmds.push('• `/' + 'prompt` — submit a prompt for moderator review');
@@ -802,6 +804,81 @@ function buildHelpMessage() {
   }
 
   return { embeds: [embed], components };
+}
+
+function buildProfileEmbed({ au, userId, profile }) {
+  const safe = profile && typeof profile === 'object' ? profile : {};
+  const level = Number.isFinite(Number(safe.level)) ? Number(safe.level) : 1;
+  const xp = Number.isFinite(Number(safe.xp)) ? Number(safe.xp) : 0;
+  const accepted = Number.isFinite(Number(safe.acceptedCount)) ? Number(safe.acceptedCount) : 0;
+  const xpInto = Number.isFinite(Number(safe.xpIntoLevel)) ? Number(safe.xpIntoLevel) : 0;
+  const xpForNext = Number.isFinite(Number(safe.xpForNextLevel)) ? Number(safe.xpForNextLevel) : 0;
+
+  const embed = new EmbedBuilder()
+    .setTitle('🧾 Profile')
+    .setDescription('👤 <@' + String(userId) + '>');
+
+  embed.addFields(
+    { name: '🎖️ Level', value: String(level), inline: true },
+    { name: '⚡ XP', value: String(xp), inline: true },
+    { name: '✅ Accepted', value: String(accepted), inline: true }
+  );
+
+  if (xpForNext > 0) {
+    embed.addFields({
+      name: '📈 Progress',
+      value: String(xpInto) + ' / ' + String(xpForNext) + ' XP to next level',
+      inline: false
+    });
+  }
+
+  const submissions = safe.submissions && Array.isArray(safe.submissions) ? safe.submissions : [];
+  if (submissions.length === 0) {
+    embed.addFields({ name: '📝 Your prompts', value: 'No submissions yet. Use `/' + 'prompt` to submit one!' });
+    return embed;
+  }
+
+  const shown = submissions.slice(0, 10);
+  const maxEach = 240;
+  for (let i = 0; i < shown.length; i++) {
+    const it = shown[i] || {};
+    const status = String(it.status || 'pending');
+    const badge = status === 'approved' ? '✅' : status === 'rejected' ? '❌' : '⏳';
+    const settingId = it.settingId != null ? String(it.settingId) : null;
+    const dynamicId = it.dynamicId != null ? String(it.dynamicId) : null;
+    const meta =
+      settingId || dynamicId
+        ? (settingId ? formatUniverseLabel(au, settingId) : 'unknown') + ' + ' + (dynamicId ? formatDynamicLabel(au, dynamicId) : 'unknown')
+        : 'unknown';
+    const promptText = it.promptText != null ? String(it.promptText) : '';
+    embed.addFields({
+      name: badge + ' #' + String(i + 1) + ' ' + trunc(meta, 200),
+      value: '```\n' + trunc(promptText, maxEach) + '\n```'
+    });
+  }
+
+  return embed;
+}
+
+function buildLeaderboardEmbed({ items }) {
+  const rows = Array.isArray(items) ? items.filter((x) => x && typeof x === 'object') : [];
+  const embed = new EmbedBuilder().setTitle('🏆 Leaderboard').setDescription(rows.length ? 'top prompt contributors' : 'No data yet.');
+
+  if (!rows.length) return embed;
+
+  const lines = [];
+  for (let i = 0; i < Math.min(10, rows.length); i++) {
+    const it = rows[i];
+    const userId = it.userDiscordUserId != null ? String(it.userDiscordUserId) : '';
+    const accepted = Number.isFinite(Number(it.acceptedCount)) ? Number(it.acceptedCount) : 0;
+    const level = Number.isFinite(Number(it.level)) ? Number(it.level) : 1;
+    const xp = Number.isFinite(Number(it.xp)) ? Number(it.xp) : 0;
+    const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '•';
+    lines.push(medal + ' ' + String(i + 1) + '. <@' + userId + '> — ✅ ' + String(accepted) + ' | 🎖️ ' + String(level) + ' | ⚡ ' + String(xp));
+  }
+
+  embed.addFields({ name: 'Rankings', value: lines.join('\n').slice(0, 1024) || ' ' });
+  return embed;
 }
 
 async function fetchJson(url) {
@@ -1623,6 +1700,33 @@ async function main() {
       if (interaction.commandName === 'help') {
         const msg = buildHelpMessage();
         await interaction.reply({ embeds: msg.embeds, components: msg.components });
+        return;
+      }
+
+      if (interaction.commandName === 'profile') {
+        const userId = interaction.user && interaction.user.id ? String(interaction.user.id) : '';
+
+        const r = await botApiGetJson('/v1/au/profile?userDiscordUserId=' + encodeURIComponent(userId) + '&limit=10');
+        if (!r.ok) {
+          await interaction.reply({ content: 'Error loading profile: ' + r.error, ephemeral: interaction.inGuild() });
+          return;
+        }
+
+        const embed = buildProfileEmbed({ au, userId, profile: r.json });
+        await interaction.reply({ embeds: [embed] });
+        return;
+      }
+
+      if (interaction.commandName === 'leaderboard') {
+        const r = await botApiGetJson('/v1/au/leaderboard?limit=10');
+        if (!r.ok) {
+          await interaction.reply({ content: 'Error loading leaderboard: ' + r.error, ephemeral: interaction.inGuild() });
+          return;
+        }
+
+        const items = r.json && Array.isArray(r.json.items) ? r.json.items : [];
+        const embed = buildLeaderboardEmbed({ items });
+        await interaction.reply({ embeds: [embed] });
         return;
       }
 

@@ -3,6 +3,12 @@ const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 function buildGlobalCommands() {
   const help = new SlashCommandBuilder().setName('help').setDescription('Show bot commands and usage');
 
+  const profile = new SlashCommandBuilder().setName('profile').setDescription('View your Feedverse profile');
+
+  const leaderboard = new SlashCommandBuilder()
+    .setName('leaderboard')
+    .setDescription('View the prompt XP leaderboard');
+
   const generate = new SlashCommandBuilder()
     .setName('generate')
     .setDescription('Generate one AU prompt')
@@ -88,7 +94,7 @@ function buildGlobalCommands() {
     .setDescription('View things')
     .addSubcommand((sc) => sc.setName('favorites').setDescription('View your favorited prompts'));
 
-  return [help, generate, share, prompt, setup, view];
+  return [help, profile, leaderboard, generate, share, prompt, setup, view];
 }
 
 function buildOfficialGuildCommands() {

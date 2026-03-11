@@ -43,6 +43,11 @@ npm start
   - optional `dynamic` (autocomplete)
   - includes a **Favorite** button to save the prompt
 
+Behavior:
+- both set: picks 1 of the 5 for that exact (universe, dynamic)
+- only one set: picks randomly across all matching packs, then 1 of the 5
+- none: picks randomly across all packs, then 1 of the 5
+
 - `/share`
   - required `invite_code` (scenario invite code like `KPOP2024`)
   - posts an embed with scenario info if `FEEDVERSE_API_BASE_URL` is set
@@ -53,6 +58,12 @@ npm start
   - required `dynamic` (autocomplete)
   - required `prompt` (text)
   - submits a prompt for moderator review (works in DMs or any server)
+
+- `/profile`
+  - shows your global AU prompt stats (level + XP + accepted prompts)
+
+- `/leaderboard`
+  - shows the top users by accepted prompts (with level + XP)
 
 - `/setup daily`
   - required `channel`
@@ -74,10 +85,17 @@ Moderation (official guild only):
 - a short hex prefix like `a1b2c3d4`
 - a full UUID
 
-Behavior:
-- both set: picks 1 of the 5 for that exact (universe, dynamic)
-- only one set: picks randomly across all matching packs, then 1 of the 5
-- none: picks randomly across all packs, then 1 of the 5
+## XP & levels
+
+- XP is global (per Discord user id) and only increases when a prompt submission is accepted.
+- Current award: +25 XP per accepted prompt.
+- Level curve ramps quadratically. Total XP required to reach level $L$ is:
+
+$$
+XP(L) = 50 \cdot (L-1) \cdot L
+$$
+
+So level 1 starts at 0 XP, level 2 at 100 XP, level 3 at 300 XP, etc.
 
 If `FEEDVERSE_API_BASE_URL` is set, `/generate` and daily will also include approved prompts from the backend (merged with the local JSON packs).
 
