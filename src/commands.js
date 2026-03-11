@@ -3,11 +3,19 @@ const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 function buildGlobalCommands() {
   const help = new SlashCommandBuilder().setName('help').setDescription('Show bot commands and usage');
 
-  const profile = new SlashCommandBuilder().setName('profile').setDescription('View your Feedverse profile');
+  const profile = new SlashCommandBuilder()
+    .setName('profile')
+    .setDescription('View prompt XP profile')
+    .addUserOption((opt) =>
+      opt
+        .setName('user')
+        .setDescription('Optional user (defaults to you)')
+        .setRequired(false)
+    );
 
   const leaderboard = new SlashCommandBuilder()
     .setName('leaderboard')
-    .setDescription('View the prompt XP leaderboard');
+    .setDescription('View this server\'s prompt XP leaderboard');
 
   const generate = new SlashCommandBuilder()
     .setName('generate')

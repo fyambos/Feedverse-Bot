@@ -60,10 +60,11 @@ Behavior:
   - submits a prompt for moderator review (works in DMs or any server)
 
 - `/profile`
-  - shows your global AU prompt stats (level + XP + accepted prompts)
+  - optional `user`
+  - shows AU prompt stats (level + XP + accepted prompts)
 
 - `/leaderboard`
-  - shows the top users by accepted prompts (with level + XP)
+  - shows the top users in this server by accepted prompts (with level + XP)
 
 - `/setup daily`
   - required `channel`

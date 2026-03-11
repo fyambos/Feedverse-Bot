@@ -777,8 +777,8 @@ function buildHelpMessage() {
   const embed = new EmbedBuilder().setTitle(title).setDescription(tagline);
 
   const cmds = [];
-  cmds.push('• `/' + 'profile` — view your XP, level, and prompt history');
-  cmds.push('• `/' + 'leaderboard` — see top prompt contributors');
+  cmds.push('• `/' + 'profile` — view XP, level, and prompt history (optionally for another user)');
+  cmds.push('• `/' + 'leaderboard` — see top prompt contributors in this server');
   cmds.push('• `/' + 'generate` — generate one AU prompt (includes Favorite button)');
   cmds.push('• `/' + 'share` — share a Feedverse scenario invite code');
   cmds.push('• `/' + 'prompt` — submit a prompt for moderator review');
@@ -834,7 +834,7 @@ function buildProfileEmbed({ au, userId, profile }) {
 
   const submissions = safe.submissions && Array.isArray(safe.submissions) ? safe.submissions : [];
   if (submissions.length === 0) {
-    embed.addFields({ name: '📝 Your prompts', value: 'No submissions yet. Use `/' + 'prompt` to submit one!' });
+    embed.addFields({ name: '📝 Recent prompts', value: 'No submissions yet.' });
     return embed;
   }
 
@@ -874,7 +874,7 @@ function buildLeaderboardEmbed({ items }) {
     const level = Number.isFinite(Number(it.level)) ? Number(it.level) : 1;
     const xp = Number.isFinite(Number(it.xp)) ? Number(it.xp) : 0;
     const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '•';
-    lines.push(medal + ' ' + String(i + 1) + '. <@' + userId + '> — ✅ ' + String(accepted) + ' | 🎖️ ' + String(level) + ' | ⚡ ' + String(xp));
+    lines.push(medal + ' ' + String(i + 1) + '. <@' + userId + '> — ✅ ' + String(accepted) + ' here | 🎖️ ' + String(level) + ' | ⚡ ' + String(xp));
   }
 
   embed.addFields({ name: 'Rankings', value: lines.join('\n').slice(0, 1024) || ' ' });
@@ -1704,7 +1704,8 @@ async function main() {
       }
 
       if (interaction.commandName === 'profile') {
-        const userId = interaction.user && interaction.user.id ? String(interaction.user.id) : '';
+        const optUser = interaction.options.getUser('user');
+        const userId = optUser && optUser.id ? String(optUser.id) : interaction.user && interaction.user.id ? String(interaction.user.id) : '';
 
         const r = await botApiGetJson('/v1/au/profile?userDiscordUserId=' + encodeURIComponent(userId) + '&limit=10');
         if (!r.ok) {
@@ -1718,7 +1719,17 @@ async function main() {
       }
 
       if (interaction.commandName === 'leaderboard') {
-        const r = await botApiGetJson('/v1/au/leaderboard?limit=10');
+        if (!interaction.inGuild() || !interaction.guildId) {
+          await interaction.reply({
+            content: 'This leaderboard is per-server. Run `/' + 'leaderboard` in a server.',
+            ephemeral: interaction.inGuild()
+          });
+          return;
+        }
+
+        const r = await botApiGetJson(
+          '/v1/au/leaderboard?guildId=' + encodeURIComponent(String(interaction.guildId)) + '&limit=10'
+        );
         if (!r.ok) {
           await interaction.reply({ content: 'Error loading leaderboard: ' + r.error, ephemeral: interaction.inGuild() });
           return;
