@@ -276,7 +276,7 @@ function buildFavoritesPageMessage({ au, items, cursorBeforeId, nextBeforeId, se
 
   const embed = new EmbedBuilder()
     .setTitle('Your favorites')
-    .setDescription(safeItems.length ? '' : 'No favorites yet.');
+    .setDescription(safeItems.length ? ' ' : 'No favorites yet.');
 
   if (safeItems.length) {
     const maxEach = 300;
