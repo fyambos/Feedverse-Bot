@@ -2073,13 +2073,13 @@ async function main() {
         if (interaction.commandName === 'prompt-queue') {
           const q = await botApiGetJson('/v1/au/prompt-submissions?status=pending&limit=15');
           if (!q.ok) {
-            await interaction.reply({ content: 'Error: ' + q.error, ephemeral: true });
+            await interaction.reply({ content: 'Error: ' + q.error, ephemeral: false });
             return;
           }
 
           const items = q.json && Array.isArray(q.json.items) ? q.json.items : [];
           if (items.length === 0) {
-            await interaction.reply({ content: 'No pending submissions.', ephemeral: true });
+            await interaction.reply({ content: 'No pending submissions.', ephemeral: false });
             return;
           }
 
@@ -2102,7 +2102,7 @@ async function main() {
 
           await interaction.reply({
             content: lines.join('\n').trim(),
-            ephemeral: true
+            ephemeral: false
           });
           return;
         }
