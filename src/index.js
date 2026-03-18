@@ -3,6 +3,7 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const { createHash } = require('node:crypto');
+const http = require('node:http');
 
 const {
   Client,
@@ -22,7 +23,31 @@ const {
   Routes
 } = require('discord.js');
 
-const sharp = require('sharp');
+let sharp = null;
+try {
+  // Optional at runtime: if native bindings fail on a host, keep the bot online.
+  // Moodboards will gracefully fall back to single-image renders.
+  sharp = require('sharp');
+} catch (e) {
+  sharp = null;
+  process.stderr.write('Warning: sharp failed to load; moodboards will not render as collages.\n');
+}
+
+function startOptionalHealthServer() {
+  const rawPort = process.env.PORT;
+  const port = rawPort != null ? Number(rawPort) : NaN;
+  if (!Number.isFinite(port) || port <= 0) return;
+
+  const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.end('ok');
+  });
+
+  server.listen(port, () => {
+    process.stdout.write('Health server listening on :' + String(port) + '\n');
+  });
+}
 
 const {
   loadAuData,
@@ -39,7 +64,7 @@ function requireEnv(name) {
   if (typeof v !== 'string' || v.trim() === '') {
     throw new Error('Missing required env var: ' + name);
   }
-  return v;
+  return v.trim();
 }
 
 function normalizeOption(value) {
@@ -811,6 +836,7 @@ async function ocFetchImageBuffer(url) {
 }
 
 async function buildOcMoodboardCollageBuffer(urls) {
+  if (!sharp) return null;
   const list = ocSafeUrlList(urls, 9);
   if (!list.length) return null;
 
@@ -1352,6 +1378,8 @@ async function buildOcShareMessage(payload, tabKey) {
       if (att) {
         out.files.push(att.file);
         e.setImage(att.embedUrl);
+      } else if (main[0]) {
+        e.setImage(main[0]);
       }
       if (footerText) e.setFooter({ text: footerText });
       if (copyableCodeField.length) e.addFields(copyableCodeField);
@@ -1365,6 +1393,8 @@ async function buildOcShareMessage(payload, tabKey) {
       if (att) {
         out.files.push(att.file);
         e.setImage(att.embedUrl);
+      } else if (urls[0]) {
+        e.setImage(urls[0]);
       }
       if (footerText) e.setFooter({ text: footerText });
       embeds.push(e);
@@ -1449,6 +1479,8 @@ async function buildOcShareMessage(payload, tabKey) {
     if (att) {
       out.files.push(att.file);
       e.setImage(att.embedUrl);
+    } else if (main[0]) {
+      e.setImage(main[0]);
     }
   }
 
@@ -2059,7 +2091,7 @@ async function registerCommands(token, clientId, devGuildId, officialGuildId, gl
 
 async function main() {
   const token = requireEnv('DISCORD_TOKEN');
-  const clientId = requireEnv('DISCORD_CLIENT_ID');
+  const clientId = normalizeOption(process.env.DISCORD_CLIENT_ID);
   const devGuildId = normalizeOption(process.env.DISCORD_GUILD_ID);
   const officialGuildId = normalizeOption(process.env.OFFICIAL_GUILD_ID);
 
@@ -2070,7 +2102,16 @@ async function main() {
 
   const globalCommands = buildGlobalCommands();
   const officialGuildCommands = buildOfficialGuildCommands();
-  await registerCommands(token, clientId, devGuildId, officialGuildId, globalCommands, officialGuildCommands);
+  if (!clientId) {
+    process.stderr.write('Warning: DISCORD_CLIENT_ID is missing; skipping slash-command registration.\n');
+  } else {
+    try {
+      await registerCommands(token, clientId, devGuildId, officialGuildId, globalCommands, officialGuildCommands);
+    } catch (e) {
+      process.stderr.write('Warning: failed to register slash commands; continuing to run bot.\n');
+      process.stderr.write(String(e && e.stack ? e.stack : e) + '\n');
+    }
+  }
 
   const client = new Client({ intents: [GatewayIntentBits.Guilds] });
   client.commands = new Collection();
@@ -3108,6 +3149,7 @@ async function main() {
   });
 
   await client.login(token);
+  startOptionalHealthServer();
 }
 
 main().catch((err) => {
