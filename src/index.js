@@ -12,6 +12,7 @@ const {
   ButtonStyle,
   StringSelectMenuBuilder,
   StringSelectMenuOptionBuilder,
+  AttachmentBuilder,
   EmbedBuilder,
   Events,
   GatewayIntentBits,
@@ -20,6 +21,8 @@ const {
   REST,
   Routes
 } = require('discord.js');
+
+const sharp = require('sharp');
 
 const {
   loadAuData,
@@ -736,6 +739,505 @@ function buildOcTabComponents({ tabKey, inviteCode, profileIdCompact }) {
   return [row];
 }
 
+const __ocMoodboardCollageCache = new Map();
+
+function ocMoodboardGridCols(n) {
+  const count = Number(n);
+  if (!Number.isFinite(count) || count <= 1) return 1;
+  if (count === 2 || count === 4) return 2;
+  return 3;
+}
+
+function ocSafeUrlList(urls, max) {
+  const list = Array.isArray(urls) ? urls : [];
+  const safe = list.map((u) => String(u || '').trim()).filter(Boolean);
+  const lim = Number.isFinite(Number(max)) ? Math.max(0, Number(max)) : safe.length;
+  return safe.slice(0, lim);
+}
+
+function ocHashUrls(urls) {
+  const h = createHash('sha256');
+  for (const u of Array.isArray(urls) ? urls : []) h.update(String(u || ''), 'utf8').update('\n', 'utf8');
+  return h.digest('hex').slice(0, 16);
+}
+
+async function ocFetchImageBuffer(url) {
+  const u = String(url || '').trim();
+  if (!u) throw new Error('empty url');
+
+  const timeoutMs = 10_000;
+  if (typeof fetch === 'function') {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), timeoutMs);
+    try {
+      const res = await fetch(u, {
+        method: 'GET',
+        redirect: 'follow',
+        signal: ctrl.signal,
+        headers: {
+          // Helps some hosts return an actual image instead of HTML.
+          Accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8'
+        }
+      });
+      if (!res.ok) throw new Error('http ' + String(res.status));
+      const buf = Buffer.from(await res.arrayBuffer());
+      if (!buf.length) throw new Error('empty response');
+      return buf;
+    } finally {
+      clearTimeout(t);
+    }
+  }
+
+  // Very old Node fallback (should rarely happen).
+  const { request } = u.startsWith('https:') ? require('node:https') : require('node:http');
+  return await new Promise((resolve, reject) => {
+    const req = request(u, { method: 'GET', headers: { Accept: 'image/*,*/*;q=0.8' } }, (res) => {
+      if (!res || res.statusCode < 200 || res.statusCode >= 300) {
+        reject(new Error('http ' + String(res && res.statusCode)));
+        return;
+      }
+      const chunks = [];
+      res.on('data', (c) => chunks.push(c));
+      res.on('end', () => resolve(Buffer.concat(chunks)));
+    });
+    req.on('error', reject);
+    req.setTimeout(timeoutMs, () => {
+      try {
+        req.destroy(new Error('timeout'));
+      } catch {}
+    });
+    req.end();
+  });
+}
+
+async function buildOcMoodboardCollageBuffer(urls) {
+  const list = ocSafeUrlList(urls, 9);
+  if (!list.length) return null;
+
+  const cacheKey = ocHashUrls(list);
+  const cached = __ocMoodboardCollageCache.get(cacheKey);
+  if (cached && cached.buffer && Buffer.isBuffer(cached.buffer)) return cached.buffer;
+
+  const cols = ocMoodboardGridCols(list.length);
+  const rows = Math.ceil(list.length / cols);
+
+  const cell = 320;
+  const width = cols * cell;
+  const height = rows * cell;
+  const background = { r: 18, g: 18, b: 18 };
+
+  const composites = [];
+  for (let i = 0; i < list.length; i++) {
+    const left = (i % cols) * cell;
+    const top = Math.floor(i / cols) * cell;
+
+    let tile;
+    try {
+      const buf = await ocFetchImageBuffer(list[i]);
+      tile = await sharp(buf)
+        .resize(cell, cell, { fit: 'cover', position: 'centre' })
+        .jpeg({ quality: 82 })
+        .toBuffer();
+    } catch {
+      tile = await sharp({ create: { width: cell, height: cell, channels: 3, background } })
+        .jpeg({ quality: 82 })
+        .toBuffer();
+    }
+    composites.push({ input: tile, left, top });
+  }
+
+  const out = await sharp({ create: { width, height, channels: 3, background } })
+    .composite(composites)
+    .jpeg({ quality: 82 })
+    .toBuffer();
+
+  __ocMoodboardCollageCache.set(cacheKey, { buffer: out, at: Date.now() });
+  // Simple bound to avoid unbounded growth.
+  if (__ocMoodboardCollageCache.size > 40) {
+    const first = __ocMoodboardCollageCache.keys().next().value;
+    if (first) __ocMoodboardCollageCache.delete(first);
+  }
+
+  return out;
+}
+
+async function buildOcMoodboardAttachment(urls, nameHint) {
+  const buf = await buildOcMoodboardCollageBuffer(urls);
+  if (!buf) return null;
+  const safeHint = String(nameHint || 'moodboard').replace(/[^a-z0-9_-]+/gi, '-').toLowerCase();
+  const filename = 'oc-' + safeHint + '-' + ocHashUrls(ocSafeUrlList(urls, 9)) + '.jpg';
+  const file = new AttachmentBuilder(buf, { name: filename });
+  return { file, filename, embedUrl: 'attachment://' + filename };
+}
+
+// Ported from mobile/lib/ocs/ocCharacterProfile.ts (authoritative formatting)
+function getOcCharacterProfileStyle(profile) {
+  const raw = String((profile && profile.style) || '').trim().toLowerCase();
+  return raw === 'normal' ? 'normal' : 'cutesy';
+}
+
+function normalizeOcCharacterProfile(v) {
+  const raw = v && typeof v === 'object' && !Array.isArray(v) ? v : {};
+  const out = {};
+  for (const [k, val] of Object.entries(raw)) {
+    const key = String(k || '').trim();
+    if (!key) continue;
+    const value = String(val || '').trim();
+    if (!value) continue;
+    out[key] = value;
+  }
+
+  if (!out.zodiac && out.overall_vibe) out.zodiac = out.overall_vibe;
+  if (!out.moral_alignment && out.how_others_describe) out.moral_alignment = out.how_others_describe;
+  delete out.overall_vibe;
+  delete out.how_others_describe;
+
+  if (!out.style) out.style = 'cutesy';
+  return out;
+}
+
+function ocFormatValue(value, style) {
+  const v = String(value || '')
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
+    .trim();
+  if (!v) return '';
+  const lines = v
+    .split('\n')
+    .map((l) => l.trim())
+    .filter(Boolean);
+  if (!lines.length) return '';
+  if (style === 'normal') return lines.map((l) => '  ' + l).join('\n');
+  return lines.map((l) => '   ┊ ' + l).join('\n');
+}
+
+function ocDisplayLabelForField(profile, field) {
+  const lc = field && field.labelChoice;
+  if (!lc) return field.displayLabel;
+  const raw = String((profile && profile[lc.key]) || '').trim();
+  const selected = raw || lc.defaultValue;
+  const opt = Array.isArray(lc.options) ? lc.options.find((o) => o && o.value === selected) : null;
+  return (opt && opt.displayLabel) || field.displayLabel;
+}
+
+function ocNormalLabelForField(profile, field) {
+  const lc = field && field.labelChoice;
+  if (lc) {
+    const raw = String((profile && profile[lc.key]) || '').trim();
+    const selected = raw || lc.defaultValue;
+    return selected;
+  }
+  return String(field.editorLabel || field.key);
+}
+
+function buildOcCharacterProfileSectionText(profile, section, styleOverride) {
+  const p = profile || {};
+  const style = styleOverride || getOcCharacterProfileStyle(p);
+  const filled = (Array.isArray(section.fields) ? section.fields : [])
+    .map((f) => ({ field: f, value: String((p && p[f.key]) || '').trim() }))
+    .filter((x) => x.value.length);
+
+  if (!filled.length) return null;
+
+  const lines = style === 'normal' ? [String(section.editorTitle || ''), ''] : [String(section.displayHeader || ''), ''];
+  for (const { field, value } of filled) {
+    const formatted = ocFormatValue(value, style);
+    if (!formatted) continue;
+    lines.push(style === 'normal' ? ocNormalLabelForField(p, field) : ocDisplayLabelForField(p, field));
+    lines.push(formatted);
+  }
+  if (style !== 'normal') lines.push(String(section.displayFooter || ''));
+  return lines.join('\n');
+}
+
+const OC_CHARACTER_PROFILE_SECTIONS = [
+  {
+    key: 'character_profile',
+    editorTitle: 'Character profile',
+    displayHeader: '╭─ ⋆｡˚ ୨୧ ⋆｡˚ ✦ profile ✦ ⋆｡˚ ୨୧ ⋆｡˚ ─╮',
+    displayFooter: '╰─ ⋆｡˚ ୨୧ ⋆｡˚ ✦ ─── ✦ ⋆｡˚ ୨୧ ⋆｡˚ ─╯',
+    fields: [
+      { key: 'name', editorLabel: 'name', displayLabel: '˚₊‧꒰ა ✦ name ໒꒱ ‧₊˚', maxLen: 80 },
+      { key: 'preferred_name', editorLabel: 'nickname', displayLabel: '˚₊‧꒰ა ✦ nickname ໒꒱ ‧₊˚', maxLen: 80 },
+      { key: 'age', editorLabel: 'age', displayLabel: '˚₊‧꒰ა ✦ age ໒꒱ ‧₊˚', maxLen: 80 },
+      { key: 'pronouns', editorLabel: 'pronouns', displayLabel: '˚₊‧꒰ა ✦ pronouns ໒꒱ ‧₊˚', maxLen: 80 },
+      { key: 'ethnicity_nationality', editorLabel: 'nationality', displayLabel: '˚₊‧꒰ა ✦ nationality ໒꒱ ‧₊˚', maxLen: 160 },
+      {
+        key: 'species_type',
+        editorLabel: 'species / type',
+        displayLabel: '˚₊‧꒰ა ✦ species / type ໒꒱ ‧₊˚',
+        maxLen: 80,
+        labelChoice: {
+          key: 'species_type_label',
+          defaultValue: 'species',
+          options: [
+            { value: 'species', displayLabel: '˚₊‧꒰ა ✦ species ໒꒱ ‧₊˚' },
+            { value: 'type', displayLabel: '˚₊‧꒰ა ✦ type ໒꒱ ‧₊˚' }
+          ]
+        }
+      },
+      {
+        key: 'occupation_role',
+        editorLabel: 'occupation / role',
+        displayLabel: '˚₊‧꒰ა ✦ occupation / role ໒꒱ ‧₊˚',
+        maxLen: 80,
+        labelChoice: {
+          key: 'occupation_role_label',
+          defaultValue: 'occupation',
+          options: [
+            { value: 'occupation', displayLabel: '˚₊‧꒰ა ✦ occupation ໒꒱ ‧₊˚' },
+            { value: 'role', displayLabel: '˚₊‧꒰ა ✦ role ໒꒱ ‧₊˚' }
+          ]
+        }
+      },
+      { key: 'birthplace', editorLabel: 'birthplace', displayLabel: '˚₊‧꒰ა ✦ birthplace ໒꒱ ‧₊˚', maxLen: 160 },
+      {
+        key: 'current_residence',
+        editorLabel: 'current residence',
+        displayLabel: '˚₊‧꒰ა ✦ current residence ໒꒱ ‧₊˚',
+        maxLen: 160
+      },
+      {
+        key: 'representative_emoji',
+        editorLabel: 'representative emoji',
+        displayLabel: '˚₊‧꒰ა ✦ representative emoji ໒꒱ ‧₊˚',
+        maxLen: 80
+      },
+      { key: 'aesthetic_vibe', editorLabel: 'aesthetic', displayLabel: '˚₊‧꒰ა ✦ aesthetic ໒꒱ ‧₊˚', maxLen: 160 },
+      { key: 'favorite_quote', editorLabel: 'favorite quote', displayLabel: '˚₊‧꒰ა ✦ favorite quote ໒꒱ ‧₊˚', maxLen: 160 }
+    ]
+  },
+  {
+    key: 'appearance',
+    editorTitle: 'Appearance',
+    displayHeader: '╭─ ♡₊˚ 𖤐・₊✧ appearance ✧₊・𖤐 ₊˚♡ ─╮',
+    displayFooter: '╰─ ♡₊˚ 𖤐・₊✧ ────── ✧₊・𖤐 ₊˚♡ ─╯',
+    fields: [
+      { key: 'height', editorLabel: 'height', displayLabel: '⋆ ˚｡⋆ 🌷 height', maxLen: 80 },
+      { key: 'build_body_type', editorLabel: 'body type', displayLabel: '⋆ ˚｡⋆ 🌷 body type', maxLen: 80 },
+      { key: 'skin_tone', editorLabel: 'skin tone', displayLabel: '⋆ ˚｡⋆ 🌷 skin tone', maxLen: 80 },
+      { key: 'hair', editorLabel: 'hair', displayLabel: '⋆ ˚｡⋆ 🌷 hair', maxLen: 160 },
+      { key: 'eyes', editorLabel: 'eyes', displayLabel: '⋆ ˚｡⋆ 🌷 eyes', maxLen: 160 },
+      { key: 'clothing_style', editorLabel: 'clothing style', displayLabel: '⋆ ˚｡⋆ 🎀 clothing style', maxLen: 160 },
+      { key: 'accessories', editorLabel: 'accessories', displayLabel: '⋆ ˚｡⋆ 💍 accessories', maxLen: 160 },
+      { key: 'scent', editorLabel: 'scent / perfume', displayLabel: '⋆ ˚｡⋆ 🌸 scent / perfume', maxLen: 160 },
+      { key: 'scars', editorLabel: 'scars', displayLabel: '⋆ ˚｡⋆ 🩹 scars', maxLen: 160 },
+      { key: 'tattoos', editorLabel: 'tattoos', displayLabel: '⋆ ˚｡⋆ 🖋 tattoos', maxLen: 160 },
+      { key: 'piercings', editorLabel: 'piercings', displayLabel: '⋆ ˚｡⋆ ✨ piercings', maxLen: 160 },
+      {
+        key: 'distinguishing_traits',
+        editorLabel: 'other distinguishing traits',
+        displayLabel: '⋆ ˚｡⋆ 🦋 other distinguishing traits',
+        maxLen: 400,
+        multiline: true
+      }
+    ]
+  },
+  {
+    key: 'personality',
+    editorTitle: 'Personality',
+    displayHeader: '╭─ ⋆｡°✩ personality ⋆｡°✩ ─╮',
+    displayFooter: '╰─ ⋆｡°✩ ───── ⋆｡°✩ ─╯',
+    fields: [
+      { key: 'mbti', editorLabel: 'mbti', displayLabel: '✦ mbti', maxLen: 80 },
+      { key: 'zodiac', editorLabel: 'zodiac', displayLabel: '✦ zodiac', maxLen: 80 },
+      { key: 'moral_alignment', editorLabel: 'moral alignment', displayLabel: '✦ moral alignment', maxLen: 80 },
+      { key: 'strengths', editorLabel: 'strengths', displayLabel: '🌟 strengths', maxLen: 400, multiline: true },
+      { key: 'flaws', editorLabel: 'flaws', displayLabel: '🌧 flaws', maxLen: 400, multiline: true },
+      { key: 'insecurities', editorLabel: 'insecurities', displayLabel: '🌙 insecurities', maxLen: 400, multiline: true },
+      { key: 'fears', editorLabel: 'fears', displayLabel: '🌫 fears', maxLen: 400, multiline: true },
+      { key: 'soft_spot', editorLabel: 'soft spot', displayLabel: '🧸 soft spot', maxLen: 400, multiline: true },
+      { key: 'pet_peeves', editorLabel: 'pet peeves', displayLabel: '⚡ pet peeves', maxLen: 400, multiline: true },
+      { key: 'love_language', editorLabel: 'love language', displayLabel: '💌 love language', maxLen: 160 },
+      { key: 'attachment_style', editorLabel: 'attachment style', displayLabel: '🫧 attachment style', maxLen: 160 },
+      { key: 'hobbies', editorLabel: 'hobbies', displayLabel: '🎨 hobbies', maxLen: 400, multiline: true },
+      { key: 'quirks', editorLabel: 'quirks', displayLabel: '🎭 quirks', maxLen: 400, multiline: true },
+      { key: 'likes', editorLabel: 'likes', displayLabel: '🍓 likes', maxLen: 400, multiline: true },
+      { key: 'dislikes', editorLabel: 'dislikes', displayLabel: '🍋 dislikes', maxLen: 400, multiline: true },
+      { key: 'talents', editorLabel: 'talents', displayLabel: '🏆 talents', maxLen: 400, multiline: true }
+    ]
+  },
+  {
+    key: 'background',
+    editorTitle: 'Background',
+    displayHeader: '╭─ ˚₊‧꒰ა 📖 background ໒꒱ ‧₊˚ ─╮',
+    displayFooter: '╰─ ˚₊‧꒰ა ────── ໒꒱ ‧₊˚ ─╯',
+    fields: [
+      { key: 'hometown', editorLabel: 'hometown', displayLabel: '⋆ ˚｡⋆ 🏡 hometown', maxLen: 160 },
+      { key: 'upbringing', editorLabel: 'upbringing', displayLabel: '⋆ ˚｡⋆ 🏠 upbringing', maxLen: 400, multiline: true },
+      { key: 'social_class', editorLabel: 'social class', displayLabel: '⋆ ˚｡⋆ 💸 social class', maxLen: 400, multiline: true },
+      {
+        key: 'parent_guardian',
+        editorLabel: 'parent / guardian',
+        displayLabel: '👩 parent / guardian',
+        maxLen: 400,
+        multiline: true,
+        labelChoice: {
+          key: 'parent_guardian_label',
+          defaultValue: 'parent',
+          options: [
+            { value: 'parent', displayLabel: '👩 parent' },
+            { value: 'guardian', displayLabel: '👩 guardian' }
+          ]
+        }
+      },
+      { key: 'siblings', editorLabel: 'siblings', displayLabel: '🫂 siblings', maxLen: 400, multiline: true },
+      { key: 'important_people', editorLabel: 'important people', displayLabel: '🌟 important people', maxLen: 400, multiline: true },
+      { key: 'goals', editorLabel: 'goals', displayLabel: '✦ goals', maxLen: 400, multiline: true },
+      { key: 'long_term_dream', editorLabel: 'long-term dream', displayLabel: '✦ long-term dream', maxLen: 400, multiline: true },
+      { key: 'secret', editorLabel: 'secret', displayLabel: '✦ secret', maxLen: 400, multiline: true },
+      { key: 'rumor', editorLabel: 'rumor about them', displayLabel: '✦ rumor about them', maxLen: 400, multiline: true }
+    ]
+  },
+  {
+    key: 'relationships',
+    editorTitle: 'Relationships',
+    displayHeader: '╭─ ⋆｡˚ 💌 relationships ⋆｡˚ ─╮',
+    displayFooter: '╰─ ⋆｡˚ ────── 💌 ⋆｡˚ ─╯',
+    fields: [
+      { key: 'relationship_status', editorLabel: 'relationship status', displayLabel: '˚₊‧꒰ა ✦ relationship status ໒꒱ ‧₊˚', maxLen: 160 },
+      { key: 'crush', editorLabel: 'crush', displayLabel: '˚₊‧꒰ა ✦ crush ໒꒱ ‧₊˚', maxLen: 160 },
+      { key: 'partner', editorLabel: 'partner', displayLabel: '˚₊‧꒰ა ✦ partner ໒꒱ ‧₊˚', maxLen: 160 },
+      { key: 'exes', editorLabel: 'ex(es)', displayLabel: '˚₊‧꒰ა ✦ ex(es) ໒꒱ ‧₊˚', maxLen: 400, multiline: true },
+      { key: 'best_friends', editorLabel: 'best friend(s)', displayLabel: '˚₊‧꒰ა ✦ best friend(s) ໒꒱ ‧₊˚', maxLen: 400, multiline: true },
+      { key: 'friends', editorLabel: 'friends', displayLabel: '˚₊‧꒰ა ✦ friends ໒꒱ ‧₊˚', maxLen: 400, multiline: true },
+      { key: 'rivals', editorLabel: 'rivals', displayLabel: '˚₊‧꒰ა ✦ rivals ໒꒱ ‧₊˚', maxLen: 400, multiline: true },
+      { key: 'enemies', editorLabel: 'enemies', displayLabel: '˚₊‧꒰ა ✦ enemies ໒꒱ ‧₊˚', maxLen: 400, multiline: true },
+      {
+        key: 'mentor',
+        editorLabel: 'mentor / mentee',
+        displayLabel: '₊‧꒰ა ✦ mentor / mentee ໒꒱ ‧₊˚',
+        maxLen: 400,
+        multiline: true,
+        labelChoice: {
+          key: 'mentor_label',
+          defaultValue: 'mentor',
+          options: [
+            { value: 'mentor', displayLabel: '₊‧꒰ა ✦ mentor ໒꒱ ‧₊˚' },
+            { value: 'mentee', displayLabel: '₊‧꒰ა ✦ mentee ໒꒱ ‧₊˚' }
+          ]
+        }
+      },
+      { key: 'pets', editorLabel: 'pets / companions', displayLabel: '🐾 pets / companions', maxLen: 400, multiline: true }
+    ]
+  },
+  {
+    key: 'school_career',
+    editorTitle: 'School / career',
+    displayHeader: '╭─ ♡₊˚ 𖤐・₊✧ career ✧₊・𖤐 ₊˚♡ ─╮',
+    displayFooter: '╰─ ♡₊˚ 𖤐・₊✧ ─── ✧₊・𖤐 ₊˚♡ ─╯',
+    fields: [
+      {
+        key: 'school_workplace',
+        editorLabel: 'school / university / workplace',
+        displayLabel: '⋆ ˚｡⋆ 🎓 school / university / workplace',
+        maxLen: 400,
+        multiline: true,
+        labelChoice: {
+          key: 'school_workplace_label',
+          defaultValue: 'school',
+          options: [
+            { value: 'school', displayLabel: '⋆ ˚｡⋆ 🎓 school' },
+            { value: 'university', displayLabel: '⋆ ˚｡⋆ 🎓 university' },
+            { value: 'workplace', displayLabel: '⋆ ˚｡⋆ 🎓 workplace' }
+          ]
+        }
+      },
+      {
+        key: 'year_grade',
+        editorLabel: 'year / grade / education',
+        displayLabel: '⋆ ˚｡⋆ 📚 year / grade / education',
+        maxLen: 160,
+        labelChoice: {
+          key: 'year_grade_label',
+          defaultValue: 'year',
+          options: [
+            { value: 'year', displayLabel: '⋆ ˚｡⋆ 📚 year' },
+            { value: 'grade', displayLabel: '⋆ ˚｡⋆ 📚 grade' },
+            { value: 'education', displayLabel: '⋆ ˚｡⋆ 📚 education' }
+          ]
+        }
+      },
+      {
+        key: 'major_field',
+        editorLabel: 'major / field',
+        displayLabel: '⋆ ˚｡⋆ 🖋 major / field',
+        maxLen: 160,
+        labelChoice: {
+          key: 'major_field_label',
+          defaultValue: 'major',
+          options: [
+            { value: 'major', displayLabel: '⋆ ˚｡⋆ 🖋 major' },
+            { value: 'field', displayLabel: '⋆ ˚｡⋆ 🖋 field' }
+          ]
+        }
+      },
+      { key: 'reputation', editorLabel: 'reputation there', displayLabel: '⋆ ˚｡⋆ 🌟 reputation there', maxLen: 400, multiline: true },
+      {
+        key: 'clubs_teams',
+        editorLabel: 'clubs / teams',
+        displayLabel: '🎭 clubs / teams',
+        maxLen: 400,
+        multiline: true,
+        labelChoice: {
+          key: 'clubs_teams_label',
+          defaultValue: 'clubs',
+          options: [
+            { value: 'clubs', displayLabel: '🎭 clubs' },
+            { value: 'teams', displayLabel: '🎭 teams' }
+          ]
+        }
+      },
+      {
+        key: 'part_time_job',
+        editorLabel: 'part-time / job',
+        displayLabel: '💼 part-time / job',
+        maxLen: 400,
+        multiline: true,
+        labelChoice: {
+          key: 'part_time_job_label',
+          defaultValue: 'part-time',
+          options: [
+            { value: 'part-time', displayLabel: '💼 part-time' },
+            { value: 'job', displayLabel: '💼 job' }
+          ]
+        }
+      },
+      { key: 'achievements', editorLabel: 'achievements', displayLabel: '🏆 achievements', maxLen: 400, multiline: true },
+      { key: 'dream_career', editorLabel: 'dream career', displayLabel: '🌠 dream career', maxLen: 400, multiline: true }
+    ]
+  },
+  {
+    key: 'abilities',
+    editorTitle: 'Abilities',
+    displayHeader: '╭─ ⋆｡°✩ abilities ⋆｡°✩ ─╮',
+    displayFooter: '╰─ ⋆｡°✩ ────── ⋆｡°✩ ─╯',
+    fields: [
+      { key: 'strongest_skill', editorLabel: 'strongest skill', displayLabel: '✦ strongest skill', maxLen: 160 },
+      { key: 'weakest_skill', editorLabel: 'weakest skill', displayLabel: '✦ weakest skill', maxLen: 160 },
+      { key: 'intelligence_style', editorLabel: 'intelligence style', displayLabel: '✦ intelligence style', maxLen: 400, multiline: true }
+    ]
+  },
+  {
+    key: 'extras',
+    editorTitle: 'Extras',
+    displayHeader: '╭─ ♡₊˚ 𖤐・₊✧ extras ✧₊・𖤐 ₊˚♡ ─╮',
+    displayFooter: '╰─ ⋆｡˚ ୨୧ ⋆｡˚ ──── ⋆｡˚ ୨୧ ⋆｡˚ ─╯',
+    fields: [
+      { key: 'theme_songs', editorLabel: 'theme song(s)', displayLabel: '🎶 theme song(s)', maxLen: 400, multiline: true },
+      { key: 'favorite_food', editorLabel: 'favorite food', displayLabel: '🍓 favorite food', maxLen: 160 },
+      { key: 'favorite_place', editorLabel: 'favorite place', displayLabel: '🏡 favorite place', maxLen: 160 },
+      { key: 'comfort_item', editorLabel: 'comfort item', displayLabel: '🧸 comfort item', maxLen: 160 },
+      { key: 'color_palette', editorLabel: 'color palette', displayLabel: '🎨 color palette', maxLen: 400, multiline: true },
+      { key: 'face_claim', editorLabel: 'face claim', displayLabel: '🎭 face claim', maxLen: 160 },
+      { key: 'voice_claim', editorLabel: 'voice claim', displayLabel: '🎤 voice claim', maxLen: 160 },
+      { key: 'headcanon_1', editorLabel: 'headcanon 1', displayLabel: '🌸', maxLen: 400, multiline: true },
+      { key: 'headcanon_2', editorLabel: 'headcanon 2', displayLabel: '🌸', maxLen: 400, multiline: true },
+      { key: 'headcanon_3', editorLabel: 'headcanon 3', displayLabel: '🌸', maxLen: 400, multiline: true }
+    ]
+  }
+];
+
 function chunkTextForEmbeds(text, maxLen, maxChunks) {
   const raw = typeof text === 'string' ? text : '';
   const cleaned = raw.replace(/\r\n/g, '\n');
@@ -764,7 +1266,7 @@ function formatUrlListAsMarkdownLinks(urls) {
   return parts.join(' ');
 }
 
-function buildOcShareEmbeds(payload, tabKey) {
+async function buildOcShareMessage(payload, tabKey) {
   const safe = payload && typeof payload === 'object' ? payload : {};
   const scenario = safe.scenario && typeof safe.scenario === 'object' ? safe.scenario : {};
   const profile = safe.profile && typeof safe.profile === 'object' ? safe.profile : {};
@@ -790,12 +1292,21 @@ function buildOcShareEmbeds(payload, tabKey) {
 
   const tab = typeof tabKey === 'string' ? tabKey : 'ov';
 
+  const footerText = trunc([inviteCode, scenarioName].filter(Boolean).join(' • '), 2048);
+  const copyableCodeField = inviteCode
+    ? [{ name: 'Invite code', value: '```\n' + inviteCode + '\n```', inline: false }]
+    : [];
+
+  const out = { embeds: [], files: [], attachments: [] };
+
   if (tab === 'pics') {
     if (!imageUrls.length) {
       const e = new EmbedBuilder().setTitle(title).setDescription('No pictures yet.');
       if (avatarUrl) e.setThumbnail(avatarUrl);
-      if (headerUrl) e.setImage(headerUrl);
-      return [e];
+      if (footerText) e.setFooter({ text: footerText });
+      if (copyableCodeField.length) e.addFields(copyableCodeField);
+      out.embeds = [e];
+      return out;
     }
 
     const urls = imageUrls.map((u) => String(u || '').trim()).filter(Boolean).slice(0, 10);
@@ -805,10 +1316,16 @@ function buildOcShareEmbeds(payload, tabKey) {
       const e = new EmbedBuilder();
       if (i === 0) e.setTitle(title);
       e.setImage(u);
-      e.setFooter({ text: 'Picture ' + String(i + 1) + ' / ' + String(urls.length) });
+      const picFooter = 'Picture ' + String(i + 1) + ' / ' + String(urls.length) + (footerText ? ' • ' + footerText : '');
+      e.setFooter({ text: trunc(picFooter, 2048) });
+      if (i === 0) {
+        if (avatarUrl) e.setThumbnail(avatarUrl);
+        if (copyableCodeField.length) e.addFields(copyableCodeField);
+      }
       embeds.push(e);
     }
-    return embeds;
+    out.embeds = embeds;
+    return out;
   }
 
   if (tab === 'moods') {
@@ -818,28 +1335,43 @@ function buildOcShareEmbeds(payload, tabKey) {
       .filter((b) => b.length > 0)
       .slice(0, 4);
 
-    if (boards.length === 0) {
-      const e = new EmbedBuilder().setTitle(title).setDescription('No extra moodboards yet.');
-      if (avatarUrl) e.setThumbnail(avatarUrl);
-      if (headerUrl) e.setImage(headerUrl);
-      return [e];
+    const main = ocSafeUrlList(moodboardUrls, 9);
+    if (!main.length && boards.length === 0) {
+      const e = new EmbedBuilder().setTitle(title).setDescription('No moodboards yet.');
+      if (footerText) e.setFooter({ text: footerText });
+      if (copyableCodeField.length) e.addFields(copyableCodeField);
+      out.embeds = [e];
+      return out;
     }
 
     const embeds = [];
-    for (let i = 0; i < boards.length; i++) {
-      const urls = boards[i];
-      const links = formatUrlListAsMarkdownLinks(urls);
-      const e = new EmbedBuilder().setTitle('Extra moodboard ' + String(i + 1));
-      if (urls[0]) e.setImage(urls[0]);
-      if (links) e.setDescription(links);
+    // Main moodboard first.
+    if (main.length) {
+      const att = await buildOcMoodboardAttachment(main, 'main');
+      const e = new EmbedBuilder().setTitle(title + ' — Moodboard');
+      if (att) {
+        out.files.push(att.file);
+        e.setImage(att.embedUrl);
+      }
+      if (footerText) e.setFooter({ text: footerText });
+      if (copyableCodeField.length) e.addFields(copyableCodeField);
       embeds.push(e);
     }
-    // Include identity as thumbnail on the first embed.
-    if (embeds[0]) {
-      if (avatarUrl) embeds[0].setThumbnail(avatarUrl);
-      embeds[0].setFooter({ text: title + (scenarioName ? ' • ' + scenarioName : '') });
+
+    for (let i = 0; i < boards.length; i++) {
+      const urls = boards[i];
+      const att = await buildOcMoodboardAttachment(urls, 'extra-' + String(i + 1));
+      const e = new EmbedBuilder().setTitle('Extra moodboard ' + String(i + 1));
+      if (att) {
+        out.files.push(att.file);
+        e.setImage(att.embedUrl);
+      }
+      if (footerText) e.setFooter({ text: footerText });
+      embeds.push(e);
     }
-    return embeds;
+
+    out.embeds = embeds;
+    return out;
   }
 
   if (tab === 'desc') {
@@ -847,8 +1379,10 @@ function buildOcShareEmbeds(payload, tabKey) {
     if (!text) {
       const e = new EmbedBuilder().setTitle(title).setDescription('No description yet.');
       if (avatarUrl) e.setThumbnail(avatarUrl);
-      if (headerUrl) e.setImage(headerUrl);
-      return [e];
+      if (footerText) e.setFooter({ text: footerText });
+      if (copyableCodeField.length) e.addFields(copyableCodeField);
+      out.embeds = [e];
+      return out;
     }
 
     // Discord limits: 6000 chars across embeds/message.
@@ -857,71 +1391,69 @@ function buildOcShareEmbeds(payload, tabKey) {
       const e = new EmbedBuilder().setTitle(idx === 0 ? title : 'Description (cont.)').setDescription(c);
       if (idx === 0) {
         if (avatarUrl) e.setThumbnail(avatarUrl);
-        if (headerUrl) e.setImage(headerUrl);
-        if (inviteCode) e.addFields([{ name: 'Invite code', value: inviteCode, inline: true }]);
+        if (copyableCodeField.length) e.addFields(copyableCodeField);
       }
+      if (footerText) e.setFooter({ text: footerText });
       return e;
     });
     if (truncated && embeds[embeds.length - 1]) {
-      embeds[embeds.length - 1].setFooter({ text: 'Description truncated for Discord limits.' });
+      const t = footerText ? footerText + ' • truncated for Discord limits' : 'Description truncated for Discord limits.';
+      embeds[embeds.length - 1].setFooter({ text: trunc(t, 2048) });
     }
-    return embeds;
+    out.embeds = embeds;
+    return out;
   }
 
   if (tab === 'prof') {
-    const keys = characterProfile ? Object.keys(characterProfile) : [];
-    if (!characterProfile || keys.length === 0) {
+    const p = normalizeOcCharacterProfile(characterProfile);
+    const sectionTexts = OC_CHARACTER_PROFILE_SECTIONS.map((s) => buildOcCharacterProfileSectionText(p, s)).filter(Boolean);
+    if (sectionTexts.length === 0) {
       const e = new EmbedBuilder().setTitle(title).setDescription('No profile sheet yet.');
       if (avatarUrl) e.setThumbnail(avatarUrl);
-      if (headerUrl) e.setImage(headerUrl);
-      return [e];
+      if (footerText) e.setFooter({ text: footerText });
+      if (copyableCodeField.length) e.addFields(copyableCodeField);
+      out.embeds = [e];
+      return out;
     }
 
-    const lines = keys
-      .sort((a, b) => String(a).localeCompare(String(b)))
-      .map((k) => {
-        const key = String(k || '').trim();
-        if (!key) return null;
-        const val = String(characterProfile[k] || '').trim();
-        if (!val) return null;
-        return '• **' + key + ':** ' + val;
-      })
-      .filter(Boolean);
-
-    const text = lines.join('\n');
-    const { chunks, truncated } = chunkTextForEmbeds(text, 2700, 2);
-    const embeds = chunks.map((c, idx) => {
-      const e = new EmbedBuilder().setTitle(idx === 0 ? title : 'Profile (cont.)').setDescription(c || ' ');
-      if (idx === 0) {
+    const embeds = [];
+    for (let i = 0; i < sectionTexts.length; i++) {
+      const t = sectionTexts[i];
+      // Keep each section in its own embed to preserve formatting.
+      const e = new EmbedBuilder().setDescription(trunc(String(t), 4096) || ' ');
+      if (i === 0) {
+        e.setTitle(title);
         if (avatarUrl) e.setThumbnail(avatarUrl);
-        if (headerUrl) e.setImage(headerUrl);
-        if (inviteCode) e.addFields([{ name: 'Invite code', value: inviteCode, inline: true }]);
-        if (scenarioName) e.addFields([{ name: 'Scenario', value: scenarioName.slice(0, 256), inline: true }]);
+        if (copyableCodeField.length) e.addFields(copyableCodeField);
       }
-      return e;
-    });
-    if (truncated && embeds[embeds.length - 1]) {
-      embeds[embeds.length - 1].setFooter({ text: 'Profile truncated for Discord limits.' });
+      if (footerText) e.setFooter({ text: footerText });
+      embeds.push(e);
+      if (embeds.length >= 10) break;
     }
-    return embeds;
+
+    out.embeds = embeds;
+    return out;
   }
 
-  // Overview (default): banner + bio + main moodboard links
+  // Overview (default): bio + main moodboard collage
   const e = new EmbedBuilder().setTitle(title);
   if (bio) e.setDescription(trunc(bio, 2000));
   if (avatarUrl) e.setThumbnail(avatarUrl);
-  if (headerUrl) e.setImage(headerUrl);
+  if (copyableCodeField.length) e.addFields(copyableCodeField);
+  if (handle) e.addFields([{ name: 'Username', value: '@' + handle, inline: true }]);
+  if (footerText) e.setFooter({ text: footerText });
 
-  const fields = [];
-  if (inviteCode) fields.push({ name: 'Invite code', value: inviteCode, inline: true });
-  if (scenarioName) fields.push({ name: 'Scenario', value: trunc(scenarioName, 256), inline: true });
-  if (handle) fields.push({ name: 'Username', value: '@' + handle, inline: true });
+  const main = ocSafeUrlList(moodboardUrls, 9);
+  if (main.length) {
+    const att = await buildOcMoodboardAttachment(main, 'overview');
+    if (att) {
+      out.files.push(att.file);
+      e.setImage(att.embedUrl);
+    }
+  }
 
-  const moodLinks = formatUrlListAsMarkdownLinks(moodboardUrls);
-  fields.push({ name: 'Moodboard', value: moodLinks || 'None', inline: false });
-
-  e.addFields(fields);
-  return [e];
+  out.embeds = [e];
+  return out;
 }
 
 async function fetchOcSharePayload({ inviteCode, handle, profileIdCompact }) {
@@ -1654,19 +2186,21 @@ async function main() {
           const inviteCode = parts[3] || '';
           const profileIdCompact = parts[4] || '';
 
+          await interaction.deferUpdate();
+
           const r = await fetchOcSharePayload({ inviteCode, profileIdCompact });
           if (!r.ok) {
-            await interaction.reply({ content: 'Error loading character: ' + r.error, ephemeral: true });
+            await interaction.followUp({ content: 'Error loading character: ' + r.error, ephemeral: true });
             return;
           }
 
           const payload = r.json;
           const profileId = payload && payload.profile && payload.profile.id ? String(payload.profile.id) : '';
           const pidCompact = compactUuid(profileId) || compactUuid(profileIdCompact) || profileIdCompact;
-          const embeds = buildOcShareEmbeds(payload, tabKey);
+          const msg = await buildOcShareMessage(payload, tabKey);
           const components = buildOcTabComponents({ tabKey, inviteCode, profileIdCompact: pidCompact });
 
-          await interaction.update({ embeds, components });
+          await interaction.editReply({ embeds: msg.embeds, files: msg.files, attachments: msg.attachments, components });
           return;
         }
 
@@ -2355,9 +2889,9 @@ async function main() {
           }
 
           const tabKey = 'ov';
-          const embeds = buildOcShareEmbeds(payload, tabKey);
+          const msg = await buildOcShareMessage(payload, tabKey);
           const components = buildOcTabComponents({ tabKey, inviteCode: code, profileIdCompact: pidCompact });
-          await interaction.editReply({ embeds, components });
+          await interaction.editReply({ embeds: msg.embeds, files: msg.files, attachments: msg.attachments, components });
           return;
         }
 
