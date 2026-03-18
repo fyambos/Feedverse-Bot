@@ -711,6 +711,233 @@ function buildJoinLink(inviteCode) {
   return base + '/join/' + encodeURIComponent(inviteCode);
 }
 
+function compactUuid(uuid) {
+  const raw = typeof uuid === 'string' ? uuid : '';
+  const out = raw.replace(/-/g, '').trim().toLowerCase();
+  return /^[0-9a-f]{32}$/.test(out) ? out : null;
+}
+
+function buildOcTabComponents({ tabKey, inviteCode, profileIdCompact }) {
+  const code = normalizeInviteCode(inviteCode);
+  const pid = compactUuid(profileIdCompact);
+  if (!code || !pid) return [];
+
+  const mk = (k) => 'oc:tab:' + String(k) + ':' + safeCustomIdPart(code) + ':' + safeCustomIdPart(pid);
+  const current = typeof tabKey === 'string' ? tabKey : 'ov';
+
+  const row = new ActionRowBuilder().addComponents(
+    new ButtonBuilder().setCustomId(mk('ov')).setLabel('Overview').setStyle(ButtonStyle.Secondary).setDisabled(current === 'ov'),
+    new ButtonBuilder().setCustomId(mk('prof')).setLabel('Profile').setStyle(ButtonStyle.Secondary).setDisabled(current === 'prof'),
+    new ButtonBuilder().setCustomId(mk('desc')).setLabel('Description').setStyle(ButtonStyle.Secondary).setDisabled(current === 'desc'),
+    new ButtonBuilder().setCustomId(mk('pics')).setLabel('Pictures').setStyle(ButtonStyle.Secondary).setDisabled(current === 'pics'),
+    new ButtonBuilder().setCustomId(mk('moods')).setLabel('Moodboards').setStyle(ButtonStyle.Secondary).setDisabled(current === 'moods')
+  );
+
+  return [row];
+}
+
+function chunkTextForEmbeds(text, maxLen, maxChunks) {
+  const raw = typeof text === 'string' ? text : '';
+  const cleaned = raw.replace(/\r\n/g, '\n');
+  const out = [];
+  const lim = Number.isFinite(Number(maxLen)) ? Math.max(50, Number(maxLen)) : 3500;
+  const maxC = Number.isFinite(Number(maxChunks)) ? Math.max(1, Number(maxChunks)) : 1;
+
+  let i = 0;
+  while (i < cleaned.length && out.length < maxC) {
+    const slice = cleaned.slice(i, i + lim);
+    out.push(slice);
+    i += lim;
+  }
+  return { chunks: out, truncated: i < cleaned.length };
+}
+
+function formatUrlListAsMarkdownLinks(urls) {
+  const list = Array.isArray(urls) ? urls : [];
+  const safe = list.map((u) => String(u || '').trim()).filter(Boolean);
+  if (safe.length === 0) return null;
+  const parts = [];
+  for (let i = 0; i < safe.length; i++) {
+    const u = safe[i];
+    parts.push('[' + String(i + 1) + '](' + u + ')');
+  }
+  return parts.join(' ');
+}
+
+function buildOcShareEmbeds(payload, tabKey) {
+  const safe = payload && typeof payload === 'object' ? payload : {};
+  const scenario = safe.scenario && typeof safe.scenario === 'object' ? safe.scenario : {};
+  const profile = safe.profile && typeof safe.profile === 'object' ? safe.profile : {};
+  const details = safe.details && typeof safe.details === 'object' ? safe.details : {};
+
+  const inviteCode = scenario.inviteCode != null ? String(scenario.inviteCode) : '';
+  const scenarioName = scenario.name != null ? String(scenario.name).trim() : '';
+
+  const displayName = profile.displayName != null ? String(profile.displayName).trim() : '';
+  const handle = profile.handle != null ? String(profile.handle).trim() : '';
+  const avatarUrl = profile.avatarUrl != null ? String(profile.avatarUrl).trim() : '';
+  const headerUrl = profile.headerUrl != null ? String(profile.headerUrl).trim() : '';
+  const bio = profile.bio != null ? String(profile.bio).trim() : '';
+
+  const titleBase = displayName || (handle ? '@' + handle : 'Character');
+  const title = handle ? titleBase + ' (@' + handle + ')' : titleBase;
+
+  const moodboardUrls = Array.isArray(details.moodboardUrls) ? details.moodboardUrls : [];
+  const imageUrls = Array.isArray(details.imageUrls) ? details.imageUrls : [];
+  const extraMoodboards = Array.isArray(details.extraMoodboards) ? details.extraMoodboards : [];
+  const longText = details.longText != null ? String(details.longText) : '';
+  const characterProfile = details.characterProfile && typeof details.characterProfile === 'object' ? details.characterProfile : null;
+
+  const tab = typeof tabKey === 'string' ? tabKey : 'ov';
+
+  if (tab === 'pics') {
+    if (!imageUrls.length) {
+      const e = new EmbedBuilder().setTitle(title).setDescription('No pictures yet.');
+      if (avatarUrl) e.setThumbnail(avatarUrl);
+      if (headerUrl) e.setImage(headerUrl);
+      return [e];
+    }
+
+    const urls = imageUrls.map((u) => String(u || '').trim()).filter(Boolean).slice(0, 10);
+    const embeds = [];
+    for (let i = 0; i < urls.length; i++) {
+      const u = urls[i];
+      const e = new EmbedBuilder();
+      if (i === 0) e.setTitle(title);
+      e.setImage(u);
+      e.setFooter({ text: 'Picture ' + String(i + 1) + ' / ' + String(urls.length) });
+      embeds.push(e);
+    }
+    return embeds;
+  }
+
+  if (tab === 'moods') {
+    const boards = extraMoodboards
+      .filter((b) => Array.isArray(b))
+      .map((b) => b.map((u) => String(u || '').trim()).filter(Boolean).slice(0, 9))
+      .filter((b) => b.length > 0)
+      .slice(0, 4);
+
+    if (boards.length === 0) {
+      const e = new EmbedBuilder().setTitle(title).setDescription('No extra moodboards yet.');
+      if (avatarUrl) e.setThumbnail(avatarUrl);
+      if (headerUrl) e.setImage(headerUrl);
+      return [e];
+    }
+
+    const embeds = [];
+    for (let i = 0; i < boards.length; i++) {
+      const urls = boards[i];
+      const links = formatUrlListAsMarkdownLinks(urls);
+      const e = new EmbedBuilder().setTitle('Extra moodboard ' + String(i + 1));
+      if (urls[0]) e.setImage(urls[0]);
+      if (links) e.setDescription(links);
+      embeds.push(e);
+    }
+    // Include identity as thumbnail on the first embed.
+    if (embeds[0]) {
+      if (avatarUrl) embeds[0].setThumbnail(avatarUrl);
+      embeds[0].setFooter({ text: title + (scenarioName ? ' • ' + scenarioName : '') });
+    }
+    return embeds;
+  }
+
+  if (tab === 'desc') {
+    const text = String(longText || '').trim();
+    if (!text) {
+      const e = new EmbedBuilder().setTitle(title).setDescription('No description yet.');
+      if (avatarUrl) e.setThumbnail(avatarUrl);
+      if (headerUrl) e.setImage(headerUrl);
+      return [e];
+    }
+
+    // Discord limits: 6000 chars across embeds/message.
+    const { chunks, truncated } = chunkTextForEmbeds(text, 2700, 2);
+    const embeds = chunks.map((c, idx) => {
+      const e = new EmbedBuilder().setTitle(idx === 0 ? title : 'Description (cont.)').setDescription(c);
+      if (idx === 0) {
+        if (avatarUrl) e.setThumbnail(avatarUrl);
+        if (headerUrl) e.setImage(headerUrl);
+        if (inviteCode) e.addFields([{ name: 'Invite code', value: inviteCode, inline: true }]);
+      }
+      return e;
+    });
+    if (truncated && embeds[embeds.length - 1]) {
+      embeds[embeds.length - 1].setFooter({ text: 'Description truncated for Discord limits.' });
+    }
+    return embeds;
+  }
+
+  if (tab === 'prof') {
+    const keys = characterProfile ? Object.keys(characterProfile) : [];
+    if (!characterProfile || keys.length === 0) {
+      const e = new EmbedBuilder().setTitle(title).setDescription('No profile sheet yet.');
+      if (avatarUrl) e.setThumbnail(avatarUrl);
+      if (headerUrl) e.setImage(headerUrl);
+      return [e];
+    }
+
+    const lines = keys
+      .sort((a, b) => String(a).localeCompare(String(b)))
+      .map((k) => {
+        const key = String(k || '').trim();
+        if (!key) return null;
+        const val = String(characterProfile[k] || '').trim();
+        if (!val) return null;
+        return '• **' + key + ':** ' + val;
+      })
+      .filter(Boolean);
+
+    const text = lines.join('\n');
+    const { chunks, truncated } = chunkTextForEmbeds(text, 2700, 2);
+    const embeds = chunks.map((c, idx) => {
+      const e = new EmbedBuilder().setTitle(idx === 0 ? title : 'Profile (cont.)').setDescription(c || ' ');
+      if (idx === 0) {
+        if (avatarUrl) e.setThumbnail(avatarUrl);
+        if (headerUrl) e.setImage(headerUrl);
+        if (inviteCode) e.addFields([{ name: 'Invite code', value: inviteCode, inline: true }]);
+        if (scenarioName) e.addFields([{ name: 'Scenario', value: scenarioName.slice(0, 256), inline: true }]);
+      }
+      return e;
+    });
+    if (truncated && embeds[embeds.length - 1]) {
+      embeds[embeds.length - 1].setFooter({ text: 'Profile truncated for Discord limits.' });
+    }
+    return embeds;
+  }
+
+  // Overview (default): banner + bio + main moodboard links
+  const e = new EmbedBuilder().setTitle(title);
+  if (bio) e.setDescription(trunc(bio, 2000));
+  if (avatarUrl) e.setThumbnail(avatarUrl);
+  if (headerUrl) e.setImage(headerUrl);
+
+  const fields = [];
+  if (inviteCode) fields.push({ name: 'Invite code', value: inviteCode, inline: true });
+  if (scenarioName) fields.push({ name: 'Scenario', value: trunc(scenarioName, 256), inline: true });
+  if (handle) fields.push({ name: 'Username', value: '@' + handle, inline: true });
+
+  const moodLinks = formatUrlListAsMarkdownLinks(moodboardUrls);
+  fields.push({ name: 'Moodboard', value: moodLinks || 'None', inline: false });
+
+  e.addFields(fields);
+  return [e];
+}
+
+async function fetchOcSharePayload({ inviteCode, handle, profileIdCompact }) {
+  const code = normalizeInviteCode(inviteCode);
+  if (!code) return { ok: false, status: 0, error: 'Invalid invite code.' };
+
+  const qs = [];
+  qs.push('inviteCode=' + encodeURIComponent(code));
+  if (handle) qs.push('handle=' + encodeURIComponent(String(handle)));
+  if (profileIdCompact) qs.push('profileId=' + encodeURIComponent(String(profileIdCompact)));
+
+  const r = await botApiGetJson('/v1/bot/oc/share?' + qs.join('&'));
+  if (!r.ok) return r;
+  return { ok: true, status: r.status, json: r.json };
+}
+
 function getBrandIconUrl() {
   const explicit = normalizeOption(process.env.FEEDVERSE_BRAND_ICON_URL);
   if (explicit) return explicit;
@@ -780,7 +1007,7 @@ function buildHelpMessage() {
   cmds.push('• `/' + 'profile` — view XP, level, and prompt history (optionally for another user)');
   cmds.push('• `/' + 'leaderboard` — see top prompt contributors in this server');
   cmds.push('• `/' + 'generate` — generate one AU prompt (includes Favorite button)');
-  cmds.push('• `/' + 'share` — share a Feedverse scenario invite code');
+  cmds.push('• `/' + 'share` — share a Feedverse character (OC page)');
   cmds.push('• `/' + 'prompt` — submit a prompt for moderator review');
   cmds.push('• `/' + 'setup daily` — post a daily prompt in a channel');
   cmds.push('• `/' + 'view favorites` — view your favorited prompts');
@@ -1352,6 +1579,37 @@ async function main() {
           return;
         }
 
+        if (focused.name === 'character') {
+          const codeRaw = interaction.options.getString('code');
+          const code = normalizeInviteCode(codeRaw || '');
+          if (!code) {
+            await interaction.respond([]);
+            return;
+          }
+
+          const r = await botApiGetJson(
+            '/v1/bot/oc/characters?inviteCode=' + encodeURIComponent(code) + '&q=' + encodeURIComponent(value) + '&limit=25'
+          );
+          if (!r.ok) {
+            await interaction.respond([]);
+            return;
+          }
+
+          const items = r.json && Array.isArray(r.json.items) ? r.json.items : [];
+          const choices = items
+            .map((it) => {
+              const handle = it && it.handle != null ? String(it.handle) : '';
+              const displayName = it && it.displayName != null ? String(it.displayName) : '';
+              const name = trunc((displayName || handle || 'Character') + (handle ? ' (@' + handle + ')' : ''), 100);
+              return { name, value: handle };
+            })
+            .filter((c) => c && c.value)
+            .slice(0, 25);
+
+          await interaction.respond(choices);
+          return;
+        }
+
         await interaction.respond([]);
         return;
       }
@@ -1389,6 +1647,29 @@ async function main() {
 
       if (interaction.isButton()) {
         const id = String(interaction.customId || '');
+
+        if (id.startsWith('oc:tab:')) {
+          const parts = id.split(':');
+          const tabKey = parts[2] || 'ov';
+          const inviteCode = parts[3] || '';
+          const profileIdCompact = parts[4] || '';
+
+          const r = await fetchOcSharePayload({ inviteCode, profileIdCompact });
+          if (!r.ok) {
+            await interaction.reply({ content: 'Error loading character: ' + r.error, ephemeral: true });
+            return;
+          }
+
+          const payload = r.json;
+          const profileId = payload && payload.profile && payload.profile.id ? String(payload.profile.id) : '';
+          const pidCompact = compactUuid(profileId) || compactUuid(profileIdCompact) || profileIdCompact;
+          const embeds = buildOcShareEmbeds(payload, tabKey);
+          const components = buildOcTabComponents({ tabKey, inviteCode, profileIdCompact: pidCompact });
+
+          await interaction.update({ embeds, components });
+          return;
+        }
+
         if (id.startsWith('fav:')) {
           const parts = id.split(':');
           const action = parts[1] || '';
@@ -2043,8 +2324,11 @@ async function main() {
       }
 
       if (interaction.commandName === 'share') {
-        const rawCode = interaction.options.getString('invite_code');
+        const rawCode = interaction.options.getString('code');
+        const rawCharacter = interaction.options.getString('character');
         const code = normalizeInviteCode(rawCode || '');
+        const character = typeof rawCharacter === 'string' ? rawCharacter.trim() : '';
+
         if (!code) {
           await interaction.reply({
             content: 'Invalid invite code. Use 6–20 chars: A–Z and 0–9 (example: KPOP2024).',
@@ -2052,7 +2336,32 @@ async function main() {
           });
           return;
         }
+        // If character is provided, share the OC viewer.
+        if (character) {
+          await interaction.deferReply();
 
+          const r = await fetchOcSharePayload({ inviteCode: code, handle: character });
+          if (!r.ok) {
+            await interaction.editReply('Error loading character: ' + r.error);
+            return;
+          }
+
+          const payload = r.json;
+          const profileId = payload && payload.profile && payload.profile.id ? String(payload.profile.id) : '';
+          const pidCompact = compactUuid(profileId) || null;
+          if (!pidCompact) {
+            await interaction.editReply('Error: invalid character profile id from API.');
+            return;
+          }
+
+          const tabKey = 'ov';
+          const embeds = buildOcShareEmbeds(payload, tabKey);
+          const components = buildOcTabComponents({ tabKey, inviteCode: code, profileIdCompact: pidCompact });
+          await interaction.editReply({ embeds, components });
+          return;
+        }
+
+        // Default: share the scenario from invite code (previous behavior).
         const joinLink = buildJoinLink(code);
         const brandIcon = getBrandIconUrl();
 
@@ -2064,10 +2373,7 @@ async function main() {
           const components = [];
           if (joinLink) {
             const row = new ActionRowBuilder().addComponents(
-              new ButtonBuilder()
-                .setStyle(ButtonStyle.Link)
-                .setLabel('Join')
-                .setURL(joinLink)
+              new ButtonBuilder().setStyle(ButtonStyle.Link).setLabel('Join').setURL(joinLink)
             );
             components.push(row);
           }
@@ -2113,10 +2419,7 @@ async function main() {
         const components = [];
         if (joinLink) {
           const row = new ActionRowBuilder().addComponents(
-            new ButtonBuilder()
-              .setStyle(ButtonStyle.Link)
-              .setLabel('Join')
-              .setURL(joinLink)
+            new ButtonBuilder().setStyle(ButtonStyle.Link).setLabel('Join').setURL(joinLink)
           );
           components.push(row);
         }

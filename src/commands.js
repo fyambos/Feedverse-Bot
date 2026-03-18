@@ -37,12 +37,19 @@ function buildGlobalCommands() {
 
   const share = new SlashCommandBuilder()
     .setName('share')
-    .setDescription('Share a Feedverse scenario invite code')
+    .setDescription('Share a Feedverse scenario (or a character in it)')
     .addStringOption((opt) =>
       opt
-        .setName('invite_code')
+        .setName('code')
         .setDescription('Scenario invite code (e.g. KPOP2024)')
         .setRequired(true)
+    )
+    .addStringOption((opt) =>
+      opt
+        .setName('character')
+        .setDescription('Optional character username (autocomplete after selecting code)')
+        .setAutocomplete(true)
+        .setRequired(false)
     );
 
   const prompt = new SlashCommandBuilder()
