@@ -1725,7 +1725,9 @@ async function main() {
           return;
         }
 
-        const embed = buildGenerateMetaEmbed(au, nextUniverseId, nextDynamicId);
+        const pickedUniverseId = pickedPack && pickedPack.universeId ? String(pickedPack.universeId) : null;
+        const pickedDynamicId = pickedPack && pickedPack.dynamicId ? String(pickedPack.dynamicId) : null;
+        const embed = buildGenerateMetaEmbed(au, pickedUniverseId, pickedDynamicId);
 
         const components = withFavoriteButton(
           buildGenerateComponents({
@@ -1839,9 +1841,10 @@ async function main() {
           return;
         }
 
-        // If only one filter is set, this picks across all possibilities for the other dimension.
-        // If neither is set, it picks from all packs.
-        const embed = buildGenerateMetaEmbed(au, universeId, dynamicId);
+        // Always display the picked prompt's universe + dynamic.
+        const pickedUniverseId = pickedPack && pickedPack.universeId ? String(pickedPack.universeId) : null;
+        const pickedDynamicId = pickedPack && pickedPack.dynamicId ? String(pickedPack.dynamicId) : null;
+        const embed = buildGenerateMetaEmbed(au, pickedUniverseId, pickedDynamicId);
 
         const components = withFavoriteButton(
           buildGenerateComponents({
