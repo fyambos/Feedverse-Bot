@@ -1318,19 +1318,12 @@ async function buildOcShareMessage(payload, tabKey) {
 
   const tab = typeof tabKey === 'string' ? tabKey : 'ov';
 
-  const footerText = trunc([inviteCode, scenarioName].filter(Boolean).join(' • '), 2048);
-  const copyableCodeField = inviteCode
-    ? [{ name: 'Invite code', value: '```\n' + inviteCode + '\n```', inline: false }]
-    : [];
-
   const out = { embeds: [], files: [], attachments: [] };
 
   if (tab === 'pics') {
     if (!imageUrls.length) {
       const e = new EmbedBuilder().setTitle(title).setDescription('No pictures yet.');
       if (avatarUrl) e.setThumbnail(avatarUrl);
-      if (footerText) e.setFooter({ text: footerText });
-      if (copyableCodeField.length) e.addFields(copyableCodeField);
       out.embeds = [e];
       return out;
     }
@@ -1342,11 +1335,8 @@ async function buildOcShareMessage(payload, tabKey) {
       const e = new EmbedBuilder();
       if (i === 0) e.setTitle(title);
       e.setImage(u);
-      const picFooter = 'Picture ' + String(i + 1) + ' / ' + String(urls.length) + (footerText ? ' • ' + footerText : '');
-      e.setFooter({ text: trunc(picFooter, 2048) });
       if (i === 0) {
         if (avatarUrl) e.setThumbnail(avatarUrl);
-        if (copyableCodeField.length) e.addFields(copyableCodeField);
       }
       embeds.push(e);
     }
@@ -1364,8 +1354,6 @@ async function buildOcShareMessage(payload, tabKey) {
     const main = ocSafeUrlList(moodboardUrls, 9);
     if (!main.length && boards.length === 0) {
       const e = new EmbedBuilder().setTitle(title).setDescription('No moodboards yet.');
-      if (footerText) e.setFooter({ text: footerText });
-      if (copyableCodeField.length) e.addFields(copyableCodeField);
       out.embeds = [e];
       return out;
     }
@@ -1381,8 +1369,6 @@ async function buildOcShareMessage(payload, tabKey) {
       } else if (main[0]) {
         e.setImage(main[0]);
       }
-      if (footerText) e.setFooter({ text: footerText });
-      if (copyableCodeField.length) e.addFields(copyableCodeField);
       embeds.push(e);
     }
 
@@ -1396,7 +1382,6 @@ async function buildOcShareMessage(payload, tabKey) {
       } else if (urls[0]) {
         e.setImage(urls[0]);
       }
-      if (footerText) e.setFooter({ text: footerText });
       embeds.push(e);
     }
 
@@ -1409,8 +1394,6 @@ async function buildOcShareMessage(payload, tabKey) {
     if (!text) {
       const e = new EmbedBuilder().setTitle(title).setDescription('No description yet.');
       if (avatarUrl) e.setThumbnail(avatarUrl);
-      if (footerText) e.setFooter({ text: footerText });
-      if (copyableCodeField.length) e.addFields(copyableCodeField);
       out.embeds = [e];
       return out;
     }
@@ -1421,15 +1404,9 @@ async function buildOcShareMessage(payload, tabKey) {
       const e = new EmbedBuilder().setTitle(idx === 0 ? title : 'Description (cont.)').setDescription(c);
       if (idx === 0) {
         if (avatarUrl) e.setThumbnail(avatarUrl);
-        if (copyableCodeField.length) e.addFields(copyableCodeField);
       }
-      if (footerText) e.setFooter({ text: footerText });
       return e;
     });
-    if (truncated && embeds[embeds.length - 1]) {
-      const t = footerText ? footerText + ' • truncated for Discord limits' : 'Description truncated for Discord limits.';
-      embeds[embeds.length - 1].setFooter({ text: trunc(t, 2048) });
-    }
     out.embeds = embeds;
     return out;
   }
@@ -1440,8 +1417,6 @@ async function buildOcShareMessage(payload, tabKey) {
     if (sectionTexts.length === 0) {
       const e = new EmbedBuilder().setTitle(title).setDescription('No profile sheet yet.');
       if (avatarUrl) e.setThumbnail(avatarUrl);
-      if (footerText) e.setFooter({ text: footerText });
-      if (copyableCodeField.length) e.addFields(copyableCodeField);
       out.embeds = [e];
       return out;
     }
@@ -1454,9 +1429,7 @@ async function buildOcShareMessage(payload, tabKey) {
       if (i === 0) {
         e.setTitle(title);
         if (avatarUrl) e.setThumbnail(avatarUrl);
-        if (copyableCodeField.length) e.addFields(copyableCodeField);
       }
-      if (footerText) e.setFooter({ text: footerText });
       embeds.push(e);
       if (embeds.length >= 10) break;
     }
@@ -1469,9 +1442,7 @@ async function buildOcShareMessage(payload, tabKey) {
   const e = new EmbedBuilder().setTitle(title);
   if (bio) e.setDescription(trunc(bio, 2000));
   if (avatarUrl) e.setThumbnail(avatarUrl);
-  if (copyableCodeField.length) e.addFields(copyableCodeField);
   if (handle) e.addFields([{ name: 'Username', value: '@' + handle, inline: true }]);
-  if (footerText) e.setFooter({ text: footerText });
 
   const main = ocSafeUrlList(moodboardUrls, 9);
   if (main.length) {
