@@ -2951,6 +2951,9 @@ async function main() {
         const players = formatPlayers(scenario);
         const mode = formatMode(scenario && scenario.mode);
         const tags = formatTags(scenario);
+        const faceClaims = Array.isArray(scenario && scenario.face_claims)
+          ? scenario.face_claims.map((value) => String(value ?? '').trim()).filter(Boolean)
+          : [];
 
         const embed = new EmbedBuilder().setTitle(name).setThumbnail(brandIcon);
         if (description) embed.setDescription(description.slice(0, 300));
@@ -2960,6 +2963,7 @@ async function main() {
         if (players) fields.push({ name: 'Players', value: players, inline: true });
         if (mode) fields.push({ name: 'Mode', value: mode, inline: true });
         if (tags) fields.push({ name: 'Tags', value: tags, inline: false });
+        if (faceClaims.length) fields.push({ name: 'Face claims', value: faceClaims.join('\n'), inline: false });
         embed.addFields(fields);
 
         const components = [];
