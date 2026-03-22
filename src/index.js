@@ -2993,7 +2993,7 @@ async function main() {
         if (players) fields.push({ name: 'Players', value: players, inline: true });
         if (mode) fields.push({ name: 'Mode', value: mode, inline: true });
         if (tags) fields.push({ name: 'Tags', value: tags, inline: false });
-        if (faceClaims.length) fields.push({ name: 'Face claims', value: faceClaims.join('\n'), inline: false });
+        if (faceClaims.length) fields.push({ name: 'Face claims', value: faceClaims.join(', '), inline: false });
         embed.addFields(fields);
 
         const components = [];
