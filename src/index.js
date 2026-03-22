@@ -17,6 +17,7 @@ const {
   EmbedBuilder,
   Events,
   GatewayIntentBits,
+  MessageFlags,
   PermissionFlagsBits,
   ThreadAutoArchiveDuration,
   REST,
@@ -71,6 +72,34 @@ function normalizeOption(value) {
   if (typeof value !== 'string') return null;
   const v = value.trim();
   return v === '' ? null : v;
+}
+
+function mergeEphemeralFlag(flags) {
+  if (flags == null) return MessageFlags.Ephemeral;
+  if (typeof flags === 'number') return flags | MessageFlags.Ephemeral;
+  if (typeof flags === 'bigint') return flags | BigInt(MessageFlags.Ephemeral);
+  return flags;
+}
+
+function normalizeInteractionResponseOptions(options) {
+  if (!options || typeof options !== 'object' || Array.isArray(options)) return options;
+  if (!Object.prototype.hasOwnProperty.call(options, 'ephemeral')) return options;
+
+  const normalized = { ...options };
+  const ephemeral = Boolean(normalized.ephemeral);
+  delete normalized.ephemeral;
+
+  if (ephemeral) normalized.flags = mergeEphemeralFlag(normalized.flags);
+  return normalized;
+}
+
+function installInteractionResponseCompat(interaction) {
+  const methods = ['reply', 'followUp', 'deferReply'];
+  for (const method of methods) {
+    if (typeof interaction?.[method] !== 'function') continue;
+    const original = interaction[method].bind(interaction);
+    interaction[method] = (options) => original(normalizeInteractionResponseOptions(options));
+  }
 }
 
 function pad2(n) {
@@ -2098,6 +2127,7 @@ async function main() {
   });
 
   client.on(Events.InteractionCreate, async (interaction) => {
+    installInteractionResponseCompat(interaction);
     try {
       if (interaction.isAutocomplete()) {
         const focused = interaction.options.getFocused(true);
