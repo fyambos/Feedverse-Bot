@@ -1364,9 +1364,6 @@ async function buildOcShareMessage(payload, tabKey) {
       const e = new EmbedBuilder();
       if (i === 0) e.setTitle(title);
       e.setImage(u);
-      if (i === 0) {
-        if (avatarUrl) e.setThumbnail(avatarUrl);
-      }
       embeds.push(e);
     }
     out.embeds = embeds;
@@ -2135,7 +2132,7 @@ async function main() {
 
         if (focused.name === 'universe' || focused.name === 'setting') {
           const items = au.universes.map((u) => ({
-            name: (u.emoji ? u.emoji + ' ' : '') + u.label + ' (' + u.id + ')',
+            name: (u.emoji ? u.emoji + ' ' : '') + u.label,
             value: u.id
           }));
           const choices = toAutocompleteChoices(items, value, 25);
@@ -2145,7 +2142,7 @@ async function main() {
 
         if (focused.name === 'dynamic') {
           const items = au.dynamics.map((d) => ({
-            name: (d.emoji ? d.emoji + ' ' : '') + d.label + ' (' + d.id + ')',
+            name: (d.emoji ? d.emoji + ' ' : '') + d.label,
             value: d.id
           }));
           const choices = toAutocompleteChoices(items, value, 25);
