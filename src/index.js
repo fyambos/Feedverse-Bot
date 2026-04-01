@@ -928,7 +928,9 @@ async function buildOcMoodboardAttachment(urls, nameHint) {
 // Ported from mobile/lib/ocs/ocCharacterProfile.ts (authoritative formatting)
 function getOcCharacterProfileStyle(profile) {
   const raw = String((profile && profile.style) || '').trim().toLowerCase();
-  return raw === 'normal' ? 'normal' : 'cutesy';
+  if (raw === 'normal') return 'normal';
+  if (raw === 'dark') return 'dark';
+  return 'cutesy';
 }
 
 function normalizeOcCharacterProfile(v) {
@@ -962,7 +964,7 @@ function ocFormatValue(value, style) {
     .map((l) => l.trim())
     .filter(Boolean);
   if (!lines.length) return '';
-  if (style === 'normal') return lines.map((l) => '  ' + l).join('\n');
+  if (style === 'normal' || style === 'dark') return lines.map((l) => '  ' + l).join('\n');
   return lines.map((l) => '   ┊ ' + l).join('\n');
 }
 
@@ -994,14 +996,203 @@ function buildOcCharacterProfileSectionText(profile, section, styleOverride) {
 
   if (!filled.length) return null;
 
-  const lines = style === 'normal' ? [String(section.editorTitle || ''), ''] : [String(section.displayHeader || ''), ''];
+  function darkSectionHeader(key, fallbackTitle) {
+    switch (key) {
+      case 'character_profile':
+        return '╭─ ♱ ─ profile ─ ♱ ─╮';
+      case 'appearance':
+        return '╭─ ♱ appearance ♱ ─╮';
+      case 'personality':
+        return '╭─ ♱ personality ♱ ─╮';
+      case 'background':
+        return '╭─ ♱ background ♱ ─╮';
+      case 'relationships':
+        return '╭─ ♱ relationships ♱ ─╮';
+      case 'school_career':
+        return '╭─ ♱ career ♱ ─╮';
+      case 'abilities':
+        return '╭─ ♱ abilities ♱ ─╮';
+      case 'extras':
+        return '╭─ ♱ extras ♱ ─╮';
+      default: {
+        const t = String(fallbackTitle || key).trim().toLowerCase() || 'section';
+        return '╭─ ♱ ' + t + ' ♱ ─╮';
+      }
+    }
+  }
+
+  function darkSectionFooter(key) {
+    switch (key) {
+      case 'school_career':
+        return '╰─ ♱ ─── ♱ ─╯';
+      case 'extras':
+        return '╰─ ⛧ ── ⛧ ─╯';
+      default:
+        return '╰─ ♱ ──── ♱ ─╯';
+    }
+  }
+
+  function darkLabelForField(sectionKey, fieldKey) {
+    if (sectionKey === 'character_profile') {
+      const map = {
+        name: '♱ name',
+        preferred_name: '♱ nickname',
+        age: '♱ age',
+        pronouns: '♱ pronouns',
+        ethnicity_nationality: '♱ nationality',
+        species_type: '♱ species',
+        occupation_role: '♱ occupation',
+        birthplace: '♱ birthplace',
+        current_residence: '♱ current residence',
+        representative_emoji: '♱ representative emoji',
+        aesthetic_vibe: '♱ aesthetic',
+        favorite_quote: '♱ quote'
+      };
+      return map[fieldKey] || ('♱ ' + String(fieldKey || '').replace(/_/g, ' '));
+    }
+
+    if (sectionKey === 'appearance') {
+      const map = {
+        height: '⛧ height',
+        build_body_type: '⛧ body type',
+        skin_tone: '⛧ skin tone',
+        hair: '⛧ hair',
+        eyes: '⛧ eyes',
+        clothing_style: '⛧ clothing',
+        accessories: '⛧ accessories',
+        scent: '⛧ scent',
+        scars: '⛧ scars',
+        tattoos: '⛧ tattoos',
+        piercings: '⛧ piercings',
+        distinguishing_traits: '⛧ traits'
+      };
+      return map[fieldKey] || ('⛧ ' + String(fieldKey || '').replace(/_/g, ' '));
+    }
+
+    if (sectionKey === 'personality') {
+      const map = {
+        mbti: '⛧ mbti',
+        zodiac: '⛧ zodiac',
+        moral_alignment: '⛧ alignment',
+        strengths: '♱ strengths',
+        flaws: '♱ flaws',
+        insecurities: '♱ insecurities',
+        fears: '♱ fears',
+        soft_spot: '♱ soft spot',
+        pet_peeves: '♱ pet peeves',
+        love_language: '♱ love language',
+        attachment_style: '♱ attachment',
+        hobbies: '♱ hobbies',
+        quirks: '♱ quirks',
+        likes: '♱ likes',
+        dislikes: '♱ dislikes',
+        talents: '♱ talents'
+      };
+      return map[fieldKey] || ('♱ ' + String(fieldKey || '').replace(/_/g, ' '));
+    }
+
+    if (sectionKey === 'background') {
+      const map = {
+        hometown: '⛧ hometown',
+        upbringing: '⛧ upbringing',
+        social_class: '⛧ social class',
+        parent_guardian: '♱ parent',
+        siblings: '♱ siblings',
+        important_people: '♱ important people',
+        goals: '♱ goals',
+        long_term_dream: '♱ dream',
+        secret: '♱ secret',
+        rumor: '♱ rumor'
+      };
+      return map[fieldKey] || ('♱ ' + String(fieldKey || '').replace(/_/g, ' '));
+    }
+
+    if (sectionKey === 'relationships') {
+      const map = {
+        relationship_status: '⛧ status',
+        crush: '⛧ crush',
+        partner: '⛧ partner',
+        exes: '⛧ ex',
+        best_friends: '⛧ friends',
+        friends: '⛧ friends',
+        rivals: '⛧ rivals',
+        enemies: '⛧ enemies',
+        mentor: '⛧ mentor',
+        pets: '⛧ pets'
+      };
+      return map[fieldKey] || ('⛧ ' + String(fieldKey || '').replace(/_/g, ' '));
+    }
+
+    if (sectionKey === 'school_career') {
+      const map = {
+        school_workplace: '⛧ school',
+        year_grade: '⛧ year',
+        major_field: '⛧ major',
+        reputation: '⛧ reputation',
+        clubs_teams: '⛧ clubs',
+        part_time_job: '⛧ part-time',
+        achievements: '⛧ achievements',
+        dream_career: '⛧ dream career'
+      };
+      return map[fieldKey] || ('⛧ ' + String(fieldKey || '').replace(/_/g, ' '));
+    }
+
+    if (sectionKey === 'abilities') {
+      const map = {
+        strongest_skill: '⛧ strongest skill',
+        weakest_skill: '⛧ weakest skill',
+        intelligence_style: '⛧ intelligence'
+      };
+      return map[fieldKey] || ('⛧ ' + String(fieldKey || '').replace(/_/g, ' '));
+    }
+
+    if (sectionKey === 'extras') {
+      const map = {
+        theme_songs: '⛧ theme song(s)',
+        favorite_food: '⛧ food',
+        favorite_place: '⛧ place',
+        comfort_item: '⛧ comfort item',
+        color_palette: '⛧ colors',
+        face_claim: '⛧ face claim',
+        voice_claim: '⛧ voice claim',
+        headcanon_1: '♱',
+        headcanon_2: '♱',
+        headcanon_3: '♱'
+      };
+      return map[fieldKey] || ('♱ ' + String(fieldKey || '').replace(/_/g, ' '));
+    }
+
+    return '♱ ' + String(fieldKey || '').replace(/_/g, ' ');
+  }
+
+  function darkShouldAddSpacerBefore(sectionKey, fieldKey) {
+    if (sectionKey === 'personality' && fieldKey === 'strengths') return true;
+    if (sectionKey === 'background' && fieldKey === 'parent_guardian') return true;
+    if (sectionKey === 'extras' && fieldKey === 'headcanon_1') return true;
+    return false;
+  }
+
+  const lines =
+    style === 'normal'
+      ? [String(section.editorTitle || ''), '']
+      : style === 'dark'
+        ? [darkSectionHeader(section.key, section.editorTitle), '']
+        : [String(section.displayHeader || ''), ''];
   for (const { field, value } of filled) {
     const formatted = ocFormatValue(value, style);
     if (!formatted) continue;
-    lines.push(style === 'normal' ? ocNormalLabelForField(p, field) : ocDisplayLabelForField(p, field));
+    if (style === 'dark' && darkShouldAddSpacerBefore(section.key, field.key) && lines.length > 2) lines.push('');
+    lines.push(
+      style === 'normal'
+        ? ocNormalLabelForField(p, field)
+        : style === 'dark'
+          ? darkLabelForField(section.key, field.key)
+          : ocDisplayLabelForField(p, field)
+    );
     lines.push(formatted);
   }
-  if (style !== 'normal') lines.push(String(section.displayFooter || ''));
+  if (style === 'cutesy') lines.push(String(section.displayFooter || ''));
+  if (style === 'dark') lines.push('', darkSectionFooter(section.key));
   return lines.join('\n');
 }
 
@@ -2971,7 +3162,7 @@ async function main() {
         }
 
         const scenario = resolved.scenario;
-        const name = scenario && typeof scenario.name === 'string' ? scenario.name : 'Feedverse scenario';
+        const name = scenario && typeof scenario.name === 'string' ? scenario.name : 'Feedverse universe';
         const cover = scenario && typeof scenario.cover === 'string' ? scenario.cover : '';
         const description = scenario && typeof scenario.description === 'string' ? scenario.description : '';
 

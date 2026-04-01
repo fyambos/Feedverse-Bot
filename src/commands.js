@@ -37,11 +37,11 @@ function buildGlobalCommands() {
 
   const share = new SlashCommandBuilder()
     .setName('share')
-    .setDescription('Share a Feedverse scenario (or a character in it)')
+    .setDescription('Share a Feedverse universe (or a character in it)')
     .addStringOption((opt) =>
       opt
         .setName('code')
-        .setDescription('Scenario invite code (e.g. KPOP2024)')
+        .setDescription('Universe invite code (e.g. KPOP2024)')
         .setRequired(true)
     )
     .addStringOption((opt) =>
