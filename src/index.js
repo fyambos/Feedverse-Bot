@@ -116,9 +116,34 @@ function localMinutesOfDay(d) {
   return dt.getHours() * 60 + dt.getMinutes();
 }
 
+const TIME_ZONE_ALIASES = new Map([
+  ['UTC', 'UTC'],
+  ['GMT', 'Etc/GMT'],
+  ['BST', 'Europe/London'],
+  ['IST', 'Asia/Kolkata'],
+  ['JST', 'Asia/Tokyo'],
+  ['KST', 'Asia/Seoul'],
+  ['PST', 'America/Los_Angeles'],
+  ['PDT', 'America/Los_Angeles'],
+  ['MST', 'America/Denver'],
+  ['MDT', 'America/Denver'],
+  ['CST', 'America/Chicago'],
+  ['CDT', 'America/Chicago'],
+  ['EST', 'America/New_York'],
+  ['EDT', 'America/New_York']
+]);
+
+function normalizeTimeZoneInput(tz) {
+  if (typeof tz !== 'string') return null;
+  const raw = tz.trim();
+  if (!raw) return null;
+
+  const alias = TIME_ZONE_ALIASES.get(raw.toUpperCase());
+  return alias || raw;
+}
+
 function isValidTimeZone(tz) {
-  if (typeof tz !== 'string') return false;
-  const v = tz.trim();
+  const v = normalizeTimeZoneInput(tz);
   if (!v) return false;
   try {
     // Throws RangeError on invalid IANA timezone.
@@ -131,10 +156,11 @@ function isValidTimeZone(tz) {
 
 function timeZoneDateKeyAndMinutes(d, timeZone) {
   const dt = d instanceof Date ? d : new Date();
-  if (!isValidTimeZone(timeZone)) return null;
+  const normalizedTimeZone = normalizeTimeZoneInput(timeZone);
+  if (!isValidTimeZone(normalizedTimeZone)) return null;
 
   const fmt = new Intl.DateTimeFormat('en-US', {
-    timeZone: String(timeZone).trim(),
+    timeZone: normalizedTimeZone,
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
@@ -1770,7 +1796,7 @@ function buildHelpMessage() {
     value:
       'Use `/' +
       'setup daily` (example: `/' +
-      'setup daily #channel 9:30pm`). Optional: add a timezone like `America/New_York`.'
+      'setup daily #channel 9:30pm`). Optional: add a timezone like `America/New_York` or `IST`.'
   });
 
   const invite = "https://discord.com/invite/pR8HbSDQdn"; // default to official support server
@@ -3016,10 +3042,10 @@ async function main() {
         }
 
         const timeZoneRaw = normalizeOption(interaction.options.getString('timezone'));
-        const timeZoneToStore = timeZoneRaw ? String(timeZoneRaw) : null;
+        const timeZoneToStore = timeZoneRaw ? normalizeTimeZoneInput(timeZoneRaw) : null;
         if (timeZoneToStore && !isValidTimeZone(timeZoneToStore)) {
           await interaction.reply({
-            content: 'Invalid timezone. Use an IANA timezone like America/New_York, Europe/London, Asia/Tokyo.',
+            content: 'Invalid timezone. Use an IANA timezone like America/New_York, Europe/London, Asia/Tokyo, or a common alias like IST.',
             ephemeral: true
           });
           return;

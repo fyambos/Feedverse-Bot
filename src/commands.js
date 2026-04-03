@@ -99,7 +99,7 @@ function buildGlobalCommands() {
         .addStringOption((opt) =>
           opt
             .setName('timezone')
-            .setDescription('Optional timezone (IANA), e.g. America/New_York')
+            .setDescription('Optional timezone, e.g.  ')
             .setRequired(false)
         )
     );
