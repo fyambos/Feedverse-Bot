@@ -116,34 +116,14 @@ function localMinutesOfDay(d) {
   return dt.getHours() * 60 + dt.getMinutes();
 }
 
-const TIME_ZONE_ALIASES = new Map([
-  ['UTC', 'UTC'],
-  ['GMT', 'Etc/GMT'],
-  ['BST', 'Europe/London'],
-  ['IST', 'Asia/Kolkata'],
-  ['JST', 'Asia/Tokyo'],
-  ['KST', 'Asia/Seoul'],
-  ['PST', 'America/Los_Angeles'],
-  ['PDT', 'America/Los_Angeles'],
-  ['MST', 'America/Denver'],
-  ['MDT', 'America/Denver'],
-  ['CST', 'America/Chicago'],
-  ['CDT', 'America/Chicago'],
-  ['EST', 'America/New_York'],
-  ['EDT', 'America/New_York']
-]);
-
-function normalizeTimeZoneInput(tz) {
-  if (typeof tz !== 'string') return null;
-  const raw = tz.trim();
-  if (!raw) return null;
-
-  const alias = TIME_ZONE_ALIASES.get(raw.toUpperCase());
-  return alias || raw;
-}
+const SUPPORTED_IANA_TIME_ZONES =
+  typeof Intl.supportedValuesOf === 'function'
+    ? Intl.supportedValuesOf('timeZone').filter((value) => typeof value === 'string' && value)
+    : [];
 
 function isValidTimeZone(tz) {
-  const v = normalizeTimeZoneInput(tz);
+  if (typeof tz !== 'string') return false;
+  const v = tz.trim();
   if (!v) return false;
   try {
     // Throws RangeError on invalid IANA timezone.
@@ -156,7 +136,8 @@ function isValidTimeZone(tz) {
 
 function timeZoneDateKeyAndMinutes(d, timeZone) {
   const dt = d instanceof Date ? d : new Date();
-  const normalizedTimeZone = normalizeTimeZoneInput(timeZone);
+  if (typeof timeZone !== 'string') return null;
+  const normalizedTimeZone = timeZone.trim();
   if (!isValidTimeZone(normalizedTimeZone)) return null;
 
   const fmt = new Intl.DateTimeFormat('en-US', {
@@ -1796,7 +1777,7 @@ function buildHelpMessage() {
     value:
       'Use `/' +
       'setup daily` (example: `/' +
-      'setup daily #channel 9:30pm`). Optional: add a timezone like `America/New_York` or `IST`.'
+        'setup daily #channel 9:30pm`). Optional: add timezone like `America/New_York`.'
   });
 
   const invite = "https://discord.com/invite/pR8HbSDQdn"; // default to official support server
@@ -2363,6 +2344,19 @@ async function main() {
             value: d.id
           }));
           const choices = toAutocompleteChoices(items, value, 25);
+          await interaction.respond(choices);
+          return;
+        }
+
+        if (focused.name === 'timezone') {
+          const query = value.toLowerCase();
+          const choices = (query
+            ? SUPPORTED_IANA_TIME_ZONES.filter((tz) => tz.toLowerCase().includes(query))
+            : SUPPORTED_IANA_TIME_ZONES
+          )
+            .slice(0, 25)
+            .map((tz) => ({ name: tz, value: tz }));
+
           await interaction.respond(choices);
           return;
         }
@@ -3042,10 +3036,10 @@ async function main() {
         }
 
         const timeZoneRaw = normalizeOption(interaction.options.getString('timezone'));
-        const timeZoneToStore = timeZoneRaw ? normalizeTimeZoneInput(timeZoneRaw) : null;
+        const timeZoneToStore = timeZoneRaw ? String(timeZoneRaw).trim() : null;
         if (timeZoneToStore && !isValidTimeZone(timeZoneToStore)) {
           await interaction.reply({
-            content: 'Invalid timezone. Use an IANA timezone like America/New_York, Europe/London, Asia/Tokyo, or a common alias like IST.',
+            content: 'Invalid timezone. Use an IANA timezone like America/New_York, Europe/London, or Asia/Tokyo.',
             ephemeral: true
           });
           return;
