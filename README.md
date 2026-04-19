@@ -92,21 +92,37 @@ Behavior:
   - required `category` (autocomplete)
   - optional `questions` (default `10`)
   - starts a trivia round in the current server channel
-  - posts the round intro, asks 1 question at a time, gives hints at 25s and 45s, and reveals the answer at 60s or when somebody gets it
+  - posts the round flow as embeds, asks 1 question at a time, gives hints at 25s and 45s, and reveals the answer at 60s or when somebody gets it
+  - scoring is weighted: 4 points before hints, 2 points after hint 1, 1 point after hint 2
+  - awards +25 XP for each correct answer and +500 XP to the final winner
   - accepts small typos when matching answers
 
 - `/trivia categories`
   - lists loaded trivia categories only
+  - posts the category list publicly in-channel
   - shows how many questions are currently in each category
   - includes Previous/Next buttons when you need to page through more categories
+
+- `/trivia stats`
+  - optional `user`
+  - shows dedicated trivia stats for yourself or another user
+  - includes global totals for trivia points, wins, correct answers, and trivia XP earned
+  - when used in a server, also shows that server's trivia totals separately
+
+- `/trivia leaderboard`
+  - shows this server ranked by trivia points
+  - includes trivia wins, correct answers, and trivia XP earned in this server
 
 - `/profile`
   - optional `user`
   - shows AU prompt stats (level + XP + accepted prompts)
+  - also includes a trivia summary block so prompt and trivia progress are both visible
   - use the **Newer**/**Older** buttons to page through prompt history
 
 - `/leaderboard`
-  - shows the top users in this server by accepted prompts (with level + XP)
+  - shows the top users in this server ranked by server-only XP
+  - server XP includes prompt approvals in this server plus trivia XP earned in this server
+  - includes prompt counts plus trivia points and trivia wins for this server
 
 - `/setup daily`
   - required `channel`
@@ -130,8 +146,11 @@ Moderation (official guild only):
 
 ## XP & levels
 
-- XP is global (per Discord user id) and only increases when a prompt submission is accepted.
-- Current award: +25 XP per accepted prompt.
+- XP is global (per Discord user id).
+- Current awards:
+  - +25 XP per accepted prompt submission
+  - +25 XP per correct trivia answer
+  - +500 XP to the final winner of a trivia round
 - Level curve ramps quadratically. Total XP required to reach level $L$ is:
 
 $$

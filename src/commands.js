@@ -15,7 +15,7 @@ function buildGlobalCommands() {
 
   const leaderboard = new SlashCommandBuilder()
     .setName('leaderboard')
-    .setDescription('View this server\'s prompt XP leaderboard');
+    .setDescription('View this server\'s XP leaderboard');
 
   const generate = new SlashCommandBuilder()
     .setName('generate')
@@ -83,6 +83,22 @@ function buildGlobalCommands() {
       sc
         .setName('categories')
         .setDescription('List trivia categories and paginate through them if needed')
+    )
+    .addSubcommand((sc) =>
+      sc
+        .setName('stats')
+        .setDescription('View trivia stats for yourself or another user')
+        .addUserOption((opt) =>
+          opt
+            .setName('user')
+            .setDescription('Optional user (defaults to you)')
+            .setRequired(false)
+        )
+    )
+    .addSubcommand((sc) =>
+      sc
+        .setName('leaderboard')
+        .setDescription('View this server\'s trivia leaderboard')
     )
     .addSubcommand((sc) =>
       sc

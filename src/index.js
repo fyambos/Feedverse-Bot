@@ -514,7 +514,9 @@ function buildTriviaCategoryPageMessage({ categories, ownerUserId, page }) {
 
   const lines = [
     'Available trivia categories',
-    'Categories: **' + String(items.length) + '** | Questions: **' + String(totalQuestions) + '** | Page **' + String(safePage + 1) + '/' + String(totalPages) + '**'
+    '```text',
+    'category | questions',
+    '-----------------------------------------'
   ];
 
   for (const category of visible) {
@@ -522,12 +524,12 @@ function buildTriviaCategoryPageMessage({ categories, ownerUserId, page }) {
     if (!label) continue;
 
     const questionCount = Array.isArray(category.questions) ? category.questions.length : 0;
-    const description = typeof category.description === 'string'
-      ? trunc(category.description.replace(/\s+/g, ' ').trim(), 80)
-      : '';
-    const line = '• **' + label + '** — ' + formatTriviaQuestionCount(questionCount) + (description ? ' — ' + description : '');
+    const line = label + ' | ' + formatTriviaQuestionCount(questionCount);
     lines.push(line);
   }
+
+  lines.push('```');
+  lines.push('Categories: **' + String(items.length) + '** | Questions: **' + String(totalQuestions) + '** | Page **' + String(safePage + 1) + '/' + String(totalPages) + '**');
 
   return {
     content: lines.join('\n'),
@@ -535,22 +537,268 @@ function buildTriviaCategoryPageMessage({ categories, ownerUserId, page }) {
   };
 }
 
-function formatTriviaScores(scores) {
-  const entries = Array.from(scores instanceof Map ? scores.entries() : []);
-  if (entries.length === 0) return 'No correct answers this round.';
+const TRIVIA_POINTS_NO_HINT = 4;
+const TRIVIA_POINTS_AFTER_FIRST_HINT = 2;
+const TRIVIA_POINTS_AFTER_SECOND_HINT = 1;
+const TRIVIA_XP_PER_CORRECT_ANSWER = 25;
+const TRIVIA_XP_FINAL_WINNER_BONUS = 500;
+const TRIVIA_EMBED_COLORS = {
+  intro: 0x4f46e5,
+  question: 0x2563eb,
+  hint: 0xf59e0b,
+  reveal: 0x10b981,
+  timeout: 0xef4444,
+  results: 0x8b5cf6,
+};
 
-  entries.sort((a, b) => {
-    if (b[1] !== a[1]) return b[1] - a[1];
-    return String(a[0]).localeCompare(String(b[0]));
-  });
+function buildTriviaBaseEmbed({ title, description, color }) {
+  const embed = new EmbedBuilder().setTitle(title).setColor(color).setTimestamp();
+  if (description) embed.setDescription(description);
 
-  return 'Final scores:\n' + entries.map(([userId, score], idx) => String(idx + 1) + '. <@' + String(userId) + '> — ' + String(score)).join('\n');
+  const icon = getBrandIconUrl();
+  if (icon) embed.setThumbnail(icon);
+  return embed;
+}
+
+function getTriviaPointsForHintsShown(hintsShown) {
+  const shown = Number.isFinite(Number(hintsShown)) ? Number(hintsShown) : 0;
+  if (shown <= 0) return TRIVIA_POINTS_NO_HINT;
+  if (shown === 1) return TRIVIA_POINTS_AFTER_FIRST_HINT;
+  return TRIVIA_POINTS_AFTER_SECOND_HINT;
+}
+
+function addTriviaCount(map, userId, delta) {
+  if (!(map instanceof Map)) return;
+  const safeUserId = String(userId || '').trim();
+  const safeDelta = Number.isFinite(Number(delta)) ? Number(delta) : 0;
+  if (!safeUserId || safeDelta === 0) return;
+  map.set(safeUserId, (map.get(safeUserId) || 0) + safeDelta);
+}
+
+function getTriviaStandings(round) {
+  const scores = round && round.scores instanceof Map ? round.scores : new Map();
+  const correctCounts = round && round.correctCounts instanceof Map ? round.correctCounts : new Map();
+  const xpAwards = round && round.xpAwards instanceof Map ? round.xpAwards : new Map();
+  const userIds = new Set([...scores.keys(), ...correctCounts.keys(), ...xpAwards.keys()]);
+
+  return Array.from(userIds)
+    .map((userId) => ({
+      userId: String(userId),
+      points: Number(scores.get(userId) || 0),
+      correctAnswers: Number(correctCounts.get(userId) || 0),
+      xpAwarded: Number(xpAwards.get(userId) || 0),
+    }))
+    .sort((a, b) => {
+      if (b.points !== a.points) return b.points - a.points;
+      if (b.correctAnswers !== a.correctAnswers) return b.correctAnswers - a.correctAnswers;
+      return a.userId.localeCompare(b.userId);
+    });
+}
+
+function formatTriviaScores(round) {
+  const standings = getTriviaStandings(round);
+  if (standings.length === 0) return 'No correct answers this round.';
+
+  return standings
+    .map((entry, idx) => {
+      const xpPart = entry.xpAwarded > 0 ? ' | +' + String(entry.xpAwarded) + ' XP' : '';
+      return (
+        String(idx + 1) +
+        '. <@' + String(entry.userId) + '> — ' +
+        String(entry.points) + ' pts | ' +
+        String(entry.correctAnswers) + ' correct' +
+        xpPart
+      );
+    })
+    .join('\n');
+}
+
+function getTriviaFinalWinners(round) {
+  const standings = getTriviaStandings(round);
+  if (standings.length === 0) return [];
+
+  const top = standings[0];
+  return standings.filter((entry) => entry.points === top.points && entry.correctAnswers === top.correctAnswers);
+}
+
+function buildTriviaRoundIntroEmbed(round) {
+  return buildTriviaBaseEmbed({
+    title: 'Trivia Round Started',
+    description: 'Answer in chat. Small typos still count.',
+    color: TRIVIA_EMBED_COLORS.intro,
+  })
+    .addFields(
+      { name: 'Category', value: String(round.categoryLabel || 'Unknown'), inline: true },
+      { name: 'Questions', value: String(round.questions.length || 0), inline: true },
+      {
+        name: 'Scoring',
+        value:
+          '4 points before hints\n' +
+          '2 points after hint 1\n' +
+          '1 point after hint 2',
+        inline: true,
+      },
+      {
+        name: 'XP rewards',
+        value:
+          '+' + String(TRIVIA_XP_PER_CORRECT_ANSWER) + ' XP per correct answer\n' +
+          '+' + String(TRIVIA_XP_FINAL_WINNER_BONUS) + ' XP to the final winner',
+        inline: true,
+      },
+    )
+    .setFooter({ text: 'Hints arrive at 25s and 45s. Answer window: 60s.' });
+}
+
+function buildTriviaQuestionEmbed(round, state) {
+  const questionNumber = Number(round.currentIndex || 0) + 1;
+  return buildTriviaBaseEmbed({
+    title: 'Question ' + String(questionNumber) + '/' + String(round.questions.length),
+    description: String(state.question.prompt || 'No prompt available.'),
+    color: TRIVIA_EMBED_COLORS.question,
+  })
+    .addFields(
+      { name: 'Category', value: String(round.categoryLabel || 'Unknown'), inline: true },
+      { name: 'Current value', value: String(TRIVIA_POINTS_NO_HINT) + ' points', inline: true },
+    )
+    .setFooter({ text: 'Answer in chat before the first hint drops.' });
+}
+
+function buildTriviaHintEmbed(round, hint, hintIndex) {
+  const nextValue = getTriviaPointsForHintsShown(hintIndex + 1);
+  return buildTriviaBaseEmbed({
+    title: 'Hint ' + String(hintIndex + 1) + '/2',
+    description: String(hint || 'No hint available.'),
+    color: TRIVIA_EMBED_COLORS.hint,
+  }).addFields(
+    { name: 'Question', value: String(Number(round.currentIndex || 0) + 1) + '/' + String(round.questions.length), inline: true },
+    { name: 'Current value', value: String(nextValue) + ' point' + (nextValue === 1 ? '' : 's'), inline: true },
+  );
 }
 
 function buildTriviaRevealLine(question) {
   const answer = question && question.canonicalAnswer ? String(question.canonicalAnswer) : 'unknown';
-  const explanation = question && question.explanation ? ' ' + String(question.explanation) : '';
-  return 'Answer: **' + answer + '**.' + explanation;
+  const explanation = question && question.explanation ? String(question.explanation).trim() : '';
+  return { answer, explanation };
+}
+
+function buildTriviaResolutionEmbed(round, state, { winnerUser, awardedPoints, awardedXp, isLastQuestion }) {
+  const reveal = buildTriviaRevealLine(state.question);
+  const standings = formatTriviaScores(round);
+  const gotIt = Boolean(winnerUser && winnerUser.id);
+  const embed = buildTriviaBaseEmbed({
+    title: gotIt ? 'Correct Answer' : 'Time\'s Up',
+    description: gotIt
+      ? '<@' + String(winnerUser.id) + '> got it and earned ' + String(awardedPoints) + ' point' + (awardedPoints === 1 ? '' : 's') + '.'
+      : 'Nobody got this one in time. The answer was **' + reveal.answer + '**.',
+    color: gotIt ? TRIVIA_EMBED_COLORS.reveal : TRIVIA_EMBED_COLORS.timeout,
+  }).addFields(
+    { name: 'Answer', value: reveal.answer, inline: false },
+    {
+      name: 'Reward',
+      value: gotIt
+        ? '+' + String(awardedPoints) + ' point' + (awardedPoints === 1 ? '' : 's') + ' | +' + String(awardedXp) + ' XP'
+        : 'No points awarded',
+      inline: false,
+    },
+    { name: 'Standings', value: standings.slice(0, 1024), inline: false },
+  );
+
+  if (reveal.explanation) {
+    embed.addFields({ name: 'Why', value: reveal.explanation.slice(0, 1024), inline: false });
+  }
+
+  if (!isLastQuestion) {
+    embed.setFooter({ text: 'Next question in 10 seconds.' });
+  }
+
+  return embed;
+}
+
+function buildTriviaResultsEmbed(round, winnerIds) {
+  const standings = formatTriviaScores(round);
+  const winners = Array.isArray(winnerIds) ? winnerIds.filter(Boolean).map((id) => '<@' + String(id) + '>') : [];
+  const winnerLabel = winners.length === 0
+    ? 'No winner'
+    : winners.length === 1
+      ? winners[0]
+      : winners.join(', ');
+
+  return buildTriviaBaseEmbed({
+    title: 'Trivia Round Finished',
+    description: winners.length <= 1 ? 'Final winner: ' + winnerLabel : 'Co-winners: ' + winnerLabel,
+    color: TRIVIA_EMBED_COLORS.results,
+  }).addFields(
+    { name: 'Category', value: String(round.categoryLabel || 'Unknown'), inline: true },
+    { name: 'Questions played', value: String(round.questions.length || 0), inline: true },
+    {
+      name: 'Winner bonus',
+      value: winners.length > 0
+        ? '+' + String(TRIVIA_XP_FINAL_WINNER_BONUS) + ' XP awarded'
+        : 'No winner bonus awarded',
+      inline: true,
+    },
+    { name: 'Final scores', value: standings.slice(0, 1024), inline: false },
+  );
+}
+
+async function recordTriviaReward(userId, guildId, { pointsDelta = 0, correctAnswersDelta = 0, roundWinsDelta = 0, xpDelta = 0 } = {}) {
+  const safeUserId = String(userId || '').trim();
+  const safeGuildId = String(guildId || '').trim();
+  const safePointsDelta = Number.isFinite(Number(pointsDelta)) ? Math.max(0, Math.floor(Number(pointsDelta))) : 0;
+  const safeCorrectAnswersDelta = Number.isFinite(Number(correctAnswersDelta)) ? Math.max(0, Math.floor(Number(correctAnswersDelta))) : 0;
+  const safeRoundWinsDelta = Number.isFinite(Number(roundWinsDelta)) ? Math.max(0, Math.floor(Number(roundWinsDelta))) : 0;
+  const safeXpDelta = Number.isFinite(Number(xpDelta)) ? Math.max(0, Math.floor(Number(xpDelta))) : 0;
+  if (!safeUserId || !safeGuildId) return { ok: true, skipped: true };
+  if (safePointsDelta <= 0 && safeCorrectAnswersDelta <= 0 && safeRoundWinsDelta <= 0 && safeXpDelta <= 0) {
+    return { ok: true, skipped: true };
+  }
+
+  const result = await botApiPostJsonNoThrow('/v1/au/trivia/stats', {
+    userDiscordUserId: safeUserId,
+    guildId: safeGuildId,
+    pointsDelta: safePointsDelta,
+    correctAnswersDelta: safeCorrectAnswersDelta,
+    roundWinsDelta: safeRoundWinsDelta,
+    xpDelta: safeXpDelta,
+  });
+
+  if (!result.ok) {
+    process.stderr.write('Trivia stat update failed for ' + safeUserId + ': ' + String(result.error || 'unknown error') + '\n');
+  }
+
+  return result;
+}
+
+function buildTriviaStatsEmbed({ userId, stats, guildId }) {
+  const safe = stats && typeof stats === 'object' ? stats : {};
+  const global = safe.global && typeof safe.global === 'object' ? safe.global : {};
+  const guild = safe.guild && typeof safe.guild === 'object' ? safe.guild : null;
+
+  const embed = buildTriviaBaseEmbed({
+    title: 'Trivia Stats',
+    description: '👤 <@' + String(userId) + '>',
+    color: TRIVIA_EMBED_COLORS.results,
+  }).addFields(
+    { name: 'Global points', value: String(Number(global.points ?? 0)), inline: true },
+    { name: 'Global wins', value: String(Number(global.roundWins ?? 0)), inline: true },
+    { name: 'Global correct', value: String(Number(global.correctAnswers ?? 0)), inline: true },
+    { name: 'Trivia XP earned', value: String(Number(global.xpEarned ?? 0)), inline: true },
+  );
+
+  if (guildId) {
+    embed.addFields({
+      name: 'This server',
+      value: guild
+        ? 'Points: ' + String(Number(guild.points ?? 0)) + '\n' +
+          'Wins: ' + String(Number(guild.roundWins ?? 0)) + '\n' +
+          'Correct: ' + String(Number(guild.correctAnswers ?? 0)) + '\n' +
+          'Trivia XP: ' + String(Number(guild.xpEarned ?? 0))
+        : 'No trivia stats for this server yet.',
+      inline: false,
+    });
+  }
+
+  return embed;
 }
 
 function clearTriviaQuestionTimers(round) {
@@ -579,7 +827,17 @@ async function finishTriviaRound(round) {
   round.finished = true;
   clearTriviaRoundTimers(round);
   activeTriviaRounds.delete(round.channelId);
-  await round.channel.send('Round finished.\n' + formatTriviaScores(round.scores));
+
+  const winners = getTriviaFinalWinners(round);
+  for (const winner of winners) {
+    addTriviaCount(round.xpAwards, winner.userId, TRIVIA_XP_FINAL_WINNER_BONUS);
+    await recordTriviaReward(winner.userId, round.guildId, {
+      roundWinsDelta: 1,
+      xpDelta: TRIVIA_XP_FINAL_WINNER_BONUS,
+    });
+  }
+
+  await round.channel.send({ embeds: [buildTriviaResultsEmbed(round, winners.map((winner) => winner.userId))] });
 }
 
 async function postTriviaQuestion(round) {
@@ -598,13 +856,12 @@ async function postTriviaQuestion(round) {
     closed: false,
     hintTimers: [],
     timeoutId: null,
-    hints
+    hints,
+    hintsShown: 0,
   };
   round.currentQuestionState = state;
 
-  await round.channel.send(
-    '**Question ' + String(round.currentIndex + 1) + '/' + String(round.questions.length) + '**\n' + question.prompt
-  );
+  await round.channel.send({ embeds: [buildTriviaQuestionEmbed(round, state)] });
 
   const hintOffsets = [25 * 1000, 45 * 1000];
   hints.forEach((hint, idx) => {
@@ -613,7 +870,8 @@ async function postTriviaQuestion(round) {
     const timer = setTimeout(() => {
       if (round.finished) return;
       if (round.currentQuestionState !== state || state.closed) return;
-      round.channel.send('Hint ' + String(idx + 1) + '/2: ' + hint).catch((err) => {
+      state.hintsShown = Math.max(state.hintsShown, idx + 1);
+      round.channel.send({ embeds: [buildTriviaHintEmbed(round, hint, idx)] }).catch((err) => {
         process.stderr.write(String(err && err.stack ? err.stack : err) + '\n');
       });
     }, delay);
@@ -636,22 +894,24 @@ async function settleTriviaQuestion(round, winnerUser) {
   clearTriviaQuestionTimers(round);
   round.currentQuestionState = null;
 
+  const awardedPoints = winnerUser && winnerUser.id ? getTriviaPointsForHintsShown(state.hintsShown) : 0;
+  const awardedXp = winnerUser && winnerUser.id ? TRIVIA_XP_PER_CORRECT_ANSWER : 0;
+
   if (winnerUser && winnerUser.id) {
-    const prev = round.scores.get(String(winnerUser.id)) || 0;
-    round.scores.set(String(winnerUser.id), prev + 1);
+    addTriviaCount(round.scores, String(winnerUser.id), awardedPoints);
+    addTriviaCount(round.correctCounts, String(winnerUser.id), 1);
+    addTriviaCount(round.xpAwards, String(winnerUser.id), awardedXp);
+    await recordTriviaReward(String(winnerUser.id), round.guildId, {
+      pointsDelta: awardedPoints,
+      correctAnswersDelta: 1,
+      xpDelta: awardedXp,
+    });
   }
 
   const isLastQuestion = round.currentIndex >= round.questions.length - 1;
-  const lines = [];
-  if (winnerUser && winnerUser.id) {
-    lines.push('<@' + String(winnerUser.id) + '> got it.');
-  } else {
-    lines.push('Time\'s up. Nobody got it.');
-  }
-  lines.push(buildTriviaRevealLine(state.question));
-  if (!isLastQuestion) lines.push('Next question in 10 seconds.');
-
-  await round.channel.send(lines.join('\n'));
+  await round.channel.send({
+    embeds: [buildTriviaResolutionEmbed(round, state, { winnerUser, awardedPoints, awardedXp, isLastQuestion })],
+  });
 
   if (isLastQuestion) {
     await finishTriviaRound(round);
@@ -2178,11 +2438,13 @@ function buildHelpMessage() {
 
   const cmds = [];
   cmds.push('• `/' + 'profile` — view XP, level, and prompt history (optionally for another user)');
-  cmds.push('• `/' + 'leaderboard` — see top prompt contributors in this server');
+  cmds.push('• `/' + 'leaderboard` — see this server ranked by server XP');
   cmds.push('• `/' + 'generate` — generate one AU prompt (includes Favorite button)');
   cmds.push('• `/' + 'share` — share a Feedverse character (OC page)');
   cmds.push('• `/' + 'prompt` — submit a prompt for moderator review');
   cmds.push('• `/' + 'trivia categories` — list trivia categories and page through them');
+  cmds.push('• `/' + 'trivia stats` — view trivia points, wins, and correct answers');
+  cmds.push('• `/' + 'trivia leaderboard` — see this server ranked by trivia points');
   cmds.push('• `/' + 'trivia start` — start a timed trivia round in this channel');
   cmds.push('• `/' + 'setup daily` — post a daily prompt in a channel');
   cmds.push('• `/' + 'view favorites` — view your favorited prompts');
@@ -2213,6 +2475,7 @@ function buildProfileEmbed({ au, userId, profile, page, pageSize }) {
   const level = Number.isFinite(Number(safe.level)) ? Number(safe.level) : 1;
   const xp = Number.isFinite(Number(safe.xp)) ? Number(safe.xp) : 0;
   const accepted = Number.isFinite(Number(safe.acceptedCount)) ? Number(safe.acceptedCount) : 0;
+  const trivia = safe.trivia && typeof safe.trivia === 'object' ? safe.trivia : {};
   const xpInto = Number.isFinite(Number(safe.xpIntoLevel)) ? Number(safe.xpIntoLevel) : 0;
   const xpForNext = Number.isFinite(Number(safe.xpForNextLevel)) ? Number(safe.xpForNextLevel) : 0;
   const pageNum = Number.isFinite(Number(page)) ? Number(page) : 0;
@@ -2240,6 +2503,16 @@ function buildProfileEmbed({ au, userId, profile, page, pageSize }) {
       inline: false
     });
   }
+
+  embed.addFields({
+    name: '🎮 Trivia summary',
+    value:
+      'Points: ' + String(Number(trivia.points ?? 0)) + '\n' +
+      'Wins: ' + String(Number(trivia.roundWins ?? 0)) + '\n' +
+      'Correct: ' + String(Number(trivia.correctAnswers ?? 0)) + '\n' +
+      'Trivia XP: ' + String(Number(trivia.xpEarned ?? 0)),
+    inline: false,
+  });
 
   const submissions = safe.submissions && Array.isArray(safe.submissions) ? safe.submissions : [];
   if (submissions.length === 0) {
@@ -2286,7 +2559,7 @@ function buildProfileComponents({ ownerUserId, targetUserId, page, hasMore }) {
 
 function buildLeaderboardEmbed({ items }) {
   const rows = Array.isArray(items) ? items.filter((x) => x && typeof x === 'object') : [];
-  const embed = new EmbedBuilder().setTitle('🏆 Leaderboard').setDescription(rows.length ? 'top prompt contributors' : 'No data yet.');
+  const embed = new EmbedBuilder().setTitle('🏆 Leaderboard').setDescription(rows.length ? 'ranked by server XP' : 'No data yet.');
 
   if (!rows.length) return embed;
 
@@ -2297,8 +2570,38 @@ function buildLeaderboardEmbed({ items }) {
     const accepted = Number.isFinite(Number(it.acceptedCount)) ? Number(it.acceptedCount) : 0;
     const level = Number.isFinite(Number(it.level)) ? Number(it.level) : 1;
     const xp = Number.isFinite(Number(it.xp)) ? Number(it.xp) : 0;
+    const triviaPoints = Number.isFinite(Number(it.triviaPoints)) ? Number(it.triviaPoints) : 0;
+    const triviaWins = Number.isFinite(Number(it.triviaRoundWins)) ? Number(it.triviaRoundWins) : 0;
+    const triviaXp = Number.isFinite(Number(it.triviaXpEarned)) ? Number(it.triviaXpEarned) : 0;
     const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '•';
-    lines.push(medal + ' ' + String(i + 1) + '. <@' + userId + '> — ✅ ' + String(accepted) + ' here | LV🎖️ ' + String(level) + ' | ⚡ ' + String(xp) + ' xp');
+    lines.push(
+      medal + ' ' + String(i + 1) + '. <@' + userId + '> — ⚡ ' + String(xp) + ' xp | LV🎖️ ' + String(level) +
+      ' | ✅ ' + String(accepted) + ' prompts | 🎯 ' + String(triviaPoints) + ' trivia pts | 🏆 ' + String(triviaWins) + ' wins | 🧠 ' + String(triviaXp) + ' trivia xp'
+    );
+  }
+
+  embed.addFields({ name: 'Rankings', value: lines.join('\n').slice(0, 1024) || ' ' });
+  return embed;
+}
+
+function buildTriviaLeaderboardEmbed({ items }) {
+  const rows = Array.isArray(items) ? items.filter((x) => x && typeof x === 'object') : [];
+  const embed = new EmbedBuilder().setTitle('🎯 Trivia Leaderboard').setDescription(rows.length ? 'ranked by trivia points in this server' : 'No trivia data yet.');
+
+  if (!rows.length) return embed;
+
+  const lines = [];
+  for (let i = 0; i < Math.min(10, rows.length); i++) {
+    const it = rows[i];
+    const userId = it.userDiscordUserId != null ? String(it.userDiscordUserId) : '';
+    const points = Number.isFinite(Number(it.points)) ? Number(it.points) : 0;
+    const wins = Number.isFinite(Number(it.roundWins)) ? Number(it.roundWins) : 0;
+    const correct = Number.isFinite(Number(it.correctAnswers)) ? Number(it.correctAnswers) : 0;
+    const xp = Number.isFinite(Number(it.xpEarned)) ? Number(it.xpEarned) : 0;
+    const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '•';
+    lines.push(
+      medal + ' ' + String(i + 1) + '. <@' + userId + '> — 🎯 ' + String(points) + ' pts | 🏆 ' + String(wins) + ' wins | ✅ ' + String(correct) + ' correct | ⚡ ' + String(xp) + ' xp'
+    );
   }
 
   embed.addFields({ name: 'Rankings', value: lines.join('\n').slice(0, 1024) || ' ' });
@@ -3477,9 +3780,40 @@ async function main() {
           });
           await interaction.reply({
             content: msg.content,
-            components: msg.components,
-            ephemeral: interaction.inGuild()
+            components: msg.components
           });
+          return;
+        }
+
+        if (sub === 'leaderboard') {
+          if (!interaction.inGuild() || !interaction.guildId) {
+            await interaction.reply({ content: 'This trivia leaderboard is per-server. Run `/' + 'trivia leaderboard` in a server.', ephemeral: interaction.inGuild() });
+            return;
+          }
+
+          const r = await botApiGetJson('/v1/au/trivia/leaderboard?guildId=' + encodeURIComponent(String(interaction.guildId)) + '&limit=10');
+          if (!r.ok) {
+            await interaction.reply({ content: 'Error loading trivia leaderboard: ' + r.error, ephemeral: interaction.inGuild() });
+            return;
+          }
+
+          const items = r.json && Array.isArray(r.json.items) ? r.json.items : [];
+          await interaction.reply({ embeds: [buildTriviaLeaderboardEmbed({ items })] });
+          return;
+        }
+
+        if (sub === 'stats') {
+          const optUser = interaction.options.getUser('user');
+          const userId = optUser && optUser.id ? String(optUser.id) : String(interaction.user.id);
+          const guildId = interaction.inGuild() && interaction.guildId ? String(interaction.guildId) : null;
+          const query = '/v1/au/trivia/profile?userDiscordUserId=' + encodeURIComponent(userId) + (guildId ? '&guildId=' + encodeURIComponent(guildId) : '');
+          const r = await botApiGetJson(query);
+          if (!r.ok) {
+            await interaction.reply({ content: 'Error loading trivia stats: ' + r.error, ephemeral: interaction.inGuild() });
+            return;
+          }
+
+          await interaction.reply({ embeds: [buildTriviaStatsEmbed({ userId, stats: r.json, guildId })] });
           return;
         }
 
@@ -3535,19 +3869,14 @@ async function main() {
           currentQuestionState: null,
           nextQuestionTimerId: null,
           scores: new Map(),
+          correctCounts: new Map(),
+          xpAwards: new Map(),
           finished: false
         };
 
         activeTriviaRounds.set(round.channelId, round);
 
-        const introLines = [
-          'New trivia round started by ' + String(interaction.user) + '.',
-          'Category: **' + category.label + '**',
-          'Questions this round: **' + String(pickedQuestions.length) + '**',
-          'How to play: answer in chat within 60 seconds. I\'ll post hints at 25 and 45 seconds, and one typo still counts.'
-        ];
-
-        await interaction.reply({ content: introLines.join('\n') });
+        await interaction.reply({ embeds: [buildTriviaRoundIntroEmbed(round)] });
 
         try {
           await postTriviaQuestion(round);
