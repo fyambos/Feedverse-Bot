@@ -94,7 +94,7 @@ Behavior:
   - starts a trivia round in the current server channel
   - posts the round flow as embeds, asks 1 question at a time, gives hints at 25s and 45s, and reveals the answer at 60s or when somebody gets it
   - scoring is weighted: 4 points before hints, 2 points after hint 1, 1 point after hint 2
-  - awards +25 XP for each correct answer and +500 XP to the final winner
+  - awards +25 XP for each correct answer and +100 XP to the final winner
   - accepts small typos when matching answers
 
 - `/trivia categories`
@@ -150,7 +150,7 @@ Moderation (official guild only):
 - Current awards:
   - +25 XP per accepted prompt submission
   - +25 XP per correct trivia answer
-  - +500 XP to the final winner of a trivia round
+  - +100 XP to the final winner of a trivia round
 - Level curve ramps quadratically. Total XP required to reach level $L$ is:
 
 $$
