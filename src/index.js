@@ -73,6 +73,22 @@ function requireEnv(name) {
   return v.trim();
 }
 
+function buildClientIntents(includeMessageContent) {
+  const intents = [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages];
+  if (includeMessageContent) intents.push(GatewayIntentBits.MessageContent);
+  return intents;
+}
+
+function isDisallowedIntentsError(err) {
+  if (!err) return false;
+
+  const code = Number(err.code ?? err.closeCode ?? err.status ?? 0);
+  if (code === 4014) return true;
+
+  const message = String(err.message || err).toLowerCase();
+  return message.includes('disallowed intents');
+}
+
 function normalizeOption(value) {
   if (typeof value !== 'string') return null;
   const v = value.trim();
@@ -2687,6 +2703,7 @@ async function main() {
   const clientId = normalizeOption(process.env.DISCORD_CLIENT_ID);
   const devGuildId = normalizeOption(process.env.DISCORD_GUILD_ID);
   const officialGuildId = normalizeOption(process.env.OFFICIAL_GUILD_ID);
+  let triviaMessageContentEnabled = true;
 
   const auPath = resolveAuDataPath();
   const au = loadAuData(auPath);
@@ -2708,29 +2725,33 @@ async function main() {
     }
   }
 
-  const client = new Client({
-    intents: [
-      GatewayIntentBits.Guilds,
-      GatewayIntentBits.GuildMessages,
-      GatewayIntentBits.MessageContent
-    ]
-  });
-  client.commands = new Collection();
-  for (const cmd of [...globalCommands, ...officialGuildCommands]) {
-    client.commands.set(cmd.name, cmd);
+  function createConfiguredClient(includeMessageContent) {
+    const nextClient = new Client({ intents: buildClientIntents(includeMessageContent) });
+    nextClient.commands = new Collection();
+    for (const cmd of [...globalCommands, ...officialGuildCommands]) {
+      nextClient.commands.set(cmd.name, cmd);
+    }
+    return nextClient;
   }
 
-  client.once(Events.ClientReady, (c) => {
+  let client = createConfiguredClient(triviaMessageContentEnabled);
+
+  const handleClientReady = (c) => {
     process.stdout.write('Logged in as ' + c.user.tag + '\n');
     process.stdout.write('Loaded AU data: ' + au.packs.length + ' packs\n');
     process.stdout.write(
       'Loaded trivia data: ' + String(trivia.categories.length) + ' categories' + (trivia.exists ? '' : ' (file not found)') + '\n'
     );
+    if (!triviaMessageContentEnabled) {
+      process.stdout.write(
+        'Trivia answer matching is disabled because this Discord application does not have Message Content intent enabled. Enable it in the Discord developer portal and redeploy to use /trivia start.\n'
+      );
+    }
 
     startDailyScheduler(client, au);
-  });
+  };
 
-  client.on(Events.InteractionCreate, async (interaction) => {
+  const handleInteractionCreate = async (interaction) => {
     installInteractionResponseCompat(interaction);
     try {
       if (interaction.isAutocomplete()) {
@@ -3465,6 +3486,15 @@ async function main() {
           return;
         }
 
+        if (!triviaMessageContentEnabled) {
+          await interaction.reply({
+            content:
+              'Trivia rounds are disabled on this deployment because Discord rejected Message Content intent for this bot. Enable Message Content in the Discord developer portal and redeploy to use /trivia start.',
+            ephemeral: true
+          });
+          return;
+        }
+
         if (!interaction.inGuild() || !interaction.guildId || !interaction.channelId || !interaction.channel) {
           await interaction.reply({ content: 'Trivia rounds can only run in a server channel.', ephemeral: true });
           return;
@@ -3883,10 +3913,11 @@ async function main() {
       }
       process.stderr.write(String(err && err.stack ? err.stack : err) + '\n');
     }
-  });
+  };
 
-  client.on(Events.MessageCreate, async (message) => {
+  const handleMessageCreate = async (message) => {
     try {
+      if (!triviaMessageContentEnabled) return;
       if (!message || !message.inGuild() || !message.author || message.author.bot) return;
 
       const round = activeTriviaRounds.get(String(message.channelId || ''));
@@ -3901,9 +3932,37 @@ async function main() {
     } catch (err) {
       process.stderr.write(String(err && err.stack ? err.stack : err) + '\n');
     }
-  });
+  };
 
-  await client.login(token);
+  function attachClientEventHandlers(targetClient) {
+    targetClient.once(Events.ClientReady, handleClientReady);
+    targetClient.on(Events.InteractionCreate, handleInteractionCreate);
+    targetClient.on(Events.MessageCreate, handleMessageCreate);
+  }
+
+  attachClientEventHandlers(client);
+
+  try {
+    await client.login(token);
+  } catch (err) {
+    if (!triviaMessageContentEnabled || !isDisallowedIntentsError(err)) throw err;
+
+    process.stderr.write(
+      'Warning: Message Content intent is not enabled for this Discord application. Falling back to slash-command-only mode; /trivia start will be unavailable until the intent is enabled in the Discord developer portal.\n'
+    );
+
+    try {
+      client.destroy();
+    } catch (_) {
+      // ignore cleanup errors on fallback
+    }
+
+    triviaMessageContentEnabled = false;
+    client = createConfiguredClient(false);
+    attachClientEventHandlers(client);
+    await client.login(token);
+  }
+
   startOptionalHealthServer();
 }
 

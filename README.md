@@ -31,7 +31,9 @@ npm install
 
 Only the person hosting/running the bot needs the `.env` file. Users who invite the bot to their server do not.
 
-3. If you want trivia, enable the privileged Message Content intent for the bot in the Discord developer portal, then add a trivia data file.
+3. If you want full trivia rounds, enable the privileged Message Content intent for the bot in the Discord developer portal, then add a trivia data file.
+
+The bot will try to use Message Content automatically. If Discord rejects that intent, the bot stays online in slash-command-only mode and `/trivia start` is disabled until the intent is enabled and the bot is redeployed.
 
 - Copy `data/trivia_questions.sample.json` to `data/trivia_questions.json` and replace it with your real categories/questions.
 - `TRIVIA_DATA_PATH` can point somewhere else if you prefer.
