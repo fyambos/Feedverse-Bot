@@ -495,8 +495,13 @@ function buildTriviaCategoryComponents({ ownerUserId, page, totalPages }) {
 function buildTriviaCategoryPageMessage({ categories, ownerUserId, page }) {
   const items = Array.isArray(categories) ? categories : [];
   if (items.length === 0) {
+    const embed = buildTriviaBaseEmbed({
+      title: 'List of categories',
+      description: 'No trivia categories are loaded yet.',
+      color: TRIVIA_EMBED_COLORS.intro,
+    });
     return {
-      content: 'No trivia categories are loaded yet.',
+      embeds: [embed],
       components: []
     };
   }
@@ -512,10 +517,13 @@ function buildTriviaCategoryPageMessage({ categories, ownerUserId, page }) {
     return sum + questionCount;
   }, 0);
 
+  const maxQuestionWidth = visible.reduce((max, category) => {
+    const questionCount = Array.isArray(category && category.questions) ? category.questions.length : 0;
+    return Math.max(max, String(questionCount).length);
+  }, String(totalQuestions).length);
+
   const lines = [
-    'Available trivia categories',
-    '```text',
-    'category | questions',
+    'Questions  Category',
     '-----------------------------------------'
   ];
 
@@ -524,15 +532,23 @@ function buildTriviaCategoryPageMessage({ categories, ownerUserId, page }) {
     if (!label) continue;
 
     const questionCount = Array.isArray(category.questions) ? category.questions.length : 0;
-    const line = label + ' | ' + formatTriviaQuestionCount(questionCount);
+    const line = String(questionCount).padStart(maxQuestionWidth, ' ') + '  ' + label;
     lines.push(line);
   }
 
-  lines.push('```');
-  lines.push('Categories: **' + String(items.length) + '** | Questions: **' + String(totalQuestions) + '** | Page **' + String(safePage + 1) + '/' + String(totalPages) + '**');
+  lines.push('');
+  lines.push('Page ' + String(safePage + 1) + ' of ' + String(totalPages));
+
+  const embed = buildTriviaBaseEmbed({
+    title: 'List of categories',
+    description: '```\n' + lines.join('\n') + '\n```',
+    color: TRIVIA_EMBED_COLORS.question,
+  }).setFooter({
+    text: 'Categories: ' + String(items.length) + ' • Questions: ' + String(totalQuestions),
+  });
 
   return {
-    content: lines.join('\n'),
+    embeds: [embed],
     components: buildTriviaCategoryComponents({ ownerUserId, page: safePage, totalPages })
   };
 }
@@ -3193,7 +3209,7 @@ async function main() {
             ownerUserId: interaction.user.id,
             page
           });
-          await interaction.update({ content: msg.content, components: msg.components });
+          await interaction.update({ embeds: msg.embeds, components: msg.components });
           return;
         }
 
@@ -3779,7 +3795,7 @@ async function main() {
             page: 0
           });
           await interaction.reply({
-            content: msg.content,
+            embeds: msg.embeds,
             components: msg.components
           });
           return;
