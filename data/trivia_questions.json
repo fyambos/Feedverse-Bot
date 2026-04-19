@@ -1,0 +1,2893 @@
+{
+  "categories": [
+    {
+      "id": "kpop",
+      "label": "K-Pop",
+      "description": "Mainstream K-pop hits, groups, members, fandoms, and big crossover moments.",
+      "questions": [
+        {
+          "question": "What is BTS's fandom name?",
+          "answer": "ARMY",
+          "explanation": "BTS fans are known as ARMY."
+        },
+        {
+          "question": "What is Blackpink's fandom name?",
+          "answer": "Blink",
+          "acceptedAnswers": ["BLINK"],
+          "explanation": "Blackpink officially named their fandom Blink in 2017."
+        },
+        {
+          "question": "Which Psy song is famous for its horse-riding dance?",
+          "answer": "Gangnam Style",
+          "acceptedAnswers": ["gangnamstyle"],
+          "explanation": "Gangnam Style became a global viral hit in 2012."
+        },
+        {
+          "question": "Which Blackpink song from the EP Square Up became one of their signature hits?",
+          "answer": "Ddu-Du Ddu-Du",
+          "acceptedAnswers": ["ddudu ddudu", "ddu du ddu du", "ddu du", "ttuduttudu"],
+          "explanation": "Ddu-Du Ddu-Du was the lead single from Square Up."
+        },
+        {
+          "question": "Which BTS English-language single topped the Billboard Hot 100 in 2020?",
+          "answer": "Dynamite",
+          "explanation": "Dynamite became BTS's first Billboard Hot 100 number one."
+        },
+        {
+          "question": "Who is the leader of BTS?",
+          "answer": "RM",
+          "acceptedAnswers": ["namjoon", "kim namjoon"],
+          "explanation": "RM is BTS's leader and one of its main rappers."
+        },
+        {
+          "question": "Which Blackpink member is from Thailand?",
+          "answer": "Lisa",
+          "acceptedAnswers": ["lalisa", "lalisa manobal"],
+          "explanation": "Lisa was born in Thailand before joining YG Entertainment."
+        },
+        {
+          "question": "Which Twice song became a huge 2016 breakthrough hit for the group?",
+          "answer": "Cheer Up",
+          "acceptedAnswers": ["cheerup"],
+          "explanation": "Cheer Up helped turn Twice into one of the biggest girl groups in K-pop."
+        },
+        {
+          "question": "What is Twice's fandom name?",
+          "answer": "Once",
+          "acceptedAnswers": ["ONCE"],
+          "explanation": "Twice fans are called Once."
+        },
+        {
+          "question": "Which BigBang member is also known as Kwon Jiyong?",
+          "answer": "G-Dragon",
+          "acceptedAnswers": ["g dragon", "gd", "jiyong", "kwon jiyong"],
+          "explanation": "G-Dragon is one of BigBang's most famous members."
+        },
+        {
+          "question": "Which BTS single was the title track for their 2016 album Wings?",
+          "answer": "Blood Sweat and Tears",
+          "acceptedAnswers": ["blood sweat & tears", "blood sweat tears"],
+          "explanation": "Blood Sweat and Tears was the lead single from Wings."
+        },
+        {
+          "question": "What is the title of Blackpink's 2022 studio album?",
+          "answer": "Born Pink",
+          "acceptedAnswers": ["bornpink"],
+          "explanation": "Born Pink reached number one on the Billboard 200."
+        },
+        {
+          "question": "Which K-pop girl group had the viral hit Cupid?",
+          "answer": "Fifty Fifty",
+          "acceptedAnswers": ["5050", "fiftyfifty"],
+          "explanation": "Cupid gave Fifty Fifty a major international breakthrough."
+        },
+        {
+          "question": "Which group sang the 2009 hit Ring Ding Dong?",
+          "answer": "SHINee",
+          "acceptedAnswers": ["shinee"],
+          "explanation": "Ring Ding Dong is one of SHINee's best-known early hits."
+        },
+        {
+          "question": "Which group sang the classic K-pop hit Gee?",
+          "answer": "Girls' Generation",
+          "acceptedAnswers": ["girls generation", "snsd"],
+          "explanation": "Gee became one of Girls' Generation's signature songs."
+        },
+        {
+          "question": "What was the title of Jennie's first solo single?",
+          "answer": "Solo",
+          "acceptedAnswers": ["SOLO"],
+          "explanation": "Jennie made her solo debut with Solo in 2018."
+        },
+        {
+          "question": "What was the title of Rose's solo debut track?",
+          "answer": "On the Ground",
+          "acceptedAnswers": ["ontheground"],
+          "explanation": "Rose's solo debut single album included On the Ground."
+        },
+        {
+          "question": "Which BTS member released the solo hit Seven?",
+          "answer": "Jung Kook",
+          "acceptedAnswers": ["jungkook", "jungkook"],
+          "explanation": "Jung Kook released Seven in 2023."
+        },
+        {
+          "question": "Which group debuted with the song Like Ooh-Ahh?",
+          "answer": "Twice",
+          "explanation": "Like Ooh-Ahh was Twice's debut single in 2015."
+        },
+        {
+          "question": "Which K-pop girl group released Hype Boy?",
+          "answer": "NewJeans",
+          "acceptedAnswers": ["new jeans"],
+          "explanation": "Hype Boy was one of the breakout songs from NewJeans' debut era."
+        },
+        {
+          "question": "Which K-pop girl group released Super Shy?",
+          "answer": "NewJeans",
+          "acceptedAnswers": ["new jeans"],
+          "explanation": "Super Shy became another global streaming hit for NewJeans."
+        },
+        {
+          "question": "How many members are in Seventeen?",
+          "answer": "13",
+          "acceptedAnswers": ["thirteen"],
+          "explanation": "Seventeen famously has 13 members."
+        },
+        {
+          "question": "Which group sang the hit Growl?",
+          "answer": "EXO",
+          "explanation": "Growl is one of EXO's defining songs."
+        },
+        {
+          "question": "Which group sang Fantastic Baby?",
+          "answer": "BigBang",
+          "acceptedAnswers": ["big bang"],
+          "explanation": "Fantastic Baby is one of BigBang's most famous international-era hits."
+        },
+        {
+          "question": "Which artist released Gangnam Style?",
+          "answer": "Psy",
+          "acceptedAnswers": ["park jae sang", "park jaesang"],
+          "explanation": "Psy turned Gangnam Style into a global phenomenon."
+        },
+        {
+          "question": "Which Korean solo singer is known for the song Good Day?",
+          "answer": "IU",
+          "acceptedAnswers": ["lee jieun", "lee ji eun", "iu"],
+          "explanation": "Good Day is one of IU's best-known songs."
+        },
+        {
+          "question": "Which company formed Blackpink?",
+          "answer": "YG Entertainment",
+          "acceptedAnswers": ["yg"],
+          "explanation": "Blackpink was formed by YG Entertainment."
+        },
+        {
+          "question": "Which company formed Twice?",
+          "answer": "JYP Entertainment",
+          "acceptedAnswers": ["jyp"],
+          "explanation": "Twice was formed under JYP Entertainment."
+        },
+        {
+          "question": "Which company launched BTS?",
+          "answer": "Big Hit Entertainment",
+          "acceptedAnswers": ["big hit", "bighit", "big hit music"],
+          "explanation": "BTS debuted under Big Hit, now known as Big Hit Music."
+        },
+        {
+          "question": "What is the title of the Coldplay and BTS collaboration?",
+          "answer": "My Universe",
+          "acceptedAnswers": ["myuniverse"],
+          "explanation": "My Universe was a major global hit for Coldplay and BTS."
+        },
+        {
+          "question": "What is the title of Blackpink's collaboration with Dua Lipa?",
+          "answer": "Kiss and Make Up",
+          "acceptedAnswers": ["kiss & make up", "kiss n make up", "kissandmakeup"],
+          "explanation": "Blackpink and Dua Lipa released Kiss and Make Up in 2018."
+        },
+        {
+          "question": "What was Twice's first full English-language single?",
+          "answer": "The Feels",
+          "acceptedAnswers": ["thefeels"],
+          "explanation": "The Feels marked Twice's first original English single."
+        },
+        {
+          "question": "Which Blackpink member starred in the drama Snowdrop?",
+          "answer": "Jisoo",
+          "explanation": "Jisoo played the lead role in Snowdrop."
+        },
+        {
+          "question": "Which BTS member is nicknamed Worldwide Handsome?",
+          "answer": "Jin",
+          "acceptedAnswers": ["kim seokjin", "seokjin"],
+          "explanation": "Jin is famous for the nickname Worldwide Handsome."
+        },
+        {
+          "question": "Which BTS member releases solo music as Agust D?",
+          "answer": "Suga",
+          "acceptedAnswers": ["min yoongi", "yoongi", "agust d"],
+          "explanation": "Agust D is one of Suga's solo artist names."
+        },
+        {
+          "question": "Which survival show created Twice?",
+          "answer": "Sixteen",
+          "acceptedAnswers": ["16"],
+          "explanation": "Twice was formed through JYP's survival show Sixteen."
+        },
+        {
+          "question": "Which group was formed through the show I-LAND?",
+          "answer": "Enhypen",
+          "acceptedAnswers": ["en hyphen"],
+          "explanation": "Enhypen debuted after the survival show I-LAND."
+        },
+        {
+          "question": "Which group had the hit Love Scenario?",
+          "answer": "iKON",
+          "acceptedAnswers": ["ikon"],
+          "explanation": "Love Scenario became one of iKON's biggest hits."
+        },
+        {
+          "question": "Which girl group released the hit Antifragile?",
+          "answer": "Le Sserafim",
+          "acceptedAnswers": ["lesserafim", "le sserafim"],
+          "explanation": "Antifragile is one of Le Sserafim's signature songs."
+        },
+        {
+          "question": "Which girl group released Next Level?",
+          "answer": "aespa",
+          "acceptedAnswers": ["aespa"],
+          "explanation": "Next Level helped cement aespa's popularity."
+        },
+        {
+          "question": "Which group has the members Karina, Winter, Giselle, and Ningning?",
+          "answer": "aespa",
+          "acceptedAnswers": ["aespa"],
+          "explanation": "Those four members make up aespa."
+        },
+        {
+          "question": "What is the title of Blackpink's collaboration with Selena Gomez?",
+          "answer": "Ice Cream",
+          "acceptedAnswers": ["icecream"],
+          "explanation": "Ice Cream paired Blackpink with Selena Gomez in 2020."
+        },
+        {
+          "question": "What is the title of BTS's collaboration with Halsey?",
+          "answer": "Boy With Luv",
+          "acceptedAnswers": ["boy with love", "boywithluv"],
+          "explanation": "Boy With Luv featured Halsey and became a huge BTS hit."
+        },
+        {
+          "question": "Which Twice song is named after a crying text emoticon?",
+          "answer": "TT",
+          "explanation": "TT became one of Twice's most iconic songs and choreographies."
+        },
+        {
+          "question": "What is Seventeen's fandom name?",
+          "answer": "Carat",
+          "acceptedAnswers": ["carats"],
+          "explanation": "Seventeen fans are called Carats."
+        },
+        {
+          "question": "Which group is also known as Bangtan Boys?",
+          "answer": "BTS",
+          "acceptedAnswers": ["bangtan boys", "bangtan sonyeondan"],
+          "explanation": "BTS originally stood for Bangtan Sonyeondan."
+        },
+        {
+          "question": "Which Blackpink member was born in New Zealand and raised in Australia?",
+          "answer": "Rose",
+          "acceptedAnswers": ["rosé", "roseanne park", "park chaeyoung", "chaeyoung"],
+          "explanation": "Rose was born in New Zealand before growing up in Australia."
+        },
+        {
+          "question": "Which group sang the classic hit Sorry, Sorry?",
+          "answer": "Super Junior",
+          "acceptedAnswers": ["superjunior", "sj"],
+          "explanation": "Sorry, Sorry became one of Super Junior's most famous songs."
+        },
+        {
+          "question": "Which group is known for songs like Miroh and God's Menu?",
+          "answer": "Stray Kids",
+          "acceptedAnswers": ["straykids"],
+          "explanation": "Stray Kids broke out internationally with tracks like God's Menu."
+        },
+        {
+          "question": "Which BTS single debuted at number one on the Billboard Hot 100 in 2021 and is named after a food?",
+          "answer": "Butter",
+          "explanation": "Butter was another major English-language hit for BTS."
+        },
+        {
+          "question": "What is Stray Kids's fandom name?",
+          "answer": "Stay",
+          "acceptedAnswers": ["STAY"],
+          "explanation": "Stray Kids fans are known as Stay."
+        },
+        {
+          "question": "Which Stray Kids member is the group's leader?",
+          "answer": "Bang Chan",
+          "acceptedAnswers": ["chan", "christopher bang", "christopher chan bahng"],
+          "explanation": "Bang Chan is the leader of Stray Kids."
+        },
+        {
+          "question": "Which Stray Kids song includes the line cooking like a chef?",
+          "answer": "God's Menu",
+          "acceptedAnswers": ["gods menu", "gods menu"],
+          "explanation": "God's Menu became one of Stray Kids's signature breakout songs."
+        },
+        {
+          "question": "What is Enhypen's fandom name?",
+          "answer": "ENGENE",
+          "acceptedAnswers": ["engene"],
+          "explanation": "Enhypen fans are called ENGENE."
+        },
+        {
+          "question": "Which Enhypen song became a major hit with a vampire concept in 2021?",
+          "answer": "Drunk-Dazed",
+          "acceptedAnswers": ["drunk dazed", "drunkdazed"],
+          "explanation": "Drunk-Dazed is one of Enhypen's best-known early title tracks."
+        },
+        {
+          "question": "Which Enhypen song includes the hook come kiss me and is one of their biggest recent hits?",
+          "answer": "Bite Me",
+          "acceptedAnswers": ["biteme"],
+          "explanation": "Bite Me became one of Enhypen's biggest international-era songs."
+        },
+        {
+          "question": "Which Seventeen song has the Korean title Sonogong?",
+          "answer": "Super",
+          "explanation": "Super is one of Seventeen's biggest modern-era title tracks."
+        },
+        {
+          "question": "Which Seventeen song is also famously known as Aju Nice?",
+          "answer": "Very Nice",
+          "acceptedAnswers": ["aju nice", "ajunice"],
+          "explanation": "Very Nice is one of Seventeen's most beloved performance songs."
+        },
+        {
+          "question": "Who is the leader of Seventeen?",
+          "answer": "S.Coups",
+          "acceptedAnswers": ["scoups", "choi seungcheol", "seungcheol"],
+          "explanation": "S.Coups is Seventeen's leader."
+        },
+        {
+          "question": "What does NCT stand for?",
+          "answer": "Neo Culture Technology",
+          "explanation": "NCT stands for Neo Culture Technology."
+        },
+        {
+          "question": "Which NCT subunit released the song Sticker?",
+          "answer": "NCT 127",
+          "acceptedAnswers": ["nct127"],
+          "explanation": "Sticker was released by NCT 127 in 2021."
+        },
+        {
+          "question": "Which NCT subunit released the song Make A Wish?",
+          "answer": "NCT U",
+          "acceptedAnswers": ["nctu"],
+          "explanation": "Make A Wish was released by NCT U."
+        },
+        {
+          "question": "Which girl group released Love Dive?",
+          "answer": "IVE",
+          "acceptedAnswers": ["ive"],
+          "explanation": "Love Dive was one of IVE's biggest hits."
+        },
+        {
+          "question": "What is IVE's fandom name?",
+          "answer": "Dive",
+          "acceptedAnswers": ["DIVE"],
+          "explanation": "IVE fans are called Dive."
+        },
+        {
+          "question": "Which IVE member is especially associated with the nickname it girl and formerly promoted in IZ*ONE?",
+          "answer": "Wonyoung",
+          "acceptedAnswers": ["jang wonyoung"],
+          "explanation": "Jang Wonyoung is one of IVE's most recognizable members."
+        },
+        {
+          "question": "Which Red Velvet song became a huge hit in 2021 and includes the line you got me feeling like a psycho?",
+          "answer": "Psycho",
+          "explanation": "Psycho is one of Red Velvet's best-known songs."
+        },
+        {
+          "question": "Which Red Velvet song is named after a cake flavor concept?",
+          "answer": "Ice Cream Cake",
+          "acceptedAnswers": ["icecreamcake"],
+          "explanation": "Ice Cream Cake was a major early hit for Red Velvet."
+        },
+        {
+          "question": "What is Red Velvet's fandom name?",
+          "answer": "ReVeluv",
+          "acceptedAnswers": ["reveluv"],
+          "explanation": "Red Velvet fans are called ReVeluv."
+        },
+        {
+          "question": "Which BigBang song repeats bang bang bang in the chorus?",
+          "answer": "Bang Bang Bang",
+          "acceptedAnswers": ["bangbangbang"],
+          "explanation": "Bang Bang Bang is one of BigBang's biggest party hits."
+        },
+        {
+          "question": "What is BigBang's fandom name?",
+          "answer": "VIP",
+          "acceptedAnswers": ["vip"],
+          "explanation": "BigBang fans are known as VIP."
+        },
+        {
+          "question": "Which group is also commonly abbreviated as SNSD?",
+          "answer": "Girls' Generation",
+          "acceptedAnswers": ["girls generation", "snsd"],
+          "explanation": "SNSD is the common abbreviation for Girls' Generation."
+        },
+        {
+          "question": "Which Girls' Generation song tells a bad boyfriend to Run Devil Run?",
+          "answer": "Run Devil Run",
+          "acceptedAnswers": ["rundevilrun"],
+          "explanation": "Run Devil Run is one of Girls' Generation's best-known singles."
+        },
+        {
+          "question": "What is SHINee's fandom name?",
+          "answer": "Shawol",
+          "acceptedAnswers": ["shawol", "shawols"],
+          "explanation": "SHINee fans are called Shawol, short for SHINee World."
+        },
+        {
+          "question": "Which SHINee member released the solo song Move?",
+          "answer": "Taemin",
+          "acceptedAnswers": ["lee taemin"],
+          "explanation": "Move is one of Taemin's signature solo releases."
+        },
+        {
+          "question": "What is Super Junior's fandom name?",
+          "answer": "ELF",
+          "acceptedAnswers": ["elf"],
+          "explanation": "Super Junior fans are known as ELF."
+        },
+        {
+          "question": "Which Super Junior song became one of their signature follow-ups after Sorry, Sorry?",
+          "answer": "Bonamana",
+          "acceptedAnswers": ["bona mana"],
+          "explanation": "Bonamana is one of Super Junior's biggest hits."
+        },
+        {
+          "question": "Which group released the song Jikjin?",
+          "answer": "Treasure",
+          "explanation": "Jikjin is one of Treasure's best-known songs."
+        },
+        {
+          "question": "Which company formed Treasure?",
+          "answer": "YG Entertainment",
+          "acceptedAnswers": ["yg"],
+          "explanation": "Treasure debuted under YG Entertainment."
+        },
+        {
+          "question": "Which group is known for songs like Just Right and Hard Carry?",
+          "answer": "GOT7",
+          "acceptedAnswers": ["got 7", "gotseven"],
+          "explanation": "GOT7 built a strong global fandom with songs like Just Right and Hard Carry."
+        },
+        {
+          "question": "What is GOT7's fandom name?",
+          "answer": "Ahgase",
+          "acceptedAnswers": ["igot7", "i got 7"],
+          "explanation": "GOT7 fans are known as Ahgase or iGOT7."
+        },
+        {
+          "question": "Which EXO song tells someone to Call Me Baby?",
+          "answer": "Call Me Baby",
+          "acceptedAnswers": ["callmebaby"],
+          "explanation": "Call Me Baby is one of EXO's major hits."
+        },
+        {
+          "question": "What is EXO's fandom name?",
+          "answer": "EXO-L",
+          "acceptedAnswers": ["exol", "exo l"],
+          "explanation": "EXO fans are called EXO-L."
+        },
+        {
+          "question": "Which Ateez song repeats break the wall and became a fan-favorite anthem?",
+          "answer": "Wonderland",
+          "acceptedAnswers": ["wonder land"],
+          "explanation": "Wonderland is one of Ateez's signature performance songs."
+        },
+        {
+          "question": "Which Ateez song includes the word Bouncy in its title?",
+          "answer": "Bouncy",
+          "acceptedAnswers": ["bouncy k hot chilli peppers"],
+          "explanation": "Bouncy became one of Ateez's biggest mainstream crossover tracks."
+        },
+        {
+          "question": "What is Ateez's fandom name?",
+          "answer": "ATINY",
+          "acceptedAnswers": ["atiny"],
+          "explanation": "Ateez fans are known as ATINY."
+        },
+        {
+          "question": "Which global girl group formed through HYBE x Geffen released the song Debut?",
+          "answer": "KATSEYE",
+          "acceptedAnswers": ["katseye"],
+          "explanation": "KATSEYE is the HYBE x Geffen global girl group."
+        },
+        {
+          "question": "Which KATSEYE member is from the Philippines?",
+          "answer": "Sophia",
+          "acceptedAnswers": ["sophia laforteza"],
+          "explanation": "Sophia is one of KATSEYE's most talked-about members."
+        },
+        {
+          "question": "Which group released Tomboy in 2022?",
+          "answer": "(G)I-DLE",
+          "acceptedAnswers": ["g idle", "gidle", "i-dle", "idle"],
+          "explanation": "Tomboy became one of (G)I-DLE's biggest hits."
+        },
+        {
+          "question": "Which group released Queencard?",
+          "answer": "(G)I-DLE",
+          "acceptedAnswers": ["g idle", "gidle", "i-dle", "idle"],
+          "explanation": "Queencard was another major hit for (G)I-DLE."
+        },
+        {
+          "question": "What is (G)I-DLE's fandom name?",
+          "answer": "Neverland",
+          "acceptedAnswers": ["nevies", "neverland"],
+          "explanation": "(G)I-DLE fans are called Neverland."
+        },
+        {
+          "question": "Which 24-member girl group is known for rotating subunits and fan voting through the COSMO app?",
+          "answer": "tripleS",
+          "acceptedAnswers": ["triples", "triple s"],
+          "explanation": "tripleS is known for its large lineup and modular concept."
+        },
+        {
+          "question": "Which tripleS song became a major 2024 breakthrough and first music show winner for the full group?",
+          "answer": "Girls Never Die",
+          "acceptedAnswers": ["girlsneverdie"],
+          "explanation": "Girls Never Die helped push tripleS further into the mainstream."
+        },
+        {
+          "question": "Which Blackpink member appeared in the HBO series The Idol?",
+          "answer": "Jennie",
+          "acceptedAnswers": ["jennie kim"],
+          "explanation": "Jennie appeared in The Idol in 2023."
+        },
+        {
+          "question": "Which BTS member released the solo hit Like Crazy?",
+          "answer": "Jimin",
+          "acceptedAnswers": ["park jimin"],
+          "explanation": "Like Crazy became Jimin's first Billboard Hot 100 number one as a soloist."
+        },
+        {
+          "question": "Which EXO member released the solo song Rover?",
+          "answer": "Kai",
+          "acceptedAnswers": ["kim jongin", "jongin"],
+          "explanation": "Rover is one of Kai's best-known solo releases."
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "label": "Music",
+      "description": "Big pop, rock, rap, and classic hit songs almost everyone has heard of.",
+      "questions": [
+        {
+          "question": "Which singer released Telephone featuring Beyonce?",
+          "answer": "Lady Gaga",
+          "acceptedAnswers": ["gaga"],
+          "explanation": "Telephone was released by Lady Gaga with Beyonce as the featured artist."
+        },
+        {
+          "question": "Who sang Billie Jean?",
+          "answer": "Michael Jackson",
+          "acceptedAnswers": ["mj"],
+          "explanation": "Billie Jean was one of Michael Jackson's biggest hits from Thriller."
+        },
+        {
+          "question": "Which band recorded Bohemian Rhapsody?",
+          "answer": "Queen",
+          "explanation": "Bohemian Rhapsody was written by Freddie Mercury and released by Queen."
+        },
+        {
+          "question": "Which group sang Dancing Queen?",
+          "answer": "ABBA",
+          "explanation": "Dancing Queen became ABBA's best-known global hit."
+        },
+        {
+          "question": "Who sang Rolling in the Deep?",
+          "answer": "Adele",
+          "explanation": "Rolling in the Deep was a breakout global smash from Adele's album 21."
+        },
+        {
+          "question": "Which band released Hotel California?",
+          "answer": "Eagles",
+          "acceptedAnswers": ["the eagles"],
+          "explanation": "Hotel California was one of the Eagles' biggest songs."
+        },
+        {
+          "question": "Which actor performs the spoken-word part on Thriller?",
+          "answer": "Vincent Price",
+          "explanation": "Vincent Price's spoken section helped make Thriller legendary."
+        },
+        {
+          "question": "Who sang Shake It Off?",
+          "answer": "Taylor Swift",
+          "acceptedAnswers": ["taylor"],
+          "explanation": "Shake It Off was the lead single from Taylor Swift's 1989."
+        },
+        {
+          "question": "Which band sang Hey Jude?",
+          "answer": "The Beatles",
+          "acceptedAnswers": ["beatles"],
+          "explanation": "Hey Jude is one of the Beatles' most famous songs."
+        },
+        {
+          "question": "Who sang Like a Prayer?",
+          "answer": "Madonna",
+          "explanation": "Like a Prayer was a major hit for Madonna in 1989."
+        },
+        {
+          "question": "Who released Purple Rain?",
+          "answer": "Prince",
+          "acceptedAnswers": ["prince rogers nelson"],
+          "explanation": "Purple Rain became one of Prince's signature songs."
+        },
+        {
+          "question": "Which singer is most associated with the hit Respect?",
+          "answer": "Aretha Franklin",
+          "acceptedAnswers": ["aretha"],
+          "explanation": "Aretha Franklin turned Respect into a timeless anthem."
+        },
+        {
+          "question": "Who had the huge hit I Will Always Love You in the 1990s?",
+          "answer": "Whitney Houston",
+          "acceptedAnswers": ["whitney"],
+          "explanation": "Whitney Houston's version became one of the biggest songs of the decade."
+        },
+        {
+          "question": "Who sang Umbrella?",
+          "answer": "Rihanna",
+          "acceptedAnswers": ["rihanna"],
+          "explanation": "Umbrella was one of Rihanna's biggest early global hits."
+        },
+        {
+          "question": "Who sang Someone Like You?",
+          "answer": "Adele",
+          "explanation": "Someone Like You was another massive hit from Adele's 21 era."
+        },
+        {
+          "question": "Who released Born to Run?",
+          "answer": "Bruce Springsteen",
+          "acceptedAnswers": ["springsteen", "the boss"],
+          "explanation": "Born to Run is one of Bruce Springsteen's classic songs."
+        },
+        {
+          "question": "Which band sang Wonderwall?",
+          "answer": "Oasis",
+          "explanation": "Wonderwall remains Oasis's most widely recognized song."
+        },
+        {
+          "question": "Which band released Smells Like Teen Spirit?",
+          "answer": "Nirvana",
+          "explanation": "Smells Like Teen Spirit became Nirvana's defining anthem."
+        },
+        {
+          "question": "Who sang Single Ladies?",
+          "answer": "Beyonce",
+          "acceptedAnswers": ["beyonce knowles"],
+          "explanation": "Single Ladies is one of Beyonce's most iconic songs."
+        },
+        {
+          "question": "Who sang Happy?",
+          "answer": "Pharrell Williams",
+          "acceptedAnswers": ["pharrell"],
+          "explanation": "Happy became a worldwide chart hit for Pharrell Williams."
+        },
+        {
+          "question": "Who sang Toxic?",
+          "answer": "Britney Spears",
+          "acceptedAnswers": ["britney"],
+          "explanation": "Toxic is one of Britney Spears's best-known songs."
+        },
+        {
+          "question": "Who sang Like a Rolling Stone?",
+          "answer": "Bob Dylan",
+          "acceptedAnswers": ["dylan"],
+          "explanation": "Like a Rolling Stone is one of Bob Dylan's most famous recordings."
+        },
+        {
+          "question": "Who was the featured rapper on Hips Don't Lie with Shakira?",
+          "answer": "Wyclef Jean",
+          "acceptedAnswers": ["wyclef"],
+          "explanation": "Wyclef Jean features on Shakira's hit Hips Don't Lie."
+        },
+        {
+          "question": "Which singer is featured on Uptown Funk?",
+          "answer": "Bruno Mars",
+          "acceptedAnswers": ["bruno"],
+          "explanation": "Uptown Funk is credited to Mark Ronson featuring Bruno Mars."
+        },
+        {
+          "question": "Which band released Take on Me?",
+          "answer": "a-ha",
+          "acceptedAnswers": ["aha", "a ha"],
+          "explanation": "Take on Me is the signature hit of Norwegian band a-ha."
+        },
+        {
+          "question": "Who sang Firework?",
+          "answer": "Katy Perry",
+          "acceptedAnswers": ["katy"],
+          "explanation": "Firework became one of Katy Perry's biggest hits."
+        },
+        {
+          "question": "Which group sang Wannabe?",
+          "answer": "Spice Girls",
+          "acceptedAnswers": ["spicegirls"],
+          "explanation": "Wannabe launched the Spice Girls into global superstardom."
+        },
+        {
+          "question": "Which rapper recorded Lose Yourself?",
+          "answer": "Eminem",
+          "acceptedAnswers": ["marshall mathers"],
+          "explanation": "Lose Yourself won the Oscar for Best Original Song."
+        },
+        {
+          "question": "Who sang Halo?",
+          "answer": "Beyonce",
+          "acceptedAnswers": ["beyonce knowles"],
+          "explanation": "Halo was a major pop ballad hit for Beyonce."
+        },
+        {
+          "question": "Who sang Poker Face?",
+          "answer": "Lady Gaga",
+          "acceptedAnswers": ["gaga"],
+          "explanation": "Poker Face helped establish Lady Gaga as a pop superstar."
+        },
+        {
+          "question": "Who sang Shape of You?",
+          "answer": "Ed Sheeran",
+          "acceptedAnswers": ["ed"],
+          "explanation": "Shape of You was one of Ed Sheeran's biggest global hits."
+        },
+        {
+          "question": "Which band recorded Mr. Brightside?",
+          "answer": "The Killers",
+          "acceptedAnswers": ["killers"],
+          "explanation": "Mr. Brightside became the signature song of the Killers."
+        },
+        {
+          "question": "Who sang Dancing in the Dark?",
+          "answer": "Bruce Springsteen",
+          "acceptedAnswers": ["springsteen", "the boss"],
+          "explanation": "Dancing in the Dark was one of Bruce Springsteen's biggest pop hits."
+        },
+        {
+          "question": "Who sang bad guy?",
+          "answer": "Billie Eilish",
+          "acceptedAnswers": ["billie"],
+          "explanation": "bad guy helped make Billie Eilish a worldwide star."
+        },
+        {
+          "question": "Who is the lead singer of the Rolling Stones?",
+          "answer": "Mick Jagger",
+          "acceptedAnswers": ["jagger"],
+          "explanation": "Mick Jagger has fronted the Rolling Stones for decades."
+        },
+        {
+          "question": "Who sang Piano Man?",
+          "answer": "Billy Joel",
+          "acceptedAnswers": ["joel"],
+          "explanation": "Piano Man is Billy Joel's signature song."
+        },
+        {
+          "question": "Which band recorded Stairway to Heaven?",
+          "answer": "Led Zeppelin",
+          "acceptedAnswers": ["zeppelin"],
+          "explanation": "Stairway to Heaven is one of Led Zeppelin's most famous songs."
+        },
+        {
+          "question": "Which band sang Livin' on a Prayer?",
+          "answer": "Bon Jovi",
+          "acceptedAnswers": ["bonjovi"],
+          "explanation": "Livin' on a Prayer is one of Bon Jovi's biggest arena-rock hits."
+        },
+        {
+          "question": "Which band recorded We Will Rock You?",
+          "answer": "Queen",
+          "explanation": "We Will Rock You remains one of Queen's most famous stadium anthems."
+        },
+        {
+          "question": "Who wrote and first recorded Jolene?",
+          "answer": "Dolly Parton",
+          "acceptedAnswers": ["dolly"],
+          "explanation": "Jolene is one of Dolly Parton's signature songs."
+        },
+        {
+          "question": "Which band sang Sweet Child o' Mine?",
+          "answer": "Guns N' Roses",
+          "acceptedAnswers": ["guns n roses", "guns and roses", "gnr"],
+          "explanation": "Sweet Child o' Mine is one of Guns N' Roses' most famous songs."
+        },
+        {
+          "question": "Which band recorded Africa?",
+          "answer": "Toto",
+          "explanation": "Africa became Toto's most iconic hit."
+        },
+        {
+          "question": "Who sang Call Me Maybe?",
+          "answer": "Carly Rae Jepsen",
+          "acceptedAnswers": ["carly rae", "carly"],
+          "explanation": "Call Me Maybe became Carly Rae Jepsen's breakout smash."
+        },
+        {
+          "question": "Which boy band sang I Want It That Way?",
+          "answer": "Backstreet Boys",
+          "acceptedAnswers": ["backstreetboys", "bsb"],
+          "explanation": "I Want It That Way is a signature hit of the Backstreet Boys."
+        },
+        {
+          "question": "Who sang Complicated?",
+          "answer": "Avril Lavigne",
+          "acceptedAnswers": ["avril"],
+          "explanation": "Complicated was Avril Lavigne's debut breakthrough hit."
+        },
+        {
+          "question": "Which rapper is featured on Crazy in Love?",
+          "answer": "Jay-Z",
+          "acceptedAnswers": ["jay z", "jayz"],
+          "explanation": "Crazy in Love is credited to Beyonce featuring Jay-Z."
+        },
+        {
+          "question": "Who was the featured country singer on Old Town Road?",
+          "answer": "Billy Ray Cyrus",
+          "acceptedAnswers": ["billy ray"],
+          "explanation": "Billy Ray Cyrus appears on the remix that became the huge hit."
+        },
+        {
+          "question": "Who sang 24K Magic?",
+          "answer": "Bruno Mars",
+          "acceptedAnswers": ["bruno"],
+          "explanation": "24K Magic was the title track of Bruno Mars's 2016 album."
+        },
+        {
+          "question": "Which band recorded Viva La Vida?",
+          "answer": "Coldplay",
+          "explanation": "Viva La Vida became one of Coldplay's biggest songs."
+        },
+        {
+          "question": "Who sang Blinding Lights?",
+          "answer": "The Weeknd",
+          "acceptedAnswers": ["weeknd"],
+          "explanation": "Blinding Lights became one of the defining hits of the 2020s."
+        },
+        {
+          "question": "Who sang Ocean Eyes?",
+          "answer": "Billie Eilish",
+          "acceptedAnswers": ["billie"],
+          "explanation": "Ocean Eyes helped introduce Billie Eilish to a huge audience."
+        },
+        {
+          "question": "Who sang Oops!... I Did It Again?",
+          "answer": "Britney Spears",
+          "acceptedAnswers": ["britney"],
+          "explanation": "Oops!... I Did It Again is one of Britney Spears's signature hits."
+        },
+        {
+          "question": "Who sang Lush Life?",
+          "answer": "Zara Larsson",
+          "acceptedAnswers": ["zara"],
+          "explanation": "Lush Life became one of Zara Larsson's biggest international hits."
+        },
+        {
+          "question": "Who sang 7 rings?",
+          "answer": "Ariana Grande",
+          "acceptedAnswers": ["ariana"],
+          "explanation": "7 rings was a major hit from Ariana Grande's thank u, next era."
+        },
+        {
+          "question": "Who sang Say So?",
+          "answer": "Doja Cat",
+          "acceptedAnswers": ["doja"],
+          "explanation": "Say So became one of Doja Cat's defining pop hits."
+        },
+        {
+          "question": "Who sang Lose You to Love Me?",
+          "answer": "Selena Gomez",
+          "acceptedAnswers": ["selena"],
+          "explanation": "Lose You to Love Me was Selena Gomez's first Billboard Hot 100 number one."
+        },
+        {
+          "question": "Which virtual girl group released Pop/Stars?",
+          "answer": "K/DA",
+          "acceptedAnswers": ["kda"],
+          "explanation": "Pop/Stars made Riot's virtual group K/DA a major crossover success."
+        },
+        {
+          "question": "Who sang Skyscraper?",
+          "answer": "Demi Lovato",
+          "acceptedAnswers": ["demi"],
+          "explanation": "Skyscraper is one of Demi Lovato's best-known power ballads."
+        },
+        {
+          "question": "Who released Video Games?",
+          "answer": "Lana Del Rey",
+          "acceptedAnswers": ["lana"],
+          "explanation": "Video Games helped establish Lana Del Rey's signature style."
+        },
+        {
+          "question": "Who sang Middle of the Night?",
+          "answer": "Elley Duhe",
+          "acceptedAnswers": ["elley duhe", "elley"],
+          "explanation": "Middle of the Night became Elley Duhe's biggest breakout hit."
+        },
+        {
+          "question": "Who sang Without Me?",
+          "answer": "Halsey",
+          "acceptedAnswers": ["halsey"],
+          "explanation": "Without Me became one of Halsey's signature solo hits."
+        },
+        {
+          "question": "Who sang abcdefu?",
+          "answer": "GAYLE",
+          "acceptedAnswers": ["gayle"],
+          "explanation": "abcdefu turned GAYLE into a breakout pop name."
+        },
+        {
+          "question": "Which singer had a viral cover of As the World Caves In?",
+          "answer": "Sarah Cothran",
+          "acceptedAnswers": ["sarah"],
+          "explanation": "Sarah Cothran's cover of As the World Caves In went viral online."
+        },
+        {
+          "question": "Which band released Counting Stars?",
+          "answer": "OneRepublic",
+          "acceptedAnswers": ["one republic"],
+          "explanation": "Counting Stars is one of OneRepublic's biggest global hits."
+        },
+        {
+          "question": "Which band released Yellow?",
+          "answer": "Coldplay",
+          "acceptedAnswers": ["cold play"],
+          "explanation": "Yellow is one of Coldplay's defining early songs."
+        },
+        {
+          "question": "Who sang i'm yours?",
+          "answer": "Isabel LaRosa",
+          "acceptedAnswers": ["isabel larosa", "isabel"],
+          "explanation": "i'm yours is one of Isabel LaRosa's best-known songs."
+        },
+        {
+          "question": "Which boy band sang What Makes You Beautiful?",
+          "answer": "One Direction",
+          "acceptedAnswers": ["1d"],
+          "explanation": "What Makes You Beautiful was One Direction's breakout hit."
+        },
+        {
+          "question": "Which Australian band sang She Looks So Perfect?",
+          "answer": "5 Seconds of Summer",
+          "acceptedAnswers": ["5sos", "five seconds of summer"],
+          "explanation": "She Looks So Perfect helped launch 5 Seconds of Summer worldwide."
+        },
+        {
+          "question": "Who sang BABYDOLL?",
+          "answer": "Ari Abdul",
+          "acceptedAnswers": ["ari"],
+          "explanation": "BABYDOLL became Ari Abdul's breakout viral hit."
+        },
+        {
+          "question": "Who sang greedy?",
+          "answer": "Tate McRae",
+          "acceptedAnswers": ["tate"],
+          "explanation": "greedy became Tate McRae's biggest mainstream pop hit."
+        },
+        {
+          "question": "Who sang Runaway?",
+          "answer": "AURORA",
+          "acceptedAnswers": ["aurora"],
+          "explanation": "Runaway became AURORA's signature song and later found a huge new audience online."
+        },
+        {
+          "question": "Which singer won Eurovision 2012 with Euphoria?",
+          "answer": "Loreen",
+          "explanation": "Loreen won Eurovision with Euphoria and later won again with Tattoo."
+        },
+        {
+          "question": "Who sang Let The World Burn?",
+          "answer": "Chris Grey",
+          "acceptedAnswers": ["chris"],
+          "explanation": "Let The World Burn became one of Chris Grey's best-known songs."
+        },
+        {
+          "question": "Which group sang I Gotta Feeling?",
+          "answer": "The Black Eyed Peas",
+          "acceptedAnswers": ["black eyed peas", "bep"],
+          "explanation": "I Gotta Feeling was one of the Black Eyed Peas' biggest hits."
+        },
+        {
+          "question": "Who released Perfect Blues?",
+          "answer": "Hannah Bahng",
+          "acceptedAnswers": ["hannah"],
+          "explanation": "Perfect Blues is one of Hannah Bahng's best-known songs."
+        },
+        {
+          "question": "Who sang Tears of Gold?",
+          "answer": "Faouzia",
+          "acceptedAnswers": ["faouzia ouihya"],
+          "explanation": "Tears of Gold is one of Faouzia's signature dramatic ballads."
+        },
+        {
+          "question": "Who released Primadonna?",
+          "answer": "MARINA",
+          "acceptedAnswers": ["marina", "marina and the diamonds"],
+          "explanation": "Primadonna is one of MARINA's most recognizable songs."
+        },
+        {
+          "question": "Who sang Love Me Like You Do?",
+          "answer": "Ellie Goulding",
+          "acceptedAnswers": ["ellie"],
+          "explanation": "Love Me Like You Do became one of Ellie Goulding's biggest global hits."
+        },
+        {
+          "question": "Who sang Diet Pepsi?",
+          "answer": "Addison Rae",
+          "acceptedAnswers": ["addison"],
+          "explanation": "Diet Pepsi became Addison Rae's breakout music hit."
+        },
+        {
+          "question": "Who sang Sorry?",
+          "answer": "Justin Bieber",
+          "acceptedAnswers": ["bieber", "justin"],
+          "explanation": "Sorry was a major hit from Justin Bieber's Purpose era."
+        },
+        {
+          "question": "Which rapper released The Real Slim Shady?",
+          "answer": "Eminem",
+          "acceptedAnswers": ["marshall mathers"],
+          "explanation": "The Real Slim Shady is one of Eminem's best-known singles."
+        },
+        {
+          "question": "Who sang Locked Out of Heaven?",
+          "answer": "Bruno Mars",
+          "acceptedAnswers": ["bruno"],
+          "explanation": "Locked Out of Heaven became one of Bruno Mars's major pop hits."
+        },
+        {
+          "question": "Who released Titi Me Pregunto?",
+          "answer": "Bad Bunny",
+          "acceptedAnswers": ["titi me pregunto", "badbunny"],
+          "explanation": "Titi Me Pregunto is one of Bad Bunny's biggest worldwide hits."
+        },
+        {
+          "question": "Who sang Cry Me a River?",
+          "answer": "Justin Timberlake",
+          "acceptedAnswers": ["jt", "timberlake"],
+          "explanation": "Cry Me a River is one of Justin Timberlake's signature solo songs."
+        },
+        {
+          "question": "Who sang Starboy?",
+          "answer": "The Weeknd",
+          "acceptedAnswers": ["weeknd"],
+          "explanation": "Starboy is one of the Weeknd's defining hits."
+        },
+        {
+          "question": "Who sang Waka Waka (This Time for Africa)?",
+          "answer": "Shakira",
+          "acceptedAnswers": ["shakira"],
+          "explanation": "Waka Waka became one of Shakira's biggest global anthems."
+        },
+        {
+          "question": "Who sang Thinking Out Loud?",
+          "answer": "Ed Sheeran",
+          "acceptedAnswers": ["ed"],
+          "explanation": "Thinking Out Loud is one of Ed Sheeran's biggest ballad hits."
+        },
+        {
+          "question": "Who sang Levitating?",
+          "answer": "Dua Lipa",
+          "acceptedAnswers": ["dua"],
+          "explanation": "Levitating became one of Dua Lipa's biggest songs."
+        },
+        {
+          "question": "Who released HUMBLE.?",
+          "answer": "Kendrick Lamar",
+          "acceptedAnswers": ["kendrick"],
+          "explanation": "HUMBLE. was a major single from Kendrick Lamar's DAMN."
+        },
+        {
+          "question": "Who sang TiK ToK?",
+          "answer": "Kesha",
+          "acceptedAnswers": ["ke$ha", "kesha"],
+          "explanation": "TiK ToK was Kesha's breakout smash hit."
+        },
+        {
+          "question": "Who released Royals?",
+          "answer": "Lorde",
+          "acceptedAnswers": ["ella yelich-o'connor", "ella yelich oconnor"],
+          "explanation": "Royals became Lorde's breakthrough global hit."
+        },
+        {
+          "question": "Which band sang Sugar?",
+          "answer": "Maroon 5",
+          "acceptedAnswers": ["maroon5"],
+          "explanation": "Sugar was one of Maroon 5's biggest 2010s hits."
+        },
+        {
+          "question": "Who sang thank u, next?",
+          "answer": "Ariana Grande",
+          "acceptedAnswers": ["ariana"],
+          "explanation": "thank u, next became one of Ariana Grande's defining singles."
+        },
+        {
+          "question": "Who sang Woman?",
+          "answer": "Doja Cat",
+          "acceptedAnswers": ["doja"],
+          "explanation": "Woman became one of Doja Cat's biggest follow-up hits."
+        },
+        {
+          "question": "Who sang Wolves?",
+          "answer": "Selena Gomez",
+          "acceptedAnswers": ["selena"],
+          "explanation": "Wolves was a major hit by Selena Gomez and Marshmello."
+        },
+        {
+          "question": "Which band released Apologize?",
+          "answer": "OneRepublic",
+          "acceptedAnswers": ["one republic"],
+          "explanation": "Apologize helped make OneRepublic globally famous."
+        },
+        {
+          "question": "Which band recorded A Sky Full of Stars?",
+          "answer": "Coldplay",
+          "acceptedAnswers": ["cold play"],
+          "explanation": "A Sky Full of Stars is one of Coldplay's biggest festival-style hits."
+        },
+        {
+          "question": "Which boy band sang Night Changes?",
+          "answer": "One Direction",
+          "acceptedAnswers": ["1d"],
+          "explanation": "Night Changes is one of One Direction's best-known later hits."
+        },
+        {
+          "question": "Which band sang Youngblood?",
+          "answer": "5 Seconds of Summer",
+          "acceptedAnswers": ["5sos", "five seconds of summer"],
+          "explanation": "Youngblood became 5 Seconds of Summer's biggest global hit."
+        },
+        {
+          "question": "Who sang exes?",
+          "answer": "Tate McRae",
+          "acceptedAnswers": ["tate"],
+          "explanation": "exes was another major streaming-era hit for Tate McRae."
+        }
+      ]
+    },
+    {
+      "id": "countries",
+      "label": "Countries",
+      "description": "Well-known capitals, currencies, landmarks, flags, and geography basics.",
+      "questions": [
+        {
+          "question": "What is the capital of France?",
+          "answer": "Paris",
+          "explanation": "Paris is the capital and largest city of France."
+        },
+        {
+          "question": "What is the capital of Japan?",
+          "answer": "Tokyo",
+          "explanation": "Tokyo is Japan's capital city."
+        },
+        {
+          "question": "What is the capital of Australia?",
+          "answer": "Canberra",
+          "explanation": "Australia's capital is Canberra, not Sydney."
+        },
+        {
+          "question": "What is the capital of Canada?",
+          "answer": "Ottawa",
+          "explanation": "Ottawa is Canada's capital city."
+        },
+        {
+          "question": "What is the capital of Brazil?",
+          "answer": "Brasilia",
+          "acceptedAnswers": ["brasilia"],
+          "explanation": "Brasilia is the planned capital of Brazil."
+        },
+        {
+          "question": "What is the capital of Italy?",
+          "answer": "Rome",
+          "explanation": "Rome is Italy's capital and home to the Colosseum."
+        },
+        {
+          "question": "What is the capital of South Korea?",
+          "answer": "Seoul",
+          "explanation": "Seoul is the capital and largest city of South Korea."
+        },
+        {
+          "question": "What is the capital of Egypt?",
+          "answer": "Cairo",
+          "explanation": "Cairo is Egypt's capital and largest city."
+        },
+        {
+          "question": "What is the capital of Mexico?",
+          "answer": "Mexico City",
+          "acceptedAnswers": ["cdmx", "ciudad de mexico"],
+          "explanation": "Mexico City is the capital of Mexico."
+        },
+        {
+          "question": "What is the capital of India?",
+          "answer": "New Delhi",
+          "acceptedAnswers": ["delhi"],
+          "explanation": "New Delhi is India's capital."
+        },
+        {
+          "question": "What is the capital of the United Kingdom?",
+          "answer": "London",
+          "explanation": "London is the capital of the UK."
+        },
+        {
+          "question": "What is the capital of Spain?",
+          "answer": "Madrid",
+          "explanation": "Madrid is Spain's capital city."
+        },
+        {
+          "question": "What is the capital of Germany?",
+          "answer": "Berlin",
+          "explanation": "Berlin is the capital of Germany."
+        },
+        {
+          "question": "What is the capital of Thailand?",
+          "answer": "Bangkok",
+          "explanation": "Bangkok is Thailand's capital city."
+        },
+        {
+          "question": "What is the capital of Argentina?",
+          "answer": "Buenos Aires",
+          "acceptedAnswers": ["buenosaires"],
+          "explanation": "Buenos Aires is Argentina's capital."
+        },
+        {
+          "question": "What is the capital of Turkey?",
+          "answer": "Ankara",
+          "explanation": "Turkey's capital is Ankara, not Istanbul."
+        },
+        {
+          "question": "What is the capital of Kenya?",
+          "answer": "Nairobi",
+          "explanation": "Nairobi is the capital of Kenya."
+        },
+        {
+          "question": "What is the capital of Greece?",
+          "answer": "Athens",
+          "explanation": "Athens is Greece's capital and one of Europe's oldest cities."
+        },
+        {
+          "question": "What is the capital of China?",
+          "answer": "Beijing",
+          "explanation": "Beijing is the capital of China."
+        },
+        {
+          "question": "What is the capital of Indonesia?",
+          "answer": "Jakarta",
+          "explanation": "Jakarta is Indonesia's capital city."
+        },
+        {
+          "question": "What currency is used in Japan?",
+          "answer": "yen",
+          "acceptedAnswers": ["japanese yen"],
+          "explanation": "Japan uses the yen."
+        },
+        {
+          "question": "What currency is used in the United Kingdom?",
+          "answer": "pound sterling",
+          "acceptedAnswers": ["pound", "british pound", "sterling"],
+          "explanation": "The UK uses the pound sterling."
+        },
+        {
+          "question": "What currency is used in the United States?",
+          "answer": "dollar",
+          "acceptedAnswers": ["us dollar", "american dollar"],
+          "explanation": "The United States uses the dollar."
+        },
+        {
+          "question": "What currency is used in South Korea?",
+          "answer": "won",
+          "acceptedAnswers": ["south korean won", "korean won"],
+          "explanation": "South Korea uses the won."
+        },
+        {
+          "question": "On which continent is Egypt located?",
+          "answer": "Africa",
+          "explanation": "Egypt is in northeastern Africa."
+        },
+        {
+          "question": "On which continent is Brazil located?",
+          "answer": "South America",
+          "acceptedAnswers": ["southamerica"],
+          "explanation": "Brazil is the largest country in South America."
+        },
+        {
+          "question": "On which continent is India located?",
+          "answer": "Asia",
+          "explanation": "India is part of South Asia."
+        },
+        {
+          "question": "Which country is home to the Eiffel Tower?",
+          "answer": "France",
+          "explanation": "The Eiffel Tower is in Paris, France."
+        },
+        {
+          "question": "Which country is home to the Great Pyramid of Giza?",
+          "answer": "Egypt",
+          "explanation": "The Great Pyramid of Giza is one of Egypt's most famous landmarks."
+        },
+        {
+          "question": "Which country is home to the Taj Mahal?",
+          "answer": "India",
+          "explanation": "The Taj Mahal is located in Agra, India."
+        },
+        {
+          "question": "Which country is home to Christ the Redeemer?",
+          "answer": "Brazil",
+          "explanation": "Christ the Redeemer overlooks Rio de Janeiro, Brazil."
+        },
+        {
+          "question": "Mount Fuji is in which country?",
+          "answer": "Japan",
+          "explanation": "Mount Fuji is Japan's most famous mountain."
+        },
+        {
+          "question": "The Colosseum is in which country?",
+          "answer": "Italy",
+          "explanation": "The Colosseum is in Rome, Italy."
+        },
+        {
+          "question": "Machu Picchu is in which country?",
+          "answer": "Peru",
+          "explanation": "Machu Picchu is one of Peru's best-known landmarks."
+        },
+        {
+          "question": "Which country is strongly associated with kangaroos?",
+          "answer": "Australia",
+          "explanation": "Kangaroos are one of Australia's most famous national symbols."
+        },
+        {
+          "question": "Which country's flag features a maple leaf?",
+          "answer": "Canada",
+          "explanation": "The maple leaf is the central symbol on Canada's flag."
+        },
+        {
+          "question": "Which country is known as the Land of the Rising Sun?",
+          "answer": "Japan",
+          "explanation": "Japan is often called the Land of the Rising Sun."
+        },
+        {
+          "question": "Barcelona is a city in which country?",
+          "answer": "Spain",
+          "explanation": "Barcelona is one of Spain's most famous cities."
+        },
+        {
+          "question": "Istanbul is a city in which country?",
+          "answer": "Turkey",
+          "explanation": "Istanbul is Turkey's largest city."
+        },
+        {
+          "question": "Which country borders the United States to the north?",
+          "answer": "Canada",
+          "explanation": "Canada is directly north of the United States."
+        },
+        {
+          "question": "Dublin is the capital of which country?",
+          "answer": "Ireland",
+          "explanation": "Dublin is the capital city of Ireland."
+        },
+        {
+          "question": "Reykjavik is the capital of which country?",
+          "answer": "Iceland",
+          "explanation": "Reykjavik is the capital of Iceland."
+        },
+        {
+          "question": "What is the official language of Brazil?",
+          "answer": "Portuguese",
+          "explanation": "Brazil's official language is Portuguese."
+        },
+        {
+          "question": "What language is most widely spoken in Mexico?",
+          "answer": "Spanish",
+          "explanation": "Spanish is the main language spoken in Mexico."
+        },
+        {
+          "question": "Which river is most associated with Egypt?",
+          "answer": "Nile",
+          "acceptedAnswers": ["the nile", "nile river"],
+          "explanation": "The Nile is central to Egypt's geography and history."
+        },
+        {
+          "question": "Sushi is most strongly associated with which country?",
+          "answer": "Japan",
+          "explanation": "Sushi is one of Japan's most internationally famous foods."
+        },
+        {
+          "question": "Pizza and pasta are most famously associated with which country?",
+          "answer": "Italy",
+          "explanation": "Italy is especially associated with foods like pizza and pasta."
+        },
+        {
+          "question": "Which country uses the rupee as its national currency?",
+          "answer": "India",
+          "explanation": "India uses the Indian rupee."
+        },
+        {
+          "question": "Which country is famous for maple syrup and hockey?",
+          "answer": "Canada",
+          "explanation": "Maple syrup and ice hockey are strongly associated with Canada."
+        },
+        {
+          "question": "Which country is home to Seoul?",
+          "answer": "South Korea",
+          "acceptedAnswers": ["korea", "republic of korea"],
+          "explanation": "Seoul is the capital of South Korea."
+        },
+        {
+          "question": "What is the capital of Afghanistan?",
+          "answer": "Kabul",
+          "explanation": "Kabul is the capital of Afghanistan."
+        },
+        {
+          "question": "What is the capital of Albania?",
+          "answer": "Tirana",
+          "explanation": "Tirana is the capital of Albania."
+        },
+        {
+          "question": "What is the capital of Algeria?",
+          "answer": "Algiers",
+          "explanation": "Algiers is the capital of Algeria."
+        },
+        {
+          "question": "What is the capital of Andorra?",
+          "answer": "Andorra la Vella",
+          "acceptedAnswers": ["andorralavella"],
+          "explanation": "Andorra la Vella is the capital of Andorra."
+        },
+        {
+          "question": "What is the capital of Angola?",
+          "answer": "Luanda",
+          "explanation": "Luanda is the capital of Angola."
+        },
+        {
+          "question": "What is the capital of Antigua and Barbuda?",
+          "answer": "Saint John's",
+          "acceptedAnswers": ["st johns", "saint johns"],
+          "explanation": "Saint John's is the capital of Antigua and Barbuda."
+        },
+        {
+          "question": "What is the capital of Armenia?",
+          "answer": "Yerevan",
+          "explanation": "Yerevan is the capital of Armenia."
+        },
+        {
+          "question": "What is the capital of Austria?",
+          "answer": "Vienna",
+          "explanation": "Vienna is the capital of Austria."
+        },
+        {
+          "question": "What is the capital of Azerbaijan?",
+          "answer": "Baku",
+          "explanation": "Baku is the capital of Azerbaijan."
+        },
+        {
+          "question": "What is the capital of the Bahamas?",
+          "answer": "Nassau",
+          "explanation": "Nassau is the capital of the Bahamas."
+        },
+        {
+          "question": "What is the capital of Bahrain?",
+          "answer": "Manama",
+          "explanation": "Manama is the capital of Bahrain."
+        },
+        {
+          "question": "What is the capital of Bangladesh?",
+          "answer": "Dhaka",
+          "explanation": "Dhaka is the capital of Bangladesh."
+        },
+        {
+          "question": "What is the capital of Barbados?",
+          "answer": "Bridgetown",
+          "explanation": "Bridgetown is the capital of Barbados."
+        },
+        {
+          "question": "What is the capital of Belarus?",
+          "answer": "Minsk",
+          "explanation": "Minsk is the capital of Belarus."
+        },
+        {
+          "question": "What is the capital of Belgium?",
+          "answer": "Brussels",
+          "explanation": "Brussels is the capital of Belgium."
+        },
+        {
+          "question": "What is the capital of Belize?",
+          "answer": "Belmopan",
+          "explanation": "Belmopan is the capital of Belize."
+        },
+        {
+          "question": "What is the capital of Benin?",
+          "answer": "Porto-Novo",
+          "acceptedAnswers": ["porto novo"],
+          "explanation": "Porto-Novo is the official capital of Benin."
+        },
+        {
+          "question": "What is the capital of Bhutan?",
+          "answer": "Thimphu",
+          "explanation": "Thimphu is the capital of Bhutan."
+        },
+        {
+          "question": "What is the capital of Bolivia?",
+          "answer": "Sucre",
+          "acceptedAnswers": ["la paz"],
+          "explanation": "Sucre is Bolivia's constitutional capital, while La Paz is the seat of government."
+        },
+        {
+          "question": "What is the capital of Bosnia and Herzegovina?",
+          "answer": "Sarajevo",
+          "explanation": "Sarajevo is the capital of Bosnia and Herzegovina."
+        },
+        {
+          "question": "What is the capital of Botswana?",
+          "answer": "Gaborone",
+          "explanation": "Gaborone is the capital of Botswana."
+        },
+        {
+          "question": "What is the capital of Brunei?",
+          "answer": "Bandar Seri Begawan",
+          "acceptedAnswers": ["bandarseribegawan"],
+          "explanation": "Bandar Seri Begawan is the capital of Brunei."
+        },
+        {
+          "question": "What is the capital of Bulgaria?",
+          "answer": "Sofia",
+          "explanation": "Sofia is the capital of Bulgaria."
+        },
+        {
+          "question": "What is the capital of Burkina Faso?",
+          "answer": "Ouagadougou",
+          "acceptedAnswers": ["ouaga"],
+          "explanation": "Ouagadougou is the capital of Burkina Faso."
+        },
+        {
+          "question": "What is the capital of Burundi?",
+          "answer": "Gitega",
+          "explanation": "Gitega is the capital of Burundi."
+        },
+        {
+          "question": "What is the capital of Cambodia?",
+          "answer": "Phnom Penh",
+          "acceptedAnswers": ["phnompenh"],
+          "explanation": "Phnom Penh is the capital of Cambodia."
+        },
+        {
+          "question": "What is the capital of Cameroon?",
+          "answer": "Yaounde",
+          "explanation": "Yaounde is the capital of Cameroon."
+        },
+        {
+          "question": "What is the capital of Cape Verde?",
+          "answer": "Praia",
+          "explanation": "Praia is the capital of Cape Verde."
+        },
+        {
+          "question": "What is the capital of the Central African Republic?",
+          "answer": "Bangui",
+          "explanation": "Bangui is the capital of the Central African Republic."
+        },
+        {
+          "question": "What is the capital of Chad?",
+          "answer": "N'Djamena",
+          "acceptedAnswers": ["ndjamena"],
+          "explanation": "N'Djamena is the capital of Chad."
+        },
+        {
+          "question": "What is the capital of Chile?",
+          "answer": "Santiago",
+          "explanation": "Santiago is the capital of Chile."
+        },
+        {
+          "question": "What is the capital of Colombia?",
+          "answer": "Bogota",
+          "acceptedAnswers": ["bogotá"],
+          "explanation": "Bogota is the capital of Colombia."
+        },
+        {
+          "question": "What is the capital of Comoros?",
+          "answer": "Moroni",
+          "explanation": "Moroni is the capital of Comoros."
+        },
+        {
+          "question": "What is the capital of Costa Rica?",
+          "answer": "San Jose",
+          "acceptedAnswers": ["san josé"],
+          "explanation": "San Jose is the capital of Costa Rica."
+        },
+        {
+          "question": "What is the capital of Croatia?",
+          "answer": "Zagreb",
+          "explanation": "Zagreb is the capital of Croatia."
+        },
+        {
+          "question": "What is the capital of Cuba?",
+          "answer": "Havana",
+          "explanation": "Havana is the capital of Cuba."
+        },
+        {
+          "question": "What is the capital of Cyprus?",
+          "answer": "Nicosia",
+          "explanation": "Nicosia is the capital of Cyprus."
+        },
+        {
+          "question": "What is the capital of the Czech Republic?",
+          "answer": "Prague",
+          "explanation": "Prague is the capital of the Czech Republic."
+        },
+        {
+          "question": "What is the capital of the Democratic Republic of the Congo?",
+          "answer": "Kinshasa",
+          "explanation": "Kinshasa is the capital of the Democratic Republic of the Congo."
+        },
+        {
+          "question": "What is the capital of Denmark?",
+          "answer": "Copenhagen",
+          "explanation": "Copenhagen is the capital of Denmark."
+        },
+        {
+          "question": "What is the capital of Djibouti?",
+          "answer": "Djibouti",
+          "explanation": "Djibouti City is the capital of Djibouti."
+        },
+        {
+          "question": "What is the capital of Dominica?",
+          "answer": "Roseau",
+          "explanation": "Roseau is the capital of Dominica."
+        },
+        {
+          "question": "What is the capital of the Dominican Republic?",
+          "answer": "Santo Domingo",
+          "acceptedAnswers": ["santodomingo"],
+          "explanation": "Santo Domingo is the capital of the Dominican Republic."
+        },
+        {
+          "question": "What is the capital of Ecuador?",
+          "answer": "Quito",
+          "explanation": "Quito is the capital of Ecuador."
+        },
+        {
+          "question": "What is the capital of El Salvador?",
+          "answer": "San Salvador",
+          "acceptedAnswers": ["sansalvador"],
+          "explanation": "San Salvador is the capital of El Salvador."
+        },
+        {
+          "question": "What is the capital of Equatorial Guinea?",
+          "answer": "Malabo",
+          "explanation": "Malabo is the capital of Equatorial Guinea."
+        },
+        {
+          "question": "What is the capital of Eritrea?",
+          "answer": "Asmara",
+          "explanation": "Asmara is the capital of Eritrea."
+        },
+        {
+          "question": "What is the capital of Estonia?",
+          "answer": "Tallinn",
+          "explanation": "Tallinn is the capital of Estonia."
+        },
+        {
+          "question": "What is the capital of Eswatini?",
+          "answer": "Mbabane",
+          "acceptedAnswers": ["lobamba"],
+          "explanation": "Mbabane is Eswatini's administrative capital, while Lobamba is its legislative and royal capital."
+        },
+        {
+          "question": "What is the capital of Ethiopia?",
+          "answer": "Addis Ababa",
+          "acceptedAnswers": ["addisababa"],
+          "explanation": "Addis Ababa is the capital of Ethiopia."
+        },
+        {
+          "question": "What is the capital of Fiji?",
+          "answer": "Suva",
+          "explanation": "Suva is the capital of Fiji."
+        },
+        {
+          "question": "What is the capital of Finland?",
+          "answer": "Helsinki",
+          "explanation": "Helsinki is the capital of Finland."
+        },
+        {
+          "question": "What is the capital of Gabon?",
+          "answer": "Libreville",
+          "explanation": "Libreville is the capital of Gabon."
+        },
+        {
+          "question": "What is the capital of the Gambia?",
+          "answer": "Banjul",
+          "explanation": "Banjul is the capital of the Gambia."
+        },
+        {
+          "question": "What is the capital of Georgia?",
+          "answer": "Tbilisi",
+          "explanation": "Tbilisi is the capital of Georgia."
+        },
+        {
+          "question": "What is the capital of Ghana?",
+          "answer": "Accra",
+          "explanation": "Accra is the capital of Ghana."
+        },
+        {
+          "question": "What is the capital of Grenada?",
+          "answer": "Saint George's",
+          "acceptedAnswers": ["st george's", "st georges", "saint georges"],
+          "explanation": "Saint George's is the capital of Grenada."
+        },
+        {
+          "question": "What is the capital of Guatemala?",
+          "answer": "Guatemala City",
+          "acceptedAnswers": ["guatemala city"],
+          "explanation": "Guatemala City is the capital of Guatemala."
+        },
+        {
+          "question": "What is the capital of Guinea?",
+          "answer": "Conakry",
+          "explanation": "Conakry is the capital of Guinea."
+        },
+        {
+          "question": "What is the capital of Guinea-Bissau?",
+          "answer": "Bissau",
+          "explanation": "Bissau is the capital of Guinea-Bissau."
+        },
+        {
+          "question": "What is the capital of Guyana?",
+          "answer": "Georgetown",
+          "explanation": "Georgetown is the capital of Guyana."
+        },
+        {
+          "question": "What is the capital of Haiti?",
+          "answer": "Port-au-Prince",
+          "acceptedAnswers": ["port au prince"],
+          "explanation": "Port-au-Prince is the capital of Haiti."
+        },
+        {
+          "question": "What is the capital of Honduras?",
+          "answer": "Tegucigalpa",
+          "explanation": "Tegucigalpa is the capital of Honduras."
+        },
+        {
+          "question": "What is the capital of Hungary?",
+          "answer": "Budapest",
+          "explanation": "Budapest is the capital of Hungary."
+        },
+        {
+          "question": "What is the capital of Iran?",
+          "answer": "Tehran",
+          "explanation": "Tehran is the capital of Iran."
+        },
+        {
+          "question": "What is the capital of Iraq?",
+          "answer": "Baghdad",
+          "explanation": "Baghdad is the capital of Iraq."
+        },
+        {
+          "question": "What is the capital of Israel?",
+          "answer": "Jerusalem",
+          "explanation": "Jerusalem is widely recognized as Israel's capital."
+        },
+        {
+          "question": "What is the capital of Jamaica?",
+          "answer": "Kingston",
+          "explanation": "Kingston is the capital of Jamaica."
+        },
+        {
+          "question": "What is the capital of Jordan?",
+          "answer": "Amman",
+          "explanation": "Amman is the capital of Jordan."
+        },
+        {
+          "question": "What is the capital of Kazakhstan?",
+          "answer": "Astana",
+          "acceptedAnswers": ["nur-sultan", "nursultan"],
+          "explanation": "Astana is the capital of Kazakhstan."
+        },
+        {
+          "question": "What is the capital of Kiribati?",
+          "answer": "South Tarawa",
+          "acceptedAnswers": ["tarawa"],
+          "explanation": "South Tarawa serves as the capital of Kiribati."
+        },
+        {
+          "question": "What is the capital of Kuwait?",
+          "answer": "Kuwait City",
+          "acceptedAnswers": ["kuwait city"],
+          "explanation": "Kuwait City is the capital of Kuwait."
+        },
+        {
+          "question": "What is the capital of Kyrgyzstan?",
+          "answer": "Bishkek",
+          "explanation": "Bishkek is the capital of Kyrgyzstan."
+        },
+        {
+          "question": "What is the capital of Laos?",
+          "answer": "Vientiane",
+          "explanation": "Vientiane is the capital of Laos."
+        },
+        {
+          "question": "What is the capital of Latvia?",
+          "answer": "Riga",
+          "explanation": "Riga is the capital of Latvia."
+        },
+        {
+          "question": "What is the capital of Lebanon?",
+          "answer": "Beirut",
+          "explanation": "Beirut is the capital of Lebanon."
+        },
+        {
+          "question": "What is the capital of Lesotho?",
+          "answer": "Maseru",
+          "explanation": "Maseru is the capital of Lesotho."
+        },
+        {
+          "question": "What is the capital of Liberia?",
+          "answer": "Monrovia",
+          "explanation": "Monrovia is the capital of Liberia."
+        },
+        {
+          "question": "What is the capital of Libya?",
+          "answer": "Tripoli",
+          "explanation": "Tripoli is the capital of Libya."
+        },
+        {
+          "question": "What is the capital of Liechtenstein?",
+          "answer": "Vaduz",
+          "explanation": "Vaduz is the capital of Liechtenstein."
+        },
+        {
+          "question": "What is the capital of Lithuania?",
+          "answer": "Vilnius",
+          "explanation": "Vilnius is the capital of Lithuania."
+        },
+        {
+          "question": "What is the capital of Luxembourg?",
+          "answer": "Luxembourg City",
+          "acceptedAnswers": ["luxembourg"],
+          "explanation": "Luxembourg City is the capital of Luxembourg."
+        },
+        {
+          "question": "What is the capital of Madagascar?",
+          "answer": "Antananarivo",
+          "explanation": "Antananarivo is the capital of Madagascar."
+        },
+        {
+          "question": "What is the capital of Malawi?",
+          "answer": "Lilongwe",
+          "explanation": "Lilongwe is the capital of Malawi."
+        },
+        {
+          "question": "What is the capital of Malaysia?",
+          "answer": "Kuala Lumpur",
+          "acceptedAnswers": ["kualalumpur"],
+          "explanation": "Kuala Lumpur is the national capital of Malaysia."
+        },
+        {
+          "question": "What is the capital of the Maldives?",
+          "answer": "Male",
+          "acceptedAnswers": ["malé"],
+          "explanation": "Male is the capital of the Maldives."
+        },
+        {
+          "question": "What is the capital of Mali?",
+          "answer": "Bamako",
+          "explanation": "Bamako is the capital of Mali."
+        },
+        {
+          "question": "What is the capital of Malta?",
+          "answer": "Valletta",
+          "explanation": "Valletta is the capital of Malta."
+        },
+        {
+          "question": "What is the capital of the Marshall Islands?",
+          "answer": "Majuro",
+          "explanation": "Majuro is the capital of the Marshall Islands."
+        },
+        {
+          "question": "What is the capital of Mauritania?",
+          "answer": "Nouakchott",
+          "explanation": "Nouakchott is the capital of Mauritania."
+        },
+        {
+          "question": "What is the capital of Mauritius?",
+          "answer": "Port Louis",
+          "acceptedAnswers": ["portlouis"],
+          "explanation": "Port Louis is the capital of Mauritius."
+        },
+        {
+          "question": "What is the capital of Micronesia?",
+          "answer": "Palikir",
+          "explanation": "Palikir is the capital of the Federated States of Micronesia."
+        },
+        {
+          "question": "What is the capital of Moldova?",
+          "answer": "Chisinau",
+          "acceptedAnswers": ["chișinău", "chisinau"],
+          "explanation": "Chisinau is the capital of Moldova."
+        },
+        {
+          "question": "What is the capital of Monaco?",
+          "answer": "Monaco",
+          "acceptedAnswers": ["monaco ville", "monaco city"],
+          "explanation": "Monaco is a city-state whose capital is also Monaco."
+        },
+        {
+          "question": "What is the capital of Mongolia?",
+          "answer": "Ulaanbaatar",
+          "acceptedAnswers": ["ulaan bataar", "ulan bator"],
+          "explanation": "Ulaanbaatar is the capital of Mongolia."
+        },
+        {
+          "question": "What is the capital of Montenegro?",
+          "answer": "Podgorica",
+          "explanation": "Podgorica is the capital of Montenegro."
+        },
+        {
+          "question": "What is the capital of Morocco?",
+          "answer": "Rabat",
+          "explanation": "Rabat is the capital of Morocco."
+        },
+        {
+          "question": "What is the capital of Mozambique?",
+          "answer": "Maputo",
+          "explanation": "Maputo is the capital of Mozambique."
+        },
+        {
+          "question": "What is the capital of Myanmar?",
+          "answer": "Naypyidaw",
+          "acceptedAnswers": ["nay pyi taw", "naypyitaw"],
+          "explanation": "Naypyidaw is the capital of Myanmar."
+        },
+        {
+          "question": "What is the capital of Namibia?",
+          "answer": "Windhoek",
+          "explanation": "Windhoek is the capital of Namibia."
+        },
+        {
+          "question": "What district serves as the capital of Nauru?",
+          "answer": "Yaren",
+          "acceptedAnswers": ["yaren district"],
+          "explanation": "Nauru does not have an official capital, but Yaren is the de facto capital district."
+        },
+        {
+          "question": "What is the capital of Nepal?",
+          "answer": "Kathmandu",
+          "explanation": "Kathmandu is the capital of Nepal."
+        },
+        {
+          "question": "What is the capital of the Netherlands?",
+          "answer": "Amsterdam",
+          "explanation": "Amsterdam is the capital of the Netherlands."
+        },
+        {
+          "question": "What is the capital of New Zealand?",
+          "answer": "Wellington",
+          "explanation": "Wellington is the capital of New Zealand."
+        },
+        {
+          "question": "What is the capital of Nicaragua?",
+          "answer": "Managua",
+          "explanation": "Managua is the capital of Nicaragua."
+        },
+        {
+          "question": "What is the capital of Niger?",
+          "answer": "Niamey",
+          "explanation": "Niamey is the capital of Niger."
+        },
+        {
+          "question": "What is the capital of Nigeria?",
+          "answer": "Abuja",
+          "explanation": "Abuja is the capital of Nigeria."
+        },
+        {
+          "question": "What is the capital of North Korea?",
+          "answer": "Pyongyang",
+          "explanation": "Pyongyang is the capital of North Korea."
+        },
+        {
+          "question": "What is the capital of North Macedonia?",
+          "answer": "Skopje",
+          "explanation": "Skopje is the capital of North Macedonia."
+        },
+        {
+          "question": "What is the capital of Norway?",
+          "answer": "Oslo",
+          "explanation": "Oslo is the capital of Norway."
+        },
+        {
+          "question": "What is the capital of Oman?",
+          "answer": "Muscat",
+          "explanation": "Muscat is the capital of Oman."
+        },
+        {
+          "question": "What is the capital of Pakistan?",
+          "answer": "Islamabad",
+          "explanation": "Islamabad is the capital of Pakistan."
+        },
+        {
+          "question": "What is the capital of Palau?",
+          "answer": "Ngerulmud",
+          "explanation": "Ngerulmud is the capital of Palau."
+        },
+        {
+          "question": "What is the capital of Palestine?",
+          "answer": "East Jerusalem",
+          "acceptedAnswers": ["jerusalem", "ramallah"],
+          "explanation": "East Jerusalem is claimed as the capital of Palestine, while Ramallah serves as the administrative center."
+        },
+        {
+          "question": "What is the capital of Panama?",
+          "answer": "Panama City",
+          "acceptedAnswers": ["panama city"],
+          "explanation": "Panama City is the capital of Panama."
+        },
+        {
+          "question": "What is the capital of Papua New Guinea?",
+          "answer": "Port Moresby",
+          "acceptedAnswers": ["portmoresby"],
+          "explanation": "Port Moresby is the capital of Papua New Guinea."
+        },
+        {
+          "question": "What is the capital of Paraguay?",
+          "answer": "Asuncion",
+          "acceptedAnswers": ["asunción"],
+          "explanation": "Asuncion is the capital of Paraguay."
+        },
+        {
+          "question": "What is the capital of Peru?",
+          "answer": "Lima",
+          "explanation": "Lima is the capital of Peru."
+        },
+        {
+          "question": "What is the capital of the Philippines?",
+          "answer": "Manila",
+          "explanation": "Manila is the capital of the Philippines."
+        },
+        {
+          "question": "What is the capital of Poland?",
+          "answer": "Warsaw",
+          "explanation": "Warsaw is the capital of Poland."
+        },
+        {
+          "question": "What is the capital of Portugal?",
+          "answer": "Lisbon",
+          "explanation": "Lisbon is the capital of Portugal."
+        },
+        {
+          "question": "What is the capital of Qatar?",
+          "answer": "Doha",
+          "explanation": "Doha is the capital of Qatar."
+        },
+        {
+          "question": "What is the capital of the Republic of the Congo?",
+          "answer": "Brazzaville",
+          "explanation": "Brazzaville is the capital of the Republic of the Congo."
+        },
+        {
+          "question": "What is the capital of Romania?",
+          "answer": "Bucharest",
+          "explanation": "Bucharest is the capital of Romania."
+        },
+        {
+          "question": "What is the capital of Russia?",
+          "answer": "Moscow",
+          "explanation": "Moscow is the capital of Russia."
+        },
+        {
+          "question": "What is the capital of Rwanda?",
+          "answer": "Kigali",
+          "explanation": "Kigali is the capital of Rwanda."
+        },
+        {
+          "question": "What is the capital of Saint Kitts and Nevis?",
+          "answer": "Basseterre",
+          "explanation": "Basseterre is the capital of Saint Kitts and Nevis."
+        },
+        {
+          "question": "What is the capital of Saint Lucia?",
+          "answer": "Castries",
+          "explanation": "Castries is the capital of Saint Lucia."
+        },
+        {
+          "question": "What is the capital of Saint Vincent and the Grenadines?",
+          "answer": "Kingstown",
+          "explanation": "Kingstown is the capital of Saint Vincent and the Grenadines."
+        },
+        {
+          "question": "What is the capital of Samoa?",
+          "answer": "Apia",
+          "explanation": "Apia is the capital of Samoa."
+        },
+        {
+          "question": "What is the capital of San Marino?",
+          "answer": "San Marino",
+          "acceptedAnswers": ["city of san marino"],
+          "explanation": "San Marino is the capital of San Marino."
+        },
+        {
+          "question": "What is the capital of Sao Tome and Principe?",
+          "answer": "Sao Tome",
+          "acceptedAnswers": ["são tomé", "sao tome"],
+          "explanation": "Sao Tome is the capital of Sao Tome and Principe."
+        },
+        {
+          "question": "What is the capital of Saudi Arabia?",
+          "answer": "Riyadh",
+          "explanation": "Riyadh is the capital of Saudi Arabia."
+        },
+        {
+          "question": "What is the capital of Senegal?",
+          "answer": "Dakar",
+          "explanation": "Dakar is the capital of Senegal."
+        },
+        {
+          "question": "What is the capital of Serbia?",
+          "answer": "Belgrade",
+          "explanation": "Belgrade is the capital of Serbia."
+        },
+        {
+          "question": "What is the capital of Seychelles?",
+          "answer": "Victoria",
+          "explanation": "Victoria is the capital of Seychelles."
+        },
+        {
+          "question": "What is the capital of Sierra Leone?",
+          "answer": "Freetown",
+          "explanation": "Freetown is the capital of Sierra Leone."
+        },
+        {
+          "question": "What is the capital of Singapore?",
+          "answer": "Singapore",
+          "acceptedAnswers": ["singapore city"],
+          "explanation": "Singapore is a city-state whose capital is Singapore."
+        },
+        {
+          "question": "What is the capital of Slovakia?",
+          "answer": "Bratislava",
+          "explanation": "Bratislava is the capital of Slovakia."
+        },
+        {
+          "question": "What is the capital of Slovenia?",
+          "answer": "Ljubljana",
+          "explanation": "Ljubljana is the capital of Slovenia."
+        },
+        {
+          "question": "What is the capital of the Solomon Islands?",
+          "answer": "Honiara",
+          "explanation": "Honiara is the capital of the Solomon Islands."
+        },
+        {
+          "question": "What is the capital of Somalia?",
+          "answer": "Mogadishu",
+          "explanation": "Mogadishu is the capital of Somalia."
+        },
+        {
+          "question": "What is South Africa's administrative capital?",
+          "answer": "Pretoria",
+          "acceptedAnswers": ["tshwane"],
+          "explanation": "Pretoria is South Africa's administrative capital. Cape Town is the legislative capital and Bloemfontein is the judicial capital."
+        },
+        {
+          "question": "What is the capital of South Sudan?",
+          "answer": "Juba",
+          "explanation": "Juba is the capital of South Sudan."
+        },
+        {
+          "question": "What is Sri Lanka's legislative capital?",
+          "answer": "Sri Jayawardenepura Kotte",
+          "acceptedAnswers": ["kotte", "colombo"],
+          "explanation": "Sri Jayawardenepura Kotte is Sri Lanka's official legislative capital, while Colombo is the largest city and commercial center."
+        },
+        {
+          "question": "What is the capital of Sudan?",
+          "answer": "Khartoum",
+          "explanation": "Khartoum is the capital of Sudan."
+        },
+        {
+          "question": "What is the capital of Suriname?",
+          "answer": "Paramaribo",
+          "explanation": "Paramaribo is the capital of Suriname."
+        },
+        {
+          "question": "What is the capital of Sweden?",
+          "answer": "Stockholm",
+          "explanation": "Stockholm is the capital of Sweden."
+        },
+        {
+          "question": "What is the capital of Switzerland?",
+          "answer": "Bern",
+          "explanation": "Bern is the federal city and de facto capital of Switzerland."
+        },
+        {
+          "question": "What is the capital of Syria?",
+          "answer": "Damascus",
+          "explanation": "Damascus is the capital of Syria."
+        },
+        {
+          "question": "What is the capital of Tajikistan?",
+          "answer": "Dushanbe",
+          "explanation": "Dushanbe is the capital of Tajikistan."
+        },
+        {
+          "question": "What is the capital of Tanzania?",
+          "answer": "Dodoma",
+          "explanation": "Dodoma is the capital of Tanzania."
+        },
+        {
+          "question": "What is the capital of Timor-Leste?",
+          "answer": "Dili",
+          "explanation": "Dili is the capital of Timor-Leste."
+        },
+        {
+          "question": "What is the capital of Togo?",
+          "answer": "Lome",
+          "acceptedAnswers": ["lomé"],
+          "explanation": "Lome is the capital of Togo."
+        },
+        {
+          "question": "What is the capital of Tonga?",
+          "answer": "Nuku'alofa",
+          "acceptedAnswers": ["nukualofa"],
+          "explanation": "Nuku'alofa is the capital of Tonga."
+        },
+        {
+          "question": "What is the capital of Trinidad and Tobago?",
+          "answer": "Port of Spain",
+          "acceptedAnswers": ["portofspain"],
+          "explanation": "Port of Spain is the capital of Trinidad and Tobago."
+        },
+        {
+          "question": "What is the capital of Tunisia?",
+          "answer": "Tunis",
+          "explanation": "Tunis is the capital of Tunisia."
+        },
+        {
+          "question": "What is the capital of Turkmenistan?",
+          "answer": "Ashgabat",
+          "acceptedAnswers": ["ashkhabad"],
+          "explanation": "Ashgabat is the capital of Turkmenistan."
+        },
+        {
+          "question": "What is the capital of Tuvalu?",
+          "answer": "Funafuti",
+          "explanation": "Funafuti is the capital of Tuvalu."
+        },
+        {
+          "question": "What is the capital of Uganda?",
+          "answer": "Kampala",
+          "explanation": "Kampala is the capital of Uganda."
+        },
+        {
+          "question": "What is the capital of Ukraine?",
+          "answer": "Kyiv",
+          "acceptedAnswers": ["kiev"],
+          "explanation": "Kyiv is the capital of Ukraine."
+        },
+        {
+          "question": "What is the capital of the United Arab Emirates?",
+          "answer": "Abu Dhabi",
+          "acceptedAnswers": ["abudhabi"],
+          "explanation": "Abu Dhabi is the capital of the United Arab Emirates."
+        },
+        {
+          "question": "What is the capital of the United States?",
+          "answer": "Washington, D.C.",
+          "acceptedAnswers": ["washington dc", "washington d c", "dc"],
+          "explanation": "Washington, D.C. is the capital of the United States."
+        },
+        {
+          "question": "What is the capital of Uruguay?",
+          "answer": "Montevideo",
+          "explanation": "Montevideo is the capital of Uruguay."
+        },
+        {
+          "question": "What is the capital of Uzbekistan?",
+          "answer": "Tashkent",
+          "explanation": "Tashkent is the capital of Uzbekistan."
+        },
+        {
+          "question": "What is the capital of Vanuatu?",
+          "answer": "Port Vila",
+          "acceptedAnswers": ["portvila"],
+          "explanation": "Port Vila is the capital of Vanuatu."
+        },
+        {
+          "question": "What is the capital of Vatican City?",
+          "answer": "Vatican City",
+          "acceptedAnswers": ["the vatican", "vatican"],
+          "explanation": "Vatican City is a city-state whose capital is Vatican City."
+        },
+        {
+          "question": "What is the capital of Venezuela?",
+          "answer": "Caracas",
+          "explanation": "Caracas is the capital of Venezuela."
+        },
+        {
+          "question": "What is the capital of Vietnam?",
+          "answer": "Hanoi",
+          "explanation": "Hanoi is the capital of Vietnam."
+        },
+        {
+          "question": "What is the capital of Yemen?",
+          "answer": "Sanaa",
+          "acceptedAnswers": ["sana'a", "sanaa"],
+          "explanation": "Sanaa is the capital of Yemen."
+        },
+        {
+          "question": "What is the capital of Zambia?",
+          "answer": "Lusaka",
+          "explanation": "Lusaka is the capital of Zambia."
+        },
+        {
+          "question": "What is the capital of Zimbabwe?",
+          "answer": "Harare",
+          "explanation": "Harare is the capital of Zimbabwe."
+        }
+      ]
+    },
+    {
+      "id": "movies",
+      "label": "Movies",
+      "description": "Big-name films, characters, actors, directors, and blockbuster franchises.",
+      "questions": [
+        {
+          "question": "Who directed Titanic?",
+          "answer": "James Cameron",
+          "acceptedAnswers": ["cameron"],
+          "explanation": "James Cameron directed Titanic and Avatar."
+        },
+        {
+          "question": "Which actor played Jack in Titanic?",
+          "answer": "Leonardo DiCaprio",
+          "acceptedAnswers": ["leo", "dicaprio"],
+          "explanation": "Leonardo DiCaprio played Jack Dawson in Titanic."
+        },
+        {
+          "question": "Which actress played Hermione Granger in the Harry Potter films?",
+          "answer": "Emma Watson",
+          "acceptedAnswers": ["watson"],
+          "explanation": "Emma Watson portrayed Hermione across the film series."
+        },
+        {
+          "question": "What is the name of the wizard school in Harry Potter?",
+          "answer": "Hogwarts",
+          "acceptedAnswers": ["hogwarts school of witchcraft and wizardry"],
+          "explanation": "Harry Potter attends Hogwarts School of Witchcraft and Wizardry."
+        },
+        {
+          "question": "Which movie franchise is known for the phrase May the Force be with you?",
+          "answer": "Star Wars",
+          "acceptedAnswers": ["starwars"],
+          "explanation": "May the Force be with you is one of Star Wars's most famous lines."
+        },
+        {
+          "question": "What is the name of the blue alien world in Avatar?",
+          "answer": "Pandora",
+          "explanation": "Avatar takes place primarily on Pandora."
+        },
+        {
+          "question": "Which actor played Iron Man in the Marvel Cinematic Universe?",
+          "answer": "Robert Downey Jr.",
+          "acceptedAnswers": ["robert downey jr", "rdj", "downey"],
+          "explanation": "Robert Downey Jr. launched the MCU as Iron Man."
+        },
+        {
+          "question": "Which actor played T'Challa in Black Panther?",
+          "answer": "Chadwick Boseman",
+          "acceptedAnswers": ["boseman"],
+          "explanation": "Chadwick Boseman starred as T'Challa in Black Panther."
+        },
+        {
+          "question": "What is the name of the clownfish in Finding Nemo?",
+          "answer": "Nemo",
+          "explanation": "Finding Nemo centers on Marlin searching for Nemo."
+        },
+        {
+          "question": "What is the name of the cowboy doll in Toy Story?",
+          "answer": "Woody",
+          "explanation": "Woody is one of Toy Story's main characters."
+        },
+        {
+          "question": "What is the name of the space ranger toy in Toy Story?",
+          "answer": "Buzz Lightyear",
+          "acceptedAnswers": ["buzz"],
+          "explanation": "Buzz Lightyear is Woody's fellow lead in Toy Story."
+        },
+        {
+          "question": "Which green ogre is the title character of a DreamWorks franchise?",
+          "answer": "Shrek",
+          "explanation": "Shrek is the title character of the Shrek movies."
+        },
+        {
+          "question": "Which actress played Katniss Everdeen in The Hunger Games films?",
+          "answer": "Jennifer Lawrence",
+          "acceptedAnswers": ["lawrence"],
+          "explanation": "Jennifer Lawrence portrayed Katniss Everdeen."
+        },
+        {
+          "question": "Which actor played Captain Jack Sparrow in Pirates of the Caribbean?",
+          "answer": "Johnny Depp",
+          "acceptedAnswers": ["depp"],
+          "explanation": "Johnny Depp made Jack Sparrow one of his best-known roles."
+        },
+        {
+          "question": "What is the name of the kingdom in Frozen?",
+          "answer": "Arendelle",
+          "explanation": "Anna and Elsa are from Arendelle."
+        },
+        {
+          "question": "What is the name of the snowman in Frozen?",
+          "answer": "Olaf",
+          "explanation": "Olaf is the friendly snowman in Frozen."
+        },
+        {
+          "question": "Who directed Jurassic Park?",
+          "answer": "Steven Spielberg",
+          "acceptedAnswers": ["spielberg"],
+          "explanation": "Steven Spielberg directed Jurassic Park."
+        },
+        {
+          "question": "Which yellow robot is one of the most recognizable Transformers characters?",
+          "answer": "Bumblebee",
+          "explanation": "Bumblebee is one of the franchise's most famous Autobots."
+        },
+        {
+          "question": "What fictional city does Batman protect?",
+          "answer": "Gotham City",
+          "acceptedAnswers": ["gotham"],
+          "explanation": "Batman is the protector of Gotham City."
+        },
+        {
+          "question": "What fictional city does Superman protect?",
+          "answer": "Metropolis",
+          "explanation": "Superman is most associated with Metropolis."
+        },
+        {
+          "question": "Who is Shrek's talkative sidekick?",
+          "answer": "Donkey",
+          "explanation": "Donkey is Shrek's most famous sidekick."
+        },
+        {
+          "question": "Which movie features the line I'm king of the world?",
+          "answer": "Titanic",
+          "explanation": "Leonardo DiCaprio's Jack shouts the line in Titanic."
+        },
+        {
+          "question": "Which Marvel movie is set in Wakanda?",
+          "answer": "Black Panther",
+          "acceptedAnswers": ["blackpanther"],
+          "explanation": "Wakanda is the fictional nation in Black Panther."
+        },
+        {
+          "question": "Which actor played the Joker in The Dark Knight?",
+          "answer": "Heath Ledger",
+          "acceptedAnswers": ["ledger"],
+          "explanation": "Heath Ledger won a posthumous Oscar for the role."
+        },
+        {
+          "question": "Who directed Jaws?",
+          "answer": "Steven Spielberg",
+          "acceptedAnswers": ["spielberg"],
+          "explanation": "Jaws was one of Steven Spielberg's defining early hits."
+        },
+        {
+          "question": "Who carries the One Ring in The Lord of the Rings films?",
+          "answer": "Frodo Baggins",
+          "acceptedAnswers": ["frodo"],
+          "explanation": "Frodo Baggins is the ring-bearer in The Lord of the Rings."
+        },
+        {
+          "question": "Which character says my precious in The Lord of the Rings?",
+          "answer": "Gollum",
+          "acceptedAnswers": ["smeagol", "sméagol"],
+          "explanation": "Gollum is obsessed with the One Ring."
+        },
+        {
+          "question": "What is the name of the lion cub who becomes king in The Lion King?",
+          "answer": "Simba",
+          "explanation": "Simba is the main character of The Lion King."
+        },
+        {
+          "question": "Which Disney princess is a mermaid?",
+          "answer": "Ariel",
+          "explanation": "Ariel is the main character of The Little Mermaid."
+        },
+        {
+          "question": "Which Pixar movie takes place inside a girl's mind and personifies emotions?",
+          "answer": "Inside Out",
+          "acceptedAnswers": ["insideout"],
+          "explanation": "Inside Out turns emotions into characters like Joy and Sadness."
+        },
+        {
+          "question": "Which movie hero is an archaeologist known for a whip and fedora?",
+          "answer": "Indiana Jones",
+          "acceptedAnswers": ["indy"],
+          "explanation": "Indiana Jones is the globe-trotting archaeologist played by Harrison Ford."
+        },
+        {
+          "question": "Which actor played Spider-Man in Sam Raimi's first movie trilogy?",
+          "answer": "Tobey Maguire",
+          "acceptedAnswers": ["tobey", "maguire"],
+          "explanation": "Tobey Maguire played Peter Parker in the early 2000s trilogy."
+        },
+        {
+          "question": "Which actress played Barbie in the 2023 movie Barbie?",
+          "answer": "Margot Robbie",
+          "acceptedAnswers": ["robbie"],
+          "explanation": "Margot Robbie starred as Barbie in Greta Gerwig's Barbie."
+        },
+        {
+          "question": "Which actor played Ken in the 2023 movie Barbie?",
+          "answer": "Ryan Gosling",
+          "acceptedAnswers": ["gosling"],
+          "explanation": "Ryan Gosling played Ken in Barbie."
+        },
+        {
+          "question": "In which movie do characters sing Let It Go?",
+          "answer": "Frozen",
+          "explanation": "Let It Go is the signature song from Frozen."
+        },
+        {
+          "question": "Which boxing movie franchise features Rocky Balboa?",
+          "answer": "Rocky",
+          "explanation": "Rocky Balboa is the title character of the Rocky franchise."
+        },
+        {
+          "question": "Which actor played Wolverine for many years in the X-Men films?",
+          "answer": "Hugh Jackman",
+          "acceptedAnswers": ["jackman"],
+          "explanation": "Hugh Jackman became closely identified with Wolverine."
+        },
+        {
+          "question": "Which actor played Captain America in the Marvel Cinematic Universe?",
+          "answer": "Chris Evans",
+          "acceptedAnswers": ["evans"],
+          "explanation": "Chris Evans played Steve Rogers in the MCU."
+        },
+        {
+          "question": "Who is the villainous lion in The Lion King?",
+          "answer": "Scar",
+          "explanation": "Scar is Simba's uncle and the main villain of The Lion King."
+        },
+        {
+          "question": "Which movie monster is a giant ape who climbs the Empire State Building?",
+          "answer": "King Kong",
+          "acceptedAnswers": ["kong"],
+          "explanation": "King Kong is the giant ape from the long-running film franchise."
+        },
+        {
+          "question": "What is the name of Pixar's trash-compacting robot left on Earth?",
+          "answer": "WALL-E",
+          "acceptedAnswers": ["walle", "wall e"],
+          "explanation": "WALL-E is the main character of Pixar's WALL-E."
+        },
+        {
+          "question": "Which animated movie features the dragon Toothless?",
+          "answer": "How to Train Your Dragon",
+          "acceptedAnswers": ["httyd", "how to train dragon"],
+          "explanation": "Toothless is Hiccup's dragon in How to Train Your Dragon."
+        },
+        {
+          "question": "Which actor played Neo in The Matrix?",
+          "answer": "Keanu Reeves",
+          "acceptedAnswers": ["keanu", "reeves"],
+          "explanation": "Keanu Reeves played Neo in The Matrix series."
+        },
+        {
+          "question": "Who directed E.T. the Extra-Terrestrial?",
+          "answer": "Steven Spielberg",
+          "acceptedAnswers": ["spielberg"],
+          "explanation": "E.T. was directed by Steven Spielberg."
+        },
+        {
+          "question": "Which actress played Elle Woods in Legally Blonde?",
+          "answer": "Reese Witherspoon",
+          "acceptedAnswers": ["witherspoon", "reese"],
+          "explanation": "Reese Witherspoon starred as Elle Woods in Legally Blonde."
+        },
+        {
+          "question": "Which film franchise follows spy Ethan Hunt?",
+          "answer": "Mission: Impossible",
+          "acceptedAnswers": ["mission impossible", "mi"],
+          "explanation": "Ethan Hunt is the central character of the Mission: Impossible series."
+        },
+        {
+          "question": "Which actor played Forrest Gump?",
+          "answer": "Tom Hanks",
+          "acceptedAnswers": ["hanks"],
+          "explanation": "Tom Hanks won an Oscar for Forrest Gump."
+        },
+        {
+          "question": "Which movie series centers on Andy and his toys?",
+          "answer": "Toy Story",
+          "acceptedAnswers": ["toystory"],
+          "explanation": "Andy is the original child owner in the Toy Story movies."
+        },
+        {
+          "question": "Which South Korean film won the Academy Award for Best Picture for 2019?",
+          "answer": "Parasite",
+          "explanation": "Parasite became the first non-English-language film to win Best Picture."
+        },
+        {
+          "question": "Which actor played Harry Potter in the film series?",
+          "answer": "Daniel Radcliffe",
+          "acceptedAnswers": ["radcliffe"],
+          "explanation": "Daniel Radcliffe starred as Harry Potter across all eight films."
+        },
+        {
+          "question": "Who directed Barbie?",
+          "answer": "Greta Gerwig",
+          "acceptedAnswers": ["gerwig"],
+          "explanation": "Greta Gerwig directed Barbie."
+        },
+        {
+          "question": "Which actor played Spider-Man in the MCU's main live-action trilogy?",
+          "answer": "Tom Holland",
+          "acceptedAnswers": ["holland"],
+          "explanation": "Tom Holland plays Spider-Man in the MCU films."
+        },
+        {
+          "question": "Which actress played MJ opposite Tom Holland's Spider-Man?",
+          "answer": "Zendaya",
+          "explanation": "Zendaya plays MJ in the MCU Spider-Man films."
+        },
+        {
+          "question": "Which animated Spider-Man movie stars Miles Morales?",
+          "answer": "Spider-Man: Into the Spider-Verse",
+          "acceptedAnswers": ["into the spider verse", "spider verse", "spider-man into the spider-verse"],
+          "explanation": "Into the Spider-Verse introduced Miles Morales in a hit animated film."
+        },
+        {
+          "question": "Which Disney movie features Mirabel Madrigal?",
+          "answer": "Encanto",
+          "explanation": "Mirabel is the main character of Encanto."
+        },
+        {
+          "question": "Which Encanto song became a huge viral hit?",
+          "answer": "We Don't Talk About Bruno",
+          "acceptedAnswers": ["we dont talk about bruno", "we don't talk about bruno"],
+          "explanation": "We Don't Talk About Bruno became Encanto's biggest song."
+        },
+        {
+          "question": "Which Pixar movie follows Miguel into the Land of the Dead?",
+          "answer": "Coco",
+          "explanation": "Coco follows Miguel on Dia de los Muertos."
+        },
+        {
+          "question": "Which movie franchise features Lightning McQueen?",
+          "answer": "Cars",
+          "explanation": "Lightning McQueen is the lead character of Pixar's Cars franchise."
+        },
+        {
+          "question": "What number is Lightning McQueen best known for?",
+          "answer": "95",
+          "acceptedAnswers": ["ninety five"],
+          "explanation": "Lightning McQueen races with the number 95."
+        },
+        {
+          "question": "Which 2023 biopic centers on J. Robert Oppenheimer?",
+          "answer": "Oppenheimer",
+          "explanation": "Oppenheimer is Christopher Nolan's film about J. Robert Oppenheimer."
+        },
+        {
+          "question": "Who directed Oppenheimer?",
+          "answer": "Christopher Nolan",
+          "acceptedAnswers": ["nolan"],
+          "explanation": "Christopher Nolan directed Oppenheimer."
+        },
+        {
+          "question": "Which movie franchise features the killer Ghostface?",
+          "answer": "Scream",
+          "explanation": "Ghostface is the masked killer in the Scream films."
+        },
+        {
+          "question": "Which horror universe includes the doll Annabelle?",
+          "answer": "The Conjuring Universe",
+          "acceptedAnswers": ["conjuring universe", "the conjuring"],
+          "explanation": "Annabelle is one of the best-known characters in The Conjuring Universe."
+        },
+        {
+          "question": "Which villain is the sea witch in The Little Mermaid?",
+          "answer": "Ursula",
+          "explanation": "Ursula is the main villain of The Little Mermaid."
+        },
+        {
+          "question": "In which Disney movie do characters sing A Whole New World?",
+          "answer": "Aladdin",
+          "explanation": "A Whole New World is one of Aladdin's signature songs."
+        },
+        {
+          "question": "Which actor plays Deadpool in the live-action films?",
+          "answer": "Ryan Reynolds",
+          "acceptedAnswers": ["reynolds"],
+          "explanation": "Ryan Reynolds is closely identified with Deadpool."
+        },
+        {
+          "question": "Which movie franchise centers on Dominic Toretto and street racing?",
+          "answer": "Fast & Furious",
+          "acceptedAnswers": ["fast and furious", "the fast and the furious", "fast furious"],
+          "explanation": "Dominic Toretto is the central character of the Fast & Furious series."
+        },
+        {
+          "question": "Which actor played the Joker in Joker (2019)?",
+          "answer": "Joaquin Phoenix",
+          "acceptedAnswers": ["phoenix"],
+          "explanation": "Joaquin Phoenix won an Oscar for playing the Joker in Joker."
+        },
+        {
+          "question": "In which movie does Katniss say I volunteer as tribute?",
+          "answer": "The Hunger Games",
+          "acceptedAnswers": ["hunger games"],
+          "explanation": "Katniss says the line in the first Hunger Games film."
+        },
+        {
+          "question": "Which actor played Thor in the Marvel Cinematic Universe?",
+          "answer": "Chris Hemsworth",
+          "acceptedAnswers": ["hemsworth"],
+          "explanation": "Chris Hemsworth plays Thor in the MCU."
+        },
+        {
+          "question": "Which actress played Black Widow in the Marvel Cinematic Universe?",
+          "answer": "Scarlett Johansson",
+          "acceptedAnswers": ["johansson", "scarlett"],
+          "explanation": "Scarlett Johansson played Natasha Romanoff in the MCU."
+        },
+        {
+          "question": "Which actor voiced Maui in Moana?",
+          "answer": "Dwayne Johnson",
+          "acceptedAnswers": ["the rock", "dwayne the rock johnson"],
+          "explanation": "Dwayne Johnson voiced Maui in Moana."
+        },
+        {
+          "question": "Which Disney movie features the demigod Maui?",
+          "answer": "Moana",
+          "explanation": "Maui appears in Disney's Moana."
+        },
+        {
+          "question": "Which movie musical features Elphaba and Glinda?",
+          "answer": "Wicked",
+          "explanation": "Wicked centers on Elphaba and Glinda."
+        },
+        {
+          "question": "Which actress played Elphaba in Wicked?",
+          "answer": "Cynthia Erivo",
+          "acceptedAnswers": ["erivo"],
+          "explanation": "Cynthia Erivo plays Elphaba in Wicked."
+        },
+        {
+          "question": "Which singer-actress played Glinda in Wicked?",
+          "answer": "Ariana Grande",
+          "acceptedAnswers": ["ariana"],
+          "explanation": "Ariana Grande plays Glinda in Wicked."
+        },
+        {
+          "question": "Which actor played Willy Wonka in Wonka?",
+          "answer": "Timothee Chalamet",
+          "acceptedAnswers": ["timothee", "chalamet", "timothée chalamet"],
+          "explanation": "Timothee Chalamet starred as Willy Wonka in Wonka."
+        },
+        {
+          "question": "Which action franchise follows an assassin named John Wick?",
+          "answer": "John Wick",
+          "explanation": "John Wick is the title character of the John Wick films."
+        },
+        {
+          "question": "Which Halloween movie features the Sanderson sisters?",
+          "answer": "Hocus Pocus",
+          "acceptedAnswers": ["hocuspocus"],
+          "explanation": "The Sanderson sisters appear in Hocus Pocus."
+        },
+        {
+          "question": "Which teen comedy movie features Regina George?",
+          "answer": "Mean Girls",
+          "acceptedAnswers": ["meangirls"],
+          "explanation": "Regina George is one of Mean Girls's most famous characters."
+        },
+        {
+          "question": "Which actress played Regina George in the 2004 film Mean Girls?",
+          "answer": "Rachel McAdams",
+          "acceptedAnswers": ["mcadams"],
+          "explanation": "Rachel McAdams played Regina George in Mean Girls."
+        },
+        {
+          "question": "Which movie features Jack Skellington?",
+          "answer": "The Nightmare Before Christmas",
+          "acceptedAnswers": ["nightmare before christmas", "nightmare before xmas"],
+          "explanation": "Jack Skellington is the lead character of The Nightmare Before Christmas."
+        },
+        {
+          "question": "Which actress played Rose in Titanic?",
+          "answer": "Kate Winslet",
+          "acceptedAnswers": ["winslet"],
+          "explanation": "Kate Winslet played Rose in Titanic."
+        },
+        {
+          "question": "Which actor voiced Shrek?",
+          "answer": "Mike Myers",
+          "acceptedAnswers": ["myers"],
+          "explanation": "Mike Myers voiced Shrek."
+        },
+        {
+          "question": "Which movie franchise features a bear named Paddington?",
+          "answer": "Paddington",
+          "explanation": "Paddington is the title character of the Paddington films."
+        },
+        {
+          "question": "Which actor played Willy Wonka in Charlie and the Chocolate Factory (2005)?",
+          "answer": "Johnny Depp",
+          "acceptedAnswers": ["depp"],
+          "explanation": "Johnny Depp played Willy Wonka in Tim Burton's 2005 film."
+        },
+        {
+          "question": "Which animated franchise features Gru and the Minions?",
+          "answer": "Despicable Me",
+          "acceptedAnswers": ["despicableme"],
+          "explanation": "Gru and the Minions are from the Despicable Me franchise."
+        },
+        {
+          "question": "What is the name of the villain-turned-dad in Despicable Me?",
+          "answer": "Gru",
+          "explanation": "Gru is the central character of Despicable Me."
+        },
+        {
+          "question": "Which movie centers on a magical board game that unleashes jungle chaos?",
+          "answer": "Jumanji",
+          "explanation": "Jumanji is the film about the dangerous magical board game."
+        },
+        {
+          "question": "What is the name of the boy left home alone in Home Alone?",
+          "answer": "Kevin McCallister",
+          "acceptedAnswers": ["kevin"],
+          "explanation": "Kevin McCallister is the child protagonist of Home Alone."
+        },
+        {
+          "question": "Which Christmas movie features Kevin McCallister?",
+          "answer": "Home Alone",
+          "acceptedAnswers": ["homealone"],
+          "explanation": "Kevin McCallister is the main character of Home Alone."
+        },
+        {
+          "question": "Which actress played Belle in the 2017 live-action Beauty and the Beast?",
+          "answer": "Emma Watson",
+          "acceptedAnswers": ["watson"],
+          "explanation": "Emma Watson played Belle in Disney's 2017 live-action remake."
+        },
+        {
+          "question": "Which animated movie features Judy Hopps and Nick Wilde?",
+          "answer": "Zootopia",
+          "acceptedAnswers": ["zootropolis"],
+          "explanation": "Judy Hopps and Nick Wilde are the leads of Zootopia."
+        },
+        {
+          "question": "Which character is Simba's father in The Lion King?",
+          "answer": "Mufasa",
+          "explanation": "Mufasa is Simba's father in The Lion King."
+        },
+        {
+          "question": "Which movie features the quote Why so serious?",
+          "answer": "The Dark Knight",
+          "acceptedAnswers": ["dark knight"],
+          "explanation": "The Joker says Why so serious? in The Dark Knight."
+        },
+        {
+          "question": "Which actress played Wednesday Addams in the animated Addams Family movies and also starred in Beetlejuice Beetlejuice?",
+          "answer": "Jenna Ortega",
+          "acceptedAnswers": ["ortega"],
+          "explanation": "Jenna Ortega is strongly associated with Wednesday and new gothic franchise roles."
+        }
+      ]
+    }
+  ]
+}

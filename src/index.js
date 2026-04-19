@@ -58,6 +58,11 @@ const {
   pickSummary
 } = require('./auData');
 
+const {
+  loadTriviaData,
+  resolveTriviaDataPath
+} = require('./triviaData');
+
 const { buildGlobalCommands, buildOfficialGuildCommands } = require('./commands');
 
 function requireEnv(name) {
@@ -253,6 +258,397 @@ function normalizeSubmittedPromptText(raw) {
   }
 
   return tokens.map((t) => t.value).join('');
+}
+
+const activeTriviaRounds = new Map();
+
+function normalizeTriviaText(raw) {
+  const input = typeof raw === 'string' ? raw : '';
+  return input
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function isWithinOneEdit(a, b) {
+  if (a === b) return true;
+  const left = typeof a === 'string' ? a : '';
+  const right = typeof b === 'string' ? b : '';
+  const lenA = left.length;
+  const lenB = right.length;
+
+  if (Math.abs(lenA - lenB) > 1) return false;
+
+  let i = 0;
+  let j = 0;
+  let edits = 0;
+
+  while (i < lenA && j < lenB) {
+    if (left[i] === right[j]) {
+      i += 1;
+      j += 1;
+      continue;
+    }
+
+    edits += 1;
+    if (edits > 1) return false;
+
+    if (lenA > lenB) {
+      i += 1;
+    } else if (lenB > lenA) {
+      j += 1;
+    } else {
+      i += 1;
+      j += 1;
+    }
+  }
+
+  if (i < lenA || j < lenB) edits += 1;
+  return edits <= 1;
+}
+
+function isTriviaAnswerMatch(input, acceptedAnswers) {
+  const normalizedGuess = normalizeTriviaText(input);
+  if (!normalizedGuess) return false;
+
+  const answers = Array.isArray(acceptedAnswers) ? acceptedAnswers : [];
+  for (const answer of answers) {
+    const normalizedAnswer = normalizeTriviaText(answer);
+    if (!normalizedAnswer) continue;
+    if (normalizedGuess === normalizedAnswer) return true;
+
+    const minLen = Math.min(normalizedGuess.length, normalizedAnswer.length);
+    if (minLen >= 4 && isWithinOneEdit(normalizedGuess, normalizedAnswer)) return true;
+  }
+
+  return false;
+}
+
+function shuffleArray(list) {
+  const out = Array.isArray(list) ? list.slice() : [];
+  for (let i = out.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = out[i];
+    out[i] = out[j];
+    out[j] = temp;
+  }
+  return out;
+}
+
+function splitTriviaWords(answer) {
+  return String(answer || '').trim().split(/\s+/).filter(Boolean);
+}
+
+function pigLatinizeWord(word) {
+  const clean = String(word || '').replace(/[^A-Za-z]/g, '');
+  if (!clean) return String(word || '');
+
+  const lower = clean.toLowerCase();
+  const vowelIndex = lower.search(/[aeiou]/);
+  if (vowelIndex === 0) return lower + 'yay';
+  if (vowelIndex < 0) return lower + 'ay';
+  return lower.slice(vowelIndex) + lower.slice(0, vowelIndex) + 'ay';
+}
+
+function buildTriviaHintPigLatin(answer) {
+  const words = splitTriviaWords(answer);
+  if (words.length === 0) return null;
+  return 'Pig latin: ' + words.map((word) => pigLatinizeWord(word)).join(' ');
+}
+
+function buildTriviaHintLetterStats(answer) {
+  const words = splitTriviaWords(answer);
+  const lettersOnly = String(answer || '').replace(/[^A-Za-z]/g, '');
+  if (!lettersOnly) return null;
+  const vowels = (lettersOnly.match(/[aeiou]/gi) || []).length;
+  const wordLengths = words
+    .map((word) => String(word).replace(/[^A-Za-z0-9]/g, '').length)
+    .filter((len) => len > 0);
+
+  return (
+    'Length: ' +
+    String(lettersOnly.length) +
+    ' letters, ' +
+    String(vowels) +
+    ' vowels, ' +
+    String(words.length) +
+    ' word' +
+    (words.length === 1 ? '' : 's') +
+    (wordLengths.length ? ' (' + wordLengths.join('-') + ')' : '')
+  );
+}
+
+function buildTriviaHintFirstLast(answer) {
+  const words = splitTriviaWords(answer);
+  if (words.length === 0) return null;
+
+  const masked = words.map((word) => {
+    const clean = String(word).replace(/[^A-Za-z0-9]/g, '');
+    if (!clean) return word;
+    if (clean.length <= 2) return clean;
+    return clean[0] + '#'.repeat(Math.max(0, clean.length - 2)) + clean[clean.length - 1];
+  });
+
+  return 'First and last letters: ' + masked.join(' / ');
+}
+
+function buildTriviaHintMasked(answer) {
+  const chars = Array.from(String(answer || ''));
+  const revealableIndexes = [];
+  for (let i = 0; i < chars.length; i += 1) {
+    if (/[A-Za-z0-9]/.test(chars[i])) revealableIndexes.push(i);
+  }
+  if (revealableIndexes.length === 0) return null;
+
+  const revealCount = Math.max(1, Math.ceil(revealableIndexes.length * 0.3));
+  const picked = new Set(shuffleArray(revealableIndexes).slice(0, revealCount));
+  const masked = chars.map((char, idx) => {
+    if (!/[A-Za-z0-9]/.test(char)) return char;
+    return picked.has(idx) ? char : '#';
+  }).join('');
+
+  return 'Masked: ' + masked;
+}
+
+function buildTriviaHintInitials(answer) {
+  const words = splitTriviaWords(answer);
+  if (words.length < 2) return null;
+
+  const masked = words.map((word) => {
+    const clean = String(word).replace(/[^A-Za-z0-9]/g, '');
+    if (!clean) return word;
+    return clean[0] + '#'.repeat(Math.max(0, clean.length - 1));
+  });
+
+  return 'Initials shape: ' + masked.join(' ');
+}
+
+function pickTriviaHints(answer) {
+  const candidates = [
+    buildTriviaHintPigLatin(answer),
+    buildTriviaHintLetterStats(answer),
+    buildTriviaHintFirstLast(answer),
+    buildTriviaHintMasked(answer),
+    buildTriviaHintInitials(answer)
+  ]
+    .filter((value) => typeof value === 'string' && value.trim() !== '');
+
+  const seen = new Set();
+  const unique = [];
+  for (const value of candidates) {
+    if (seen.has(value)) continue;
+    seen.add(value);
+    unique.push(value);
+  }
+
+  return shuffleArray(unique).slice(0, 2);
+}
+
+function formatTriviaQuestionCount(count) {
+  const n = Number.isFinite(Number(count)) ? Number(count) : 0;
+  return String(n) + ' question' + (n === 1 ? '' : 's');
+}
+
+function buildTriviaCategoryComponents({ ownerUserId, page, totalPages }) {
+  const safePage = Math.max(0, Number(page) || 0);
+  const safeTotalPages = Math.max(1, Number(totalPages) || 1);
+  const prevPage = Math.max(0, safePage - 1);
+  const nextPage = Math.min(safeTotalPages - 1, safePage + 1);
+
+  const row = new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+      .setCustomId('trivia:cats:' + String(ownerUserId) + ':' + String(prevPage))
+      .setLabel('Previous')
+      .setStyle(ButtonStyle.Secondary)
+      .setDisabled(safePage <= 0),
+    new ButtonBuilder()
+      .setCustomId('trivia:cats:' + String(ownerUserId) + ':' + String(nextPage))
+      .setLabel('Next')
+      .setStyle(ButtonStyle.Secondary)
+      .setDisabled(safePage >= safeTotalPages - 1)
+  );
+
+  return [row];
+}
+
+function buildTriviaCategoryPageMessage({ categories, ownerUserId, page }) {
+  const items = Array.isArray(categories) ? categories : [];
+  if (items.length === 0) {
+    return {
+      content: 'No trivia categories are loaded yet.',
+      components: []
+    };
+  }
+
+  const PAGE_SIZE = 10;
+  const totalPages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
+  const safePage = Math.min(Math.max(0, Number(page) || 0), totalPages - 1);
+  const start = safePage * PAGE_SIZE;
+  const visible = items.slice(start, start + PAGE_SIZE);
+
+  const totalQuestions = items.reduce((sum, category) => {
+    const questionCount = Array.isArray(category && category.questions) ? category.questions.length : 0;
+    return sum + questionCount;
+  }, 0);
+
+  const lines = [
+    'Available trivia categories',
+    'Categories: **' + String(items.length) + '** | Questions: **' + String(totalQuestions) + '** | Page **' + String(safePage + 1) + '/' + String(totalPages) + '**'
+  ];
+
+  for (const category of visible) {
+    const label = category && typeof category.label === 'string' ? category.label.trim() : '';
+    if (!label) continue;
+
+    const questionCount = Array.isArray(category.questions) ? category.questions.length : 0;
+    const description = typeof category.description === 'string'
+      ? trunc(category.description.replace(/\s+/g, ' ').trim(), 80)
+      : '';
+    const line = '• **' + label + '** — ' + formatTriviaQuestionCount(questionCount) + (description ? ' — ' + description : '');
+    lines.push(line);
+  }
+
+  return {
+    content: lines.join('\n'),
+    components: buildTriviaCategoryComponents({ ownerUserId, page: safePage, totalPages })
+  };
+}
+
+function formatTriviaScores(scores) {
+  const entries = Array.from(scores instanceof Map ? scores.entries() : []);
+  if (entries.length === 0) return 'No correct answers this round.';
+
+  entries.sort((a, b) => {
+    if (b[1] !== a[1]) return b[1] - a[1];
+    return String(a[0]).localeCompare(String(b[0]));
+  });
+
+  return 'Final scores:\n' + entries.map(([userId, score], idx) => String(idx + 1) + '. <@' + String(userId) + '> — ' + String(score)).join('\n');
+}
+
+function buildTriviaRevealLine(question) {
+  const answer = question && question.canonicalAnswer ? String(question.canonicalAnswer) : 'unknown';
+  const explanation = question && question.explanation ? ' ' + String(question.explanation) : '';
+  return 'Answer: **' + answer + '**.' + explanation;
+}
+
+function clearTriviaQuestionTimers(round) {
+  if (!round || !round.currentQuestionState) return;
+  const state = round.currentQuestionState;
+  if (state.timeoutId) {
+    clearTimeout(state.timeoutId);
+    state.timeoutId = null;
+  }
+  if (Array.isArray(state.hintTimers)) {
+    for (const timer of state.hintTimers) clearTimeout(timer);
+    state.hintTimers = [];
+  }
+}
+
+function clearTriviaRoundTimers(round) {
+  clearTriviaQuestionTimers(round);
+  if (round && round.nextQuestionTimerId) {
+    clearTimeout(round.nextQuestionTimerId);
+    round.nextQuestionTimerId = null;
+  }
+}
+
+async function finishTriviaRound(round) {
+  if (!round || round.finished) return;
+  round.finished = true;
+  clearTriviaRoundTimers(round);
+  activeTriviaRounds.delete(round.channelId);
+  await round.channel.send('Round finished.\n' + formatTriviaScores(round.scores));
+}
+
+async function postTriviaQuestion(round) {
+  if (!round || round.finished) return;
+  if (activeTriviaRounds.get(round.channelId) !== round) return;
+
+  const question = round.questions[round.currentIndex];
+  if (!question) {
+    await finishTriviaRound(round);
+    return;
+  }
+
+  const hints = pickTriviaHints(question.canonicalAnswer);
+  const state = {
+    question,
+    closed: false,
+    hintTimers: [],
+    timeoutId: null,
+    hints
+  };
+  round.currentQuestionState = state;
+
+  await round.channel.send(
+    '**Question ' + String(round.currentIndex + 1) + '/' + String(round.questions.length) + '**\n' + question.prompt
+  );
+
+  const hintOffsets = [25 * 1000, 45 * 1000];
+  hints.forEach((hint, idx) => {
+    const delay = hintOffsets[idx];
+    if (!delay) return;
+    const timer = setTimeout(() => {
+      if (round.finished) return;
+      if (round.currentQuestionState !== state || state.closed) return;
+      round.channel.send('Hint ' + String(idx + 1) + '/2: ' + hint).catch((err) => {
+        process.stderr.write(String(err && err.stack ? err.stack : err) + '\n');
+      });
+    }, delay);
+    state.hintTimers.push(timer);
+  });
+
+  state.timeoutId = setTimeout(() => {
+    settleTriviaQuestion(round, null).catch((err) => {
+      process.stderr.write(String(err && err.stack ? err.stack : err) + '\n');
+    });
+  }, 60 * 1000);
+}
+
+async function settleTriviaQuestion(round, winnerUser) {
+  if (!round || round.finished) return false;
+  const state = round.currentQuestionState;
+  if (!state || state.closed) return false;
+
+  state.closed = true;
+  clearTriviaQuestionTimers(round);
+  round.currentQuestionState = null;
+
+  if (winnerUser && winnerUser.id) {
+    const prev = round.scores.get(String(winnerUser.id)) || 0;
+    round.scores.set(String(winnerUser.id), prev + 1);
+  }
+
+  const isLastQuestion = round.currentIndex >= round.questions.length - 1;
+  const lines = [];
+  if (winnerUser && winnerUser.id) {
+    lines.push('<@' + String(winnerUser.id) + '> got it.');
+  } else {
+    lines.push('Time\'s up. Nobody got it.');
+  }
+  lines.push(buildTriviaRevealLine(state.question));
+  if (!isLastQuestion) lines.push('Next question in 10 seconds.');
+
+  await round.channel.send(lines.join('\n'));
+
+  if (isLastQuestion) {
+    await finishTriviaRound(round);
+    return true;
+  }
+
+  round.currentIndex += 1;
+  round.nextQuestionTimerId = setTimeout(() => {
+    round.nextQuestionTimerId = null;
+    postTriviaQuestion(round).catch((err) => {
+      process.stderr.write(String(err && err.stack ? err.stack : err) + '\n');
+    });
+  }, 10 * 1000);
+
+  return true;
 }
 
 function formatMinutesAsTime(mins) {
@@ -1768,6 +2164,8 @@ function buildHelpMessage() {
   cmds.push('• `/' + 'generate` — generate one AU prompt (includes Favorite button)');
   cmds.push('• `/' + 'share` — share a Feedverse character (OC page)');
   cmds.push('• `/' + 'prompt` — submit a prompt for moderator review');
+  cmds.push('• `/' + 'trivia categories` — list trivia categories and page through them');
+  cmds.push('• `/' + 'trivia start` — start a timed trivia round in this channel');
   cmds.push('• `/' + 'setup daily` — post a daily prompt in a channel');
   cmds.push('• `/' + 'view favorites` — view your favorited prompts');
 
@@ -2292,6 +2690,8 @@ async function main() {
 
   const auPath = resolveAuDataPath();
   const au = loadAuData(auPath);
+  const triviaPath = resolveTriviaDataPath();
+  const trivia = loadTriviaData(triviaPath);
   // Store for DM formatting helper (avoids threading au everywhere).
   globalThis.__auDataForDM = au;
 
@@ -2308,7 +2708,13 @@ async function main() {
     }
   }
 
-  const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+  const client = new Client({
+    intents: [
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.MessageContent
+    ]
+  });
   client.commands = new Collection();
   for (const cmd of [...globalCommands, ...officialGuildCommands]) {
     client.commands.set(cmd.name, cmd);
@@ -2317,6 +2723,9 @@ async function main() {
   client.once(Events.ClientReady, (c) => {
     process.stdout.write('Logged in as ' + c.user.tag + '\n');
     process.stdout.write('Loaded AU data: ' + au.packs.length + ' packs\n');
+    process.stdout.write(
+      'Loaded trivia data: ' + String(trivia.categories.length) + ' categories' + (trivia.exists ? '' : ' (file not found)') + '\n'
+    );
 
     startDailyScheduler(client, au);
   });
@@ -2342,6 +2751,16 @@ async function main() {
           const items = au.dynamics.map((d) => ({
             name: (d.emoji ? d.emoji + ' ' : '') + d.label,
             value: d.id
+          }));
+          const choices = toAutocompleteChoices(items, value, 25);
+          await interaction.respond(choices);
+          return;
+        }
+
+        if (focused.name === 'category') {
+          const items = trivia.categories.map((category) => ({
+            name: trunc(category.label + ' (' + String(category.questions.length) + ')', 100),
+            value: category.id
           }));
           const choices = toAutocompleteChoices(items, value, 25);
           await interaction.respond(choices);
@@ -2429,6 +2848,28 @@ async function main() {
 
       if (interaction.isButton()) {
         const id = String(interaction.customId || '');
+
+        if (id.startsWith('trivia:cats:')) {
+          const parts = id.split(':');
+          const ownerUserId = parts[2] || '';
+          const page = Math.max(0, parseInt(parts[3] || '0', 10) || 0);
+
+          if (!ownerUserId || String(interaction.user.id) !== String(ownerUserId)) {
+            await interaction.reply({
+              content: 'Run /trivia categories to get your own pagination buttons.',
+              ephemeral: true
+            });
+            return;
+          }
+
+          const msg = buildTriviaCategoryPageMessage({
+            categories: trivia.categories,
+            ownerUserId: interaction.user.id,
+            page
+          });
+          await interaction.update({ content: msg.content, components: msg.components });
+          return;
+        }
 
         if (id.startsWith('oc:tab:')) {
           const parts = id.split(':');
@@ -3003,6 +3444,89 @@ async function main() {
         return;
       }
 
+      if (interaction.commandName === 'trivia') {
+        const sub = interaction.options.getSubcommand();
+        if (sub === 'categories') {
+          const msg = buildTriviaCategoryPageMessage({
+            categories: trivia.categories,
+            ownerUserId: interaction.user.id,
+            page: 0
+          });
+          await interaction.reply({
+            content: msg.content,
+            components: msg.components,
+            ephemeral: interaction.inGuild()
+          });
+          return;
+        }
+
+        if (sub !== 'start') {
+          await interaction.reply({ content: 'Unknown trivia command.', ephemeral: true });
+          return;
+        }
+
+        if (!interaction.inGuild() || !interaction.guildId || !interaction.channelId || !interaction.channel) {
+          await interaction.reply({ content: 'Trivia rounds can only run in a server channel.', ephemeral: true });
+          return;
+        }
+
+        const categoryId = normalizeOption(interaction.options.getString('category'));
+        const requestedCount = interaction.options.getInteger('questions') || 10;
+        const category = categoryId ? trivia.categoryById.get(categoryId) : null;
+
+        if (!category) {
+          await interaction.reply({ content: 'Unknown trivia category. Use the autocomplete picker.', ephemeral: true });
+          return;
+        }
+
+        if (!Array.isArray(category.questions) || category.questions.length === 0) {
+          await interaction.reply({ content: 'That category has no questions yet.', ephemeral: true });
+          return;
+        }
+
+        const existingRound = activeTriviaRounds.get(String(interaction.channelId));
+        if (existingRound && !existingRound.finished) {
+          await interaction.reply({ content: 'A trivia round is already running in this channel.', ephemeral: true });
+          return;
+        }
+
+        const pickedQuestions = shuffleArray(category.questions).slice(0, Math.min(requestedCount, category.questions.length));
+        const round = {
+          channelId: String(interaction.channelId),
+          guildId: String(interaction.guildId),
+          channel: interaction.channel,
+          startedByUserId: String(interaction.user.id),
+          categoryId: category.id,
+          categoryLabel: category.label,
+          questions: pickedQuestions,
+          currentIndex: 0,
+          currentQuestionState: null,
+          nextQuestionTimerId: null,
+          scores: new Map(),
+          finished: false
+        };
+
+        activeTriviaRounds.set(round.channelId, round);
+
+        const introLines = [
+          'New trivia round started by ' + String(interaction.user) + '.',
+          'Category: **' + category.label + '**',
+          'Questions this round: **' + String(pickedQuestions.length) + '**',
+          'How to play: answer in chat within 60 seconds. I\'ll post hints at 25 and 45 seconds, and one typo still counts.'
+        ];
+
+        await interaction.reply({ content: introLines.join('\n') });
+
+        try {
+          await postTriviaQuestion(round);
+        } catch (err) {
+          activeTriviaRounds.delete(round.channelId);
+          clearTriviaRoundTimers(round);
+          throw err;
+        }
+        return;
+      }
+
       if (interaction.commandName === 'setup') {
         if (!interaction.inGuild() || !interaction.guildId) {
           await interaction.reply({ content: 'This command can only be used in a server.', ephemeral: true });
@@ -3357,6 +3881,24 @@ async function main() {
           // ignore
         }
       }
+      process.stderr.write(String(err && err.stack ? err.stack : err) + '\n');
+    }
+  });
+
+  client.on(Events.MessageCreate, async (message) => {
+    try {
+      if (!message || !message.inGuild() || !message.author || message.author.bot) return;
+
+      const round = activeTriviaRounds.get(String(message.channelId || ''));
+      if (!round || round.finished) return;
+
+      const current = round.currentQuestionState;
+      if (!current || current.closed) return;
+
+      if (!isTriviaAnswerMatch(message.content, current.question && current.question.acceptedAnswers)) return;
+
+      await settleTriviaQuestion(round, message.author);
+    } catch (err) {
       process.stderr.write(String(err && err.stack ? err.stack : err) + '\n');
     }
   });

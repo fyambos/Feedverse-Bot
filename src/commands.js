@@ -76,6 +76,35 @@ function buildGlobalCommands() {
         .setRequired(true)
     );
 
+  const trivia = new SlashCommandBuilder()
+    .setName('trivia')
+    .setDescription('Trivia commands')
+    .addSubcommand((sc) =>
+      sc
+        .setName('categories')
+        .setDescription('List trivia categories and paginate through them if needed')
+    )
+    .addSubcommand((sc) =>
+      sc
+        .setName('start')
+        .setDescription('Start a trivia round in this channel')
+        .addStringOption((opt) =>
+          opt
+            .setName('category')
+            .setDescription('Trivia category')
+            .setAutocomplete(true)
+            .setRequired(true)
+        )
+        .addIntegerOption((opt) =>
+          opt
+            .setName('questions')
+            .setDescription('How many questions to ask (default 10)')
+            .setMinValue(1)
+            .setMaxValue(20)
+            .setRequired(false)
+        )
+    );
+
   const setup = new SlashCommandBuilder()
     .setName('setup')
     .setDescription('Setup commands')
@@ -110,7 +139,7 @@ function buildGlobalCommands() {
     .setDescription('View things')
     .addSubcommand((sc) => sc.setName('favorites').setDescription('View your favorited prompts'));
 
-  return [help, profile, leaderboard, generate, share, prompt, setup, view];
+  return [help, profile, leaderboard, generate, share, prompt, trivia, setup, view];
 }
 
 function buildOfficialGuildCommands() {

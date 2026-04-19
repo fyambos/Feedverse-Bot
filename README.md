@@ -16,6 +16,7 @@ npm install
 - `DISCORD_CLIENT_ID` (application client id)
 - (optional) `DISCORD_GUILD_ID` (dev guild id)
 - (optional) `AU_DATA_PATH` (defaults to `./data/au_summaries_filled.json`)
+- (optional) `TRIVIA_DATA_PATH` (defaults to `./data/trivia_questions.json`)
 - (optional) `OFFICIAL_GUILD_ID` (guild where moderation commands are registered)
 - (optional) `FEEDVERSE_JOIN_URL_TEMPLATE` (used by `/share`)
   - recommended: `https://feedverse.app/i/?code={CODE}` (works even without host rewrites)
@@ -30,7 +31,33 @@ npm install
 
 Only the person hosting/running the bot needs the `.env` file. Users who invite the bot to their server do not.
 
-3. Start:
+3. If you want trivia, enable the privileged Message Content intent for the bot in the Discord developer portal, then add a trivia data file.
+
+- Copy `data/trivia_questions.sample.json` to `data/trivia_questions.json` and replace it with your real categories/questions.
+- `TRIVIA_DATA_PATH` can point somewhere else if you prefer.
+
+Trivia file shape:
+
+```json
+{
+  "categories": [
+    {
+      "id": "movies",
+      "label": "Movies",
+      "questions": [
+        {
+          "question": "Who directed Spirited Away?",
+          "answer": "Hayao Miyazaki",
+          "acceptedAnswers": ["Miyazaki"],
+          "explanation": "Optional extra note shown after the answer is revealed."
+        }
+      ]
+    }
+  ]
+}
+```
+
+4. Start:
 
 ```bash
 npm start
@@ -58,6 +85,18 @@ Behavior:
   - required `dynamic` (autocomplete)
   - required `prompt` (text)
   - submits a prompt for moderator review (works in DMs or any server)
+
+- `/trivia start`
+  - required `category` (autocomplete)
+  - optional `questions` (default `10`)
+  - starts a trivia round in the current server channel
+  - posts the round intro, asks 1 question at a time, gives hints at 25s and 45s, and reveals the answer at 60s or when somebody gets it
+  - accepts small typos when matching answers
+
+- `/trivia categories`
+  - lists loaded trivia categories only
+  - shows how many questions are currently in each category
+  - includes Previous/Next buttons when you need to page through more categories
 
 - `/profile`
   - optional `user`
@@ -111,7 +150,7 @@ On startup the bot registers slash commands:
 
 - If `DISCORD_GUILD_ID` is set (dev mode): registers ALL commands into that guild only (appears almost immediately).
 - Otherwise:
-  - registers public commands globally (`/generate`, `/share`, `/prompt`)
+  - registers public commands globally (`/generate`, `/share`, `/prompt`, `/trivia`)
   - registers moderation commands ONLY into `OFFICIAL_GUILD_ID` (`/prompt-queue`, `/prompt-approve`, `/prompt-reject`)
 
 ### Dev guild duplicates

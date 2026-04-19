@@ -1,0 +1,19 @@
+{
+  "categories": [
+    {
+      "id": "sample",
+      "label": "Sample Category",
+      "description": "Replace this category with your own.",
+      "questions": [
+        {
+          "question": "Replace this sample question with a real one.",
+          "answer": "sample answer",
+          "acceptedAnswers": [
+            "sample"
+          ],
+          "explanation": "Optional extra context shown after the answer is revealed."
+        }
+      ]
+    }
+  ]
+}
