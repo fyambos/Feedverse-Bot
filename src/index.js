@@ -471,6 +471,8 @@ function formatTriviaQuestionCount(count) {
 function buildTriviaCategoryComponents({ ownerUserId, page, totalPages }) {
   const safePage = Math.max(0, Number(page) || 0);
   const safeTotalPages = Math.max(1, Number(totalPages) || 1);
+  if (safeTotalPages <= 1) return [];
+
   const prevPage = Math.max(0, safePage - 1);
   const nextPage = Math.min(safeTotalPages - 1, safePage + 1);
 
