@@ -58,9 +58,9 @@
           "explanation": "Twice fans are called Once."
         },
         {
-          "question": "Which BigBang member is also known as Kwon Jiyong?",
+          "question": "Which BigBang leader was born Kwon Jiyong?",
           "answer": "G-Dragon",
-          "acceptedAnswers": ["g dragon", "gd", "jiyong", "kwon jiyong"],
+          "acceptedAnswers": ["g dragon", "gd"],
           "explanation": "G-Dragon is one of BigBang's most famous members."
         },
         {
@@ -94,7 +94,7 @@
           "explanation": "Gee became one of Girls' Generation's signature songs."
         },
         {
-          "question": "What was the title of Jennie's first solo single?",
+          "question": "What was Jennie's first single released under her own name in 2018?",
           "answer": "Solo",
           "acceptedAnswers": ["SOLO"],
           "explanation": "Jennie made her solo debut with Solo in 2018."
@@ -205,9 +205,9 @@
           "explanation": "Jin is famous for the nickname Worldwide Handsome."
         },
         {
-          "question": "Which BTS member releases solo music as Agust D?",
+          "question": "Which BTS rapper uses Agust D for solo releases?",
           "answer": "Suga",
-          "acceptedAnswers": ["min yoongi", "yoongi", "agust d"],
+          "acceptedAnswers": ["min yoongi", "yoongi"],
           "explanation": "Agust D is one of Suga's solo artist names."
         },
         {
@@ -270,9 +270,9 @@
           "explanation": "Seventeen fans are called Carats."
         },
         {
-          "question": "Which group is also known as Bangtan Boys?",
+          "question": "Which global boy group was originally promoted in English as Bangtan Boys?",
           "answer": "BTS",
-          "acceptedAnswers": ["bangtan boys", "bangtan sonyeondan"],
+          "acceptedAnswers": ["bangtan sonyeondan"],
           "explanation": "BTS originally stood for Bangtan Sonyeondan."
         },
         {
@@ -340,9 +340,9 @@
           "explanation": "Super is one of Seventeen's biggest modern-era title tracks."
         },
         {
-          "question": "Which Seventeen song is also famously known as Aju Nice?",
+          "question": "Which Seventeen song has the Korean title Aju Nice?",
           "answer": "Very Nice",
-          "acceptedAnswers": ["aju nice", "ajunice"],
+          "acceptedAnswers": ["very nice"],
           "explanation": "Very Nice is one of Seventeen's most beloved performance songs."
         },
         {
@@ -369,7 +369,7 @@
           "explanation": "Make A Wish was released by NCT U."
         },
         {
-          "question": "Which girl group released Love Dive?",
+          "question": "Which girl group scored a major 2022 hit with a song about diving into love?",
           "answer": "IVE",
           "acceptedAnswers": ["ive"],
           "explanation": "Love Dive was one of IVE's biggest hits."
@@ -387,7 +387,7 @@
           "explanation": "Jang Wonyoung is one of IVE's most recognizable members."
         },
         {
-          "question": "Which Red Velvet song became a huge hit in 2021 and includes the line you got me feeling like a psycho?",
+          "question": "Which Red Velvet hit shares its title with a word for someone dangerously unstable?",
           "answer": "Psycho",
           "explanation": "Psycho is one of Red Velvet's best-known songs."
         },
@@ -404,10 +404,10 @@
           "explanation": "Red Velvet fans are called ReVeluv."
         },
         {
-          "question": "Which BigBang song repeats bang bang bang in the chorus?",
-          "answer": "Bang Bang Bang",
-          "acceptedAnswers": ["bangbangbang"],
-          "explanation": "Bang Bang Bang is one of BigBang's biggest party hits."
+          "question": "Which BigBang member released Eyes, Nose, Lips as a solo hit?",
+          "answer": "Taeyang",
+          "acceptedAnswers": ["dong young-bae", "dong youngbae", "youngbae"],
+          "explanation": "Eyes, Nose, Lips is one of Taeyang's best-known solo songs."
         },
         {
           "question": "What is BigBang's fandom name?",
@@ -416,13 +416,13 @@
           "explanation": "BigBang fans are known as VIP."
         },
         {
-          "question": "Which group is also commonly abbreviated as SNSD?",
+          "question": "Which SM girl group is commonly shortened to SNSD?",
           "answer": "Girls' Generation",
-          "acceptedAnswers": ["girls generation", "snsd"],
+          "acceptedAnswers": ["girls generation"],
           "explanation": "SNSD is the common abbreviation for Girls' Generation."
         },
         {
-          "question": "Which Girls' Generation song tells a bad boyfriend to Run Devil Run?",
+          "question": "Which Girls' Generation song tells a bad boyfriend to hurry up and leave?",
           "answer": "Run Devil Run",
           "acceptedAnswers": ["rundevilrun"],
           "explanation": "Run Devil Run is one of Girls' Generation's best-known singles."
@@ -475,7 +475,7 @@
           "explanation": "GOT7 fans are known as Ahgase or iGOT7."
         },
         {
-          "question": "Which EXO song tells someone to Call Me Baby?",
+          "question": "Which EXO song asks a lover to keep calling the singer baby?",
           "answer": "Call Me Baby",
           "acceptedAnswers": ["callmebaby"],
           "explanation": "Call Me Baby is one of EXO's major hits."
@@ -493,7 +493,7 @@
           "explanation": "Wonderland is one of Ateez's signature performance songs."
         },
         {
-          "question": "Which Ateez song includes the word Bouncy in its title?",
+          "question": "Which Ateez song is subtitled K-Hot Chilli Peppers?",
           "answer": "Bouncy",
           "acceptedAnswers": ["bouncy k hot chilli peppers"],
           "explanation": "Bouncy became one of Ateez's biggest mainstream crossover tracks."
@@ -563,6 +563,1102 @@
           "answer": "Kai",
           "acceptedAnswers": ["kim jongin", "jongin"],
           "explanation": "Rover is one of Kai's best-known solo releases."
+        },
+        {
+          "question": "Which girl group debuted with the viral song Magnetic?",
+          "answer": "ILLIT",
+          "acceptedAnswers": ["illit"],
+          "explanation": "Magnetic became ILLIT's breakout debut hit."
+        },
+        {
+          "question": "Which company launched the girl group BABYMONSTER?",
+          "answer": "YG Entertainment",
+          "acceptedAnswers": ["yg"],
+          "explanation": "BABYMONSTER debuted under YG Entertainment."
+        },
+        {
+          "question": "Which girl group released SHEESH?",
+          "answer": "BABYMONSTER",
+          "acceptedAnswers": ["baby monster", "babymonster"],
+          "explanation": "SHEESH became one of BABYMONSTER's early signature songs."
+        },
+        {
+          "question": "Which boy group debuted with Get A Guitar?",
+          "answer": "RIIZE",
+          "acceptedAnswers": ["riize"],
+          "explanation": "Get A Guitar was RIIZE's debut single."
+        },
+        {
+          "question": "What is RIIZE's fandom name?",
+          "answer": "BRIIZE",
+          "acceptedAnswers": ["briize"],
+          "explanation": "RIIZE fans are called BRIIZE."
+        },
+        {
+          "question": "Which group released Dash in 2024?",
+          "answer": "NMIXX",
+          "acceptedAnswers": ["nmixx"],
+          "explanation": "Dash was a notable 2024 title track for NMIXX."
+        },
+        {
+          "question": "Which girl group released Sticky in 2024?",
+          "answer": "Kiss of Life",
+          "acceptedAnswers": ["kiss of life", "kiof"],
+          "explanation": "Sticky helped Kiss of Life gain even more attention in 2024."
+        },
+        {
+          "question": "Which virtual idol group released Way 4 Luv?",
+          "answer": "PLAVE",
+          "acceptedAnswers": ["plave"],
+          "explanation": "Way 4 Luv was a major release for the virtual idol group PLAVE."
+        },
+        {
+          "question": "In K-pop, what does maknae mean?",
+          "answer": "Youngest member",
+          "acceptedAnswers": ["youngest", "the youngest member"],
+          "explanation": "Maknae is the term for the youngest member of a group."
+        },
+        {
+          "question": "In K-pop, what is a comeback?",
+          "answer": "A new music release",
+          "acceptedAnswers": ["new release", "new song release", "a promotional return", "promotional return"],
+          "explanation": "A comeback is the release of new music and its promotion cycle."
+        },
+        {
+          "question": "What is the highest iChart achievement called in K-pop chart tracking?",
+          "answer": "Perfect All-Kill",
+          "acceptedAnswers": ["pak", "perfect all kill"],
+          "explanation": "A Perfect All-Kill means a song is simultaneously leading Korea's major charts."
+        },
+        {
+          "question": "Which festival did Blackpink become the first K-pop act to headline in 2023?",
+          "answer": "Coachella",
+          "explanation": "Blackpink made history as Coachella headliners in 2023."
+        },
+        {
+          "question": "Which BTS member became the first K-pop act to headline Lollapalooza?",
+          "answer": "j-hope",
+          "acceptedAnswers": ["jhope", "jung hoseok", "hoseok"],
+          "explanation": "j-hope made history at Lollapalooza in 2022."
+        },
+        {
+          "question": "Which group became the first K-pop act to perform on Glastonbury's Pyramid Stage?",
+          "answer": "Seventeen",
+          "acceptedAnswers": ["svt"],
+          "explanation": "Seventeen reached the Pyramid Stage at Glastonbury in 2024."
+        },
+        {
+          "question": "Which producer founded SM Entertainment and is often credited as a key architect of the idol system?",
+          "answer": "Lee Soo-man",
+          "acceptedAnswers": ["lee soo man", "sooman"],
+          "explanation": "Lee Soo-man founded SM Entertainment and shaped much of the modern idol model."
+        },
+        {
+          "question": "Which girl group released Drama?",
+          "answer": "aespa",
+          "acceptedAnswers": ["aespa"],
+          "explanation": "Drama was a major title track for aespa."
+        },
+        {
+          "question": "Which aespa 2024 hit shared its name with an exploding star?",
+          "answer": "Supernova",
+          "acceptedAnswers": ["super nova"],
+          "explanation": "Supernova became one of aespa's biggest 2024 hits."
+        },
+        {
+          "question": "Which aespa member is the leader of the group?",
+          "answer": "Karina",
+          "acceptedAnswers": ["yu jimin", "yujimin"],
+          "explanation": "Karina is aespa's leader."
+        },
+        {
+          "question": "Which NewJeans song shares its title with a texting abbreviation for surprise or admiration?",
+          "answer": "OMG",
+          "acceptedAnswers": ["omg"],
+          "explanation": "OMG was another major hit for NewJeans."
+        },
+        {
+          "question": "Which NewJeans member was born in Australia and has the Korean name Mo Ji-hye?",
+          "answer": "Danielle",
+          "acceptedAnswers": ["danielle marsh", "mo jihye"],
+          "explanation": "Danielle is one of NewJeans's Australian members."
+        },
+        {
+          "question": "Which NewJeans member was born in Vietnam and raised in Australia?",
+          "answer": "Hanni",
+          "acceptedAnswers": ["pham ngoc han", "hanni pham"],
+          "explanation": "Hanni is a NewJeans member with Vietnamese and Australian background."
+        },
+        {
+          "question": "Which group released Easy in 2024?",
+          "answer": "Le Sserafim",
+          "acceptedAnswers": ["lesserafim", "le sserafim"],
+          "explanation": "Easy was one of Le Sserafim's 2024 title tracks."
+        },
+        {
+          "question": "Which Le Sserafim member was also in IZ*ONE and is from Japan?",
+          "answer": "Sakura",
+          "acceptedAnswers": ["miyawaki sakura", "sakura miyawaki"],
+          "explanation": "Sakura is one of Le Sserafim's most recognizable members."
+        },
+        {
+          "question": "Which boy group is known for the members Soobin, Yeonjun, Beomgyu, Taehyun, and HueningKai?",
+          "answer": "Tomorrow X Together",
+          "acceptedAnswers": ["txt", "tomorrow x together"],
+          "explanation": "Those five members make up Tomorrow X Together."
+        },
+        {
+          "question": "Which Tomorrow X Together song asks if you can see me?",
+          "answer": "Can’t You See Me?",
+          "acceptedAnswers": ["cant you see me", "can you see me"],
+          "explanation": "Can't You See Me? was one of TXT's notable title tracks."
+        },
+        {
+          "question": "Which Tomorrow X Together song features the phrase sugar rush in its title?",
+          "answer": "Sugar Rush Ride",
+          "acceptedAnswers": ["sugarrush ride"],
+          "explanation": "Sugar Rush Ride was a major TXT title track."
+        },
+        {
+          "question": "Which boy group won Boys Planet and debuted with In Bloom?",
+          "answer": "ZEROBASEONE",
+          "acceptedAnswers": ["zerobaseone", "zb1"],
+          "explanation": "ZEROBASEONE debuted after Boys Planet."
+        },
+        {
+          "question": "Which boy group released Earth, Wind & Fire in 2024?",
+          "answer": "BOYNEXTDOOR",
+          "acceptedAnswers": ["boynextdoor", "boy next door"],
+          "explanation": "Earth, Wind & Fire was a major BOYNEXTDOOR song."
+        },
+        {
+          "question": "Which soloist released the 2024 hit APT. with Bruno Mars?",
+          "answer": "Rose",
+          "acceptedAnswers": ["rosé", "roseanne park", "park chaeyoung", "chaeyoung"],
+          "explanation": "Rose teamed with Bruno Mars on APT."
+        },
+        {
+          "question": "Which Blackpink member released the solo songs SOLO and You & Me?",
+          "answer": "Jennie",
+          "acceptedAnswers": ["jennie kim"],
+          "explanation": "Jennie is the Blackpink member behind SOLO and You & Me."
+        },
+        {
+          "question": "Which Blackpink member released Money and an eponymous debut single?",
+          "answer": "Lisa",
+          "acceptedAnswers": ["lalisa", "lalisa manobal"],
+          "explanation": "Lisa released Lalisa and Money as solo hits."
+        },
+        {
+          "question": "Which Blackpink member released On The Ground?",
+          "answer": "Rose",
+          "acceptedAnswers": ["rosé", "roseanne park"],
+          "explanation": "On The Ground was Rose's solo debut title track."
+        },
+        {
+          "question": "Which Blackpink member released Flower?",
+          "answer": "Jisoo",
+          "acceptedAnswers": ["kim jisoo"],
+          "explanation": "Flower was Jisoo's solo debut title track."
+        },
+        {
+          "question": "Which EXO song asks listeners to call baby?",
+          "answer": "Call Me Baby",
+          "acceptedAnswers": ["callmebaby"],
+          "explanation": "Call Me Baby is one of EXO's signature hits."
+        },
+        {
+          "question": "Which EXO vocalist and soloist has the surname Byun?",
+          "answer": "Baekhyun",
+          "acceptedAnswers": [],
+          "explanation": "Baekhyun is one of EXO's most popular vocalists and soloists."
+        },
+        {
+          "question": "Which SHINee member released the solo album Guilty in 2023?",
+          "answer": "Taemin",
+          "acceptedAnswers": ["lee taemin"],
+          "explanation": "Taemin released Guilty as a solo project."
+        },
+        {
+          "question": "Which SHINee song became notorious as an exam-season earworm in Korea?",
+          "answer": "Ring Ding Dong",
+          "acceptedAnswers": ["ringdingdong"],
+          "explanation": "Ring Ding Dong is one of SHINee's most recognizable songs."
+        },
+        {
+          "question": "Which Seventeen unit includes DK, Seungkwan, and Hoshi?",
+          "answer": "BSS",
+          "acceptedAnswers": ["boo seok soon", "bss"],
+          "explanation": "BSS is Seventeen's special subunit of DK, Seungkwan, and Hoshi."
+        },
+        {
+          "question": "Which BSS song featuring Lee Young-ji became a viral 2023 pick-me-up anthem?",
+          "answer": "Fighting",
+          "acceptedAnswers": ["fighting feat lee youngji", "fighting!"],
+          "explanation": "Fighting was a widely loved BSS hit."
+        },
+        {
+          "question": "Which Seventeen member is the leader of the group?",
+          "answer": "S.Coups",
+          "acceptedAnswers": ["scoups", "choi seungcheol", "seungcheol"],
+          "explanation": "S.Coups is Seventeen's leader."
+        },
+        {
+          "question": "Which Seventeen member is especially associated with producing and composing many of the group's songs?",
+          "answer": "Woozi",
+          "acceptedAnswers": ["lee jihoon", "jihoon"],
+          "explanation": "Woozi is a key producer behind Seventeen's music."
+        },
+        {
+          "question": "Which Stray Kids song repeats du du du du du du in the chorus?",
+          "answer": "God's Menu",
+          "acceptedAnswers": ["gods menu", "godsmenu"],
+          "explanation": "God's Menu became one of Stray Kids' defining songs."
+        },
+        {
+          "question": "Which Stray Kids member is the leader of the group?",
+          "answer": "Bang Chan",
+          "acceptedAnswers": ["chan", "christopher bang"],
+          "explanation": "Bang Chan is the leader of Stray Kids."
+        },
+        {
+          "question": "Which Stray Kids member is known for the solo song Limbo and deep voice rap parts?",
+          "answer": "Lee Know",
+          "acceptedAnswers": ["minho", "lee minho"],
+          "explanation": "Lee Know is one of Stray Kids' key performers."
+        },
+        {
+          "question": "Which Enhypen song is titled after a bite?",
+          "answer": "Bite Me",
+          "acceptedAnswers": ["biteme"],
+          "explanation": "Bite Me became one of Enhypen's most popular songs."
+        },
+        {
+          "question": "Which Enhypen member is known for figure skating before debut?",
+          "answer": "Sunghoon",
+          "acceptedAnswers": ["park sunghoon"],
+          "explanation": "Sunghoon was a competitive figure skater before idol debut."
+        },
+        {
+          "question": "Which IVE single sampled Gloria Gaynor's I Will Survive?",
+          "answer": "After Like",
+          "acceptedAnswers": ["afterlike"],
+          "explanation": "After Like was one of IVE's major follow-up hits."
+        },
+        {
+          "question": "Which softer 2023 IVE pre-release sat alongside Off the Record and Baddie?",
+          "answer": "Either Way",
+          "acceptedAnswers": ["eitherway"],
+          "explanation": "Either Way was part of IVE's strong 2023 run."
+        },
+        {
+          "question": "Which IVE member is the leader of the group?",
+          "answer": "Yujin",
+          "acceptedAnswers": ["an yujin", "ahn yujin"],
+          "explanation": "Yujin is the leader of IVE."
+        },
+        {
+          "question": "Which Twice member is from Taiwan?",
+          "answer": "Tzuyu",
+          "acceptedAnswers": ["chou tzuyu", "tzuyu chou"],
+          "explanation": "Tzuyu is Twice's Taiwanese member."
+        },
+        {
+          "question": "Which Twice member is the leader of the group?",
+          "answer": "Jihyo",
+          "acceptedAnswers": ["park jihyo"],
+          "explanation": "Jihyo is Twice's leader."
+        },
+        {
+          "question": "Which Twice song became a breakout hit in Japan and Korea with the phrase TT?",
+          "answer": "TT",
+          "acceptedAnswers": ["tt"],
+          "explanation": "TT is one of Twice's signature viral hits."
+        },
+        {
+          "question": "Which ITZY song includes the line I love myself?",
+          "answer": "Dalla Dalla",
+          "acceptedAnswers": ["dalladalla"],
+          "explanation": "Dalla Dalla was ITZY's confident debut title track."
+        },
+        {
+          "question": "Which ITZY member is the leader of the group?",
+          "answer": "Yeji",
+          "acceptedAnswers": ["hwang yeji"],
+          "explanation": "Yeji is ITZY's leader."
+        },
+        {
+          "question": "Which Red Velvet song became a fan favorite for its dark velvet concept just before the group's 2019 hiatus?",
+          "answer": "Psycho",
+          "acceptedAnswers": ["psycho"],
+          "explanation": "Psycho is one of Red Velvet's most acclaimed songs."
+        },
+        {
+          "question": "Which Red Velvet member is the leader of the group?",
+          "answer": "Irene",
+          "acceptedAnswers": ["bae joohyun", "joohyun"],
+          "explanation": "Irene is the leader of Red Velvet."
+        },
+        {
+          "question": "Which NCT unit is especially associated with the members Mark and Haechan plus many youthful concepts?",
+          "answer": "NCT Dream",
+          "acceptedAnswers": ["nctdream", "dream"],
+          "explanation": "NCT Dream is one of NCT's core units."
+        },
+        {
+          "question": "Which NCT U duet featuring Taeyong and Ten became famous for its sleek choreography and minimalist beat?",
+          "answer": "Baby Don't Stop",
+          "acceptedAnswers": ["baby dont stop", "babydon'tstop"],
+          "explanation": "Baby Don't Stop is a standout NCT U track."
+        },
+        {
+          "question": "Which BigBang icon was born Kwon Ji-yong?",
+          "answer": "G-Dragon",
+          "acceptedAnswers": ["gdragon", "gd"],
+          "explanation": "G-Dragon's real name is Kwon Ji-yong."
+        },
+        {
+          "question": "Which BigBang 2015 party anthem became one of the group's biggest stadium-style hits?",
+          "answer": "Bang Bang Bang",
+          "acceptedAnswers": ["bangbangbang"],
+          "explanation": "Bang Bang Bang is one of BigBang's biggest party hits."
+        },
+        {
+          "question": "Which soloist released Good Day and later Love Wins All?",
+          "answer": "IU",
+          "acceptedAnswers": ["lee jieun", "lee ji eun"],
+          "explanation": "IU is one of Korea's most beloved soloists."
+        },
+        {
+          "question": "What does title track mean in K-pop album promotion?",
+          "answer": "The main promoted song",
+          "acceptedAnswers": ["main promoted song", "lead promoted song", "main single"],
+          "explanation": "The title track is the main song pushed in a comeback cycle."
+        },
+        {
+          "question": "What is a mini album in K-pop roughly equivalent to?",
+          "answer": "An EP",
+          "acceptedAnswers": ["ep", "extended play"],
+          "explanation": "A mini album is roughly equivalent to an EP."
+        },
+        {
+          "question": "Which girl group released Eleven as its debut song?",
+          "answer": "IVE",
+          "acceptedAnswers": ["ive"],
+          "explanation": "Eleven was IVE's debut title track."
+        },
+        {
+          "question": "Which NewJeans member is the oldest member of the group?",
+          "answer": "Minji",
+          "acceptedAnswers": ["kim minji"],
+          "explanation": "Minji is the oldest member of NewJeans."
+        },
+        {
+          "question": "Which NewJeans winter single helped launch the group's huge 2022 to 2023 run before OMG?",
+          "answer": "Ditto",
+          "acceptedAnswers": ["ditto"],
+          "explanation": "Ditto was one of NewJeans's major breakout hits."
+        },
+        {
+          "question": "Which BTS member released Seven with Latto?",
+          "answer": "Jungkook",
+          "acceptedAnswers": ["jeon jungkook", "jk"],
+          "explanation": "Seven was a major solo hit for Jungkook."
+        },
+        {
+          "question": "Which BTS member released Standing Next to You?",
+          "answer": "Jungkook",
+          "acceptedAnswers": ["jeon jungkook", "jk"],
+          "explanation": "Standing Next to You was one of Jungkook's major solo songs."
+        },
+        {
+          "question": "Which BTS member released the solo album FACE?",
+          "answer": "Jimin",
+          "acceptedAnswers": ["park jimin"],
+          "explanation": "FACE was Jimin's solo album."
+        },
+        {
+          "question": "Which BTS member released the solo album Layover?",
+          "answer": "V",
+          "acceptedAnswers": ["kim taehyung", "taehyung"],
+          "explanation": "Layover was V's solo album."
+        },
+        {
+          "question": "Which BTS member released the solo album Golden?",
+          "answer": "Jungkook",
+          "acceptedAnswers": ["jeon jungkook", "jk"],
+          "explanation": "Golden was Jungkook's solo album."
+        },
+        {
+          "question": "Which BTS member released the solo album Indigo?",
+          "answer": "RM",
+          "acceptedAnswers": ["kim namjoon", "namjoon"],
+          "explanation": "Indigo was RM's solo album."
+        },
+        {
+          "question": "Which BTS member released the solo album Jack in the Box?",
+          "answer": "j-hope",
+          "acceptedAnswers": ["jhope", "jung hoseok", "hoseok"],
+          "explanation": "Jack in the Box was j-hope's solo album."
+        },
+        {
+          "question": "Which girl group released the song Super Lady?",
+          "answer": "(G)I-DLE",
+          "acceptedAnswers": ["g idle", "gidle", "i-dle", "idle"],
+          "explanation": "Super Lady was a 2024 title track by (G)I-DLE."
+        },
+        {
+          "question": "Which girl group released Wife in 2024?",
+          "answer": "(G)I-DLE",
+          "acceptedAnswers": ["g idle", "gidle", "i-dle", "idle"],
+          "explanation": "Wife was one of (G)I-DLE's buzzy 2024 releases."
+        },
+        {
+          "question": "Which male soloist is known as the artist behind Gangnam Style?",
+          "answer": "Psy",
+          "acceptedAnswers": ["park jaesang", "park jae-sang"],
+          "explanation": "Psy became globally famous through Gangnam Style."
+        },
+        {
+          "question": "Which soloist made Gangnam Style a worldwide phenomenon?",
+          "answer": "Psy",
+          "acceptedAnswers": ["park jaesang", "park jae-sang"],
+          "explanation": "Gangnam Style was Psy's global breakthrough."
+        },
+        {
+          "question": "Which label is home to Stray Kids and Twice?",
+          "answer": "JYP Entertainment",
+          "acceptedAnswers": ["jyp"],
+          "explanation": "JYP Entertainment manages both Stray Kids and Twice."
+        },
+        {
+          "question": "Which label is home to BigBang and Blackpink?",
+          "answer": "YG Entertainment",
+          "acceptedAnswers": ["yg"],
+          "explanation": "YG Entertainment is associated with both BigBang and Blackpink."
+        },
+        {
+          "question": "Which label is home to EXO, aespa, and Red Velvet?",
+          "answer": "SM Entertainment",
+          "acceptedAnswers": ["sm"],
+          "explanation": "SM Entertainment manages EXO, aespa, and Red Velvet."
+        },
+        {
+          "question": "Which survival show formed Twice?",
+          "answer": "Sixteen",
+          "acceptedAnswers": ["16"],
+          "explanation": "Twice was formed through the survival show Sixteen."
+        },
+        {
+          "question": "Which survival show formed I.O.I?",
+          "answer": "Produce 101",
+          "acceptedAnswers": ["produce101"],
+          "explanation": "I.O.I was formed through Produce 101."
+        },
+        {
+          "question": "What do fans call a song that tops real-time, daily, and weekly Korean charts at once?",
+          "answer": "Perfect All-Kill",
+          "acceptedAnswers": ["pak", "perfect all kill"],
+          "explanation": "Perfect All-Kill is the top chart sweep achievement on iChart."
+        },
+        {
+          "question": "Which act is credited with kicking off modern K-pop with the 1992 song I Know?",
+          "answer": "Seo Taiji and Boys",
+          "acceptedAnswers": ["seo taiji & boys"],
+          "explanation": "Seo Taiji and Boys are widely credited with starting the modern K-pop era."
+        },
+        {
+          "question": "Which first-generation SM boy group had the hit Candy?",
+          "answer": "H.O.T.",
+          "acceptedAnswers": ["hot"],
+          "explanation": "Candy is one of H.O.T.'s signature first-generation idol hits."
+        },
+        {
+          "question": "Which first-generation SM girl group debuted with I'm Your Girl?",
+          "answer": "S.E.S.",
+          "acceptedAnswers": ["ses", "s.e.s"],
+          "explanation": "S.E.S. was one of SM Entertainment's foundational girl groups."
+        },
+        {
+          "question": "Which first-generation boy group is known for Perfect Man?",
+          "answer": "Shinhwa",
+          "explanation": "Perfect Man is one of Shinhwa's best-known songs."
+        },
+        {
+          "question": "Which female soloist released No. 1 and became a major star in Japan?",
+          "answer": "BoA",
+          "acceptedAnswers": ["boa"],
+          "explanation": "BoA became one of the first major K-pop crossover stars in Japan."
+        },
+        {
+          "question": "Which BoA 2002 hit announced her dominance with a chart-topping title?",
+          "answer": "No. 1",
+          "acceptedAnswers": ["no 1", "number one"],
+          "explanation": "No. 1 is one of BoA's defining early hits."
+        },
+        {
+          "question": "Which BoA single is famous for partner choreography and a title meaning there is just one?",
+          "answer": "Only One",
+          "acceptedAnswers": ["onlyone"],
+          "explanation": "Only One is one of BoA's most acclaimed performance songs."
+        },
+        {
+          "question": "Which group released Mirotic?",
+          "answer": "TVXQ",
+          "acceptedAnswers": ["dbsk", "dong bang shin ki", "tohoshinki"],
+          "explanation": "Mirotic is one of TVXQ's most iconic songs."
+        },
+        {
+          "question": "What is TVXQ's fandom name?",
+          "answer": "Cassiopeia",
+          "acceptedAnswers": ["cassie"],
+          "explanation": "TVXQ's fandom is known as Cassiopeia."
+        },
+        {
+          "question": "Which TVXQ member later adopted the stage name U-Know?",
+          "answer": "Yunho",
+          "acceptedAnswers": ["jung yunho"],
+          "explanation": "Yunho is one of TVXQ's most recognizable members."
+        },
+        {
+          "question": "Which girl group made Nobody a massive retro hit?",
+          "answer": "Wonder Girls",
+          "acceptedAnswers": ["wondergirls"],
+          "explanation": "Nobody became Wonder Girls' signature global breakthrough."
+        },
+        {
+          "question": "Which Wonder Girls breakout hit sparked a huge dance craze in 2007?",
+          "answer": "Tell Me",
+          "acceptedAnswers": ["tellme"],
+          "explanation": "Tell Me was one of Wonder Girls' earliest giant hits."
+        },
+        {
+          "question": "Which Wonder Girls member later became a soloist with Gashina?",
+          "answer": "Sunmi",
+          "acceptedAnswers": ["lee sunmi"],
+          "explanation": "Sunmi returned as a hugely successful soloist after Wonder Girls."
+        },
+        {
+          "question": "Which girl group had the viral butt dance hit Mister?",
+          "answer": "Kara",
+          "acceptedAnswers": ["kara"],
+          "explanation": "Mister helped Kara become one of the era's biggest groups."
+        },
+        {
+          "question": "What is Kara's fandom name?",
+          "answer": "Kamilia",
+          "acceptedAnswers": ["kamilia"],
+          "explanation": "Kara fans are called Kamilia."
+        },
+        {
+          "question": "Which Kara comeback anthem became one of the group's biggest 2011 songs?",
+          "answer": "Step",
+          "acceptedAnswers": ["step"],
+          "explanation": "Step is one of Kara's best-known songs."
+        },
+        {
+          "question": "Which group released I Am the Best?",
+          "answer": "2NE1",
+          "acceptedAnswers": ["2ne1"],
+          "explanation": "I Am the Best became one of 2NE1's most iconic songs."
+        },
+        {
+          "question": "What is 2NE1's fandom name?",
+          "answer": "Blackjack",
+          "acceptedAnswers": ["blackjacks"],
+          "explanation": "2NE1 fans are known as Blackjack."
+        },
+        {
+          "question": "Which 2NE1 member is known for the solo song Hello Bitches?",
+          "answer": "CL",
+          "acceptedAnswers": ["chaelin lee", "lee chaerin"],
+          "explanation": "CL became one of K-pop's best-known solo rappers."
+        },
+        {
+          "question": "Which 2NE1 single mixed reggae-pop with a sci-fi styled video in 2014?",
+          "answer": "Come Back Home",
+          "acceptedAnswers": ["comebackhome"],
+          "explanation": "Come Back Home was one of 2NE1's biggest later-era hits."
+        },
+        {
+          "question": "Which girl group is known for Starry Night and Hip?",
+          "answer": "Mamamoo",
+          "acceptedAnswers": ["mama moo"],
+          "explanation": "Mamamoo became known for strong vocals and confident performances."
+        },
+        {
+          "question": "What is Mamamoo's fandom name?",
+          "answer": "MooMoo",
+          "acceptedAnswers": ["moomoo"],
+          "explanation": "Mamamoo fans are called MooMoo."
+        },
+        {
+          "question": "Which Mamamoo member released Twit as a solo hit?",
+          "answer": "Hwasa",
+          "acceptedAnswers": ["ahn hyejin", "an hyejin"],
+          "explanation": "Hwasa released Twit as one of her early signature solo songs."
+        },
+        {
+          "question": "Which Mamamoo 2019 title track turned confidence into a fashion-forward anthem?",
+          "answer": "Hip",
+          "acceptedAnswers": ["hip"],
+          "explanation": "Hip became one of Mamamoo's most popular title tracks."
+        },
+        {
+          "question": "Which group released Love Killa?",
+          "answer": "Monsta X",
+          "acceptedAnswers": ["monstax", "monsta ex"],
+          "explanation": "Love Killa is one of Monsta X's best-known title tracks."
+        },
+        {
+          "question": "What is Monsta X's fandom name?",
+          "answer": "Monbebe",
+          "acceptedAnswers": ["mon bebe", "monbebe"],
+          "explanation": "Monsta X fans are called Monbebe."
+        },
+        {
+          "question": "Which Monsta X early breakthrough became especially known for its intense choreography?",
+          "answer": "Hero",
+          "acceptedAnswers": ["hero"],
+          "explanation": "Hero is one of Monsta X's breakout songs."
+        },
+        {
+          "question": "Which Monsta X member is the leader of the group?",
+          "answer": "Shownu",
+          "acceptedAnswers": ["son hyunwoo", "hyunwoo"],
+          "explanation": "Shownu is the leader of Monsta X."
+        },
+        {
+          "question": "Which girl group released Rough?",
+          "answer": "GFriend",
+          "acceptedAnswers": ["g friend"],
+          "explanation": "Rough became one of GFriend's defining hits."
+        },
+        {
+          "question": "What is GFriend's fandom name?",
+          "answer": "Buddy",
+          "acceptedAnswers": ["buddies"],
+          "explanation": "GFriend fans are called Buddy."
+        },
+        {
+          "question": "Which GFriend debut song introduced the group with a school concept?",
+          "answer": "Glass Bead",
+          "acceptedAnswers": ["glassbead"],
+          "explanation": "Glass Bead was GFriend's debut song."
+        },
+        {
+          "question": "Which girl group debuted with So Bad?",
+          "answer": "STAYC",
+          "acceptedAnswers": ["stay c"],
+          "explanation": "So Bad was STAYC's debut single."
+        },
+        {
+          "question": "What is STAYC's fandom name?",
+          "answer": "SWITH",
+          "acceptedAnswers": ["swith"],
+          "explanation": "STAYC fans are called SWITH."
+        },
+        {
+          "question": "Which STAYC 2021 hit sparked a viral point dance and helped define the group's early sound?",
+          "answer": "ASAP",
+          "acceptedAnswers": ["asap"],
+          "explanation": "ASAP helped STAYC break out with a viral point dance."
+        },
+        {
+          "question": "Which STAYC 2023 title track compared confidence to a cute but sturdy toy?",
+          "answer": "Teddy Bear",
+          "acceptedAnswers": ["teddybear"],
+          "explanation": "Teddy Bear was one of STAYC's biggest later hits."
+        },
+        {
+          "question": "Which girl group is known for Dalla Dalla, ICY, and Not Shy?",
+          "answer": "ITZY",
+          "acceptedAnswers": ["itzy"],
+          "explanation": "ITZY built a strong identity around confident performance songs."
+        },
+        {
+          "question": "What is ITZY's fandom name?",
+          "answer": "MIDZY",
+          "acceptedAnswers": ["midzy"],
+          "explanation": "ITZY fans are known as MIDZY."
+        },
+        {
+          "question": "Which ITZY song tells listeners not to be shy?",
+          "answer": "Not Shy",
+          "acceptedAnswers": ["notshy"],
+          "explanation": "Not Shy was an energetic 2020 title track for ITZY."
+        },
+        {
+          "question": "Which ITZY 2022 title track centered on shoes and a summery self-confidence concept?",
+          "answer": "Sneakers",
+          "acceptedAnswers": ["sneakers"],
+          "explanation": "Sneakers was ITZY's 2022 summer title track."
+        },
+        {
+          "question": "Which boy group debuted with Crown?",
+          "answer": "Tomorrow X Together",
+          "acceptedAnswers": ["txt", "tomorrow x together"],
+          "explanation": "Crown was TXT's debut song."
+        },
+        {
+          "question": "What is Tomorrow X Together's fandom name?",
+          "answer": "MOA",
+          "acceptedAnswers": ["moa"],
+          "explanation": "TXT fans are called MOA."
+        },
+        {
+          "question": "Which TXT song has the Korean title 9 and Three Quarters?",
+          "answer": "Run Away",
+          "acceptedAnswers": ["run away"],
+          "explanation": "Run Away is one of TXT's beloved early title tracks."
+        },
+        {
+          "question": "Which TXT disco-pop single is built around a sunset-time mood?",
+          "answer": "Blue Hour",
+          "acceptedAnswers": ["bluehour"],
+          "explanation": "Blue Hour became one of TXT's best-known songs."
+        },
+        {
+          "question": "Which TXT pop-rock title track featuring Seori begins with the stylized prefix 0X1=?",
+          "answer": "0X1=Lovesong",
+          "acceptedAnswers": ["0x1 lovesong"],
+          "explanation": "0X1=Lovesong was a major pop-rock moment for TXT."
+        },
+        {
+          "question": "Which group is known for Missing You and Pray (I'll Be Your Man)?",
+          "answer": "BTOB",
+          "acceptedAnswers": ["btob"],
+          "explanation": "BTOB is especially known for emotional vocal-heavy songs."
+        },
+        {
+          "question": "What is BTOB's fandom name?",
+          "answer": "Melody",
+          "acceptedAnswers": ["melodies"],
+          "explanation": "BTOB fans are called Melody."
+        },
+        {
+          "question": "Which BTOB member is the group's leader and main vocalist?",
+          "answer": "Eunkwang",
+          "acceptedAnswers": ["seo eunkwang"],
+          "explanation": "Eunkwang is the leader of BTOB."
+        },
+        {
+          "question": "Which boy group released Shine in 2018?",
+          "answer": "Pentagon",
+          "acceptedAnswers": ["penta gon"],
+          "explanation": "Shine is Pentagon's biggest breakout hit."
+        },
+        {
+          "question": "What is Pentagon's fandom name?",
+          "answer": "Universe",
+          "acceptedAnswers": ["universes"],
+          "explanation": "Pentagon fans are known as Universe."
+        },
+        {
+          "question": "Which Pentagon member is a producer-songwriter known for writing hits and mentoring on Boys Planet?",
+          "answer": "Hui",
+          "acceptedAnswers": ["lee hoetaek", "hoetaek"],
+          "explanation": "Hui is known both for Pentagon and for songwriting."
+        },
+        {
+          "question": "Which boy group was formed through MyDOL?",
+          "answer": "VIXX",
+          "acceptedAnswers": ["vixx"],
+          "explanation": "VIXX was formed through the survival show MyDOL."
+        },
+        {
+          "question": "What is VIXX's fandom name?",
+          "answer": "Starlight",
+          "acceptedAnswers": ["starlights"],
+          "explanation": "VIXX fans are called Starlight."
+        },
+        {
+          "question": "Which VIXX concept-heavy single is especially known for its dark horror styling and censored video?",
+          "answer": "Voodoo Doll",
+          "acceptedAnswers": ["voodoodoll"],
+          "explanation": "Voodoo Doll is one of VIXX's most famous concept-heavy songs."
+        },
+        {
+          "question": "Which boy group includes Cha Eun-woo and released All Night?",
+          "answer": "ASTRO",
+          "acceptedAnswers": ["astro"],
+          "explanation": "ASTRO is the group Cha Eun-woo debuted in."
+        },
+        {
+          "question": "What is ASTRO's fandom name?",
+          "answer": "AROHA",
+          "acceptedAnswers": ["aroha"],
+          "explanation": "ASTRO fans are known as AROHA."
+        },
+        {
+          "question": "Which ASTRO member became especially famous as an actor in True Beauty?",
+          "answer": "Cha Eun-woo",
+          "acceptedAnswers": ["lee dongmin", "lee dong min", "eunwoo"],
+          "explanation": "Cha Eun-woo became one of K-pop's most recognizable idol-actors."
+        },
+        {
+          "question": "Which band achieved a chart reversal hit with Rooftop?",
+          "answer": "N.Flying",
+          "acceptedAnswers": ["nflying", "n flying"],
+          "explanation": "Rooftop rose after gaining attention online and on charts."
+        },
+        {
+          "question": "Which N.Flying member is the group's leader and main rapper?",
+          "answer": "Seunghyub",
+          "acceptedAnswers": ["lee seunghyub", "jdon", "j.don"],
+          "explanation": "Seunghyub leads N.Flying and also used the name J.Don."
+        },
+        {
+          "question": "Which temporary Produce 101 girl group released Very Very Very?",
+          "answer": "I.O.I",
+          "acceptedAnswers": ["ioi", "i.o.i"],
+          "explanation": "Very Very Very became I.O.I's signature song."
+        },
+        {
+          "question": "Which temporary boy group released Energetic after Produce 101 Season 2?",
+          "answer": "Wanna One",
+          "acceptedAnswers": ["wannaone"],
+          "explanation": "Energetic was the debut song of Wanna One."
+        },
+        {
+          "question": "Which Wanna One member became especially famous as a soloist after the group ended?",
+          "answer": "Kang Daniel",
+          "acceptedAnswers": ["daniel", "kang euigeon"],
+          "explanation": "Kang Daniel became one of the biggest post-Wanna One soloists."
+        },
+        {
+          "question": "Which survival show formed Kep1er?",
+          "answer": "Girls Planet 999",
+          "acceptedAnswers": ["girlsplanet999"],
+          "explanation": "Kep1er was created through Girls Planet 999."
+        },
+        {
+          "question": "What is Kep1er's fandom name?",
+          "answer": "Kep1ian",
+          "acceptedAnswers": ["kep1ian", "kep1ians"],
+          "explanation": "Kep1er fans are called Kep1ian."
+        },
+        {
+          "question": "Which Kep1er debut track became known for its chant-heavy hook?",
+          "answer": "Wa Da Da",
+          "acceptedAnswers": ["wadada", "wa da da"],
+          "explanation": "Wa Da Da was Kep1er's debut title track."
+        },
+        {
+          "question": "Which group released Love Bomb?",
+          "answer": "fromis_9",
+          "acceptedAnswers": ["fromis9", "fromis 9"],
+          "explanation": "Love Bomb is one of fromis_9's best-known songs."
+        },
+        {
+          "question": "What is fromis_9's fandom name?",
+          "answer": "flover",
+          "acceptedAnswers": ["flover"],
+          "explanation": "fromis_9 fans are called flover."
+        },
+        {
+          "question": "Which boy group debuted with One and Only in 2023?",
+          "answer": "BOYNEXTDOOR",
+          "acceptedAnswers": ["boynextdoor", "boy next door"],
+          "explanation": "One and Only was part of BOYNEXTDOOR's debut rollout."
+        },
+        {
+          "question": "What is BOYNEXTDOOR's fandom name?",
+          "answer": "ONEDOOR",
+          "acceptedAnswers": ["onedoor"],
+          "explanation": "BOYNEXTDOOR fans are called ONEDOOR."
+        },
+        {
+          "question": "Which NCT subunit debuted with Chewing Gum?",
+          "answer": "NCT Dream",
+          "acceptedAnswers": ["nctdream"],
+          "explanation": "Chewing Gum was NCT Dream's debut song."
+        },
+        {
+          "question": "Which NCT Dream 2021 title track used a spicy condiment as its name?",
+          "answer": "Hot Sauce",
+          "acceptedAnswers": ["hotsauce"],
+          "explanation": "Hot Sauce was one of NCT Dream's biggest era-defining hits."
+        },
+        {
+          "question": "Which NCT Dream repackage title track from 2021 carried an optimistic message about tomorrow?",
+          "answer": "Hello Future",
+          "acceptedAnswers": ["hellofuture"],
+          "explanation": "Hello Future is one of NCT Dream's most beloved songs."
+        },
+        {
+          "question": "Which NCT unit includes Ten, Xiaojun, Hendery, Kun, YangYang, and Winwin?",
+          "answer": "WayV",
+          "acceptedAnswers": ["wayv", "way v"],
+          "explanation": "Those members make up the China-based NCT unit WayV."
+        },
+        {
+          "question": "What is WayV's fandom name?",
+          "answer": "WayZenNi",
+          "acceptedAnswers": ["wayzenni"],
+          "explanation": "WayV's fandom is called WayZenNi."
+        },
+        {
+          "question": "Which WayV English-language track became especially popular internationally for its flirty lyrics?",
+          "answer": "Love Talk",
+          "acceptedAnswers": ["lovetalk"],
+          "explanation": "Love Talk helped WayV gain a wider international audience."
+        },
+        {
+          "question": "Which WayV member is also known for solo dance performances and SuperM?",
+          "answer": "Ten",
+          "acceptedAnswers": ["chittaphon leechaiyapornkul"],
+          "explanation": "Ten is one of the most recognizable performance-focused NCT members."
+        },
+        {
+          "question": "Which group released Halazia?",
+          "answer": "Ateez",
+          "acceptedAnswers": ["ateez"],
+          "explanation": "Halazia is one of Ateez's dramatic performance songs."
+        },
+        {
+          "question": "Which Ateez title track told listeners to break the wall?",
+          "answer": "Guerrilla",
+          "acceptedAnswers": ["guerrilla"],
+          "explanation": "Guerrilla is one of Ateez's biggest high-energy title tracks."
+        },
+        {
+          "question": "Which Ateez member is the group's leader?",
+          "answer": "Hongjoong",
+          "acceptedAnswers": ["kim hongjoong"],
+          "explanation": "Hongjoong is the leader of Ateez."
+        },
+        {
+          "question": "Which aespa debut song introduced the group's villainous snake lore?",
+          "answer": "Black Mamba",
+          "acceptedAnswers": ["blackmamba"],
+          "explanation": "Black Mamba was aespa's debut song."
+        },
+        {
+          "question": "Which aespa 2021 single followed Next Level and leaned hard into the group's ae lore?",
+          "answer": "Savage",
+          "acceptedAnswers": ["savage"],
+          "explanation": "Savage was one of aespa's biggest early-era follow-up hits."
+        },
+        {
+          "question": "Which aespa 2023 title track traded sci-fi intensity for a brighter teen-movie feel?",
+          "answer": "Spicy",
+          "acceptedAnswers": ["spicy"],
+          "explanation": "Spicy was aespa's bright 2023 title track."
+        },
+        {
+          "question": "Which aespa song in 2024 shared its title with an end-of-the-world term?",
+          "answer": "Armageddon",
+          "acceptedAnswers": ["armageddon"],
+          "explanation": "Armageddon was one of aespa's major 2024 titles."
+        },
+        {
+          "question": "Which girl group released Midas Touch?",
+          "answer": "Kiss of Life",
+          "acceptedAnswers": ["kiss of life", "kiof"],
+          "explanation": "Midas Touch was a big 2024 moment for Kiss of Life."
+        },
+        {
+          "question": "Which Kiss of Life member first became known as a soloist before debuting in the group?",
+          "answer": "Natty",
+          "acceptedAnswers": ["anatchaya suputhipong", "natty"],
+          "explanation": "Natty had a solo career before joining Kiss of Life."
+        },
+        {
+          "question": "Which girl group went viral with Bboom Bboom?",
+          "answer": "Momoland",
+          "acceptedAnswers": ["momo land"],
+          "explanation": "Bboom Bboom became Momoland's huge viral hit."
+        },
+        {
+          "question": "Which girl group released Dolphin and Nonstop in 2020?",
+          "answer": "Oh My Girl",
+          "acceptedAnswers": ["ohmygirl"],
+          "explanation": "Dolphin and Nonstop gave Oh My Girl a major boost in 2020."
+        },
+        {
+          "question": "What is Oh My Girl's fandom name?",
+          "answer": "Miracle",
+          "acceptedAnswers": ["miracles"],
+          "explanation": "Oh My Girl fans are known as Miracle."
+        },
+        {
+          "question": "Which girl group released Russian Roulette and Peek-A-Boo?",
+          "answer": "Red Velvet",
+          "acceptedAnswers": ["redvelvet"],
+          "explanation": "Both songs are major entries in Red Velvet's catalog."
+        },
+        {
+          "question": "Which Red Velvet member released the solo song Like Water?",
+          "answer": "Wendy",
+          "acceptedAnswers": ["son seungwan", "seungwan"],
+          "explanation": "Wendy released Like Water as part of her solo debut."
+        },
+        {
+          "question": "Which soloist released Bubble Pop!?",
+          "answer": "Hyuna",
+          "acceptedAnswers": ["kim hyuna", "hyun a"],
+          "explanation": "Bubble Pop! is one of Hyuna's most famous solo hits."
+        },
+        {
+          "question": "Which female soloist released Gashina after leaving Wonder Girls?",
+          "answer": "Sunmi",
+          "acceptedAnswers": ["lee sunmi"],
+          "explanation": "Gashina became one of Sunmi's defining solo songs."
+        },
+        {
+          "question": "Which girl group released Bad Boy in 2018?",
+          "answer": "Red Velvet",
+          "acceptedAnswers": ["redvelvet"],
+          "explanation": "Bad Boy is one of Red Velvet's most acclaimed velvet-concept songs."
+        },
+        {
+          "question": "Which boy group is known for the members Minho, Key, Onew, Taemin, and Jonghyun?",
+          "answer": "SHINee",
+          "acceptedAnswers": ["shinee"],
+          "explanation": "Those five members made up SHINee's classic lineup."
+        },
+        {
+          "question": "Which SHINee member is the group's leader?",
+          "answer": "Onew",
+          "acceptedAnswers": ["lee jinki", "jinki"],
+          "explanation": "Onew is the leader of SHINee."
+        },
+        {
+          "question": "Which SHINee member released Criminal and Guilty as solo songs?",
+          "answer": "Taemin",
+          "acceptedAnswers": ["lee taemin"],
+          "explanation": "Taemin built a major solo career alongside SHINee."
+        },
+        {
+          "question": "Which EXO 2018 title track became especially famous for its chorus choreography?",
+          "answer": "Love Shot",
+          "acceptedAnswers": ["loveshot"],
+          "explanation": "Love Shot is one of EXO's most famous later-era songs."
+        },
+        {
+          "question": "Which EXO member released Bambi as a solo title track?",
+          "answer": "Baekhyun",
+          "acceptedAnswers": ["byun baekhyun"],
+          "explanation": "Bambi is one of Baekhyun's best-known solo title tracks."
+        },
+        {
+          "question": "Which rookie boy group released Plot Twist in 2024?",
+          "answer": "TWS",
+          "acceptedAnswers": ["tws"],
+          "explanation": "Plot Twist became TWS's breakout debut hit."
+        },
+        {
+          "question": "Which Stray Kids title track used 143 as a code for I love you?",
+          "answer": "Case 143",
+          "acceptedAnswers": ["case143", "case 143"],
+          "explanation": "Case 143 was Stray Kids' 2022 title track."
+        },
+        {
+          "question": "Which Blackpink Netflix documentary came out in 2020?",
+          "answer": "Blackpink: Light Up the Sky",
+          "acceptedAnswers": ["light up the sky"],
+          "explanation": "Blackpink: Light Up the Sky is the group's Netflix documentary."
         }
       ]
     },
@@ -582,6 +1678,462 @@
           "answer": "Michael Jackson",
           "acceptedAnswers": ["mj"],
           "explanation": "Billie Jean was one of Michael Jackson's biggest hits from Thriller."
+        },
+        {
+          "question": "Who sang Save Your Tears?",
+          "answer": "The Weeknd",
+          "acceptedAnswers": ["weeknd"],
+          "explanation": "Save Your Tears was a huge hit from the Weeknd's After Hours era."
+        },
+        {
+          "question": "Which singer released Drivers License with a capitalized title in common conversation but stylized in lowercase?",
+          "answer": "Olivia Rodrigo",
+          "acceptedAnswers": ["olivia"],
+          "explanation": "Drivers License became Olivia Rodrigo's breakout smash."
+        },
+        {
+          "question": "Who sang 7 rings?",
+          "answer": "Ariana Grande",
+          "acceptedAnswers": ["ariana"],
+          "explanation": "7 rings was one of Ariana Grande's biggest pop hits."
+        },
+        {
+          "question": "Who sang positions?",
+          "answer": "Ariana Grande",
+          "acceptedAnswers": ["ariana"],
+          "explanation": "positions was the title track of Ariana Grande's 2020 album."
+        },
+        {
+          "question": "Which singer released bad romance?",
+          "answer": "Lady Gaga",
+          "acceptedAnswers": ["gaga"],
+          "explanation": "Bad Romance is one of Lady Gaga's signature songs."
+        },
+        {
+          "question": "Which singer recorded Born This Way?",
+          "answer": "Lady Gaga",
+          "acceptedAnswers": ["gaga"],
+          "explanation": "Born This Way became one of Lady Gaga's biggest anthems."
+        },
+        {
+          "question": "Which singer released cardigan?",
+          "answer": "Taylor Swift",
+          "acceptedAnswers": ["taylor"],
+          "explanation": "cardigan was a key single from Taylor Swift's folklore era."
+        },
+        {
+          "question": "Which singer released Espresso and Nonsense?",
+          "answer": "Sabrina Carpenter",
+          "acceptedAnswers": ["sabrina"],
+          "explanation": "Espresso and Nonsense are both major Sabrina Carpenter songs."
+        },
+        {
+          "question": "Who sang Call Me Maybe?",
+          "answer": "Carly Rae Jepsen",
+          "acceptedAnswers": ["carly"],
+          "explanation": "Call Me Maybe was Carly Rae Jepsen's breakout global hit."
+        },
+        {
+          "question": "Which singer recorded Somebody That I Used to Know with Kimbra?",
+          "answer": "Gotye",
+          "acceptedAnswers": ["gotye"],
+          "explanation": "Somebody That I Used to Know was Gotye's biggest hit."
+        },
+        {
+          "question": "Who sang Royalties, but as a global pop smash titled Royals?",
+          "answer": "Lorde",
+          "acceptedAnswers": ["lorde"],
+          "explanation": "Royals was Lorde's breakthrough hit."
+        },
+        {
+          "question": "Which singer released Since U Been Gone and Breakaway?",
+          "answer": "Kelly Clarkson",
+          "acceptedAnswers": ["kelly"],
+          "explanation": "Both songs are major hits by Kelly Clarkson."
+        },
+        {
+          "question": "Who sang We Are Never Ever Getting Back Together?",
+          "answer": "Taylor Swift",
+          "acceptedAnswers": ["taylor"],
+          "explanation": "We Are Never Ever Getting Back Together was a major Taylor Swift hit."
+        },
+        {
+          "question": "Which singer released Hung Up?",
+          "answer": "Madonna",
+          "acceptedAnswers": ["madge"],
+          "explanation": "Hung Up was one of Madonna's biggest 2000s dance-pop hits."
+        },
+        {
+          "question": "Which rapper released Lose Yourself?",
+          "answer": "Eminem",
+          "acceptedAnswers": ["marshall mathers"],
+          "explanation": "Lose Yourself is one of Eminem's most famous songs."
+        },
+        {
+          "question": "Who sang Poker Face and Bad Romance?",
+          "answer": "Lady Gaga",
+          "acceptedAnswers": ["gaga"],
+          "explanation": "Both songs helped define Lady Gaga's pop superstardom."
+        },
+        {
+          "question": "Which singer released Firework and Teenage Dream?",
+          "answer": "Katy Perry",
+          "acceptedAnswers": ["katy"],
+          "explanation": "Firework and Teenage Dream are both major Katy Perry hits."
+        },
+        {
+          "question": "Who sang lovely with Khalid?",
+          "answer": "Billie Eilish",
+          "acceptedAnswers": ["billie"],
+          "explanation": "lovely is credited to Billie Eilish and Khalid."
+        },
+        {
+          "question": "Which singer released Style and Blank Space?",
+          "answer": "Taylor Swift",
+          "acceptedAnswers": ["taylor"],
+          "explanation": "Style and Blank Space were both major 1989 hits."
+        },
+        {
+          "question": "Who sang Rolling in the Deep and Hello?",
+          "answer": "Adele",
+          "acceptedAnswers": ["adele"],
+          "explanation": "Both songs are some of Adele's biggest hits."
+        },
+        {
+          "question": "Who sang Please Please Please?",
+          "answer": "Sabrina Carpenter",
+          "acceptedAnswers": ["sabrina"],
+          "explanation": "Please Please Please became one of Sabrina Carpenter's biggest pop hits."
+        },
+        {
+          "question": "Who sang Cut to the Feeling?",
+          "answer": "Carly Rae Jepsen",
+          "acceptedAnswers": ["carly"],
+          "explanation": "Cut to the Feeling is one of Carly Rae Jepsen's most loved pop songs."
+        },
+        {
+          "question": "Who sang Into You?",
+          "answer": "Ariana Grande",
+          "acceptedAnswers": ["ariana"],
+          "explanation": "Into You is one of Ariana Grande's biggest pop songs."
+        },
+        {
+          "question": "Who sang Good Luck, Babe!?",
+          "answer": "Chappell Roan",
+          "acceptedAnswers": ["chappell"],
+          "explanation": "Good Luck, Babe! helped push Chappell Roan further into the mainstream."
+        },
+        {
+          "question": "Who sang Pink Pony Club?",
+          "answer": "Chappell Roan",
+          "acceptedAnswers": ["chappell"],
+          "explanation": "Pink Pony Club became one of Chappell Roan's defining songs."
+        },
+        {
+          "question": "Who sang good 4 u?",
+          "answer": "Olivia Rodrigo",
+          "acceptedAnswers": ["olivia"],
+          "explanation": "good 4 u was one of Olivia Rodrigo's biggest songs."
+        },
+        {
+          "question": "Who sang vampire in 2023?",
+          "answer": "Olivia Rodrigo",
+          "acceptedAnswers": ["olivia"],
+          "explanation": "vampire led Olivia Rodrigo's Guts era."
+        },
+        {
+          "question": "Who sang Birds of a Feather?",
+          "answer": "Billie Eilish",
+          "acceptedAnswers": ["billie"],
+          "explanation": "Birds of a Feather was one of Billie Eilish's major 2024 songs."
+        },
+        {
+          "question": "Who sang Happier Than Ever?",
+          "answer": "Billie Eilish",
+          "acceptedAnswers": ["billie"],
+          "explanation": "Happier Than Ever became one of Billie Eilish's signature emotional songs."
+        },
+        {
+          "question": "Who sang Anti-Hero?",
+          "answer": "Taylor Swift",
+          "acceptedAnswers": ["taylor"],
+          "explanation": "Anti-Hero was one of Taylor Swift's biggest Midnights songs."
+        },
+        {
+          "question": "Who sang Blank Space?",
+          "answer": "Taylor Swift",
+          "acceptedAnswers": ["taylor"],
+          "explanation": "Blank Space is one of Taylor Swift's biggest pop hits."
+        },
+        {
+          "question": "Who sang Cruel Summer?",
+          "answer": "Taylor Swift",
+          "acceptedAnswers": ["taylor"],
+          "explanation": "Cruel Summer became an even bigger hit years after release."
+        },
+        {
+          "question": "Who sang Not Like Us?",
+          "answer": "Kendrick Lamar",
+          "acceptedAnswers": ["kendrick"],
+          "explanation": "Not Like Us became one of Kendrick Lamar's biggest recent songs."
+        },
+        {
+          "question": "Which rapper released Hotline Bling?",
+          "answer": "Drake",
+          "acceptedAnswers": ["drizzy"],
+          "explanation": "Hotline Bling is one of Drake's signature hits."
+        },
+        {
+          "question": "Who sang Circles?",
+          "answer": "Post Malone",
+          "acceptedAnswers": ["post"],
+          "explanation": "Circles became one of Post Malone's biggest songs."
+        },
+        {
+          "question": "Who sang Sunflower with Swae Lee?",
+          "answer": "Post Malone",
+          "acceptedAnswers": ["post"],
+          "explanation": "Sunflower is credited to Post Malone and Swae Lee."
+        },
+        {
+          "question": "Which duo released Wake Me Up Before You Go-Go?",
+          "answer": "Wham!",
+          "acceptedAnswers": ["wham"],
+          "explanation": "Wake Me Up Before You Go-Go is one of Wham!'s most famous songs."
+        },
+        {
+          "question": "Who sang Careless Whisper?",
+          "answer": "George Michael",
+          "acceptedAnswers": ["george"],
+          "explanation": "Careless Whisper became one of George Michael's signature songs."
+        },
+        {
+          "question": "Which artist released I Will Always Love You for The Bodyguard soundtrack?",
+          "answer": "Whitney Houston",
+          "acceptedAnswers": ["whitney"],
+          "explanation": "Whitney Houston's version of I Will Always Love You became legendary."
+        },
+        {
+          "question": "Who sang My Heart Will Go On?",
+          "answer": "Celine Dion",
+          "acceptedAnswers": ["celine"],
+          "explanation": "My Heart Will Go On is Celine Dion's Titanic theme."
+        },
+        {
+          "question": "Which band recorded Radioactive?",
+          "answer": "Imagine Dragons",
+          "acceptedAnswers": ["imaginedragons"],
+          "explanation": "Radioactive was a breakthrough hit for Imagine Dragons."
+        },
+        {
+          "question": "Which band sang Demons?",
+          "answer": "Imagine Dragons",
+          "acceptedAnswers": ["imaginedragons"],
+          "explanation": "Demons is one of Imagine Dragons' best-known songs."
+        },
+        {
+          "question": "Who sang Beautiful Day?",
+          "answer": "U2",
+          "acceptedAnswers": ["u2"],
+          "explanation": "Beautiful Day was one of U2's biggest 2000s hits."
+        },
+        {
+          "question": "Which Irish band recorded With or Without You?",
+          "answer": "U2",
+          "acceptedAnswers": ["u2"],
+          "explanation": "With or Without You is one of U2's signature songs."
+        },
+        {
+          "question": "Which band sang Boulevard of Broken Dreams?",
+          "answer": "Green Day",
+          "acceptedAnswers": ["greenday", "green day"],
+          "explanation": "Boulevard of Broken Dreams was a massive Green Day hit."
+        },
+        {
+          "question": "Which band released Basket Case?",
+          "answer": "Green Day",
+          "acceptedAnswers": ["greenday", "green day"],
+          "explanation": "Basket Case helped launch Green Day into the mainstream."
+        },
+        {
+          "question": "Which band recorded Wonderwall?",
+          "answer": "Oasis",
+          "acceptedAnswers": ["oasis"],
+          "explanation": "Wonderwall became Oasis's most famous song."
+        },
+        {
+          "question": "Which singer released vampire in 2023?",
+          "answer": "Olivia Rodrigo",
+          "acceptedAnswers": ["olivia"],
+          "explanation": "Vampire was Olivia Rodrigo's lead single for Guts."
+        },
+        {
+          "question": "Who sang Unwritten?",
+          "answer": "Natasha Bedingfield",
+          "acceptedAnswers": ["natasha"],
+          "explanation": "Unwritten became Natasha Bedingfield's signature anthem."
+        },
+        {
+          "question": "Which boy band recorded the hit often shortened to Backstreet's Back?",
+          "answer": "Backstreet Boys",
+          "acceptedAnswers": ["bsb"],
+          "explanation": "Everybody (Backstreet's Back) is one of the Backstreet Boys' most iconic songs."
+        },
+        {
+          "question": "Which boy band sang Bye Bye Bye?",
+          "answer": "NSYNC",
+          "acceptedAnswers": ["*nsync", "nsync"],
+          "explanation": "Bye Bye Bye is one of NSYNC's biggest hits."
+        },
+        {
+          "question": "Which girl group released Wannabe?",
+          "answer": "Spice Girls",
+          "acceptedAnswers": ["spicegirls", "spice girls"],
+          "explanation": "Wannabe was the breakout global hit of the Spice Girls."
+        },
+        {
+          "question": "Who sang Material Girl?",
+          "answer": "Madonna",
+          "acceptedAnswers": ["madge"],
+          "explanation": "Material Girl is one of Madonna's defining early hits."
+        },
+        {
+          "question": "Which singer released Like a Prayer?",
+          "answer": "Madonna",
+          "acceptedAnswers": ["madge"],
+          "explanation": "Like a Prayer remains one of Madonna's most acclaimed songs."
+        },
+        {
+          "question": "Who sang Rolling in the Deep's album follow-up Set Fire to the Rain?",
+          "answer": "Adele",
+          "acceptedAnswers": ["adele"],
+          "explanation": "Set Fire to the Rain was another huge Adele hit from 21."
+        },
+        {
+          "question": "Which singer recorded Umbrella featuring Jay-Z?",
+          "answer": "Rihanna",
+          "acceptedAnswers": ["rihanna"],
+          "explanation": "Umbrella became one of Rihanna's signature hits."
+        },
+        {
+          "question": "Who sang We Found Love with Calvin Harris?",
+          "answer": "Rihanna",
+          "acceptedAnswers": ["rihanna"],
+          "explanation": "We Found Love was a huge dance-pop hit for Rihanna."
+        },
+        {
+          "question": "Who sang Toxic's follow-up hit Oops!... I Did It Again?",
+          "answer": "Britney Spears",
+          "acceptedAnswers": ["britney"],
+          "explanation": "Oops!... I Did It Again is one of Britney Spears's signature pop songs."
+        },
+        {
+          "question": "Which singer released Genie in a Bottle?",
+          "answer": "Christina Aguilera",
+          "acceptedAnswers": ["christina"],
+          "explanation": "Genie in a Bottle was Christina Aguilera's breakout hit."
+        },
+        {
+          "question": "Which singer sang Complicated and Sk8er Boi?",
+          "answer": "Avril Lavigne",
+          "acceptedAnswers": ["avril"],
+          "explanation": "Complicated and Sk8er Boi helped define Avril Lavigne's early career."
+        },
+        {
+          "question": "Which artist recorded Just the Way You Are?",
+          "answer": "Bruno Mars",
+          "acceptedAnswers": ["bruno"],
+          "explanation": "Just the Way You Are was one of Bruno Mars's earliest massive hits."
+        },
+        {
+          "question": "Who sang Grenade?",
+          "answer": "Bruno Mars",
+          "acceptedAnswers": ["bruno"],
+          "explanation": "Grenade is another major Bruno Mars hit."
+        },
+        {
+          "question": "Which singer released Levitating and Houdini?",
+          "answer": "Dua Lipa",
+          "acceptedAnswers": ["dua"],
+          "explanation": "Levitating and Houdini are major songs by Dua Lipa."
+        },
+        {
+          "question": "Which singer recorded New Rules?",
+          "answer": "Dua Lipa",
+          "acceptedAnswers": ["dua"],
+          "explanation": "New Rules was one of Dua Lipa's breakout hits."
+        },
+        {
+          "question": "Who sang Can't Feel My Face?",
+          "answer": "The Weeknd",
+          "acceptedAnswers": ["weeknd"],
+          "explanation": "Can't Feel My Face helped push the Weeknd fully into mainstream pop."
+        },
+        {
+          "question": "Which singer released Since U Been Gone and Stronger (What Doesn't Kill You)?",
+          "answer": "Kelly Clarkson",
+          "acceptedAnswers": ["kelly"],
+          "explanation": "Both songs are major Kelly Clarkson hits."
+        },
+        {
+          "question": "Which singer recorded Piece of Me?",
+          "answer": "Britney Spears",
+          "acceptedAnswers": ["britney"],
+          "explanation": "Piece of Me is one of Britney Spears's well-known late-2000s hits."
+        },
+        {
+          "question": "Who sang Teenage Dream?",
+          "answer": "Katy Perry",
+          "acceptedAnswers": ["katy"],
+          "explanation": "Teenage Dream is one of Katy Perry's signature pop songs."
+        },
+        {
+          "question": "Which singer released Roar?",
+          "answer": "Katy Perry",
+          "acceptedAnswers": ["katy"],
+          "explanation": "Roar was a major anthem-era hit for Katy Perry."
+        },
+        {
+          "question": "Which singer recorded Fight Song?",
+          "answer": "Rachel Platten",
+          "acceptedAnswers": ["rachel"],
+          "explanation": "Fight Song is Rachel Platten's biggest hit."
+        },
+        {
+          "question": "Which singer provided the lead vocals on Zedd's hit The Middle?",
+          "answer": "Maren Morris",
+          "acceptedAnswers": ["maren"],
+          "explanation": "The Middle is credited to Zedd, Maren Morris, and Grey."
+        },
+        {
+          "question": "Which rock band recorded Livin' on a Prayer?",
+          "answer": "Bon Jovi",
+          "acceptedAnswers": ["bonjovi"],
+          "explanation": "Livin' on a Prayer is Bon Jovi's signature arena-rock anthem."
+        },
+        {
+          "question": "Which band sang September?",
+          "answer": "Earth, Wind & Fire",
+          "acceptedAnswers": ["earth wind and fire", "ewf"],
+          "explanation": "September remains one of Earth, Wind & Fire's most beloved songs."
+        },
+        {
+          "question": "Who sang Fast Car in the original 1988 version?",
+          "answer": "Tracy Chapman",
+          "acceptedAnswers": ["tracy"],
+          "explanation": "Fast Car is Tracy Chapman's classic song."
+        },
+        {
+          "question": "Which singer released Before He Cheats?",
+          "answer": "Carrie Underwood",
+          "acceptedAnswers": ["carrie"],
+          "explanation": "Before He Cheats became one of Carrie Underwood's signature hits."
+        },
+        {
+          "question": "Which country-pop singer released Man! I Feel Like a Woman!?",
+          "answer": "Shania Twain",
+          "acceptedAnswers": ["shania"],
+          "explanation": "Man! I Feel Like a Woman! is one of Shania Twain's most iconic songs."
         },
         {
           "question": "Which band recorded Bohemian Rhapsody?",
@@ -814,10 +2366,10 @@
           "explanation": "Africa became Toto's most iconic hit."
         },
         {
-          "question": "Who sang Call Me Maybe?",
+          "question": "Who sang Run Away With Me?",
           "answer": "Carly Rae Jepsen",
           "acceptedAnswers": ["carly rae", "carly"],
-          "explanation": "Call Me Maybe became Carly Rae Jepsen's breakout smash."
+          "explanation": "Run Away With Me is one of Carly Rae Jepsen's most acclaimed pop songs."
         },
         {
           "question": "Which boy band sang I Want It That Way?",
@@ -879,10 +2431,10 @@
           "explanation": "Lush Life became one of Zara Larsson's biggest international hits."
         },
         {
-          "question": "Who sang 7 rings?",
+          "question": "Who sang No Tears Left to Cry?",
           "answer": "Ariana Grande",
           "acceptedAnswers": ["ariana"],
-          "explanation": "7 rings was a major hit from Ariana Grande's thank u, next era."
+          "explanation": "No Tears Left to Cry was a major Ariana Grande hit."
         },
         {
           "question": "Who sang Say So?",
@@ -1054,7 +2606,7 @@
         {
           "question": "Who released Titi Me Pregunto?",
           "answer": "Bad Bunny",
-          "acceptedAnswers": ["titi me pregunto", "badbunny"],
+          "acceptedAnswers": ["badbunny"],
           "explanation": "Titi Me Pregunto is one of Bad Bunny's biggest worldwide hits."
         },
         {
@@ -1158,6 +2710,694 @@
           "answer": "Tate McRae",
           "acceptedAnswers": ["tate"],
           "explanation": "exes was another major streaming-era hit for Tate McRae."
+        },
+        {
+          "question": "Who sang Since U Been Gone?",
+          "answer": "Kelly Clarkson",
+          "acceptedAnswers": ["kelly"],
+          "explanation": "Since U Been Gone was one of Kelly Clarkson's signature pop-rock hits."
+        },
+        {
+          "question": "Which band recorded Don't Stop Believin'?",
+          "answer": "Journey",
+          "explanation": "Don't Stop Believin' is Journey's most iconic arena-rock anthem."
+        },
+        {
+          "question": "Which group sang No Scrubs?",
+          "answer": "TLC",
+          "acceptedAnswers": ["tlc"],
+          "explanation": "No Scrubs became one of TLC's best-known hits."
+        },
+        {
+          "question": "Who sang Yeah! with Lil Jon and Ludacris?",
+          "answer": "Usher",
+          "explanation": "Yeah! is one of Usher's biggest club hits."
+        },
+        {
+          "question": "Which band recorded Iris?",
+          "answer": "Goo Goo Dolls",
+          "acceptedAnswers": ["goo goo dolls", "googoo dolls"],
+          "explanation": "Iris became the Goo Goo Dolls' signature ballad."
+        },
+        {
+          "question": "Which duo released Hey Ya!?",
+          "answer": "Outkast",
+          "acceptedAnswers": ["outkast"],
+          "explanation": "Hey Ya! was one of Outkast's biggest crossover hits."
+        },
+        {
+          "question": "Which band sang Chasing Cars?",
+          "answer": "Snow Patrol",
+          "acceptedAnswers": ["snowpatrol"],
+          "explanation": "Chasing Cars became Snow Patrol's defining global hit."
+        },
+        {
+          "question": "Which band recorded Numb?",
+          "answer": "Linkin Park",
+          "acceptedAnswers": ["linkinpark"],
+          "explanation": "Numb is one of Linkin Park's best-known songs."
+        },
+        {
+          "question": "Which rock band released In the End?",
+          "answer": "Linkin Park",
+          "acceptedAnswers": ["linkinpark"],
+          "explanation": "In the End helped make Linkin Park a global rock force."
+        },
+        {
+          "question": "Who sang drivers license?",
+          "answer": "Olivia Rodrigo",
+          "acceptedAnswers": ["olivia"],
+          "explanation": "drivers license was Olivia Rodrigo's breakout number one hit."
+        },
+        {
+          "question": "Who sang Espresso?",
+          "answer": "Sabrina Carpenter",
+          "acceptedAnswers": ["sabrina"],
+          "explanation": "Espresso became one of Sabrina Carpenter's biggest hits."
+        },
+        {
+          "question": "Which Chappell Roan song spells out H-O-T T-O-G-O in the chorus?",
+          "answer": "HOT TO GO!",
+          "acceptedAnswers": ["hot to go", "hottogo"],
+          "explanation": "HOT TO GO! became one of Chappell Roan's signature crowd-singalong songs."
+        },
+        {
+          "question": "Who sang Flowers?",
+          "answer": "Miley Cyrus",
+          "acceptedAnswers": ["miley"],
+          "explanation": "Flowers was a huge comeback-era hit for Miley Cyrus."
+        },
+        {
+          "question": "Who sang As It Was?",
+          "answer": "Harry Styles",
+          "acceptedAnswers": ["harry"],
+          "explanation": "As It Was became one of Harry Styles's biggest solo hits."
+        },
+        {
+          "question": "Which singer teamed with Post Malone on Fortnight?",
+          "answer": "Taylor Swift",
+          "acceptedAnswers": ["taylor"],
+          "explanation": "Fortnight is credited to Taylor Swift featuring Post Malone."
+        },
+        {
+          "question": "Who sang Thriller?",
+          "answer": "Michael Jackson",
+          "acceptedAnswers": ["mj"],
+          "explanation": "Thriller is one of Michael Jackson's most iconic songs."
+        },
+        {
+          "question": "Who sang Beat It?",
+          "answer": "Michael Jackson",
+          "acceptedAnswers": ["mj"],
+          "explanation": "Beat It was a major hit from Michael Jackson's Thriller era."
+        },
+        {
+          "question": "Who sang Smooth Criminal?",
+          "answer": "Michael Jackson",
+          "acceptedAnswers": ["mj"],
+          "explanation": "Smooth Criminal is one of Michael Jackson's best-known songs."
+        },
+        {
+          "question": "Which singer recorded Like a Virgin?",
+          "answer": "Madonna",
+          "acceptedAnswers": ["madge"],
+          "explanation": "Like a Virgin was one of Madonna's defining early hits."
+        },
+        {
+          "question": "Which singer released Vogue?",
+          "answer": "Madonna",
+          "acceptedAnswers": ["madge"],
+          "explanation": "Vogue became one of Madonna's most famous dance-pop singles."
+        },
+        {
+          "question": "Who sang Crazy in Love?",
+          "answer": "Beyonce",
+          "acceptedAnswers": ["beyonce knowles"],
+          "explanation": "Crazy in Love was Beyonce's breakout solo smash."
+        },
+        {
+          "question": "Which singer released Irreplaceable?",
+          "answer": "Beyonce",
+          "acceptedAnswers": ["beyonce knowles"],
+          "explanation": "Irreplaceable became one of Beyonce's biggest solo hits."
+        },
+        {
+          "question": "Which duo released Crazy in 2006?",
+          "answer": "Gnarls Barkley",
+          "acceptedAnswers": ["gnarls barkley"],
+          "explanation": "Crazy was the defining hit of Gnarls Barkley."
+        },
+        {
+          "question": "Which singer recorded Rehab in 2006?",
+          "answer": "Amy Winehouse",
+          "acceptedAnswers": ["amy"],
+          "explanation": "Rehab was one of Amy Winehouse's signature songs."
+        },
+        {
+          "question": "Who sang Valerie with Mark Ronson?",
+          "answer": "Amy Winehouse",
+          "acceptedAnswers": ["amy"],
+          "explanation": "Amy Winehouse's version of Valerie with Mark Ronson became hugely popular."
+        },
+        {
+          "question": "Which singer released Back to Black?",
+          "answer": "Amy Winehouse",
+          "acceptedAnswers": ["amy"],
+          "explanation": "Back to Black is one of Amy Winehouse's best-known songs."
+        },
+        {
+          "question": "Who sang What's Love Got to Do with It?",
+          "answer": "Tina Turner",
+          "acceptedAnswers": ["tina"],
+          "explanation": "What's Love Got to Do with It? is one of Tina Turner's biggest hits."
+        },
+        {
+          "question": "Which singer recorded Believe in 1998?",
+          "answer": "Cher",
+          "acceptedAnswers": ["cher"],
+          "explanation": "Believe was Cher's giant late-career dance-pop hit."
+        },
+        {
+          "question": "Who sang Torn in 1997?",
+          "answer": "Natalie Imbruglia",
+          "acceptedAnswers": ["natalie"],
+          "explanation": "Torn became Natalie Imbruglia's signature song."
+        },
+        {
+          "question": "Which singer released Bleeding Love?",
+          "answer": "Leona Lewis",
+          "acceptedAnswers": ["leona"],
+          "explanation": "Bleeding Love was Leona Lewis's massive breakthrough hit."
+        },
+        {
+          "question": "Who sang Chandelier?",
+          "answer": "Sia",
+          "acceptedAnswers": ["sia"],
+          "explanation": "Chandelier became one of Sia's defining solo hits."
+        },
+        {
+          "question": "Which singer recorded Cheap Thrills?",
+          "answer": "Sia",
+          "acceptedAnswers": ["sia"],
+          "explanation": "Cheap Thrills was another major global hit for Sia."
+        },
+        {
+          "question": "Who sang Stay with Me in 2014?",
+          "answer": "Sam Smith",
+          "acceptedAnswers": ["sam"],
+          "explanation": "Stay with Me was one of Sam Smith's breakout songs."
+        },
+        {
+          "question": "Which singer released Unholy with Kim Petras?",
+          "answer": "Sam Smith",
+          "acceptedAnswers": ["sam"],
+          "explanation": "Unholy became one of Sam Smith's biggest recent hits."
+        },
+        {
+          "question": "Who sang Dancing On My Own?",
+          "answer": "Robyn",
+          "acceptedAnswers": ["robyn"],
+          "explanation": "Dancing On My Own is one of Robyn's most acclaimed pop songs."
+        },
+        {
+          "question": "Which singer recorded Call Your Girlfriend?",
+          "answer": "Robyn",
+          "acceptedAnswers": ["robyn"],
+          "explanation": "Call Your Girlfriend is another fan-favorite Robyn song."
+        },
+        {
+          "question": "Who sang Sweet Dreams (Are Made of This)?",
+          "answer": "Eurythmics",
+          "acceptedAnswers": ["the eurythmics"],
+          "explanation": "Sweet Dreams (Are Made of This) is the signature hit of Eurythmics."
+        },
+        {
+          "question": "Which group released Sweet Dreams (Are Made of This)?",
+          "answer": "Eurythmics",
+          "acceptedAnswers": ["the eurythmics"],
+          "explanation": "Eurythmics released Sweet Dreams (Are Made of This) in 1983."
+        },
+        {
+          "question": "Who sang Take My Breath Away?",
+          "answer": "Berlin",
+          "acceptedAnswers": ["berlin"],
+          "explanation": "Take My Breath Away is Berlin's biggest hit."
+        },
+        {
+          "question": "Who sang Kiss from a Rose?",
+          "answer": "Seal",
+          "acceptedAnswers": ["seal"],
+          "explanation": "Kiss from a Rose became Seal's signature song."
+        },
+        {
+          "question": "Which singer recorded Bitch in 1997?",
+          "answer": "Meredith Brooks",
+          "acceptedAnswers": ["meredith"],
+          "explanation": "Bitch was Meredith Brooks's breakout hit."
+        },
+        {
+          "question": "Who sang Fallin'?",
+          "answer": "Alicia Keys",
+          "acceptedAnswers": ["alicia"],
+          "explanation": "Fallin' was Alicia Keys's breakthrough single."
+        },
+        {
+          "question": "Which singer released If I Ain't Got You?",
+          "answer": "Alicia Keys",
+          "acceptedAnswers": ["alicia"],
+          "explanation": "If I Ain't Got You is one of Alicia Keys's biggest ballads."
+        },
+        {
+          "question": "Who sang No One in 2007?",
+          "answer": "Alicia Keys",
+          "acceptedAnswers": ["alicia"],
+          "explanation": "No One became one of Alicia Keys's biggest hits."
+        },
+        {
+          "question": "Which singer recorded I Kissed a Girl?",
+          "answer": "Katy Perry",
+          "acceptedAnswers": ["katy"],
+          "explanation": "I Kissed a Girl was Katy Perry's major breakout single."
+        },
+        {
+          "question": "Who sang California Gurls?",
+          "answer": "Katy Perry",
+          "acceptedAnswers": ["katy"],
+          "explanation": "California Gurls was one of Katy Perry's Teenage Dream-era hits."
+        },
+        {
+          "question": "Which singer released Dark Horse?",
+          "answer": "Katy Perry",
+          "acceptedAnswers": ["katy"],
+          "explanation": "Dark Horse became another huge hit for Katy Perry."
+        },
+        {
+          "question": "Who sang ET with Kanye West?",
+          "answer": "Katy Perry",
+          "acceptedAnswers": ["katy"],
+          "explanation": "E.T. is credited to Katy Perry featuring Kanye West on the remix version."
+        },
+        {
+          "question": "Which singer recorded Love Story?",
+          "answer": "Taylor Swift",
+          "acceptedAnswers": ["taylor"],
+          "explanation": "Love Story was one of Taylor Swift's biggest early crossover hits."
+        },
+        {
+          "question": "Who sang You Belong With Me?",
+          "answer": "Taylor Swift",
+          "acceptedAnswers": ["taylor"],
+          "explanation": "You Belong With Me helped define Taylor Swift's early career."
+        },
+        {
+          "question": "Which singer released Bad Blood?",
+          "answer": "Taylor Swift",
+          "acceptedAnswers": ["taylor"],
+          "explanation": "Bad Blood was a major 1989-era hit for Taylor Swift."
+        },
+        {
+          "question": "Which band recorded Clocks?",
+          "answer": "Coldplay",
+          "acceptedAnswers": ["cold play"],
+          "explanation": "Clocks became one of Coldplay's defining songs."
+        },
+        {
+          "question": "Which band sang Fix You?",
+          "answer": "Coldplay",
+          "acceptedAnswers": ["cold play"],
+          "explanation": "Fix You is one of Coldplay's most beloved songs."
+        },
+        {
+          "question": "Which band released Paradise?",
+          "answer": "Coldplay",
+          "acceptedAnswers": ["cold play"],
+          "explanation": "Paradise was one of Coldplay's biggest 2010s hits."
+        },
+        {
+          "question": "Who sang Go Your Own Way?",
+          "answer": "Fleetwood Mac",
+          "acceptedAnswers": ["fleetwoodmac"],
+          "explanation": "Go Your Own Way is one of Fleetwood Mac's biggest songs."
+        },
+        {
+          "question": "Which band recorded Dreams in 1977?",
+          "answer": "Fleetwood Mac",
+          "acceptedAnswers": ["fleetwoodmac"],
+          "explanation": "Dreams is Fleetwood Mac's only U.S. number-one single."
+        },
+        {
+          "question": "Who sang Edge of Seventeen?",
+          "answer": "Stevie Nicks",
+          "acceptedAnswers": ["stevie"],
+          "explanation": "Edge of Seventeen is one of Stevie Nicks's best-known solo songs."
+        },
+        {
+          "question": "Which singer released Superstition?",
+          "answer": "Stevie Wonder",
+          "acceptedAnswers": ["stevie"],
+          "explanation": "Superstition is one of Stevie Wonder's most famous songs."
+        },
+        {
+          "question": "Who sang Isn't She Lovely?",
+          "answer": "Stevie Wonder",
+          "acceptedAnswers": ["stevie"],
+          "explanation": "Isn't She Lovely is one of Stevie Wonder's best-known hits."
+        },
+        {
+          "question": "Which singer recorded I Wanna Dance with Somebody?",
+          "answer": "Whitney Houston",
+          "acceptedAnswers": ["whitney"],
+          "explanation": "I Wanna Dance with Somebody is one of Whitney Houston's signature hits."
+        },
+        {
+          "question": "Who sang How Will I Know?",
+          "answer": "Whitney Houston",
+          "acceptedAnswers": ["whitney"],
+          "explanation": "How Will I Know was a major early hit for Whitney Houston."
+        },
+        {
+          "question": "Which singer released Fantasy in 1995?",
+          "answer": "Mariah Carey",
+          "acceptedAnswers": ["mariah"],
+          "explanation": "Fantasy was one of Mariah Carey's major 1990s hits."
+        },
+        {
+          "question": "Who sang We Belong Together?",
+          "answer": "Mariah Carey",
+          "acceptedAnswers": ["mariah"],
+          "explanation": "We Belong Together became one of Mariah Carey's biggest comeback hits."
+        },
+        {
+          "question": "Which singer recorded Always Be My Baby?",
+          "answer": "Mariah Carey",
+          "acceptedAnswers": ["mariah"],
+          "explanation": "Always Be My Baby remains one of Mariah Carey's classic hits."
+        },
+        {
+          "question": "Who sang No Diggity?",
+          "answer": "Blackstreet",
+          "acceptedAnswers": ["black street"],
+          "explanation": "No Diggity is Blackstreet's best-known song."
+        },
+        {
+          "question": "Which rapper released Hot in Herre?",
+          "answer": "Nelly",
+          "acceptedAnswers": ["nelly"],
+          "explanation": "Hot in Herre became one of Nelly's signature hits."
+        },
+        {
+          "question": "Who sang Dilemma with Kelly Rowland?",
+          "answer": "Nelly",
+          "acceptedAnswers": ["nelly"],
+          "explanation": "Dilemma is credited to Nelly featuring Kelly Rowland."
+        },
+        {
+          "question": "Which rapper recorded Gold Digger?",
+          "answer": "Kanye West",
+          "acceptedAnswers": ["kanye", "ye"],
+          "explanation": "Gold Digger was a major hit by Kanye West featuring Jamie Foxx."
+        },
+        {
+          "question": "Who sang Stronger in 2007 with the Daft Punk sample?",
+          "answer": "Kanye West",
+          "acceptedAnswers": ["kanye", "ye"],
+          "explanation": "Stronger was one of Kanye West's biggest singles."
+        },
+        {
+          "question": "Which duo released Get Lucky?",
+          "answer": "Daft Punk",
+          "acceptedAnswers": ["daftpunk"],
+          "explanation": "Get Lucky is one of Daft Punk's biggest crossover hits."
+        },
+        {
+          "question": "Who sang One More Time?",
+          "answer": "Daft Punk",
+          "acceptedAnswers": ["daftpunk"],
+          "explanation": "One More Time is one of Daft Punk's most recognizable songs."
+        },
+        {
+          "question": "Which producer released Titanium with Sia on vocals?",
+          "answer": "David Guetta",
+          "acceptedAnswers": ["guetta"],
+          "explanation": "Titanium is credited to David Guetta featuring Sia."
+        },
+        {
+          "question": "Which DJ released This Is What You Came For with Rihanna?",
+          "answer": "Calvin Harris",
+          "acceptedAnswers": ["calvin"],
+          "explanation": "This Is What You Came For is credited to Calvin Harris featuring Rihanna."
+        },
+        {
+          "question": "Who sang Girls Just Want to Have Fun?",
+          "answer": "Cyndi Lauper",
+          "acceptedAnswers": ["cyndi"],
+          "explanation": "Girls Just Want to Have Fun is Cyndi Lauper's signature hit."
+        },
+        {
+          "question": "Which singer recorded Time After Time?",
+          "answer": "Cyndi Lauper",
+          "acceptedAnswers": ["cyndi"],
+          "explanation": "Time After Time is one of Cyndi Lauper's best-known songs."
+        },
+        {
+          "question": "Who sang Rich Girl in 2004?",
+          "answer": "Gwen Stefani",
+          "acceptedAnswers": ["gwen"],
+          "explanation": "Rich Girl was a big solo hit for Gwen Stefani."
+        },
+        {
+          "question": "Which singer released Hollaback Girl?",
+          "answer": "Gwen Stefani",
+          "acceptedAnswers": ["gwen"],
+          "explanation": "Hollaback Girl became one of Gwen Stefani's biggest solo hits."
+        },
+        {
+          "question": "Who sang Hips Don't Lie?",
+          "answer": "Shakira",
+          "acceptedAnswers": ["shakira"],
+          "explanation": "Hips Don't Lie is one of Shakira's biggest global hits."
+        },
+        {
+          "question": "Which singer recorded Whenever, Wherever?",
+          "answer": "Shakira",
+          "acceptedAnswers": ["shakira"],
+          "explanation": "Whenever, Wherever was Shakira's early-2000s crossover hit."
+        },
+        {
+          "question": "Which singer released She Wolf in 2009?",
+          "answer": "Shakira",
+          "acceptedAnswers": ["shakira"],
+          "explanation": "She Wolf was one of Shakira's big late-2000s singles."
+        },
+        {
+          "question": "Which singer recorded Burn in 2004?",
+          "answer": "Usher",
+          "acceptedAnswers": ["usher"],
+          "explanation": "Burn was one of Usher's biggest 2000s hits."
+        },
+        {
+          "question": "Who sang DJ Got Us Fallin' in Love?",
+          "answer": "Usher",
+          "acceptedAnswers": ["usher"],
+          "explanation": "DJ Got Us Fallin' in Love was a major club-pop hit for Usher."
+        },
+        {
+          "question": "Which singer released SexyBack?",
+          "answer": "Justin Timberlake",
+          "acceptedAnswers": ["jt", "timberlake"],
+          "explanation": "SexyBack was one of Justin Timberlake's biggest solo hits."
+        },
+        {
+          "question": "Who sang Mirrors in 2013?",
+          "answer": "Justin Timberlake",
+          "acceptedAnswers": ["jt", "timberlake"],
+          "explanation": "Mirrors became one of Justin Timberlake's signature ballads."
+        },
+        {
+          "question": "Which singer recorded Because of You in 2004?",
+          "answer": "Kelly Clarkson",
+          "acceptedAnswers": ["kelly"],
+          "explanation": "Because of You is one of Kelly Clarkson's best-known songs."
+        },
+        {
+          "question": "Which singer released Paparazzi?",
+          "answer": "Lady Gaga",
+          "acceptedAnswers": ["gaga"],
+          "explanation": "Paparazzi was one of Lady Gaga's early monster hits."
+        },
+        {
+          "question": "Who sang Alejandro?",
+          "answer": "Lady Gaga",
+          "acceptedAnswers": ["gaga"],
+          "explanation": "Alejandro was another major Fame Monster-era song by Lady Gaga."
+        },
+        {
+          "question": "Which singer recorded Just Dance?",
+          "answer": "Lady Gaga",
+          "acceptedAnswers": ["gaga"],
+          "explanation": "Just Dance was Lady Gaga's debut breakthrough hit."
+        },
+        {
+          "question": "Who sang We Can't Stop?",
+          "answer": "Miley Cyrus",
+          "acceptedAnswers": ["miley"],
+          "explanation": "We Can't Stop was one of Miley Cyrus's biggest Bangerz-era hits."
+        },
+        {
+          "question": "Which singer released Party in the U.S.A.?",
+          "answer": "Miley Cyrus",
+          "acceptedAnswers": ["miley"],
+          "explanation": "Party in the U.S.A. became one of Miley Cyrus's most recognizable songs."
+        },
+        {
+          "question": "Who sang Wrecking Ball?",
+          "answer": "Miley Cyrus",
+          "acceptedAnswers": ["miley"],
+          "explanation": "Wrecking Ball was one of Miley Cyrus's biggest power ballad hits."
+        },
+        {
+          "question": "Which group recorded Waterfalls?",
+          "answer": "TLC",
+          "acceptedAnswers": ["tlc"],
+          "explanation": "Waterfalls is one of TLC's most famous songs."
+        },
+        {
+          "question": "Which group released Creep in 1994?",
+          "answer": "TLC",
+          "acceptedAnswers": ["tlc"],
+          "explanation": "Creep was one of TLC's biggest 1990s hits."
+        },
+        {
+          "question": "Who sang Killing Me Softly in the 1990s hit version?",
+          "answer": "Fugees",
+          "acceptedAnswers": ["the fugees"],
+          "explanation": "The Fugees turned Killing Me Softly into a huge 1990s hit."
+        },
+        {
+          "question": "Which duo released Ms. Jackson?",
+          "answer": "Outkast",
+          "acceptedAnswers": ["outkast"],
+          "explanation": "Ms. Jackson was one of Outkast's biggest songs."
+        },
+        {
+          "question": "Which singer recorded Gimme More?",
+          "answer": "Britney Spears",
+          "acceptedAnswers": ["britney"],
+          "explanation": "Gimme More became one of Britney Spears's late-2000s signature songs."
+        },
+        {
+          "question": "Who sang Womanizer?",
+          "answer": "Britney Spears",
+          "acceptedAnswers": ["britney"],
+          "explanation": "Womanizer was a major comeback-era hit for Britney Spears."
+        },
+        {
+          "question": "Which singer released ...Baby One More Time?",
+          "answer": "Britney Spears",
+          "acceptedAnswers": ["britney"],
+          "explanation": "...Baby One More Time launched Britney Spears into superstardom."
+        },
+        {
+          "question": "Who sang Beautiful in 2002?",
+          "answer": "Christina Aguilera",
+          "acceptedAnswers": ["christina"],
+          "explanation": "Beautiful became one of Christina Aguilera's defining songs."
+        },
+        {
+          "question": "Which singer recorded Dirrty?",
+          "answer": "Christina Aguilera",
+          "acceptedAnswers": ["christina"],
+          "explanation": "Dirrty was one of Christina Aguilera's most memorable early-2000s hits."
+        },
+        {
+          "question": "Who sang Livin' la Vida Loca?",
+          "answer": "Ricky Martin",
+          "acceptedAnswers": ["ricky"],
+          "explanation": "Livin' la Vida Loca was Ricky Martin's biggest crossover hit."
+        },
+        {
+          "question": "Which singer released She Bangs?",
+          "answer": "Ricky Martin",
+          "acceptedAnswers": ["ricky"],
+          "explanation": "She Bangs was another big pop hit for Ricky Martin."
+        },
+        {
+          "question": "Who sang Bailamos?",
+          "answer": "Enrique Iglesias",
+          "acceptedAnswers": ["enrique"],
+          "explanation": "Bailamos was one of Enrique Iglesias's biggest crossover hits."
+        },
+        {
+          "question": "Which singer recorded Hero in 2001?",
+          "answer": "Enrique Iglesias",
+          "acceptedAnswers": ["enrique"],
+          "explanation": "Hero is one of Enrique Iglesias's best-known ballads."
+        },
+        {
+          "question": "Who sang Can't Get You Out of My Head?",
+          "answer": "Kylie Minogue",
+          "acceptedAnswers": ["kylie"],
+          "explanation": "Can't Get You Out of My Head is one of Kylie Minogue's signature hits."
+        },
+        {
+          "question": "Which singer released Padam Padam?",
+          "answer": "Kylie Minogue",
+          "acceptedAnswers": ["kylie"],
+          "explanation": "Padam Padam became a major late-career hit for Kylie Minogue."
+        },
+        {
+          "question": "Who sang Maneater in 2006?",
+          "answer": "Nelly Furtado",
+          "acceptedAnswers": ["nelly furtado"],
+          "explanation": "Maneater was one of Nelly Furtado's biggest hits."
+        },
+        {
+          "question": "Which singer recorded Promiscuous?",
+          "answer": "Nelly Furtado",
+          "acceptedAnswers": ["nelly furtado"],
+          "explanation": "Promiscuous is credited to Nelly Furtado featuring Timbaland."
+        },
+        {
+          "question": "Which singer released Turn Me On with David Guetta?",
+          "answer": "Nicki Minaj",
+          "acceptedAnswers": ["nicki"],
+          "explanation": "Turn Me On is credited to David Guetta featuring Nicki Minaj."
+        },
+        {
+          "question": "Who sang Super Bass?",
+          "answer": "Nicki Minaj",
+          "acceptedAnswers": ["nicki"],
+          "explanation": "Super Bass became one of Nicki Minaj's biggest crossover hits."
+        },
+        {
+          "question": "Which singer recorded Starships?",
+          "answer": "Nicki Minaj",
+          "acceptedAnswers": ["nicki"],
+          "explanation": "Starships was one of Nicki Minaj's most recognizable pop-rap hits."
+        },
+        {
+          "question": "Who was the rapper behind Empire State of Mind with Alicia Keys?",
+          "answer": "Jay-Z",
+          "acceptedAnswers": ["jay z", "jayz"],
+          "explanation": "Empire State of Mind is credited to Jay-Z featuring Alicia Keys."
+        },
+        {
+          "question": "Which rapper released In Da Club?",
+          "answer": "50 Cent",
+          "acceptedAnswers": ["50cent", "fifty cent"],
+          "explanation": "In Da Club became 50 Cent's breakout smash."
+        },
+        {
+          "question": "Which band recorded Bring Me to Life?",
+          "answer": "Evanescence",
+          "acceptedAnswers": ["evanescence"],
+          "explanation": "Bring Me to Life was Evanescence's breakout hit."
+        },
+        {
+          "question": "Which band released My Immortal?",
+          "answer": "Evanescence",
+          "acceptedAnswers": ["evanescence"],
+          "explanation": "My Immortal is one of Evanescence's best-known ballads."
         }
       ]
     },
@@ -2390,7 +4630,7 @@
           "explanation": "Chadwick Boseman starred as T'Challa in Black Panther."
         },
         {
-          "question": "What is the name of the clownfish in Finding Nemo?",
+          "question": "What is the name of Marlin's missing son in Pixar's ocean adventure?",
           "answer": "Nemo",
           "explanation": "Finding Nemo centers on Marlin searching for Nemo."
         },
@@ -2540,7 +4780,7 @@
           "explanation": "Let It Go is the signature song from Frozen."
         },
         {
-          "question": "Which boxing movie franchise features Rocky Balboa?",
+          "question": "Which boxing film series later spun off into Creed?",
           "answer": "Rocky",
           "explanation": "Rocky Balboa is the title character of the Rocky franchise."
         },
@@ -2677,7 +4917,7 @@
           "explanation": "Lightning McQueen races with the number 95."
         },
         {
-          "question": "Which 2023 biopic centers on J. Robert Oppenheimer?",
+          "question": "Which 2023 biopic about the father of the atomic bomb won Best Picture?",
           "answer": "Oppenheimer",
           "explanation": "Oppenheimer is Christopher Nolan's film about J. Robert Oppenheimer."
         },
@@ -2779,7 +5019,7 @@
           "explanation": "Timothee Chalamet starred as Willy Wonka in Wonka."
         },
         {
-          "question": "Which action franchise follows an assassin named John Wick?",
+          "question": "Which action franchise centers on a retired hitman played by Keanu Reeves?",
           "answer": "John Wick",
           "explanation": "John Wick is the title character of the John Wick films."
         },
@@ -2820,7 +5060,7 @@
           "explanation": "Mike Myers voiced Shrek."
         },
         {
-          "question": "Which movie franchise features a bear named Paddington?",
+          "question": "Which family film franchise centers on a marmalade-loving bear from Peru?",
           "answer": "Paddington",
           "explanation": "Paddington is the title character of the Paddington films."
         },
@@ -2886,6 +5126,1173 @@
           "answer": "Jenna Ortega",
           "acceptedAnswers": ["ortega"],
           "explanation": "Jenna Ortega is strongly associated with Wednesday and new gothic franchise roles."
+        },
+        {
+          "question": "Which actor played Maximus in Gladiator?",
+          "answer": "Russell Crowe",
+          "acceptedAnswers": ["crowe"],
+          "explanation": "Russell Crowe played Maximus in Gladiator."
+        },
+        {
+          "question": "Which Best Picture winner stars Maximus Decimus Meridius?",
+          "answer": "Gladiator",
+          "explanation": "Gladiator won Best Picture and follows the Roman general Maximus."
+        },
+        {
+          "question": "In Inception, what do Cobb and his team enter to steal or plant ideas?",
+          "answer": "Dreams",
+          "acceptedAnswers": ["a dream", "the dream world", "people's dreams"],
+          "explanation": "Inception revolves around entering dreams to manipulate information."
+        },
+        {
+          "question": "Which sci-fi epic features Paul Atreides?",
+          "answer": "Dune",
+          "explanation": "Paul Atreides is the central character of Dune."
+        },
+        {
+          "question": "Which actor played Paul Atreides in Dune and Dune: Part Two?",
+          "answer": "Timothee Chalamet",
+          "acceptedAnswers": ["timothee", "chalamet", "timothee chalamet"],
+          "explanation": "Timothee Chalamet played Paul Atreides in Denis Villeneuve's Dune films."
+        },
+        {
+          "question": "Which 2022 sequel brought Tom Cruise back as Pete Maverick Mitchell?",
+          "answer": "Top Gun: Maverick",
+          "acceptedAnswers": ["top gun maverick", "top gun: maverick"],
+          "explanation": "Top Gun: Maverick was Tom Cruise's long-awaited return to the role."
+        },
+        {
+          "question": "Which actor voices Sulley in Monsters, Inc.?",
+          "answer": "John Goodman",
+          "acceptedAnswers": ["goodman"],
+          "explanation": "John Goodman voiced Sulley in Monsters, Inc."
+        },
+        {
+          "question": "Which Pixar sequel became the highest-grossing animated film of 2024?",
+          "answer": "Inside Out 2",
+          "acceptedAnswers": ["inside out two"],
+          "explanation": "Inside Out 2 became a massive worldwide box office hit in 2024."
+        },
+        {
+          "question": "Which actor voiced Po in the Kung Fu Panda movies?",
+          "answer": "Jack Black",
+          "acceptedAnswers": ["black"],
+          "explanation": "Jack Black voices Po in the Kung Fu Panda films."
+        },
+        {
+          "question": "Which movie features the quote I'll be back?",
+          "answer": "The Terminator",
+          "acceptedAnswers": ["terminator"],
+          "explanation": "I'll be back is one of the most famous lines from The Terminator."
+        },
+        {
+          "question": "Which actor played Arthur Fleck in Joker (2019)?",
+          "answer": "Joaquin Phoenix",
+          "acceptedAnswers": ["joaquin", "phoenix"],
+          "explanation": "Joaquin Phoenix won an Oscar for playing Arthur Fleck in Joker."
+        },
+        {
+          "question": "Which boxing spin-off series follows Adonis, the son of Apollo from Rocky?",
+          "answer": "Creed",
+          "explanation": "Adonis Creed is the lead of the Creed films."
+        },
+        {
+          "question": "Which actor played Adonis Creed in the Creed movies?",
+          "answer": "Michael B. Jordan",
+          "acceptedAnswers": ["michael jordan", "michael b jordan", "michael b. jordan"],
+          "explanation": "Michael B. Jordan plays Adonis Creed in the Creed series."
+        },
+        {
+          "question": "Which animated movie franchise features Po the panda?",
+          "answer": "Kung Fu Panda",
+          "acceptedAnswers": ["kung fu panda"],
+          "explanation": "Po is the hero of the Kung Fu Panda films."
+        },
+        {
+          "question": "Which movie features the quote May the odds be ever in your favor?",
+          "answer": "The Hunger Games",
+          "acceptedAnswers": ["hunger games", "thehungergames"],
+          "explanation": "May the odds be ever in your favor is one of the signature lines of The Hunger Games."
+        },
+        {
+          "question": "Which actor played Maverick in Top Gun and Top Gun: Maverick?",
+          "answer": "Tom Cruise",
+          "acceptedAnswers": ["cruise"],
+          "explanation": "Tom Cruise plays Pete Maverick Mitchell."
+        },
+        {
+          "question": "Which actor played Joker in The Dark Knight?",
+          "answer": "Heath Ledger",
+          "acceptedAnswers": ["ledger"],
+          "explanation": "Heath Ledger won a posthumous Oscar for his Joker performance."
+        },
+        {
+          "question": "Which actor played Batman in The Dark Knight trilogy?",
+          "answer": "Christian Bale",
+          "acceptedAnswers": ["bale"],
+          "explanation": "Christian Bale played Batman in Christopher Nolan's trilogy."
+        },
+        {
+          "question": "Which actor played Katniss Everdeen's ally Peeta Mellark in The Hunger Games films?",
+          "answer": "Josh Hutcherson",
+          "acceptedAnswers": ["hutcherson", "josh"],
+          "explanation": "Josh Hutcherson played Peeta Mellark."
+        },
+        {
+          "question": "Which film series features a teacher named Minerva McGonagall?",
+          "answer": "Harry Potter",
+          "acceptedAnswers": ["harry potter", "the harry potter films"],
+          "explanation": "Professor McGonagall is a major character in Harry Potter."
+        },
+        {
+          "question": "Which actor played Hagrid in the Harry Potter films?",
+          "answer": "Robbie Coltrane",
+          "acceptedAnswers": ["coltrane"],
+          "explanation": "Robbie Coltrane played Hagrid in the Harry Potter series."
+        },
+        {
+          "question": "Which Harry Potter villain is portrayed by Ralph Fiennes?",
+          "answer": "Voldemort",
+          "acceptedAnswers": ["lord voldemort", "tom riddle"],
+          "explanation": "Ralph Fiennes played Lord Voldemort."
+        },
+        {
+          "question": "Which actress played Luna Lovegood in Harry Potter?",
+          "answer": "Evanna Lynch",
+          "acceptedAnswers": ["lynch"],
+          "explanation": "Evanna Lynch played Luna Lovegood."
+        },
+        {
+          "question": "Which actor played Legolas in The Lord of the Rings films?",
+          "answer": "Orlando Bloom",
+          "acceptedAnswers": ["bloom"],
+          "explanation": "Orlando Bloom played Legolas."
+        },
+        {
+          "question": "Which actor played Gollum through motion capture in The Lord of the Rings?",
+          "answer": "Andy Serkis",
+          "acceptedAnswers": ["serkis"],
+          "explanation": "Andy Serkis is famous for portraying Gollum."
+        },
+        {
+          "question": "Which actor played Aragorn in The Lord of the Rings trilogy?",
+          "answer": "Viggo Mortensen",
+          "acceptedAnswers": ["viggo"],
+          "explanation": "Viggo Mortensen played Aragorn."
+        },
+        {
+          "question": "Which actor played Gandalf in The Lord of the Rings and The Hobbit films?",
+          "answer": "Ian McKellen",
+          "acceptedAnswers": ["mckellen", "sir ian mckellen"],
+          "explanation": "Ian McKellen played Gandalf across both trilogies."
+        },
+        {
+          "question": "Which actor voiced Dory in Finding Nemo?",
+          "answer": "Ellen DeGeneres",
+          "acceptedAnswers": ["ellen"],
+          "explanation": "Ellen DeGeneres voiced Dory in Finding Nemo."
+        },
+        {
+          "question": "Which Pixar movie features a rat named Remy?",
+          "answer": "Ratatouille",
+          "acceptedAnswers": ["ratatouille"],
+          "explanation": "Remy is the aspiring chef rat in Ratatouille."
+        },
+        {
+          "question": "Which actor voiced Lightning McQueen in Cars?",
+          "answer": "Owen Wilson",
+          "acceptedAnswers": ["wilson"],
+          "explanation": "Owen Wilson voiced Lightning McQueen."
+        },
+        {
+          "question": "Which actress voiced Moana in Moana?",
+          "answer": "Auli'i Cravalho",
+          "acceptedAnswers": ["aulii cravalho", "cravalho"],
+          "explanation": "Auli'i Cravalho voiced Moana in Disney's Moana."
+        },
+        {
+          "question": "Which Disney animated movie follows a Polynesian wayfinder who teams up with demigod Maui?",
+          "answer": "Moana",
+          "acceptedAnswers": ["vaiana"],
+          "explanation": "Moana is the Disney film featuring Moana and Maui."
+        },
+        {
+          "question": "Which actress voiced Joy in Inside Out?",
+          "answer": "Amy Poehler",
+          "acceptedAnswers": ["poehler"],
+          "explanation": "Amy Poehler voiced Joy in Inside Out."
+        },
+        {
+          "question": "Which actor played Tony Stark's friend James Rhodes in the MCU after Iron Man 1?",
+          "answer": "Don Cheadle",
+          "acceptedAnswers": ["cheadle"],
+          "explanation": "Don Cheadle took over the role of Rhodey after the first Iron Man film."
+        },
+        {
+          "question": "Which actor played Loki in the Marvel Cinematic Universe?",
+          "answer": "Tom Hiddleston",
+          "acceptedAnswers": ["hiddleston"],
+          "explanation": "Tom Hiddleston played Loki in the MCU."
+        },
+        {
+          "question": "Which actress played Wanda Maximoff in the Marvel Cinematic Universe?",
+          "answer": "Elizabeth Olsen",
+          "acceptedAnswers": ["olsen"],
+          "explanation": "Elizabeth Olsen played Wanda Maximoff."
+        },
+        {
+          "question": "Which actor played Doctor Strange in the MCU?",
+          "answer": "Benedict Cumberbatch",
+          "acceptedAnswers": ["cumberbatch"],
+          "explanation": "Benedict Cumberbatch played Doctor Strange."
+        },
+        {
+          "question": "Which actor played Black Panther in the MCU films before Wakanda Forever?",
+          "answer": "Chadwick Boseman",
+          "acceptedAnswers": ["boseman"],
+          "explanation": "Chadwick Boseman played T'Challa in the MCU."
+        },
+        {
+          "question": "Which superhero film series is most associated with the phrase With great power comes great responsibility?",
+          "answer": "Spider-Man",
+          "acceptedAnswers": ["spiderman", "spider-man films"],
+          "explanation": "The phrase is deeply associated with Spider-Man across films and comics."
+        },
+        {
+          "question": "Which actor played Peter Parker in Sam Raimi's Spider-Man trilogy?",
+          "answer": "Tobey Maguire",
+          "acceptedAnswers": ["maguire", "tobey"],
+          "explanation": "Tobey Maguire played Peter Parker in Sam Raimi's trilogy."
+        },
+        {
+          "question": "Which actor played Peter Parker in The Amazing Spider-Man films?",
+          "answer": "Andrew Garfield",
+          "acceptedAnswers": ["garfield", "andrew"],
+          "explanation": "Andrew Garfield led The Amazing Spider-Man films."
+        },
+        {
+          "question": "Which actress played MJ in the MCU Spider-Man trilogy?",
+          "answer": "Zendaya",
+          "acceptedAnswers": ["zendaya"],
+          "explanation": "Zendaya played MJ in the MCU Spider-Man films."
+        },
+        {
+          "question": "Which actor played Anakin Skywalker in Attack of the Clones and Revenge of the Sith?",
+          "answer": "Hayden Christensen",
+          "acceptedAnswers": ["christensen"],
+          "explanation": "Hayden Christensen played Anakin Skywalker in the prequels."
+        },
+        {
+          "question": "Which actress played Princess Leia in the original Star Wars trilogy?",
+          "answer": "Carrie Fisher",
+          "acceptedAnswers": ["fisher"],
+          "explanation": "Carrie Fisher played Princess Leia."
+        },
+        {
+          "question": "Which actor played Han Solo in the original Star Wars films?",
+          "answer": "Harrison Ford",
+          "acceptedAnswers": ["ford"],
+          "explanation": "Harrison Ford played Han Solo."
+        },
+        {
+          "question": "Which actress played Rey in the Star Wars sequel trilogy?",
+          "answer": "Daisy Ridley",
+          "acceptedAnswers": ["ridley"],
+          "explanation": "Daisy Ridley played Rey."
+        },
+        {
+          "question": "Which franchise features dinosaurs cloned for a theme park and later global chaos?",
+          "answer": "Jurassic Park",
+          "acceptedAnswers": ["jurassic world", "jurassic park franchise"],
+          "explanation": "The Jurassic Park franchise is centered on cloned dinosaurs."
+        },
+        {
+          "question": "Which actor played Owen Grady in Jurassic World?",
+          "answer": "Chris Pratt",
+          "acceptedAnswers": ["pratt"],
+          "explanation": "Chris Pratt played Owen Grady in Jurassic World."
+        },
+        {
+          "question": "Which actress played Claire Dearing in Jurassic World?",
+          "answer": "Bryce Dallas Howard",
+          "acceptedAnswers": ["bryce dallas howard", "howard"],
+          "explanation": "Bryce Dallas Howard played Claire Dearing."
+        },
+        {
+          "question": "Which action franchise includes the Continental Hotel?",
+          "answer": "John Wick",
+          "acceptedAnswers": ["johnwick"],
+          "explanation": "The Continental is a major location in the John Wick franchise."
+        },
+        {
+          "question": "Which actor played Pennywise in It (2017)?",
+          "answer": "Bill Skarsgard",
+          "acceptedAnswers": ["bill skarsgard", "skarsgard"],
+          "explanation": "Bill Skarsgard played Pennywise in It."
+        },
+        {
+          "question": "Which spin-off horror movie focuses on a possessed doll from The Conjuring universe?",
+          "answer": "Annabelle",
+          "acceptedAnswers": [],
+          "explanation": "Annabelle is the spin-off horror series centered on the doll."
+        },
+        {
+          "question": "Which actor played the title character in Edward Scissorhands?",
+          "answer": "Johnny Depp",
+          "acceptedAnswers": ["depp"],
+          "explanation": "Johnny Depp played Edward in Edward Scissorhands."
+        },
+        {
+          "question": "Which director is known for Edward Scissorhands, Beetlejuice, and Charlie and the Chocolate Factory (2005)?",
+          "answer": "Tim Burton",
+          "acceptedAnswers": ["burton"],
+          "explanation": "Tim Burton directed all three films."
+        },
+        {
+          "question": "Which actress played the bride in Kill Bill?",
+          "answer": "Uma Thurman",
+          "acceptedAnswers": ["uma"],
+          "explanation": "Uma Thurman played Beatrix Kiddo in Kill Bill."
+        },
+        {
+          "question": "Which director made Pulp Fiction and Kill Bill?",
+          "answer": "Quentin Tarantino",
+          "acceptedAnswers": ["tarantino"],
+          "explanation": "Quentin Tarantino directed both Pulp Fiction and Kill Bill."
+        },
+        {
+          "question": "Which actor played Jack Dawson in Titanic?",
+          "answer": "Leonardo DiCaprio",
+          "acceptedAnswers": ["leo", "dicaprio"],
+          "explanation": "Leonardo DiCaprio played Jack Dawson in Titanic."
+        },
+        {
+          "question": "What is the name of the necklace Rose wears in Titanic?",
+          "answer": "Heart of the Ocean",
+          "acceptedAnswers": ["the heart of the ocean"],
+          "explanation": "The famous blue necklace in Titanic is called the Heart of the Ocean."
+        },
+        {
+          "question": "Which actor played Jake Sully in Avatar?",
+          "answer": "Sam Worthington",
+          "acceptedAnswers": ["worthington"],
+          "explanation": "Sam Worthington played Jake Sully in Avatar."
+        },
+        {
+          "question": "Which actress played Neytiri in Avatar?",
+          "answer": "Zoe Saldana",
+          "acceptedAnswers": ["saldana", "zoe"],
+          "explanation": "Zoe Saldana played Neytiri in Avatar."
+        },
+        {
+          "question": "Which actor played Miles Morales in live-action?",
+          "answer": "None yet",
+          "acceptedAnswers": ["nobody yet", "no one yet", "has not happened"],
+          "explanation": "Miles Morales has not yet headlined a live-action Spider-Man film."
+        },
+        {
+          "question": "Which animated Spider-Man movie features Miles Morales meeting alternate Spider-people?",
+          "answer": "Spider-Man: Into the Spider-Verse",
+          "acceptedAnswers": ["into the spider-verse", "spider verse", "spider-man into the spider-verse"],
+          "explanation": "Into the Spider-Verse centers on Miles Morales and multiple Spider-people."
+        },
+        {
+          "question": "Which actor voiced Puss in Boots in the Shrek spinoff films?",
+          "answer": "Antonio Banderas",
+          "acceptedAnswers": ["banderas"],
+          "explanation": "Antonio Banderas voiced Puss in Boots."
+        },
+        {
+          "question": "Which musical film features songs like This Is Me and Rewrite the Stars?",
+          "answer": "The Greatest Showman",
+          "acceptedAnswers": ["greatest showman"],
+          "explanation": "Those songs are from The Greatest Showman."
+        },
+        {
+          "question": "Which actor played P. T. Barnum in The Greatest Showman?",
+          "answer": "Hugh Jackman",
+          "acceptedAnswers": ["jackman"],
+          "explanation": "Hugh Jackman played P. T. Barnum in The Greatest Showman."
+        },
+        {
+          "question": "Which actress played Regina George in Mean Girls (2004)?",
+          "answer": "Rachel McAdams",
+          "acceptedAnswers": ["mcadams", "rachel"],
+          "explanation": "Rachel McAdams played Regina George in the original Mean Girls."
+        },
+        {
+          "question": "Which actress played Cady Heron in Mean Girls (2004)?",
+          "answer": "Lindsay Lohan",
+          "acceptedAnswers": ["lohan", "lindsay"],
+          "explanation": "Lindsay Lohan played Cady Heron."
+        },
+        {
+          "question": "Which movie features the quote On Wednesdays we wear pink?",
+          "answer": "Mean Girls",
+          "acceptedAnswers": ["meangirls"],
+          "explanation": "On Wednesdays we wear pink is one of Mean Girls's most famous lines."
+        },
+        {
+          "question": "Which film stars Elle Woods trying to succeed at Harvard Law?",
+          "answer": "Legally Blonde",
+          "acceptedAnswers": ["legallyblonde"],
+          "explanation": "Legally Blonde follows Elle Woods at Harvard Law."
+        },
+        {
+          "question": "Which actress played Mia Thermopolis in The Princess Diaries?",
+          "answer": "Anne Hathaway",
+          "acceptedAnswers": ["hathaway", "anne"],
+          "explanation": "Anne Hathaway played Mia Thermopolis."
+        },
+        {
+          "question": "Which actress played Miranda Priestly in The Devil Wears Prada?",
+          "answer": "Meryl Streep",
+          "acceptedAnswers": ["streep", "meryl"],
+          "explanation": "Meryl Streep played Miranda Priestly."
+        },
+        {
+          "question": "Which actress played Andy Sachs's demanding boss in The Devil Wears Prada?",
+          "answer": "Meryl Streep",
+          "acceptedAnswers": ["streep", "meryl"],
+          "explanation": "Meryl Streep played Miranda Priestly, Andy Sachs's boss."
+        },
+        {
+          "question": "Which romance movie features Noah and Allie?",
+          "answer": "The Notebook",
+          "acceptedAnswers": ["notebook"],
+          "explanation": "Noah and Allie are the central couple in The Notebook."
+        },
+        {
+          "question": "Which actor played Noah in The Notebook?",
+          "answer": "Ryan Gosling",
+          "acceptedAnswers": ["gosling", "ryan"],
+          "explanation": "Ryan Gosling played Noah in The Notebook."
+        },
+        {
+          "question": "Which actress played Allie in The Notebook?",
+          "answer": "Rachel McAdams",
+          "acceptedAnswers": ["mcadams", "rachel"],
+          "explanation": "Rachel McAdams played Allie in The Notebook."
+        },
+        {
+          "question": "Which musical fantasy film stars Elphaba and Glinda?",
+          "answer": "Wicked",
+          "acceptedAnswers": ["wicked"],
+          "explanation": "Wicked centers on Elphaba and Glinda."
+        },
+        {
+          "question": "Which actor played Ken in Barbie (2023)?",
+          "answer": "Ryan Gosling",
+          "acceptedAnswers": ["gosling", "ryan"],
+          "explanation": "Ryan Gosling played Ken in Barbie."
+        },
+        {
+          "question": "Which actress played Barbie in Barbie (2023)?",
+          "answer": "Margot Robbie",
+          "acceptedAnswers": ["robbie", "margot"],
+          "explanation": "Margot Robbie played Barbie in Greta Gerwig's Barbie."
+        },
+        {
+          "question": "Which actor played J. Robert Oppenheimer in Oppenheimer?",
+          "answer": "Cillian Murphy",
+          "acceptedAnswers": ["murphy", "cillian"],
+          "explanation": "Cillian Murphy played J. Robert Oppenheimer."
+        },
+        {
+          "question": "Which actress played Hermione Granger in the Harry Potter film series?",
+          "answer": "Emma Watson",
+          "acceptedAnswers": ["watson"],
+          "explanation": "Emma Watson played Hermione Granger across the Harry Potter films."
+        },
+        {
+          "question": "Which actor played Ron Weasley in Harry Potter?",
+          "answer": "Rupert Grint",
+          "acceptedAnswers": ["grint", "rupert"],
+          "explanation": "Rupert Grint played Ron Weasley."
+        },
+        {
+          "question": "Which actor played Draco Malfoy in Harry Potter?",
+          "answer": "Tom Felton",
+          "acceptedAnswers": ["felton", "tom"],
+          "explanation": "Tom Felton played Draco Malfoy in the Harry Potter films."
+        },
+        {
+          "question": "Which actor played Cedric Diggory in Harry Potter and the Goblet of Fire?",
+          "answer": "Robert Pattinson",
+          "acceptedAnswers": ["pattinson", "robert"],
+          "explanation": "Robert Pattinson played Cedric Diggory."
+        },
+        {
+          "question": "Which actor played Bella Swan's vampire love interest Edward Cullen?",
+          "answer": "Robert Pattinson",
+          "acceptedAnswers": ["pattinson", "robert"],
+          "explanation": "Robert Pattinson played Edward Cullen in Twilight."
+        },
+        {
+          "question": "Which actress played Bella Swan in Twilight?",
+          "answer": "Kristen Stewart",
+          "acceptedAnswers": ["stewart", "kristen"],
+          "explanation": "Kristen Stewart played Bella Swan in Twilight."
+        },
+        {
+          "question": "Which actor played Jacob Black in Twilight?",
+          "answer": "Taylor Lautner",
+          "acceptedAnswers": ["lautner", "taylor"],
+          "explanation": "Taylor Lautner played Jacob Black in Twilight."
+        },
+        {
+          "question": "Which movie franchise features Bella, Edward, and Jacob?",
+          "answer": "Twilight",
+          "acceptedAnswers": ["the twilight saga", "twilight saga"],
+          "explanation": "Bella, Edward, and Jacob are central to the Twilight saga."
+        },
+        {
+          "question": "Which color pill does Neo take to learn the truth in The Matrix?",
+          "answer": "Red",
+          "acceptedAnswers": ["the red pill", "red pill"],
+          "explanation": "Neo takes the red pill to learn the truth about the Matrix."
+        },
+        {
+          "question": "Which actress played Trinity in The Matrix?",
+          "answer": "Carrie-Anne Moss",
+          "acceptedAnswers": ["carrie anne moss", "moss"],
+          "explanation": "Carrie-Anne Moss played Trinity in The Matrix."
+        },
+        {
+          "question": "Which actor played Morpheus in the original Matrix trilogy?",
+          "answer": "Laurence Fishburne",
+          "acceptedAnswers": ["fishburne", "laurence"],
+          "explanation": "Laurence Fishburne played Morpheus in the original Matrix trilogy."
+        },
+        {
+          "question": "Which actor voiced Shrek in the animated films?",
+          "answer": "Mike Myers",
+          "acceptedAnswers": ["myers"],
+          "explanation": "Mike Myers voiced Shrek."
+        },
+        {
+          "question": "Which actor voiced Donkey in Shrek?",
+          "answer": "Eddie Murphy",
+          "acceptedAnswers": ["murphy", "eddie"],
+          "explanation": "Eddie Murphy voiced Donkey in Shrek."
+        },
+        {
+          "question": "Which actress voiced Fiona in the Shrek movies?",
+          "answer": "Cameron Diaz",
+          "acceptedAnswers": ["diaz", "cameron"],
+          "explanation": "Cameron Diaz voiced Fiona in the Shrek films."
+        },
+        {
+          "question": "In Forrest Gump, life is compared to a box of what?",
+          "answer": "Chocolates",
+          "acceptedAnswers": ["a box of chocolates", "chocolate"],
+          "explanation": "One of Forrest Gump's most famous quotes compares life to a box of chocolates."
+        },
+        {
+          "question": "Which actress played Vivian in Pretty Woman?",
+          "answer": "Julia Roberts",
+          "acceptedAnswers": ["roberts", "julia"],
+          "explanation": "Julia Roberts played Vivian in Pretty Woman."
+        },
+        {
+          "question": "Which actor played Darth Vader inside the suit in the original Star Wars trilogy?",
+          "answer": "David Prowse",
+          "acceptedAnswers": ["prowse"],
+          "explanation": "David Prowse physically portrayed Darth Vader in the original trilogy."
+        },
+        {
+          "question": "Which actor voiced Darth Vader in the original trilogy?",
+          "answer": "James Earl Jones",
+          "acceptedAnswers": ["jones"],
+          "explanation": "James Earl Jones provided Darth Vader's iconic voice."
+        },
+        {
+          "question": "Which actor played Obi-Wan Kenobi in the prequel trilogy?",
+          "answer": "Ewan McGregor",
+          "acceptedAnswers": ["mcgregor", "ewan"],
+          "explanation": "Ewan McGregor played Obi-Wan Kenobi in the Star Wars prequels."
+        },
+        {
+          "question": "Which actress played Padme Amidala?",
+          "answer": "Natalie Portman",
+          "acceptedAnswers": ["portman"],
+          "explanation": "Natalie Portman played Padme Amidala in the Star Wars prequels."
+        },
+        {
+          "question": "Which bounty hunter father is cloned in Attack of the Clones?",
+          "answer": "Jango Fett",
+          "acceptedAnswers": ["jango"],
+          "explanation": "Jango Fett served as the template for the clone army."
+        },
+        {
+          "question": "Which actor played Indiana Jones?",
+          "answer": "Harrison Ford",
+          "acceptedAnswers": ["ford"],
+          "explanation": "Harrison Ford is the actor most associated with Indiana Jones."
+        },
+        {
+          "question": "Which actress played Marion Ravenwood in Raiders of the Lost Ark?",
+          "answer": "Karen Allen",
+          "acceptedAnswers": ["allen"],
+          "explanation": "Karen Allen played Marion Ravenwood in Raiders of the Lost Ark."
+        },
+        {
+          "question": "Which movie archaeologist famously hates snakes?",
+          "answer": "Indiana Jones",
+          "acceptedAnswers": ["indy"],
+          "explanation": "Indiana Jones repeatedly complains about snakes in the films."
+        },
+        {
+          "question": "Which movie features the Holy Grail quest of Indiana Jones and his father?",
+          "answer": "Indiana Jones and the Last Crusade",
+          "acceptedAnswers": ["last crusade"],
+          "explanation": "The Last Crusade centers on the Holy Grail and Indiana Jones's father."
+        },
+        {
+          "question": "Which actor played Indiana Jones's father in The Last Crusade?",
+          "answer": "Sean Connery",
+          "acceptedAnswers": ["connery"],
+          "explanation": "Sean Connery played Henry Jones Sr. in The Last Crusade."
+        },
+        {
+          "question": "Which actor played Doc Brown in Back to the Future?",
+          "answer": "Christopher Lloyd",
+          "acceptedAnswers": ["lloyd"],
+          "explanation": "Christopher Lloyd played Doc Brown in the Back to the Future trilogy."
+        },
+        {
+          "question": "Which actor played Marty McFly?",
+          "answer": "Michael J. Fox",
+          "acceptedAnswers": ["michael fox", "fox"],
+          "explanation": "Michael J. Fox starred as Marty McFly."
+        },
+        {
+          "question": "What is the name of Doc Brown's time machine car?",
+          "answer": "DeLorean",
+          "acceptedAnswers": ["delorean", "the delorean"],
+          "explanation": "The DeLorean is the time machine in Back to the Future."
+        },
+        {
+          "question": "Which movie features the song The Power of Love by Huey Lewis and the News?",
+          "answer": "Back to the Future",
+          "acceptedAnswers": ["backtothefuture"],
+          "explanation": "The Power of Love is strongly associated with Back to the Future."
+        },
+        {
+          "question": "Which actress played Ellen Ripley in Alien?",
+          "answer": "Sigourney Weaver",
+          "acceptedAnswers": ["weaver"],
+          "explanation": "Sigourney Weaver played Ellen Ripley in the Alien films."
+        },
+        {
+          "question": "Which movie monster bursts from a crew member's chest in Ridley Scott's 1979 sci-fi horror classic?",
+          "answer": "Xenomorph",
+          "acceptedAnswers": ["xeno"],
+          "explanation": "The Xenomorph is the terrifying alien creature in Alien."
+        },
+        {
+          "question": "Which actor played the T-800 in Terminator 2: Judgment Day?",
+          "answer": "Arnold Schwarzenegger",
+          "acceptedAnswers": ["arnold", "schwarzenegger"],
+          "explanation": "Arnold Schwarzenegger returned as the T-800 in Terminator 2."
+        },
+        {
+          "question": "Which actress played Sarah Connor in Terminator 2?",
+          "answer": "Linda Hamilton",
+          "acceptedAnswers": ["hamilton"],
+          "explanation": "Linda Hamilton played Sarah Connor in Terminator 2."
+        },
+        {
+          "question": "Which actor played John Connor in Terminator 2?",
+          "answer": "Edward Furlong",
+          "acceptedAnswers": ["furlong"],
+          "explanation": "Edward Furlong played John Connor in Terminator 2."
+        },
+        {
+          "question": "Which movie features the quote Hasta la vista, baby?",
+          "answer": "Terminator 2: Judgment Day",
+          "acceptedAnswers": ["terminator 2", "t2"],
+          "explanation": "Hasta la vista, baby is one of Terminator 2's most famous lines."
+        },
+        {
+          "question": "Which actor played Jack Torrance in The Shining?",
+          "answer": "Jack Nicholson",
+          "acceptedAnswers": ["nicholson"],
+          "explanation": "Jack Nicholson played Jack Torrance in The Shining."
+        },
+        {
+          "question": "Which hotel is haunted in The Shining?",
+          "answer": "Overlook Hotel",
+          "acceptedAnswers": ["the overlook", "overlook"],
+          "explanation": "The Overlook Hotel is the sinister setting of The Shining."
+        },
+        {
+          "question": "Which actress played Wendy Torrance in The Shining?",
+          "answer": "Shelley Duvall",
+          "acceptedAnswers": ["duvall"],
+          "explanation": "Shelley Duvall played Wendy Torrance in The Shining."
+        },
+        {
+          "question": "Which movie features the line Here's Johnny!?",
+          "answer": "The Shining",
+          "acceptedAnswers": ["shining"],
+          "explanation": "Here's Johnny! is one of the most famous lines from The Shining."
+        },
+        {
+          "question": "Which actor played Hannibal Lecter in The Silence of the Lambs?",
+          "answer": "Anthony Hopkins",
+          "acceptedAnswers": ["hopkins"],
+          "explanation": "Anthony Hopkins won an Oscar for playing Hannibal Lecter."
+        },
+        {
+          "question": "Which actress played Clarice Starling in The Silence of the Lambs?",
+          "answer": "Jodie Foster",
+          "acceptedAnswers": ["foster"],
+          "explanation": "Jodie Foster played Clarice Starling in The Silence of the Lambs."
+        },
+        {
+          "question": "In The Matrix, which pill reveals the truth?",
+          "answer": "Red pill",
+          "acceptedAnswers": ["red", "the red pill"],
+          "explanation": "Neo takes the red pill to learn the truth in The Matrix."
+        },
+        {
+          "question": "Which actor played Jack Sparrow's blacksmith ally Will Turner?",
+          "answer": "Orlando Bloom",
+          "acceptedAnswers": ["bloom"],
+          "explanation": "Orlando Bloom played Will Turner in Pirates of the Caribbean."
+        },
+        {
+          "question": "Which actress played Elizabeth Swann in Pirates of the Caribbean?",
+          "answer": "Keira Knightley",
+          "acceptedAnswers": ["knightley"],
+          "explanation": "Keira Knightley played Elizabeth Swann in the Pirates films."
+        },
+        {
+          "question": "What is the name of Captain Jack Sparrow's ship?",
+          "answer": "Black Pearl",
+          "acceptedAnswers": ["the black pearl"],
+          "explanation": "The Black Pearl is Captain Jack Sparrow's famous ship."
+        },
+        {
+          "question": "Which actress played Sarah Sanderson in Hocus Pocus?",
+          "answer": "Sarah Jessica Parker",
+          "acceptedAnswers": ["parker"],
+          "explanation": "Sarah Jessica Parker played Sarah Sanderson in Hocus Pocus."
+        },
+        {
+          "question": "Which actress played Winifred Sanderson in Hocus Pocus?",
+          "answer": "Bette Midler",
+          "acceptedAnswers": ["midler"],
+          "explanation": "Bette Midler played Winifred Sanderson in Hocus Pocus."
+        },
+        {
+          "question": "Which actress played Mary Sanderson in Hocus Pocus?",
+          "answer": "Kathy Najimy",
+          "acceptedAnswers": ["najimy"],
+          "explanation": "Kathy Najimy played Mary Sanderson in Hocus Pocus."
+        },
+        {
+          "question": "Which live-action movie features a stranded volleyball named Wilson?",
+          "answer": "Cast Away",
+          "acceptedAnswers": ["castaway"],
+          "explanation": "Wilson is the famous volleyball companion in Cast Away."
+        },
+        {
+          "question": "Which actor played Chuck Noland in Cast Away?",
+          "answer": "Tom Hanks",
+          "acceptedAnswers": ["hanks"],
+          "explanation": "Tom Hanks played Chuck Noland in Cast Away."
+        },
+        {
+          "question": "Which director made Edward Scissorhands?",
+          "answer": "Tim Burton",
+          "acceptedAnswers": ["burton"],
+          "explanation": "Tim Burton directed Edward Scissorhands."
+        },
+        {
+          "question": "Which actor played Beetlejuice in the 1988 film?",
+          "answer": "Michael Keaton",
+          "acceptedAnswers": ["keaton"],
+          "explanation": "Michael Keaton played Beetlejuice in the original film."
+        },
+        {
+          "question": "Which actress played Lydia Deetz in Beetlejuice?",
+          "answer": "Winona Ryder",
+          "acceptedAnswers": ["ryder"],
+          "explanation": "Winona Ryder played Lydia Deetz in Beetlejuice."
+        },
+        {
+          "question": "Which actor played Batman in Tim Burton's 1989 Batman?",
+          "answer": "Michael Keaton",
+          "acceptedAnswers": ["keaton"],
+          "explanation": "Michael Keaton played Batman in Tim Burton's 1989 film."
+        },
+        {
+          "question": "Which actress played Catwoman in Batman Returns?",
+          "answer": "Michelle Pfeiffer",
+          "acceptedAnswers": ["pfeiffer"],
+          "explanation": "Michelle Pfeiffer played Catwoman in Batman Returns."
+        },
+        {
+          "question": "Which actor played the Penguin in Batman Returns?",
+          "answer": "Danny DeVito",
+          "acceptedAnswers": ["devito", "de vito"],
+          "explanation": "Danny DeVito played the Penguin in Batman Returns."
+        },
+        {
+          "question": "Which actor played Batman in The Batman (2022)?",
+          "answer": "Robert Pattinson",
+          "acceptedAnswers": ["pattinson"],
+          "explanation": "Robert Pattinson played Batman in The Batman."
+        },
+        {
+          "question": "Which actress played Selina Kyle in The Batman (2022)?",
+          "answer": "Zoe Kravitz",
+          "acceptedAnswers": ["kravitz"],
+          "explanation": "Zoe Kravitz played Selina Kyle in The Batman."
+        },
+        {
+          "question": "Which actor played the Riddler in The Batman (2022)?",
+          "answer": "Paul Dano",
+          "acceptedAnswers": ["dano"],
+          "explanation": "Paul Dano played the Riddler in The Batman."
+        },
+        {
+          "question": "Which actor played the title boxer in Raging Bull?",
+          "answer": "Robert De Niro",
+          "acceptedAnswers": ["de niro", "deniro"],
+          "explanation": "Robert De Niro starred in Raging Bull as Jake LaMotta."
+        },
+        {
+          "question": "Which actor played Vito Corleone in The Godfather?",
+          "answer": "Marlon Brando",
+          "acceptedAnswers": ["brando"],
+          "explanation": "Marlon Brando played Vito Corleone in The Godfather."
+        },
+        {
+          "question": "Which actor played Michael Corleone in The Godfather?",
+          "answer": "Al Pacino",
+          "acceptedAnswers": ["pacino"],
+          "explanation": "Al Pacino played Michael Corleone in The Godfather."
+        },
+        {
+          "question": "Which movie features the line I'm gonna make him an offer he can't refuse?",
+          "answer": "The Godfather",
+          "acceptedAnswers": ["godfather"],
+          "explanation": "That famous line comes from The Godfather."
+        },
+        {
+          "question": "Which director made The Godfather?",
+          "answer": "Francis Ford Coppola",
+          "acceptedAnswers": ["coppola"],
+          "explanation": "Francis Ford Coppola directed The Godfather."
+        },
+        {
+          "question": "Which actor played Tony Montana in Scarface?",
+          "answer": "Al Pacino",
+          "acceptedAnswers": ["pacino"],
+          "explanation": "Al Pacino played Tony Montana in Scarface."
+        },
+        {
+          "question": "Which movie features the line Say hello to my little friend?",
+          "answer": "Scarface",
+          "acceptedAnswers": ["scar face"],
+          "explanation": "Say hello to my little friend is one of Scarface's most famous lines."
+        },
+        {
+          "question": "Which actor played Patrick Bateman in American Psycho?",
+          "answer": "Christian Bale",
+          "acceptedAnswers": ["bale"],
+          "explanation": "Christian Bale played Patrick Bateman in American Psycho."
+        },
+        {
+          "question": "Which movie features the line I see dead people?",
+          "answer": "The Sixth Sense",
+          "acceptedAnswers": ["sixth sense"],
+          "explanation": "I see dead people is one of the most famous lines from The Sixth Sense."
+        },
+        {
+          "question": "Which actor played Malcolm Crowe in The Sixth Sense?",
+          "answer": "Bruce Willis",
+          "acceptedAnswers": ["willis"],
+          "explanation": "Bruce Willis played Malcolm Crowe in The Sixth Sense."
+        },
+        {
+          "question": "Which child actor played Cole Sear in The Sixth Sense?",
+          "answer": "Haley Joel Osment",
+          "acceptedAnswers": ["osment"],
+          "explanation": "Haley Joel Osment played Cole Sear in The Sixth Sense."
+        },
+        {
+          "question": "Which actor played Edward Lewis in Pretty Woman?",
+          "answer": "Richard Gere",
+          "acceptedAnswers": ["gere"],
+          "explanation": "Richard Gere played Edward Lewis in Pretty Woman."
+        },
+        {
+          "question": "Which actress played Annie in Speed?",
+          "answer": "Sandra Bullock",
+          "acceptedAnswers": ["bullock"],
+          "explanation": "Sandra Bullock played Annie in Speed."
+        },
+        {
+          "question": "Which actor played Jack Traven in Speed?",
+          "answer": "Keanu Reeves",
+          "acceptedAnswers": ["keanu", "reeves"],
+          "explanation": "Keanu Reeves played Jack Traven in Speed."
+        },
+        {
+          "question": "Which movie centers on a bus that cannot slow down below 50 mph?",
+          "answer": "Speed",
+          "acceptedAnswers": ["speed"],
+          "explanation": "Speed is the action film built around that bus premise."
+        },
+        {
+          "question": "Which actor played Rose's fiance Cal in Titanic?",
+          "answer": "Billy Zane",
+          "acceptedAnswers": ["zane"],
+          "explanation": "Billy Zane played Cal Hockley in Titanic."
+        },
+        {
+          "question": "Which actress played Mia Wallace in Pulp Fiction?",
+          "answer": "Uma Thurman",
+          "acceptedAnswers": ["thurman"],
+          "explanation": "Uma Thurman played Mia Wallace in Pulp Fiction."
+        },
+        {
+          "question": "Which actor played Vincent Vega in Pulp Fiction?",
+          "answer": "John Travolta",
+          "acceptedAnswers": ["travolta"],
+          "explanation": "John Travolta played Vincent Vega in Pulp Fiction."
+        },
+        {
+          "question": "Which actor played Jules in Pulp Fiction?",
+          "answer": "Samuel L. Jackson",
+          "acceptedAnswers": ["samuel jackson", "sam jackson"],
+          "explanation": "Samuel L. Jackson played Jules Winnfield in Pulp Fiction."
+        },
+        {
+          "question": "Which movie features a glowing briefcase but never reveals what's inside?",
+          "answer": "Pulp Fiction",
+          "acceptedAnswers": ["pulpfiction"],
+          "explanation": "The mysterious briefcase is one of Pulp Fiction's most famous details."
+        },
+        {
+          "question": "Which actor played Wolverine opposite Deadpool in Deadpool & Wolverine?",
+          "answer": "Hugh Jackman",
+          "acceptedAnswers": ["jackman"],
+          "explanation": "Hugh Jackman returned as Wolverine in Deadpool & Wolverine."
+        },
+        {
+          "question": "Which 2024 Marvel movie paired Deadpool with Wolverine in its title?",
+          "answer": "Deadpool & Wolverine",
+          "acceptedAnswers": ["deadpool and wolverine"],
+          "explanation": "Deadpool & Wolverine brought the two characters together in 2024."
+        },
+        {
+          "question": "Which film centers on a mute janitor and an amphibious man and won Best Picture for 2017?",
+          "answer": "The Shape of Water",
+          "acceptedAnswers": ["shape of water"],
+          "explanation": "The Shape of Water won Best Picture for films released in 2017."
+        },
+        {
+          "question": "Which director made The Shape of Water?",
+          "answer": "Guillermo del Toro",
+          "acceptedAnswers": ["del toro"],
+          "explanation": "Guillermo del Toro directed The Shape of Water."
+        },
+        {
+          "question": "Which actress played Evelyn Wang in Everything Everywhere All at Once?",
+          "answer": "Michelle Yeoh",
+          "acceptedAnswers": ["yeoh"],
+          "explanation": "Michelle Yeoh played Evelyn Wang in Everything Everywhere All at Once."
+        },
+        {
+          "question": "Which actor played Waymond Wang in Everything Everywhere All at Once?",
+          "answer": "Ke Huy Quan",
+          "acceptedAnswers": ["quan"],
+          "explanation": "Ke Huy Quan played Waymond Wang and won an Oscar for the role."
+        },
+        {
+          "question": "Which actress played Joy and Jobu Tupaki in Everything Everywhere All at Once?",
+          "answer": "Stephanie Hsu",
+          "acceptedAnswers": ["hsu"],
+          "explanation": "Stephanie Hsu played both Joy and Jobu Tupaki."
+        },
+        {
+          "question": "Which 2022 multiverse film won Best Picture and starred Michelle Yeoh?",
+          "answer": "Everything Everywhere All at Once",
+          "acceptedAnswers": ["everything everywhere"],
+          "explanation": "Everything Everywhere All at Once won Best Picture for films released in 2022."
+        },
+        {
+          "question": "Which movie features a doll named Chucky?",
+          "answer": "Child's Play",
+          "acceptedAnswers": ["childs play"],
+          "explanation": "Chucky is the killer doll from Child's Play."
+        },
+        {
+          "question": "Which actor voiced Chucky in the original Child's Play films?",
+          "answer": "Brad Dourif",
+          "acceptedAnswers": ["dourif"],
+          "explanation": "Brad Dourif is the iconic voice of Chucky."
+        },
+        {
+          "question": "Which horror franchise centers on the trap-maker John Kramer?",
+          "answer": "Saw",
+          "acceptedAnswers": ["saw"],
+          "explanation": "Jigsaw is the killer at the center of the Saw franchise."
+        },
+        {
+          "question": "Which actor played the title boxer in Creed III and also directed the film?",
+          "answer": "Michael B. Jordan",
+          "acceptedAnswers": ["michael b jordan", "michael b. jordan"],
+          "explanation": "Michael B. Jordan starred in and directed Creed III."
+        },
+        {
+          "question": "Which actor played Apollo Creed in the original Rocky films?",
+          "answer": "Carl Weathers",
+          "acceptedAnswers": ["weathers"],
+          "explanation": "Carl Weathers played Apollo Creed in the Rocky series."
+        },
+        {
+          "question": "What nickname does the gingerbread man in Shrek go by?",
+          "answer": "Gingy",
+          "acceptedAnswers": ["gingy"],
+          "explanation": "Gingy is the gingerbread man in the Shrek movies."
+        },
+        {
+          "question": "Which animated sequel features the villain Death hunting Puss in Boots?",
+          "answer": "Puss in Boots: The Last Wish",
+          "acceptedAnswers": ["the last wish", "puss in boots the last wish"],
+          "explanation": "Death is the standout antagonist in Puss in Boots: The Last Wish."
+        },
+        {
+          "question": "Which actor voiced Miguel in Coco?",
+          "answer": "Anthony Gonzalez",
+          "acceptedAnswers": ["gonzalez"],
+          "explanation": "Anthony Gonzalez voiced Miguel in Coco."
+        },
+        {
+          "question": "Which actress voiced Helen Parr / Elastigirl in The Incredibles?",
+          "answer": "Holly Hunter",
+          "acceptedAnswers": ["hunter"],
+          "explanation": "Holly Hunter voiced Elastigirl in The Incredibles films."
+        },
+        {
+          "question": "Which actor voiced Mr. Incredible in The Incredibles?",
+          "answer": "Craig T. Nelson",
+          "acceptedAnswers": ["craig nelson", "nelson"],
+          "explanation": "Craig T. Nelson voiced Mr. Incredible."
+        },
+        {
+          "question": "Which actor voiced Lightning McQueen's rival Chick Hicks in Cars?",
+          "answer": "Michael Keaton",
+          "acceptedAnswers": ["keaton"],
+          "explanation": "Michael Keaton voiced Chick Hicks in Cars."
+        },
+        {
+          "question": "Which actor voiced Mater in Cars?",
+          "answer": "Larry the Cable Guy",
+          "acceptedAnswers": ["larry"],
+          "explanation": "Larry the Cable Guy voiced Mater in the Cars movies."
+        },
+        {
+          "question": "Which Pixar movie features EVE alongside a trash-compacting robot left behind on Earth?",
+          "answer": "WALL-E",
+          "acceptedAnswers": ["walle", "wall e"],
+          "explanation": "EVE is the sleek probe robot in WALL-E."
+        },
+        {
+          "question": "Which actor voiced Carl Fredricksen in Up?",
+          "answer": "Ed Asner",
+          "acceptedAnswers": ["asner"],
+          "explanation": "Ed Asner voiced Carl Fredricksen in Up."
+        },
+        {
+          "question": "Which movie features the house lifted by balloons?",
+          "answer": "Up",
+          "acceptedAnswers": ["up"],
+          "explanation": "Up famously features a house lifted into the sky by balloons."
+        },
+        {
+          "question": "Which actress played Maleficent in Disney's live-action film?",
+          "answer": "Angelina Jolie",
+          "acceptedAnswers": ["jolie"],
+          "explanation": "Angelina Jolie played Maleficent in Disney's live-action film."
+        },
+        {
+          "question": "Which actress played Cruella in the 2021 film Cruella?",
+          "answer": "Emma Stone",
+          "acceptedAnswers": ["stone"],
+          "explanation": "Emma Stone played Cruella de Vil in Cruella."
+        },
+        {
+          "question": "Which actress played Harley Quinn in Suicide Squad and Birds of Prey?",
+          "answer": "Margot Robbie",
+          "acceptedAnswers": ["robbie"],
+          "explanation": "Margot Robbie is closely associated with Harley Quinn in live action."
+        },
+        {
+          "question": "Which movie features the Losers' Club facing Pennywise?",
+          "answer": "It",
+          "acceptedAnswers": ["it"],
+          "explanation": "Pennywise terrorizes the Losers' Club in It."
+        },
+        {
+          "question": "Which actor played Patrick Verona in 10 Things I Hate About You?",
+          "answer": "Heath Ledger",
+          "acceptedAnswers": ["ledger"],
+          "explanation": "Heath Ledger played Patrick Verona in 10 Things I Hate About You."
+        },
+        {
+          "question": "Which movie musical starred John Travolta and Olivia Newton-John as Danny and Sandy?",
+          "answer": "Grease",
+          "acceptedAnswers": ["grease"],
+          "explanation": "Danny and Sandy are the lead characters of Grease."
+        },
+        {
+          "question": "Which actor played the Genie in Disney's 2019 Aladdin?",
+          "answer": "Will Smith",
+          "acceptedAnswers": ["smith"],
+          "explanation": "Will Smith played the Genie in Disney's 2019 Aladdin."
+        },
+        {
+          "question": "Which actor voiced Genie in the original animated Aladdin?",
+          "answer": "Robin Williams",
+          "acceptedAnswers": ["williams"],
+          "explanation": "Robin Williams voiced Genie in the original animated Aladdin."
+        },
+        {
+          "question": "Which actress played Cinderella in Disney's 2015 live-action remake?",
+          "answer": "Lily James",
+          "acceptedAnswers": ["james"],
+          "explanation": "Lily James played Cinderella in Disney's 2015 remake."
+        },
+        {
+          "question": "Which actor played the Beast in Disney's 2017 Beauty and the Beast?",
+          "answer": "Dan Stevens",
+          "acceptedAnswers": ["stevens"],
+          "explanation": "Dan Stevens played the Beast in Disney's live-action remake."
+        },
+        {
+          "question": "Which actress played Emily Charlton in The Devil Wears Prada?",
+          "answer": "Emily Blunt",
+          "acceptedAnswers": ["blunt"],
+          "explanation": "Emily Blunt played Emily Charlton in The Devil Wears Prada."
+        },
+        {
+          "question": "Which actress played Andrea Sachs in The Devil Wears Prada?",
+          "answer": "Anne Hathaway",
+          "acceptedAnswers": ["hathaway"],
+          "explanation": "Anne Hathaway played Andrea Sachs in The Devil Wears Prada."
+        },
+        {
+          "question": "Which actor played Mrs. Doubtfire?",
+          "answer": "Robin Williams",
+          "acceptedAnswers": ["williams"],
+          "explanation": "Robin Williams played the title role in Mrs. Doubtfire."
         }
       ]
     }

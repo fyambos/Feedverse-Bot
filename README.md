@@ -148,7 +148,7 @@ Moderation (official guild only):
 
 - XP is global (per Discord user id).
 - Current awards:
-  - +25 XP per accepted prompt submission
+  - +250 XP per accepted prompt submission
   - +25 XP per correct trivia answer
   - +100 XP to the final winner of a trivia round
 - Level curve ramps quadratically. Total XP required to reach level $L$ is:
